@@ -4,6 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(PoolManager))]
 [RequireComponent(typeof(SaveManager))]
 [RequireComponent(typeof(LevelManager))]
+[RequireComponent(typeof(InputManager))]
 public class GameManager : MonoBehaviour
 {
     private static GameManager Instance;
@@ -11,6 +12,7 @@ public class GameManager : MonoBehaviour
     public static PoolManager PoolManager { get; private set; }
     public static SaveManager SaveManager { get; private set; }
     public static LevelManager LevelManager { get; private set; }
+    public static InputManager InputManager { get; private set; }
 
     private void Awake()
     {
@@ -25,6 +27,7 @@ public class GameManager : MonoBehaviour
         PoolManager = GetComponent<PoolManager>();
         SaveManager = GetComponent<SaveManager>();
         LevelManager = GetComponent<LevelManager>();
+        InputManager = GetComponent<InputManager>();
         DontDestroyOnLoad(gameObject);
     }
 }

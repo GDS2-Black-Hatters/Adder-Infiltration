@@ -17,15 +17,7 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         StartCoroutine(Transition(SceneManager.GetActiveScene().name, null, false));
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            string sceneName = SceneManager.GetActiveScene().name;
-            ChangeLevel(sceneName.Equals("Login Screen") ? "DummyTest" : "Login Screen");
-        }
+        PlayLevelMusic(SceneManager.GetActiveScene().name);
     }
 
     private void PlayLevelMusic(string levelName)
@@ -76,19 +68,17 @@ public class LevelManager : MonoBehaviour
         if (doTransitionIn)
         {
             yield return StartCoroutine(TransitionPlay(transitionType.transitionIn));
+            yield return StartCoroutine(TransitionPlay(feedbackType.feedbackIn));
+
+            if (!SceneManager.GetActiveScene().name.Equals(newSceneName))
+            {
+                yield return StartCoroutine(LoadProgress(SceneManager.LoadSceneAsync(newSceneName)));
+            }
+            notify?.Invoke();
+            PlayLevelMusic(SceneManager.GetActiveScene().name);
+
+            yield return StartCoroutine(TransitionPlay(feedbackType.feedbackOut));
         }
-
-        yield return StartCoroutine(TransitionPlay(feedbackType.feedbackIn));
-
-        if (!SceneManager.GetActiveScene().name.Equals(newSceneName))
-        {
-            yield return StartCoroutine(LoadProgress(SceneManager.LoadSceneAsync(newSceneName)));
-        }
-
-        notify?.Invoke();
-        PlayLevelMusic(SceneManager.GetActiveScene().name);
-
-        yield return StartCoroutine(TransitionPlay(feedbackType.feedbackOut));
         yield return StartCoroutine(TransitionPlay(transitionType.transitionOut));
         transitionAnim.Play("Waiting");
         isTransitioning = false;
