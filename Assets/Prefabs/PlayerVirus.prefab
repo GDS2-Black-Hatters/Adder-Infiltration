@@ -1544,7 +1544,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5392662034546369344}
   - component: {fileID: 9009567903251508443}
-  - component: {fileID: 5917149258026073704}
+  - component: {fileID: 6739377120024913009}
   m_Layer: 0
   m_Name: GeometricShell
   m_TagString: Untagged
@@ -1626,7 +1626,7 @@ MonoBehaviour:
   - LineVerts: {x: 7, y: 10}
   - LineVerts: {x: 8, y: 9}
   - LineVerts: {x: 10, y: 11}
---- !u!114 &5917149258026073704
+--- !u!114 &6739377120024913009
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1635,7 +1635,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 8844235152536786264}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d78be9c539bf03a408e5a227cedd3bb9, type: 3}
+  m_Script: {fileID: 11500000, guid: be51e31fc5cecd6459c6a149cf67e1c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: {x: 22, y: 65, z: 34}
+  rotationSpeed: 0.8
+  axisChangeFrequency: {x: 1, y: 1, z: 1}
