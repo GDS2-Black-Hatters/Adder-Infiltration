@@ -99,4 +99,26 @@ public class DoStatic
             Swap(ref arr[element], ref arr[Random.Range(0, arr.Length)]);
         }
     }
+
+    /// <summary>
+    /// Convert a given enum value into string.
+    /// </summary>
+    /// <typeparam name="T">Any enumerator type.</typeparam>
+    /// <param name="enumerator">The enum to convert to string.</param>
+    /// <returns>The name of the enum value.</returns>
+    public static string EnumAsString<T>(T enumerator) where T : System.Enum
+    {
+        return System.Enum.GetName(typeof(T), enumerator);
+    }
+
+    /// <summary>
+    /// Convert a given string into the enum value.
+    /// </summary>
+    /// <typeparam name="T">Any enumerator type</typeparam>
+    /// <param name="enumerator">The string to convert into a enumerator.</param>
+    /// <returns>The enum value.</returns>
+    public static T StringToEnum<T>(string enumerator) where T : System.Enum
+    {
+        return (T)System.Enum.Parse(typeof(T), enumerator);
+    }
 }
