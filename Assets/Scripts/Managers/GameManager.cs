@@ -8,6 +8,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private static GameManager Instance;
+
     public static AudioManager AudioManager { get; private set; }
     public static PoolManager PoolManager { get; private set; }
     public static SaveManager SaveManager { get; private set; }
@@ -28,6 +29,12 @@ public class GameManager : MonoBehaviour
         SaveManager = GetComponent<SaveManager>();
         LevelManager = GetComponent<LevelManager>();
         InputManager = GetComponent<InputManager>();
+
+        foreach (IManager manager in GetComponents<IManager>())
+        {
+            manager.StartUp();
+        }
+
         DontDestroyOnLoad(gameObject);
     }
 }

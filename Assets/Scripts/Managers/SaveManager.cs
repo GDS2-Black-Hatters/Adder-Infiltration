@@ -3,13 +3,13 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
-public class SaveManager : MonoBehaviour
+public class SaveManager : MonoBehaviour, IManager
 {
     private string saveFilePath;
     private readonly BinaryFormatter formatter = new(); //Converts data from and into a serialised format.
     private Dictionary<string, object> savedVars = new(); //The dictionary of where all the data is saved.
 
-    private void Awake()
+    public void StartUp()
     {
         saveFilePath = Application.persistentDataPath + "/";
         LoadFile(saveFilePath + "AdderInfiltration.sav");

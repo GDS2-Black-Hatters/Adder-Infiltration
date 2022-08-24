@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,12 +9,12 @@ public class PlayerVirusController : MonoBehaviour
 
     private Vector3 movementV3 = Vector3.zero;
 
-    void Update()
+    private void Update()
     {
         transform.Translate(CameraAnchor.TransformVector(movementV3) * MovementSpeed);
     }
 
-    void OnEnable()
+    private void OnEnable()
     {
         //Retrieve InputManager and register input events
         InputManager inputManager = GameManager.InputManager;
@@ -24,15 +22,14 @@ public class PlayerVirusController : MonoBehaviour
         inputManager.GetAction(InputManager.Controls.Move).performed += Move;
         inputManager.GetAction(InputManager.Controls.Move).canceled += MovementHalt;
     }
-
-    void OnDisable()
+    
+    private void OnDisable()
     {
         //Unregister input events from InputManager
         InputManager inputManager = GameManager.InputManager;
-        if(!inputManager) return;
         inputManager.GetAction(InputManager.Controls.Look).performed -= RotateCamera;
         inputManager.GetAction(InputManager.Controls.Move).performed -= Move;
-        inputManager.GetAction(InputManager.Controls.Move).canceled += MovementHalt;
+        inputManager.GetAction(InputManager.Controls.Move).canceled += MovementHalt; //+= ?
     }
 
     private void RotateCamera(InputAction.CallbackContext LookDelta)
