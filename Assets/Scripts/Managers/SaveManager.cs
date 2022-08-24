@@ -7,18 +7,18 @@ public class SaveManager : MonoBehaviour, IManager
 {
     public enum VariableToSave
     {
-        Money,
         Level,
+        Money,
     }
 
-    private string saveFilePath;
+    private string saveFile;
     private readonly BinaryFormatter formatter = new(); //Converts data from and into a serialised format.
-    private Dictionary<VariableToSave, object> savedVars = new(); //The dictionary of where all the data is saved.
+    private Dictionary<string, object> savedVars = new(); //The dictionary of where all the data is saved.
 
     public void StartUp()
     {
-        saveFilePath = Application.persistentDataPath + "/";
-        LoadFile(saveFilePath + "AdderInfiltration.sav");
+        saveFile = Application.persistentDataPath + "/AdderInfiltration.sav"; //Debug log the variable to find where it is stored.
+        LoadFile(saveFile);
     }
 
     /// <summary>
@@ -28,7 +28,7 @@ public class SaveManager : MonoBehaviour, IManager
     public string[] ScanForSaveFiles()
     {
         List<string> saveFiles = new();
-        foreach (string file in Directory.GetFiles(saveFilePath))
+        foreach (string file in Directory.GetFiles(saveFile))
         {
             if (file.EndsWith(".sav"))
             {
@@ -44,7 +44,7 @@ public class SaveManager : MonoBehaviour, IManager
     /// </summary>
     public void SaveToFile()
     {
-        FileStream file = File.Create(saveFilePath); //Overwrites the old file.
+        FileStream file = File.Create(saveFile); //Overwrites the old file.
         formatter.Serialize(file, savedVars);
         file.Close();
     }
@@ -55,8 +55,9 @@ public class SaveManager : MonoBehaviour, IManager
     /// </summary>
     /// <param name="key">The string of the variable name, will error if there is more than one key.</param>
     /// <param name="obj">Any variable that can be serialised.</param>
-    public void SaveVariable(VariableToSave key, object obj)
+    public void SaveVariable(VariableToSave variable, object obj)
     {
+        string key = DoStatic.EnumAsString(variable);
         if (savedVars.ContainsKey(key))
         {
             savedVars[key] = obj;
@@ -79,7 +80,7 @@ public class SaveManager : MonoBehaviour, IManager
 
         savedVars.Clear();
         FileStream file = File.Open(filename, FileMode.Open);
-        savedVars = (Dictionary<VariableToSave, object>)formatter.Deserialize(file);
+        savedVars = (Dictionary<string, object>)formatter.Deserialize(file);
         file.Close();
     }
 
@@ -92,8 +93,9 @@ public class SaveManager : MonoBehaviour, IManager
     /// </summary>
     /// <param name="key">The key for the wanted variable.</param>
     /// <returns>The object if the key exists otherwise returns null.</returns>
-    public T LoadVariable<T>(VariableToSave key, RequireClass<T> _ = null) where T : class
+    public T LoadVariable<T>(VariableToSave variable, RequireClass<T> _ = null) where T : class
     {
+        string key = DoStatic.EnumAsString(variable);
         return savedVars.ContainsKey(key) ? (T)savedVars[key] : null;
     }
 
@@ -102,8 +104,9 @@ public class SaveManager : MonoBehaviour, IManager
     /// </summary>
     /// <param name="key">The key for the wanted variable.</param>
     /// <returns>The object if the key exists otherwise returns default.</returns>
-    public T LoadVariable<T>(VariableToSave key, RequireStruct<T> _ = null) where T : struct
+    public T LoadVariable<T>(VariableToSave variable, RequireStruct<T> _ = null) where T : struct
     {
+        string key = DoStatic.EnumAsString(variable);
         return savedVars.ContainsKey(key) ? (T)savedVars[key] : default;
     }
     #endregion
