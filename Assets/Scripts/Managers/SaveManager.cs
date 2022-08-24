@@ -5,9 +5,15 @@ using UnityEngine;
 
 public class SaveManager : MonoBehaviour, IManager
 {
+    public enum VariableToSave
+    {
+        Money,
+        Level,
+    }
+
     private string saveFilePath;
     private readonly BinaryFormatter formatter = new(); //Converts data from and into a serialised format.
-    private Dictionary<string, object> savedVars = new(); //The dictionary of where all the data is saved.
+    private Dictionary<VariableToSave, object> savedVars = new(); //The dictionary of where all the data is saved.
 
     public void StartUp()
     {
@@ -49,7 +55,7 @@ public class SaveManager : MonoBehaviour, IManager
     /// </summary>
     /// <param name="key">The string of the variable name, will error if there is more than one key.</param>
     /// <param name="obj">Any variable that can be serialised.</param>
-    public void SaveVariable(string key, object obj)
+    public void SaveVariable(VariableToSave key, object obj)
     {
         if (savedVars.ContainsKey(key))
         {
@@ -73,7 +79,7 @@ public class SaveManager : MonoBehaviour, IManager
 
         savedVars.Clear();
         FileStream file = File.Open(filename, FileMode.Open);
-        savedVars = (Dictionary<string, object>)formatter.Deserialize(file);
+        savedVars = (Dictionary<VariableToSave, object>)formatter.Deserialize(file);
         file.Close();
     }
 
@@ -86,7 +92,7 @@ public class SaveManager : MonoBehaviour, IManager
     /// </summary>
     /// <param name="key">The key for the wanted variable.</param>
     /// <returns>The object if the key exists otherwise returns null.</returns>
-    public T LoadVariable<T>(string key, RequireClass<T> _ = null) where T : class
+    public T LoadVariable<T>(VariableToSave key, RequireClass<T> _ = null) where T : class
     {
         return savedVars.ContainsKey(key) ? (T)savedVars[key] : null;
     }
@@ -96,7 +102,7 @@ public class SaveManager : MonoBehaviour, IManager
     /// </summary>
     /// <param name="key">The key for the wanted variable.</param>
     /// <returns>The object if the key exists otherwise returns default.</returns>
-    public T LoadVariable<T>(string key, RequireStruct<T> _ = null) where T : struct
+    public T LoadVariable<T>(VariableToSave key, RequireStruct<T> _ = null) where T : struct
     {
         return savedVars.ContainsKey(key) ? (T)savedVars[key] : default;
     }
