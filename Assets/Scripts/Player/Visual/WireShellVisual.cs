@@ -5,6 +5,8 @@ using UnityEngine;
 public class WireShellVisual : MonoBehaviour
 {
     [SerializeField] protected Transform LineParent;
+    [SerializeField] private float lineThickness = 0.1f;
+    [SerializeField] private Material lineMaterial;
 
     [SerializeField]
     protected Transform[] Vertecies;
@@ -22,13 +24,16 @@ public class WireShellVisual : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        float scaledLineThickness = lineThickness * Mathf.Pow(transform.lossyScale.magnitude, 1/3f);
         for (int i = 0; i < Lines.Length; i++)
         {
             GameObject newLine = new GameObject("Line_" + Lines[i].LineVerts.x + '_' + Lines[i].LineVerts.y);
             newLine.transform.SetParent(LineParent);
             Lines[i].lineRend = newLine.AddComponent<LineRenderer>();
-            Lines[i].lineRend.startWidth = 0.1f;
-            Lines[i].lineRend.endWidth = 0.1f;
+            Lines[i].lineRend.startWidth = scaledLineThickness;
+            Lines[i].lineRend.endWidth = scaledLineThickness;
+            Lines[i].lineRend.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+            if(lineMaterial) Lines[i].lineRend.material = lineMaterial;
         }
         UpdateLineVerts();
     }
