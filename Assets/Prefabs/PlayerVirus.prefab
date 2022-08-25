@@ -1458,8 +1458,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33e72ff5d3ca8b04ba8372d6a5a328da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 10
-  CameraAnchor: {fileID: 8865276065745158128}
+  movementSpeed: 10
+  cameraSensitivity: 0.5
+  cameraAnchor: {fileID: 8865276065745158128}
 --- !u!54 &1313531234
 Rigidbody:
   m_ObjectHideFlags: 0
