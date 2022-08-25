@@ -75,6 +75,7 @@ public class LevelManager : MonoBehaviour, IManager
                 yield return StartCoroutine(LoadProgress(SceneManager.LoadSceneAsync(newSceneName)));
             }
             notify?.Invoke();
+            GameManager.Save();
             PlayLevelMusic(SceneManager.GetActiveScene().name);
 
             yield return StartCoroutine(TransitionPlay(feedbackType.feedbackOut));
