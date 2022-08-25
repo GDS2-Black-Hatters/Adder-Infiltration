@@ -61,12 +61,13 @@ public class PlayerVirusController : MonoBehaviour
         Vector3 xAxis = CameraAnchor.right;
         Vector3 forward = Vector3.Cross(xAxis, Vector3.up);
         Vector3 direction = (xAxis * moveDeltaV2.x) + (forward * moveDeltaV2.y);
-        rb.velocity = direction * MovementSpeed;
+        rb.AddForce(MovementSpeed * direction, ForceMode.Acceleration);
+        //rb.velocity = direction * MovementSpeed;
     }
 
     //Sets movement to zero when input is removed
     private void MovementHalt(InputAction.CallbackContext MoveDelta)
     {
-        rb.velocity = Vector3.zero;
+        //rb.velocity = Vector3.zero;
     }
 }
