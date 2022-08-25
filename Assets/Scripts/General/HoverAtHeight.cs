@@ -40,7 +40,6 @@ public class HoverAtHeight : MonoBehaviour
             //set ray distance to sth higher than hover height if the ray hit nothing
             downFireRayInfo.distance = tickHoverHeight * 1.5f;
         }
-        Debug.Log(downFireRayInfo.distance);
         rb.AddForce((downFireRayInfo.distance - tickHoverHeight) * hoverForce * Vector3.down, ForceMode.Acceleration);
     }
 }
