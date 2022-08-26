@@ -65,7 +65,7 @@ public class PlayerVirusController : MonoBehaviour
         Vector3 xAxis = cameraAnchor.right;
         Vector3 forward = Vector3.Cross(xAxis, Vector3.up);
         Vector3 direction = (xAxis * moveDeltaV2.x) + (forward * moveDeltaV2.y);
-        rb.AddForce(MovementSpeed * direction, ForceMode.Acceleration);
+        rb.AddForce(movementSpeed * direction, ForceMode.Acceleration);
         //rb.velocity = direction * MovementSpeed;
     }
 
