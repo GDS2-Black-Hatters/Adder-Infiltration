@@ -18,6 +18,10 @@ public class MatterShell : MonoBehaviour
         {
             activeMatters[i] = SpawnMatter();    
         }
+
+        //Temporary test code
+        LevelSceneController lsc = (LevelSceneController)GameManager.LevelManager.ActiveSceneController;
+        lsc.OnPlayerDetected += WeaponizeMatter;
     }
 
     private Matter SpawnMatter()
@@ -25,5 +29,13 @@ public class MatterShell : MonoBehaviour
         Matter newMatter = Instantiate<Matter>(matterObjectPrefabs[Random.Range(0, matterObjectPrefabs.Length)], transform.position, Quaternion.identity, transform);
         newMatter.InitilizeMatter();
         return newMatter;
+    }
+
+    public void WeaponizeMatter()
+    {
+        for (int i = 0; i < activeMatters.Length; i++)
+        {
+            activeMatters[i].Weaponize();
+        }
     }
 }

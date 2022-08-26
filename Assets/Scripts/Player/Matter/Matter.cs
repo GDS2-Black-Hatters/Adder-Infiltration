@@ -10,4 +10,9 @@ public class Matter : MonoBehaviour
     {
         matterObject.transform.localPosition = matterDistance * Random.onUnitSphere;
     }
+
+    public void Weaponize()
+    {
+        matterObject.GetComponent<MeshRenderer>().material.color = Color.red;
+    }
 }
