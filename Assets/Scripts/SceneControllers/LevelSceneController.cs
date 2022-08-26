@@ -6,6 +6,10 @@ public class LevelSceneController : BaseSceneController
 {
     public event System.Action OnPlayerDetected;
 
+    private void Awake()
+    {
+        GameManager.LevelManager.SetActiveSceneController(this);
+    }
 
     public void PlayerDetected()
     {
