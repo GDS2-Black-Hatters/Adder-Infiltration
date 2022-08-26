@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour
+public class AudioManager : MonoBehaviour, IManager
 {
     [System.Serializable]
     private class AudioTrack
@@ -19,7 +19,7 @@ public class AudioManager : MonoBehaviour
     private AudioSource musicPlayer; //An audio source that plays only music.
     private readonly List<AudioSource> sfxPlayers = new(); //A list of references of audio sources for sound effects.
 
-    private void Awake()
+    public void StartUp()
     {
         foreach (AudioTrack track in audioTracks)
         {
