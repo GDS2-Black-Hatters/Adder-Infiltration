@@ -9,6 +9,8 @@ public class LevelManager : MonoBehaviour, IManager
     private Animator transitionAnim;
     private bool isTransitioning = false;
 
+    public BaseSceneController ActiveSceneController { get; private set; }
+
     public void StartUp()
     {
         transitionAnim = GetComponentInChildren<Animator>();
@@ -83,5 +85,14 @@ public class LevelManager : MonoBehaviour, IManager
         yield return StartCoroutine(TransitionPlay(transitionType.transitionOut));
         transitionAnim.Play("Waiting");
         isTransitioning = false;
+    }
+
+    public void SetActiveSceneController(BaseSceneController sceneController)
+    {
+        if(ActiveSceneController != null)
+        {
+            Debug.LogWarning("The previously active SceneController has not yet been destroyed, please ensure you are certain you want two SceneControllers active right now.");
+        }
+        ActiveSceneController = sceneController;
     }
 }
