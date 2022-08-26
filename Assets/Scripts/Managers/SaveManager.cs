@@ -3,16 +3,22 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
-public class SaveManager : MonoBehaviour
+public class SaveManager : MonoBehaviour, IManager
 {
-    private string saveFilePath;
+    public enum VariableToSave
+    {
+        Level,
+        Money,
+    }
+
+    private string saveFile;
     private readonly BinaryFormatter formatter = new(); //Converts data from and into a serialised format.
     private Dictionary<string, object> savedVars = new(); //The dictionary of where all the data is saved.
 
-    private void Awake()
+    public void StartUp()
     {
-        saveFilePath = Application.persistentDataPath + "/";
-        LoadFile(saveFilePath + "AdderInfiltration.sav");
+        saveFile = Application.persistentDataPath + "/AdderInfiltration.sav"; //Debug log the variable to find where it is stored.
+        LoadFile(saveFile);
     }
 
     /// <summary>
@@ -22,7 +28,7 @@ public class SaveManager : MonoBehaviour
     public string[] ScanForSaveFiles()
     {
         List<string> saveFiles = new();
-        foreach (string file in Directory.GetFiles(saveFilePath))
+        foreach (string file in Directory.GetFiles(saveFile))
         {
             if (file.EndsWith(".sav"))
             {
@@ -38,7 +44,7 @@ public class SaveManager : MonoBehaviour
     /// </summary>
     public void SaveToFile()
     {
-        FileStream file = File.Create(saveFilePath); //Overwrites the old file.
+        FileStream file = File.Create(saveFile); //Overwrites the old file.
         formatter.Serialize(file, savedVars);
         file.Close();
     }
@@ -49,8 +55,9 @@ public class SaveManager : MonoBehaviour
     /// </summary>
     /// <param name="key">The string of the variable name, will error if there is more than one key.</param>
     /// <param name="obj">Any variable that can be serialised.</param>
-    public void SaveVariable(string key, object obj)
+    public void SaveVariable(VariableToSave variable, object obj)
     {
+        string key = DoStatic.EnumAsString(variable);
         if (savedVars.ContainsKey(key))
         {
             savedVars[key] = obj;
@@ -86,8 +93,9 @@ public class SaveManager : MonoBehaviour
     /// </summary>
     /// <param name="key">The key for the wanted variable.</param>
     /// <returns>The object if the key exists otherwise returns null.</returns>
-    public T LoadVariable<T>(string key, RequireClass<T> _ = null) where T : class
+    public T LoadVariable<T>(VariableToSave variable, RequireClass<T> _ = null) where T : class
     {
+        string key = DoStatic.EnumAsString(variable);
         return savedVars.ContainsKey(key) ? (T)savedVars[key] : null;
     }
 
@@ -96,8 +104,9 @@ public class SaveManager : MonoBehaviour
     /// </summary>
     /// <param name="key">The key for the wanted variable.</param>
     /// <returns>The object if the key exists otherwise returns default.</returns>
-    public T LoadVariable<T>(string key, RequireStruct<T> _ = null) where T : struct
+    public T LoadVariable<T>(VariableToSave variable, RequireStruct<T> _ = null) where T : struct
     {
+        string key = DoStatic.EnumAsString(variable);
         return savedVars.ContainsKey(key) ? (T)savedVars[key] : default;
     }
     #endregion

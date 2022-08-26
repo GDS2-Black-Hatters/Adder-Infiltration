@@ -41,7 +41,8 @@ public class InputManagerTutorial : MonoBehaviour
             Debug.Log("Main Game + Mouse Movement Detected!");
         }
 
-        if (input.IsCurrentActionMap(InputManager.ControlScheme.MainGame) && MoveAction.ReadValue<Vector2>() != Vector2.zero)
+        //Remember, this cannot be true unless the current control scheme is MainGame.
+        if (MoveAction.ReadValue<Vector2>() != Vector2.zero)
         {
             Debug.Log("Move Action was triggered! Changing it to Hub Control Scheme.");
             input.ChangeControlMap(InputManager.ControlScheme.Hub);

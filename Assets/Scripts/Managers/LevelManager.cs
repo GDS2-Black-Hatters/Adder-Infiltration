@@ -2,14 +2,14 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelManager : MonoBehaviour
+public class LevelManager : MonoBehaviour, IManager
 {
     private (string transitionIn, string transitionOut) transitionType = ("FadeIn", "FadeOut");
     private (string feedbackIn, string feedbackOut) feedbackType = ("BoxSpinningIn", "BoxSpinningOut");
     private Animator transitionAnim;
     private bool isTransitioning = false;
 
-    private void Awake()
+    public void StartUp()
     {
         transitionAnim = GetComponentInChildren<Animator>();
     }
@@ -75,6 +75,7 @@ public class LevelManager : MonoBehaviour
                 yield return StartCoroutine(LoadProgress(SceneManager.LoadSceneAsync(newSceneName)));
             }
             notify?.Invoke();
+            GameManager.Save();
             PlayLevelMusic(SceneManager.GetActiveScene().name);
 
             yield return StartCoroutine(TransitionPlay(feedbackType.feedbackOut));

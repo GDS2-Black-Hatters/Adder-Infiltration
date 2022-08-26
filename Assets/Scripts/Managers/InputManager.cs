@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerInput))]
-public class InputManager : MonoBehaviour
+public class InputManager : MonoBehaviour, IManager
 {
     #region Enums
     public enum ControlScheme
@@ -21,7 +21,7 @@ public class InputManager : MonoBehaviour
 
     private PlayerInput playerInput;
 
-    void Awake()
+    public void StartUp()
     {
         playerInput = GetComponent<PlayerInput>();
     }

@@ -1,58 +1,76 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerVirusController : MonoBehaviour
 {
-    [SerializeField] private float MovementSpeed = 0.5f;
+    [SerializeField] private float movementSpeed = 10f;
+    [SerializeField] private float cameraSensitivity = 0.5f;
+    [SerializeField] private Transform cameraAnchor;
+    private Rigidbody rb;
+    private InputAction moveAction;
 
-    [SerializeField] private Transform CameraAnchor;
-
-    private Vector3 movementV3 = Vector3.zero;
-
-    void Update()
+    private void Start()
     {
-        transform.Translate(CameraAnchor.TransformVector(movementV3) * MovementSpeed);
+        rb = GetComponent<Rigidbody>();
+
+        InputManager inputManager = GameManager.InputManager;
+        inputManager.ChangeControlMap(InputManager.ControlScheme.MainGame);
+        moveAction = inputManager.GetAction(InputManager.Controls.Move);
     }
 
-    void OnEnable()
+    private void Update()
+    {
+        if (moveAction.IsPressed())
+        {
+            Move();
+        }
+    }
+
+    private void OnEnable()
     {
         //Retrieve InputManager and register input events
         InputManager inputManager = GameManager.InputManager;
+        inputManager.ChangeControlMap(InputManager.ControlScheme.MainGame);
+
         inputManager.GetAction(InputManager.Controls.Look).performed += RotateCamera;
-        inputManager.GetAction(InputManager.Controls.Move).performed += Move;
         inputManager.GetAction(InputManager.Controls.Move).canceled += MovementHalt;
     }
-
-    void OnDisable()
+    
+    private void OnDisable()
     {
         //Unregister input events from InputManager
         InputManager inputManager = GameManager.InputManager;
-        if(!inputManager) return;
+        if (!inputManager)
+        {
+            return;
+        }
         inputManager.GetAction(InputManager.Controls.Look).performed -= RotateCamera;
-        inputManager.GetAction(InputManager.Controls.Move).performed -= Move;
-        inputManager.GetAction(InputManager.Controls.Move).canceled += MovementHalt;
+        inputManager.GetAction(InputManager.Controls.Move).canceled -= MovementHalt;
     }
 
     private void RotateCamera(InputAction.CallbackContext LookDelta)
     {
-        Vector2 lookDeltaV2 = LookDelta.ReadValue<Vector2>();
-        CameraAnchor.Rotate(Vector3.up, lookDeltaV2.x);
+        Vector2 lookDeltaV2 = LookDelta.ReadValue<Vector2>() * cameraSensitivity;
+        Vector2 rot = cameraAnchor.eulerAngles;
+        rot.x = Mathf.Clamp(rot.x - lookDeltaV2.y - (rot.x > 90 ? 360 : 0), -90, 90);
+        rot.y += lookDeltaV2.x;
+        cameraAnchor.eulerAngles = rot;
     }
 
     //Updates movement direction according to input recieved
     //actual movement is handled in Update()
-    private void Move(InputAction.CallbackContext MoveDelta)
+    private void Move()
     {
-        Vector2 moveDeltaV2 = MoveDelta.ReadValue<Vector2>();
-        movementV3.x = moveDeltaV2.x;
-        movementV3.z = moveDeltaV2.y;
+        Vector2 moveDeltaV2 = moveAction.ReadValue<Vector2>();
+        Vector3 xAxis = cameraAnchor.right;
+        Vector3 forward = Vector3.Cross(xAxis, Vector3.up);
+        Vector3 direction = (xAxis * moveDeltaV2.x) + (forward * moveDeltaV2.y);
+        rb.velocity = direction * movementSpeed;
     }
 
     //Sets movement to zero when input is removed
     private void MovementHalt(InputAction.CallbackContext MoveDelta)
     {
-        movementV3 = Vector3.zero;
+        rb.velocity = Vector3.zero;
     }
 }
