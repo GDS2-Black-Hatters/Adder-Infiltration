@@ -16,6 +16,12 @@ public class LevelManager : MonoBehaviour, IManager
         transitionAnim = GetComponentInChildren<Animator>();
     }
 
+    public void OnApplicationFocus(bool focus)
+    {
+        Cursor.visible = !focus;
+        Cursor.lockState = focus ? CursorLockMode.Locked : CursorLockMode.None;
+    }
+
     private void Start()
     {
         StartCoroutine(Transition(SceneManager.GetActiveScene().name, null, false));
