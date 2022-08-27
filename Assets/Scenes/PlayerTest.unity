@@ -1442,7 +1442,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1952599636
 Transform:
   m_ObjectHideFlags: 0
@@ -1647,7 +1647,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2121840434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1685,10 +1685,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4169504594784333909, guid: 69832c6d5cf7dbf488ce8eb1d64c8520, type: 3}
-      propertyPath: cameraSensitivity
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8804111390498198748, guid: 69832c6d5cf7dbf488ce8eb1d64c8520, type: 3}
       propertyPath: m_RootOrder
       value: 2
