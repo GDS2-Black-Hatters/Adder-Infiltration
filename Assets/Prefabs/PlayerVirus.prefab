@@ -1553,13 +1553,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb9a8145bb11a5549b869c3593f60a25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverHeight: 1
-  hoverForce: 5
+  hoverHeight: 1.5
+  hoverForce: 25
   hoverPhysicsMask:
     serializedVersion: 2
     m_Bits: 64
-  bobbleMaxAmplitude: 0.2
-  bobbleFrequency: 1
+  bobbleMaxAmplitude: 1.5
+  bobbleFrequency: 1.2
 --- !u!1 &8844235152536786264
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,12 +18,9 @@ public class PlayerVirusController : MonoBehaviour
         moveAction = inputManager.GetAction(InputManager.Controls.Move);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        if (moveAction.IsPressed())
-        {
-            Move();
-        }
+        MoveFixedUpdate();
     }
 
     private void OnEnable()
@@ -57,9 +54,8 @@ public class PlayerVirusController : MonoBehaviour
         cameraAnchor.eulerAngles = rot;
     }
 
-    //Updates movement direction according to input recieved
-    //actual movement is handled in Update()
-    private void Move()
+    //Handle movement by force in fixed update so lag doesn't change the player's speed
+    private void MoveFixedUpdate()
     {
         Vector2 moveDeltaV2 = moveAction.ReadValue<Vector2>();
         Vector3 xAxis = cameraAnchor.right;
