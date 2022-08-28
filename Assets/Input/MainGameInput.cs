@@ -103,6 +103,15 @@ public partial class @MainGameInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""81b495b9-371c-446a-a50d-ac0bfc2b826d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -226,6 +235,17 @@ public partial class @MainGameInput : IInputActionCollection2, IDisposable
                     ""action"": ""Look"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""48abc67d-d07e-4afc-9a3a-ab5d78b8770f"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -240,6 +260,7 @@ public partial class @MainGameInput : IInputActionCollection2, IDisposable
         m_MainGame = asset.FindActionMap("MainGame", throwIfNotFound: true);
         m_MainGame_Move = m_MainGame.FindAction("Move", throwIfNotFound: true);
         m_MainGame_Look = m_MainGame.FindAction("Look", throwIfNotFound: true);
+        m_MainGame_Interact = m_MainGame.FindAction("Interact", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -342,12 +363,14 @@ public partial class @MainGameInput : IInputActionCollection2, IDisposable
     private IMainGameActions m_MainGameActionsCallbackInterface;
     private readonly InputAction m_MainGame_Move;
     private readonly InputAction m_MainGame_Look;
+    private readonly InputAction m_MainGame_Interact;
     public struct MainGameActions
     {
         private @MainGameInput m_Wrapper;
         public MainGameActions(@MainGameInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_MainGame_Move;
         public InputAction @Look => m_Wrapper.m_MainGame_Look;
+        public InputAction @Interact => m_Wrapper.m_MainGame_Interact;
         public InputActionMap Get() { return m_Wrapper.m_MainGame; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -363,6 +386,9 @@ public partial class @MainGameInput : IInputActionCollection2, IDisposable
                 @Look.started -= m_Wrapper.m_MainGameActionsCallbackInterface.OnLook;
                 @Look.performed -= m_Wrapper.m_MainGameActionsCallbackInterface.OnLook;
                 @Look.canceled -= m_Wrapper.m_MainGameActionsCallbackInterface.OnLook;
+                @Interact.started -= m_Wrapper.m_MainGameActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_MainGameActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_MainGameActionsCallbackInterface.OnInteract;
             }
             m_Wrapper.m_MainGameActionsCallbackInterface = instance;
             if (instance != null)
@@ -373,6 +399,9 @@ public partial class @MainGameInput : IInputActionCollection2, IDisposable
                 @Look.started += instance.OnLook;
                 @Look.performed += instance.OnLook;
                 @Look.canceled += instance.OnLook;
+                @Interact.started += instance.OnInteract;
+                @Interact.performed += instance.OnInteract;
+                @Interact.canceled += instance.OnInteract;
             }
         }
     }
@@ -386,5 +415,6 @@ public partial class @MainGameInput : IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
     }
 }
