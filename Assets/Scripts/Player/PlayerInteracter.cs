@@ -9,15 +9,37 @@ public class PlayerInteracter : MonoBehaviour
     [SerializeField] private float interactMaxDistance = 10f;
     [SerializeField] private LayerMask interactionMask;
 
-    public void Interact(UnityEngine.InputSystem.InputAction.CallbackContext ctx)
+    private Interactable focusInteractable;
+
+    private void Update()
     {
-        //Debug.Log("Interact Initiated");
+        UpdateInteractableFocus();
+    }
+
+    /// <summary>
+    /// updates the focused interactable variable, calls focus and unfocus on the interactables if focus has changed.
+    /// </summary>
+    private void UpdateInteractableFocus()
+    {
+        Interactable newFocusInteractable = GetMostFocusedInteractable();
+        if(focusInteractable != newFocusInteractable)
+        {
+            focusInteractable?.OnUnfocus();
+            newFocusInteractable?.OnFocus();
+            focusInteractable = newFocusInteractable;
+        }
+    }
+
+    /// <summary>
+    /// tries to get the Interactable monobehavior closest to the center of the screen, will return null if no Interactable is within bounds.
+    /// </summary>
+    private Interactable GetMostFocusedInteractable()
+    {
         RaycastHit[] interactables = Physics.SphereCastAll(castSourceTransform.position, interactSphereCastRadius, castSourceTransform.forward, interactMaxDistance, interactionMask.value);
         
-        //Debug.Log("Hit result count: " + interactables.Length);
         //Loop through all spherecasthits to find the Interactable monobehavior closest to raycast direction
         Interactable bfInteractable = null;
-        float bestDotProduct = float.MinValue;
+        float bestDotProduct = 0;
         foreach (RaycastHit rch in interactables)
         {
             Interactable thisInter;
@@ -32,12 +54,14 @@ public class PlayerInteracter : MonoBehaviour
             }
         }
 
-        //Debug.Log("Interact Search loop complete");
-        //return if no Interactable found
-        if(bfInteractable == null) return;
+        return bfInteractable;
+    }
 
-        //Debug.Log("Calling Target Interact");
-        bfInteractable.Interact();
+    public void Interact(UnityEngine.InputSystem.InputAction.CallbackContext ctx)
+    {
+        if(focusInteractable == null) return;
+
+        focusInteractable.Interact();
     }
 
     private void OnEnable()
