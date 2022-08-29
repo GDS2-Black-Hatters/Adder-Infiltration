@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,12 +10,12 @@ public class PlayerInteracter : MonoBehaviour
     [SerializeField] private LayerMask interactionMask;
 
     private Interactable focusInteractable;
-    
+
     [Header("Interaction Line")]
     [SerializeField] private LineRenderer interactionLinePrefab;
     [SerializeField] private float lineWidthCap = 0.1f;
     [SerializeField] private float lineShrinkSpeed = 0.05f;
-    private Dictionary<Interactable, LineRenderer> interactLines = new Dictionary<Interactable, LineRenderer>();
+    private Dictionary<Interactable, LineRenderer> interactLines = new();
 
     private void Update()
     {
@@ -30,17 +29,17 @@ public class PlayerInteracter : MonoBehaviour
     private void UpdateInteractableFocus()
     {
         Interactable newFocusInteractable = GetMostFocusedInteractable();
-        if(focusInteractable != newFocusInteractable)
+        if (focusInteractable != newFocusInteractable)
         {
             focusInteractable?.OnUnfocus();
             newFocusInteractable?.OnFocus();
             focusInteractable = newFocusInteractable;
-            
-            if(focusInteractable == null) return;
 
-            if(!interactLines.ContainsKey(focusInteractable))
+            if (focusInteractable == null) return;
+
+            if (!interactLines.ContainsKey(focusInteractable))
             {
-                interactLines[focusInteractable] = Instantiate<LineRenderer>(interactionLinePrefab, transform);
+                interactLines[focusInteractable] = Instantiate(interactionLinePrefab, transform);
                 interactLines[focusInteractable].startWidth = lineWidthCap;
                 interactLines[focusInteractable].endWidth = lineWidthCap;
             }
@@ -49,7 +48,7 @@ public class PlayerInteracter : MonoBehaviour
 
     private void UpdateLines()
     {
-        List<Interactable> linesToRemove = new List<Interactable>();
+        List<Interactable> linesToRemove = new();
 
         foreach (KeyValuePair<Interactable, LineRenderer> line in interactLines)
         {
@@ -57,12 +56,12 @@ public class PlayerInteracter : MonoBehaviour
 
             //Widen line width to cap if focus, else shrink it and mark for destroy if small enough
             float curLineWidth = line.Value.startWidth;
-            if(line.Key == focusInteractable)
+            if (line.Key == focusInteractable)
                 curLineWidth = lineWidthCap;
             else
             {
                 curLineWidth -= Time.deltaTime * lineShrinkSpeed;
-                if(curLineWidth <= 0)
+                if (curLineWidth <= 0)
                 {
                     linesToRemove.Add(line.Key);
                     Destroy(line.Value.gameObject);
@@ -73,7 +72,7 @@ public class PlayerInteracter : MonoBehaviour
             line.Value.endWidth = curLineWidth;
         }
 
-        foreach(Interactable inter in linesToRemove)
+        foreach (Interactable inter in linesToRemove)
         {
             interactLines.Remove(inter);
         }
@@ -85,17 +84,16 @@ public class PlayerInteracter : MonoBehaviour
     private Interactable GetMostFocusedInteractable()
     {
         RaycastHit[] interactables = Physics.SphereCastAll(castSourceTransform.position, interactSphereCastRadius, castSourceTransform.forward, interactMaxDistance, interactionMask.value);
-        
+
         //Loop through all spherecasthits to find the Interactable monobehavior closest to raycast direction
         Interactable bfInteractable = null;
         float bestDotProduct = 0;
         foreach (RaycastHit rch in interactables)
         {
-            Interactable thisInter;
-            if(rch.transform.TryGetComponent<Interactable>(out thisInter))
+            if (rch.transform.TryGetComponent(out Interactable thisInter))
             {
                 float thisDotProduct = Vector3.Dot(castSourceTransform.forward, (rch.transform.position - castSourceTransform.position).normalized);
-                if(thisDotProduct > bestDotProduct)
+                if (thisDotProduct > bestDotProduct)
                 {
                     bfInteractable = thisInter;
                     bestDotProduct = thisDotProduct;
@@ -108,7 +106,7 @@ public class PlayerInteracter : MonoBehaviour
 
     public void Interact(UnityEngine.InputSystem.InputAction.CallbackContext ctx)
     {
-        if(focusInteractable == null) return;
+        if (focusInteractable == null) return;
 
         focusInteractable.Interact();
     }
