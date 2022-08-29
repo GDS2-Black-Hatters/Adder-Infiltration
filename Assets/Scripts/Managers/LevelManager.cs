@@ -14,6 +14,7 @@ public class LevelManager : MonoBehaviour, IManager
     public void StartUp()
     {
         transitionAnim = GetComponentInChildren<Animator>();
+        transitionAnim.updateMode = AnimatorUpdateMode.UnscaledTime;
     }
 
     private void Start()
