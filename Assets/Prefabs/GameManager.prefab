@@ -1307,6 +1307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b740b32a52c96fd489f3e04cee30a7b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  countdownTimer: 120
   caughtHUD: {fileID: 2943355104210983910}
 --- !u!1 &8279418842613605780
 GameObject:
@@ -1530,6 +1531,7 @@ GameObject:
   - component: {fileID: 7286704837470667644}
   - component: {fileID: 45551257451134259}
   - component: {fileID: 1076343507291854517}
+  - component: {fileID: 7478343513961873022}
   m_Layer: 5
   m_Name: TimerFrame
   m_TagString: Untagged
@@ -1596,6 +1598,18 @@ MonoBehaviour:
   m_FillOrigin: 2
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7478343513961873022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8881925389365784058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b3e5759bc421544ca6db73d1b68cd36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9198650945742561449
 GameObject:
   m_ObjectHideFlags: 0

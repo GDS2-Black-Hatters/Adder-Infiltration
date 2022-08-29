@@ -4,13 +4,15 @@ using UnityEngine;
 public class VariableManager : MonoBehaviour, IManager
 {
     //Game variables
-    public TimeTracker timeToLive { get; private set; } //The timer for when getting caught.
+    [SerializeField] private float countdownTimer;
+    public TimeTracker timeToLive { get; private set; } //The timer for when getting caught. Is in seconds.
     [SerializeField] private GameObject caughtHUD;
 
     //Saveable variables
 
     public void StartUp()
     {
+        timeToLive = new(countdownTimer);
     }
 
     /// <summary>
