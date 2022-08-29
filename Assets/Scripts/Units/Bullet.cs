@@ -21,4 +21,15 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            other.GetComponent<PlayerVirusController>().DecreaseHealth(20);
+            Debug.Log("ouchie");
+
+        }
+       
+    }
 }
