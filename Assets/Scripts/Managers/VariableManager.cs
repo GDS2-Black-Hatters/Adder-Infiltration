@@ -3,9 +3,8 @@ using UnityEngine;
 public class VariableManager : MonoBehaviour, IManager
 {
     //Game variables
-    [field: SerializeField] public bool gotCaught { get; private set; } = false;
-    [SerializeField] private TimeTracker timeToLive; //The timer for when getting caught.
-    [SerializeField] private GameObject timer;
+    public TimeTracker timeToLive { get; private set; } //The timer for when getting caught.
+    [SerializeField] private GameObject caughtHUD;
 
     //Saveable variables
 
@@ -18,7 +17,7 @@ public class VariableManager : MonoBehaviour, IManager
     /// </summary>
     public void StartTimer()
     {
-        gotCaught = true;
+        caughtHUD.SetActive(true);
     }
 
     /// <summary>
