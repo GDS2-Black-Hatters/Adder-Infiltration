@@ -4,16 +4,24 @@ using UnityEngine;
 
 public class PlayerInteracter : MonoBehaviour
 {
+    [Header("Interaction Area")]
     [SerializeField] private Transform castSourceTransform;
     [SerializeField] private float interactSphereCastRadius = 1.5f;
     [SerializeField] private float interactMaxDistance = 10f;
     [SerializeField] private LayerMask interactionMask;
 
     private Interactable focusInteractable;
+    
+    [Header("Interaction Line")]
+    [SerializeField] private LineRenderer interactionLinePrefab;
+    [SerializeField] private float lineWidthCap = 0.1f;
+    [SerializeField] private float lineShrinkSpeed = 0.05f;
+    private Dictionary<Interactable, LineRenderer> interactLines = new Dictionary<Interactable, LineRenderer>();
 
     private void Update()
     {
         UpdateInteractableFocus();
+        UpdateLines();
     }
 
     /// <summary>
@@ -27,6 +35,47 @@ public class PlayerInteracter : MonoBehaviour
             focusInteractable?.OnUnfocus();
             newFocusInteractable?.OnFocus();
             focusInteractable = newFocusInteractable;
+            
+            if(focusInteractable == null) return;
+
+            if(!interactLines.ContainsKey(focusInteractable))
+            {
+                interactLines[focusInteractable] = Instantiate<LineRenderer>(interactionLinePrefab, transform);
+                interactLines[focusInteractable].startWidth = lineWidthCap;
+                interactLines[focusInteractable].endWidth = lineWidthCap;
+            }
+        }
+    }
+
+    private void UpdateLines()
+    {
+        List<Interactable> linesToRemove = new List<Interactable>();
+
+        foreach (KeyValuePair<Interactable, LineRenderer> line in interactLines)
+        {
+            line.Value.SetPositions(new Vector3[] { line.Key.transform.position, transform.position });
+
+            //Widen line width to cap if focus, else shrink it and mark for destroy if small enough
+            float curLineWidth = line.Value.startWidth;
+            if(line.Key == focusInteractable)
+                curLineWidth = lineWidthCap;
+            else
+            {
+                curLineWidth -= Time.deltaTime * lineShrinkSpeed;
+                if(curLineWidth <= 0)
+                {
+                    linesToRemove.Add(line.Key);
+                    Destroy(line.Value.gameObject);
+                    continue;
+                }
+            }
+            line.Value.startWidth = curLineWidth;
+            line.Value.endWidth = curLineWidth;
+        }
+
+        foreach(Interactable inter in linesToRemove)
+        {
+            interactLines.Remove(inter);
         }
     }
 
