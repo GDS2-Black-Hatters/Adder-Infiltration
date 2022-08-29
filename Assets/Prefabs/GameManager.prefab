@@ -586,6 +586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee35d59eb55b8a4499a119f094266d9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeInSpeed: 1
 --- !u!1 &3176862767188065409
 GameObject:
   m_ObjectHideFlags: 0
@@ -1209,7 +1210,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d82e92ef5767044b8d6a76aed805862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabPools: []
+  prefabPools:
+  - poolName: BulletPool
+    prefab: {fileID: 5159249742545533617, guid: 1a1e9bbc8d887c241a8e83e045a5cf28, type: 3}
 --- !u!114 &8444650310670316860
 MonoBehaviour:
   m_ObjectHideFlags: 0

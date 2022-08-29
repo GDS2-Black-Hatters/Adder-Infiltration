@@ -21,6 +21,7 @@ public class PlayerVirusController : MonoBehaviour
         InputManager inputManager = GameManager.InputManager;
         inputManager.ChangeControlMap(InputManager.ControlScheme.MainGame);
         moveAction = inputManager.GetAction(InputManager.Controls.Move);
+        GameManager.LevelManager.SetPlayer(transform);
 
         health = maxHealth;
         healthSlider = gameObject.transform.Find("Canvas").gameObject.transform.Find("HealthBar").gameObject.GetComponent<Slider>();

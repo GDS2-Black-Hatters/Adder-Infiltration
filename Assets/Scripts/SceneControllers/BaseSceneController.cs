@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class BaseSceneController : MonoBehaviour
 {
-    [field: SerializeField] public bool beenCaught { get; private set; } = false;
+    [field: SerializeField] public bool InCaughtMode { get; private set; } = false;
 
     //For children.
     protected Dictionary<string, bool> mandatoryObjectives = new();
@@ -40,9 +40,9 @@ public abstract class BaseSceneController : MonoBehaviour
 
     public void StartCaughtMode()
     {
-        if (!beenCaught)
+        if (!InCaughtMode)
         {
-            beenCaught = true;
+            InCaughtMode = true;
             onPlayerDetection?.Invoke();
             lerper.SetValues(0, 1, lerpTime);
             if (matterShell)

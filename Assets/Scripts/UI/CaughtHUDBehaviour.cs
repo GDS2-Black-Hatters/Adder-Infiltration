@@ -32,7 +32,7 @@ public class CaughtHUDBehaviour : MonoBehaviour
             return;
         }
 
-        if (controller && controller.beenCaught)
+        if (controller && controller.InCaughtMode)
         {
             lerp.SetValues(0, 1, fadeInSpeed);
         }
