@@ -34,7 +34,7 @@ public class PlayerVirusController : MonoBehaviour
             Move();
         }
 
-        if (health >= 0)
+        if (health <= 0)
         {
             Time.timeScale = 0;
         }

@@ -31,8 +31,7 @@ public class Enemy : MonoBehaviour
         if (shootTimer >= 1.0f)
         {
             Debug.Log("bang");
-            Rigidbody bullet;
-            bullet = Instantiate(bulletPrefab, gameObject.transform.position, gameObject.transform.rotation);
+            Rigidbody bullet = Instantiate(bulletPrefab, gameObject.transform.position, gameObject.transform.rotation);
             Vector3 target = player.transform.position - bullet.transform.position;
             bullet.velocity = target * 3;
             shootTimer = 0;
