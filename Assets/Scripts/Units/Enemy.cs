@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     public GameObject range;
     public Rigidbody bulletPrefab;
 
-    private float shootTimer = 5;
+    private float shootTimer = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour
     public void ShootPlayer()
     {
         shootTimer += Time.deltaTime;
-        if (shootTimer >= 5.0f)
+        if (shootTimer >= 1.0f)
         {
             Debug.Log("bang");
             Rigidbody bullet;
