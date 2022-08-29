@@ -9,12 +9,12 @@ public class Interactable : MonoBehaviour
 
     public void OnFocus()
     {
-        Debug.Log("Focus: " + transform.parent.name);
+        //Debug.Log("Focus: " + transform.parent.name);
     }
 
     public void OnUnfocus()
     {
-        Debug.Log("Unfocus: " + transform.parent.name);
+        //Debug.Log("Unfocus: " + transform.parent.name);
     }
 
     public void Interact()

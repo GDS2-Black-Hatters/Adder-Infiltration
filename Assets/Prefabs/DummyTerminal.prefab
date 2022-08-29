@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7405312513552688852}
-  - component: {fileID: 2342717284711935184}
   m_Layer: 0
   m_Name: DummyTerminal
   m_TagString: Untagged
@@ -34,19 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2342717284711935184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 268261347532645877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a115b1fd4060f934cbf948af7329ac79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  logMessage: Dummy Terminal Is Dumb
 --- !u!1 &1812035253047832628
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,6 +45,7 @@ GameObject:
   - component: {fileID: 603759871392221775}
   - component: {fileID: 2534010756809037344}
   - component: {fileID: 509822170848725071}
+  - component: {fileID: 1848446534721161585}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -144,6 +131,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1848446534721161585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812035253047832628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41e02582711732347b433009ab054ea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorA: {r: 0.95436275, g: 1, b: 0.2028302, a: 1}
+  colorB: {r: 0.8867924, g: 0.10457456, b: 0.10457456, a: 1}
+  parameterName: _BaseColor
 --- !u!1 &9156699130889289700
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,9 +260,9 @@ MonoBehaviour:
   onInteract:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2342717284711935184}
-        m_TargetAssemblyTypeName: LogSomething, Assembly-CSharp
-        m_MethodName: PrintLog
+      - m_Target: {fileID: 1848446534721161585}
+        m_TargetAssemblyTypeName: MaterialColorChange, Assembly-CSharp
+        m_MethodName: ChangeColor
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
