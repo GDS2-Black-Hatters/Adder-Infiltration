@@ -532,13 +532,14 @@ GameObject:
   m_Component:
   - component: {fileID: 3358664621816297556}
   - component: {fileID: 7336351702717850106}
+  - component: {fileID: 419995059247226767}
   m_Layer: 5
   m_Name: CaughtHUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3358664621816297556
 RectTransform:
   m_ObjectHideFlags: 0
@@ -573,6 +574,18 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &419995059247226767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2943355104210983910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee35d59eb55b8a4499a119f094266d9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3176862767188065409
 GameObject:
   m_ObjectHideFlags: 0
@@ -1592,7 +1605,6 @@ GameObject:
   - component: {fileID: 2292418262974086072}
   - component: {fileID: 8336526760379250462}
   - component: {fileID: 7588158094758352639}
-  - component: {fileID: 4793448394568035626}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
@@ -1683,23 +1695,3 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!95 &4793448394568035626
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9198650945742561449}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 30d943c20b03336419694fa7ddac5597, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0

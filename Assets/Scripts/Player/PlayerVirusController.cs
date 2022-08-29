@@ -33,7 +33,7 @@ public class PlayerVirusController : MonoBehaviour
 
         if (health <= 0)
         {
-            Time.timeScale = 0;
+            Debug.Log("Death");
         }
     }
 

@@ -1,3 +1,4 @@
+#pragma warning disable IDE0051 // Remove unused private members
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +8,7 @@ public class SaveIconBehaviour : MonoBehaviour
     private Animator animator;
 
     // Start is called before the first frame update
-    void Awake()
+    private void Awake()
     {
         image = GetComponent<Image>();
         animator = GetComponent<Animator>();
