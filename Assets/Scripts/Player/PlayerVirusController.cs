@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerVirusController : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class PlayerVirusController : MonoBehaviour
     private Rigidbody rb;
     private InputAction moveAction;
 
+    public Slider healthSlider;
+    private float health;
+    private float maxHealth = 100;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -16,13 +21,19 @@ public class PlayerVirusController : MonoBehaviour
         InputManager inputManager = GameManager.InputManager;
         inputManager.ChangeControlMap(InputManager.ControlScheme.MainGame);
         moveAction = inputManager.GetAction(InputManager.Controls.Move);
+
+        health = maxHealth;
+        healthSlider = gameObject.transform.Find("Canvas").gameObject.transform.Find("HealthBar").gameObject.GetComponent<Slider>();
+        healthSlider.value = CalculateHealth();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        if (moveAction.IsPressed())
+        MoveFixedUpdate();
+
+        if (health >= 0)
         {
-            Move();
+            Time.timeScale = 0;
         }
     }
 
@@ -35,7 +46,7 @@ public class PlayerVirusController : MonoBehaviour
         inputManager.GetAction(InputManager.Controls.Look).performed += RotateCamera;
         inputManager.GetAction(InputManager.Controls.Move).canceled += MovementHalt;
     }
-    
+
     private void OnDisable()
     {
         //Unregister input events from InputManager
@@ -57,9 +68,8 @@ public class PlayerVirusController : MonoBehaviour
         cameraAnchor.eulerAngles = rot;
     }
 
-    //Updates movement direction according to input recieved
-    //actual movement is handled in Update()
-    private void Move()
+    //Handle movement by force in fixed update so lag doesn't change the player's speed
+    private void MoveFixedUpdate()
     {
         Vector2 moveDeltaV2 = moveAction.ReadValue<Vector2>();
         Vector3 xAxis = cameraAnchor.right;
@@ -73,5 +83,17 @@ public class PlayerVirusController : MonoBehaviour
     private void MovementHalt(InputAction.CallbackContext MoveDelta)
     {
         //rb.velocity = Vector3.zero;
+    }
+
+    float CalculateHealth()
+    {
+        return health / maxHealth;
+    }
+
+    //decreases health by a given input
+    public void DecreaseHealth(int amount)
+    {
+        health -= amount;
+        healthSlider.value = CalculateHealth();
     }
 }

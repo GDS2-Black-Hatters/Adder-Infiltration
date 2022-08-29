@@ -21,7 +21,7 @@ public class MatterShell : MonoBehaviour
 
         //Temporary test code
         LevelSceneController lsc = (LevelSceneController)GameManager.LevelManager.ActiveSceneController;
-        lsc.OnPlayerDetected += WeaponizeMatter;
+        lsc.OnPlayerDetected.AddListener(WeaponizeMatter);
     }
 
     private Matter SpawnMatter()
