@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/// <summary>
+/// Simple attack range for the enemy.
+/// Best to attach this to a child GameObject with a collider.
+/// </summary>
 public class EnemyAttackRange : MonoBehaviour
 {
     private Enemy enemy;
