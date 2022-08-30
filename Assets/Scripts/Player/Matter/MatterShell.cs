@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MatterShell : MonoBehaviour
@@ -12,16 +10,19 @@ public class MatterShell : MonoBehaviour
 
     private void Start()
     {
-        if(matterObjectPrefabs.Length <= 0) return;
+        if (matterObjectPrefabs.Length == 0)
+        {
+            return;
+        }
+
         activeMatters = new Matter[shellMatterCount];
         for (int i = 0; i < shellMatterCount; i++)
         {
-            activeMatters[i] = SpawnMatter();    
+            activeMatters[i] = SpawnMatter();
         }
 
         //Temporary test code
-        LevelSceneController lsc = (LevelSceneController)GameManager.LevelManager.ActiveSceneController;
-        lsc.OnPlayerDetected.AddListener(WeaponizeMatter);
+        GameManager.LevelManager.ActiveSceneController.SetMatterShell(this);
     }
 
     private Matter SpawnMatter()

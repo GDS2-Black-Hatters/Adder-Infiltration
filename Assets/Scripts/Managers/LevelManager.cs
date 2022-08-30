@@ -10,6 +10,7 @@ public class LevelManager : MonoBehaviour, IManager
     private bool isTransitioning = false;
 
     public BaseSceneController ActiveSceneController { get; private set; }
+    public Transform player { get; private set; }
 
     public void StartUp()
     {
@@ -101,5 +102,10 @@ public class LevelManager : MonoBehaviour, IManager
             Debug.LogWarning("The previously active SceneController has not yet been destroyed, please ensure you are certain you want two SceneControllers active right now.");
         }
         ActiveSceneController = sceneController;
+    }
+
+    public void SetPlayer(Transform player)
+    {
+        this.player = player;
     }
 }
