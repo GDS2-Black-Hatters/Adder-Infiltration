@@ -5,11 +5,11 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float lifeTime = 3;
     [SerializeField] private float damage = 2;
-    private TimeTracker timer = new(0);
+    [SerializeField] private TimeTracker timer = new(0);
 
     private void OnEnable()
     {
-        timer.SetTimer(lifeTime);
+        timer.Reset();
     }
 
     void Update()
@@ -20,11 +20,17 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!other.gameObject.TryGetComponent(out MeshRenderer meshRenderer))
+        {
+            return;
+        }
+
         if (other.CompareTag("Player"))
         {
             //Decrease health through VariableManager.
             GameManager.VariableManager.playerHealth.ReduceHealth(damage);
             timer.Finish();
         }
+        timer.Finish();
     }
 }
