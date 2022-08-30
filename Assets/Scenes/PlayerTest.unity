@@ -1170,24 +1170,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7751953367977611952, guid: afc3a09e94fc26641ba19ac0750b4866, type: 3}
   m_PrefabInstance: {fileID: 211024194}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1759362333 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3237263685448395218, guid: 69832c6d5cf7dbf488ce8eb1d64c8520, type: 3}
-  m_PrefabInstance: {fileID: 8804111389171085099}
-  m_PrefabAsset: {fileID: 0}
---- !u!135 &1759362337
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1759362333}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1791123889
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1609,10 +1591,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1313531233, guid: 69832c6d5cf7dbf488ce8eb1d64c8520, type: 3}
-      propertyPath: m_Radius
-      value: 0.75
-      objectReference: {fileID: 0}
     - target: {fileID: 8804111390498198748, guid: 69832c6d5cf7dbf488ce8eb1d64c8520, type: 3}
       propertyPath: m_RootOrder
       value: 4

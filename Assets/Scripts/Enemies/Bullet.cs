@@ -20,16 +20,16 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.gameObject.TryGetComponent(out MeshRenderer meshRenderer))
-        {
-            return;
-        }
-
         if (other.CompareTag("Player"))
         {
             //Decrease health through VariableManager.
             GameManager.VariableManager.playerHealth.ReduceHealth(damage);
             timer.Finish();
+        }
+
+        if (!other.gameObject.TryGetComponent(out MeshRenderer meshRenderer))
+        {
+            return;
         }
         timer.Finish();
     }
