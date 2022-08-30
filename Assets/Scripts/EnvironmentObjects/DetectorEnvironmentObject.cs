@@ -1,12 +1,22 @@
 using UnityEngine;
 
-public class DetectorEnvironmentObject : MonoBehaviour
+public abstract class DetectorEnvironmentObject : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    [SerializeField] private bool AlertLevelSceneManager = true;
+    [SerializeField] protected UnityEngine.Events.UnityEvent OnDetect;
+
+    protected virtual void Start()
     {
-        if (other.CompareTag("Player"))
+        if(AlertLevelSceneManager)
         {
-            GameManager.LevelManager.ActiveSceneController.StartCaughtMode();
+            if(GameManager.LevelManager.ActiveSceneController == null)
+            {
+                Debug.LogWarning("Cannot find SceneController, SceneController will not be alerted on player detection.");
+                return;
+            }            
+            OnDetect.AddListener(GameManager.LevelManager.ActiveSceneController.StartCaughtMode);
         }
     }
+
+    public abstract void PlayerInRange();
 }
