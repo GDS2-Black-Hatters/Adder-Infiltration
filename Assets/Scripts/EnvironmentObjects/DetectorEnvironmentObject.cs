@@ -1,17 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DetectorEnvironmentObject : MonoBehaviour
 {
-    public void AlertPlayerDetection()
+    private void OnTriggerEnter(Collider other)
     {
-        LevelSceneController lsc = (LevelSceneController)GameManager.LevelManager.ActiveSceneController;
-        if(lsc == null)
+        if (other.CompareTag("Player"))
         {
-            Debug.LogWarning("Cannot find LevelSceneController, will do nothing on player detection.");
-            return;
+            GameManager.LevelManager.ActiveSceneController.StartCaughtMode();
         }
-        lsc.PlayerDetected();        
     }
 }

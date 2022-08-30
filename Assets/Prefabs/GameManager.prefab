@@ -532,13 +532,14 @@ GameObject:
   m_Component:
   - component: {fileID: 3358664621816297556}
   - component: {fileID: 7336351702717850106}
+  - component: {fileID: 419995059247226767}
   m_Layer: 5
   m_Name: CaughtHUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3358664621816297556
 RectTransform:
   m_ObjectHideFlags: 0
@@ -573,6 +574,19 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &419995059247226767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2943355104210983910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee35d59eb55b8a4499a119f094266d9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeInSpeed: 1
 --- !u!1 &3176862767188065409
 GameObject:
   m_ObjectHideFlags: 0
@@ -1196,7 +1210,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d82e92ef5767044b8d6a76aed805862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabPools: []
+  prefabPools:
+  - poolName: BulletPool
+    prefab: {fileID: 5159249742545533617, guid: 1a1e9bbc8d887c241a8e83e045a5cf28, type: 3}
 --- !u!114 &8444650310670316860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1291,6 +1307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b740b32a52c96fd489f3e04cee30a7b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  countdownTimer: 120
   caughtHUD: {fileID: 2943355104210983910}
 --- !u!1 &8279418842613605780
 GameObject:
@@ -1514,6 +1531,7 @@ GameObject:
   - component: {fileID: 7286704837470667644}
   - component: {fileID: 45551257451134259}
   - component: {fileID: 1076343507291854517}
+  - component: {fileID: 7478343513961873022}
   m_Layer: 5
   m_Name: TimerFrame
   m_TagString: Untagged
@@ -1580,6 +1598,18 @@ MonoBehaviour:
   m_FillOrigin: 2
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7478343513961873022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8881925389365784058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b3e5759bc421544ca6db73d1b68cd36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9198650945742561449
 GameObject:
   m_ObjectHideFlags: 0
@@ -1592,7 +1622,6 @@ GameObject:
   - component: {fileID: 2292418262974086072}
   - component: {fileID: 8336526760379250462}
   - component: {fileID: 7588158094758352639}
-  - component: {fileID: 4793448394568035626}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
@@ -1683,23 +1712,3 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!95 &4793448394568035626
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9198650945742561449}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 30d943c20b03336419694fa7ddac5597, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0

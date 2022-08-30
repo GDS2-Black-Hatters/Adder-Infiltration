@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 937066928223205113}
   - component: {fileID: 8896318980655871351}
   - component: {fileID: 7926497178274219368}
-  - component: {fileID: 6154131027135173776}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -98,33 +97,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6154131027135173776
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2697998508347626418}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e2d88c6419bff645b0f3a7a4c836694, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnDetectionEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2085055539596466956}
-        m_TargetAssemblyTypeName: DetectorEnvironmentObject, Assembly-CSharp
-        m_MethodName: AlertPlayerDetection
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &4665905241375923979
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,6 +205,7 @@ GameObject:
   m_Component:
   - component: {fileID: 388056983357971336}
   - component: {fileID: 2085055539596466956}
+  - component: {fileID: 3354017234789819519}
   m_Layer: 0
   m_Name: ScanGate
   m_TagString: Untagged
@@ -270,6 +243,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a402ee47f00677c4eae4dd6560607c35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &3354017234789819519
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7027957125666480720}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &7891437024585433406
 GameObject:
   m_ObjectHideFlags: 0
