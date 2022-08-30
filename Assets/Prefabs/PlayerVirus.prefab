@@ -522,6 +522,7 @@ GameObject:
   - component: {fileID: 5168641932940951425}
   - component: {fileID: 5153412946128985016}
   - component: {fileID: 2850382259242322651}
+  - component: {fileID: 7227331485519612651}
   m_Layer: 0
   m_Name: PlayerCore
   m_TagString: Untagged
@@ -594,6 +595,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!135 &7227331485519612651
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3237263685448395218}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4087315774189928090
 GameObject:
   m_ObjectHideFlags: 0
@@ -1538,10 +1552,10 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8804111390498198749}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.75
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1911876660181701349
 MonoBehaviour:
@@ -1594,7 +1608,7 @@ MonoBehaviour:
     m_Bits: 128
   interactionLinePrefab: {fileID: 181978194078557043, guid: 24f463db7319f994f9e525eccd2f032d, type: 3}
   lineWidthCap: 0.1
-  lineWidthChangeSpeed: 0.1
+  lineShrinkSpeed: 0.05
 --- !u!1 &8844235152536786264
 GameObject:
   m_ObjectHideFlags: 0

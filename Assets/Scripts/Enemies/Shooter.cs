@@ -15,7 +15,7 @@ public class Shooter : Enemy
             Rigidbody bullet = GameManager.PoolManager.GetObjectFromPool<Rigidbody>("BulletPool");
             bullet.transform.position = bulletPoint ? bulletPoint.position : Vector3.zero;
             bullet.transform.LookAt(GameManager.LevelManager.player);
-            bullet.velocity = (GameManager.LevelManager.player.position - bullet.transform.position) * bulletSpeed;
+            bullet.velocity = (GameManager.LevelManager.player.position - bullet.transform.position).normalized * bulletSpeed;
         }
     }
 }

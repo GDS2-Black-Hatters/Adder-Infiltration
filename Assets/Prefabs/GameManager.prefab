@@ -1290,6 +1290,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 66643286-2ac4-4245-83a0-228a9991deff
     m_ActionName: MainGame/Look[/Mouse/delta]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 81b495b9-371c-446a-a50d-ac0bfc2b826d
+    m_ActionName: MainGame/Interact[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Hub
@@ -1309,6 +1313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countdownTimer: 120
   caughtHUD: {fileID: 2943355104210983910}
+  maxPlayerHealth: 100
 --- !u!1 &8279418842613605780
 GameObject:
   m_ObjectHideFlags: 0
@@ -1320,6 +1325,7 @@ GameObject:
   - component: {fileID: 6302663191096119786}
   - component: {fileID: 5020928686046197101}
   - component: {fileID: 6715030699570345754}
+  - component: {fileID: 6993511229351773226}
   m_Layer: 5
   m_Name: CurrentHP
   m_TagString: Untagged
@@ -1385,6 +1391,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6993511229351773226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8279418842613605780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f9aff2c5a4c45f47b3e6f5fdf097500, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8709263629838152221
 GameObject:
   m_ObjectHideFlags: 0
@@ -1610,6 +1628,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b3e5759bc421544ca6db73d1b68cd36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  full: {r: 0, g: 1, b: 0, a: 1}
+  low: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &9198650945742561449
 GameObject:
   m_ObjectHideFlags: 0

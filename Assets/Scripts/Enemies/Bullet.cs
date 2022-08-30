@@ -4,6 +4,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private float lifeTime = 3;
+    [SerializeField] private float damage = 2;
     private TimeTracker timer = new(0);
 
     private void OnEnable()
@@ -22,6 +23,7 @@ public class Bullet : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             //Decrease health through VariableManager.
+            GameManager.VariableManager.playerHealth.ReduceHealth(damage);
             timer.Finish();
         }
     }
