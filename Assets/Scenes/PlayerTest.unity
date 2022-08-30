@@ -696,6 +696,7 @@ GameObject:
   - component: {fileID: 549053431}
   - component: {fileID: 549053430}
   - component: {fileID: 549053429}
+  - component: {fileID: 549053432}
   m_Layer: 0
   m_Name: ChaseRange
   m_TagString: Untagged
@@ -781,6 +782,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 549053427}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &549053432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549053427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd52f4ee56355846947e5a96ad04019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInRange: 0
 --- !u!1 &589049215
 GameObject:
   m_ObjectHideFlags: 0
@@ -1878,7 +1892,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7268229092622374421, guid: e067b651c87cee148946ec729831b7d6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 40
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 7268229092622374421, guid: e067b651c87cee148946ec729831b7d6, type: 3}
       propertyPath: m_LocalRotation.w
