@@ -29,8 +29,7 @@ public class HoverAtHeight : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         float tickHoverHeight = hoverHeight + bobbleMaxAmplitude * 0.5f * (Mathf.PerlinNoise(Time.time * bobbleFrequency, noiseSeed) - 0.5f);
 

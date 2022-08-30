@@ -16,6 +16,7 @@ public class InputManager : MonoBehaviour, IManager
         Move, //Hub (Mouse Movement) || MainGame (WASD/Arrow Keys)
         Click, //Hub
         Look, //MainGame
+        Interact, //MainGame
     }
     #endregion
 

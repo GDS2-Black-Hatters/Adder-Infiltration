@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LevelSceneController : BaseSceneController
 {
-    public event System.Action OnPlayerDetected;
+    [SerializeField] public UnityEngine.Events.UnityEvent OnPlayerDetected;
 
     private void Awake()
     {
