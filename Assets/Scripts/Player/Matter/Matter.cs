@@ -6,7 +6,7 @@ public class Matter : MonoBehaviour
 
     public void InitilizeMatter(float matterDistance = 1f)
     {
-        matterObject.transform.localPosition = matterDistance * Random.onUnitSphere;
+        matterObject.transform.localPosition = matterDistance * Random.insideUnitCircle.normalized;
     }
 
     public void Weaponize()
