@@ -10,7 +10,7 @@ public class StareAndSpin : MonoBehaviour
     [System.NonSerialized] public Transform stareTarget;
 
     [Header("Spin")]
-    [SerializeField] public float spinSpeed = 75;
+    [SerializeField] public float spinSpeed = 200;
 
     private void Awake()
     {
