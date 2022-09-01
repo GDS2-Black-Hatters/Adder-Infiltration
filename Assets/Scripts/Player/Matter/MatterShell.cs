@@ -42,6 +42,7 @@ public class MatterShell : MonoBehaviour
         for (int i = 0; i < matterAnchors.Length; i++)
         {
             RandRotate newAnchorBaseRotator = new GameObject("MatterAnchorBase", typeof(RandRotate)).GetComponent<RandRotate>();
+            newAnchorBaseRotator.gameObject.AddComponent<StareAndSpin>();
             newAnchorBaseRotator.rotationSpeed = matterOrbitSpeed;
             newAnchorBaseRotator.transform.SetParent(transform);
             newAnchorBaseRotator.transform.localPosition = Vector3.zero;

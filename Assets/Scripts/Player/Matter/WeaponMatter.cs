@@ -7,7 +7,9 @@ public class WeaponMatter : Matter
     MatterShell ownerMatterShell;
 
     private RandRotate anchorRandRoter;
+    private StareAndSpin anchorStareAndSpin;
     private RandRotate selfRandRoter;
+    private StareAndSpin selfStareAndSpin;
 
     private float anchorRotSpeed;
     private float selfRotSpeed;
@@ -15,7 +17,9 @@ public class WeaponMatter : Matter
     public override void InitilizeMatter(MatterShell ownerShell, Transform anchorBase)
     {
         anchorRandRoter = anchorBase.GetComponent<RandRotate>();
+        anchorStareAndSpin = anchorBase.GetComponent<StareAndSpin>();
         selfRandRoter = GetComponent<RandRotate>();
+        selfStareAndSpin = GetComponent<StareAndSpin>();
         anchorRotSpeed = anchorRandRoter.rotationSpeed;
         selfRotSpeed = selfRandRoter.rotationSpeed;
         
@@ -30,11 +34,20 @@ public class WeaponMatter : Matter
         {
             anchorRandRoter.rotationSpeed = anchorRotSpeed;
             selfRandRoter.rotationSpeed = selfRotSpeed;
+            
+            anchorStareAndSpin.enabled = false;
+            selfStareAndSpin.enabled = false;
+
             return;
         }
 
         anchorRandRoter.rotationSpeed = 0;
         selfRandRoter.rotationSpeed = 0;            
+
+        anchorStareAndSpin.stareTarget = newTargetTransform;
+        anchorStareAndSpin.enabled = true;
+        selfStareAndSpin.stareTarget = newTargetTransform;
+        selfStareAndSpin.enabled = true;
     }
 
     private void OnEnable()
