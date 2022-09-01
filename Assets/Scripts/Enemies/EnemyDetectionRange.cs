@@ -9,7 +9,7 @@ public class EnemyDetectionRange : MonoBehaviour
 {
     private void Update()
     {
-        gameObject.SetActive(GameManager.LevelManager.ActiveSceneController.sceneMode != BaseSceneController.SceneState.Stealth);
+        gameObject.SetActive(GameManager.LevelManager.ActiveSceneController.sceneMode == BaseSceneController.SceneState.Stealth);
     }
 
     private void OnTriggerEnter(Collider other)

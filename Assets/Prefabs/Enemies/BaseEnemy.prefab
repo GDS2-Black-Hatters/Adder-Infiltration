@@ -69,6 +69,7 @@ GameObject:
   - component: {fileID: 7268229092622374421}
   - component: {fileID: 7268229092622374420}
   - component: {fileID: 7268229092622374427}
+  - component: {fileID: 4465324166270719627}
   m_Layer: 0
   m_Name: BaseEnemy
   m_TagString: Untagged
@@ -143,6 +144,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4465324166270719627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7268229092622374425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a7ec14ffafda2742a1ae7e5ab03f466, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  comment: Replace this script with a script that derives from the Enemy Class.
 --- !u!1 &7268229093206108037
 GameObject:
   m_ObjectHideFlags: 0

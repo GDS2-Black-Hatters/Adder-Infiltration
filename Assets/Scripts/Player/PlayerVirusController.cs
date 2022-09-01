@@ -10,10 +10,6 @@ public class PlayerVirusController : MonoBehaviour
     private Rigidbody rb;
     private InputAction moveAction;
 
-    public Slider healthSlider;
-    private float health;
-    private float maxHealth = 100;
-
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -22,20 +18,11 @@ public class PlayerVirusController : MonoBehaviour
         inputManager.ChangeControlMap(InputManager.ControlScheme.MainGame);
         moveAction = inputManager.GetAction(InputManager.Controls.Move);
         GameManager.LevelManager.SetPlayer(transform);
-
-        health = maxHealth;
-        healthSlider = gameObject.transform.Find("Canvas").gameObject.transform.Find("HealthBar").gameObject.GetComponent<Slider>();
-        healthSlider.value = CalculateHealth();
     }
 
     private void FixedUpdate()
     {
         MoveFixedUpdate();
-
-        if (health <= 0)
-        {
-            Debug.Log("Death");
-        }
     }
 
     private void OnEnable()
@@ -84,17 +71,5 @@ public class PlayerVirusController : MonoBehaviour
     private void MovementHalt(InputAction.CallbackContext MoveDelta)
     {
         //rb.velocity = Vector3.zero;
-    }
-
-    float CalculateHealth()
-    {
-        return health / maxHealth;
-    }
-
-    //decreases health by a given input
-    public void DecreaseHealth(int amount)
-    {
-        health -= amount;
-        healthSlider.value = CalculateHealth();
     }
 }

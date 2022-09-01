@@ -1,5 +1,7 @@
+#pragma warning disable IDE1006 // Naming Styles
 using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,6 +11,8 @@ public class LevelManager : MonoBehaviour, IManager
     private (string feedbackIn, string feedbackOut) feedbackType = ("BoxSpinningIn", "BoxSpinningOut");
     private Animator transitionAnim;
     private bool isTransitioning = false;
+
+    [field: SerializeField] public TextMeshProUGUI objectiveList { get; private set; }
 
     public BaseSceneController ActiveSceneController { get; private set; }
     public Transform player { get; private set; }

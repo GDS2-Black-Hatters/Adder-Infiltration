@@ -17,6 +17,11 @@ public class Interactable : MonoBehaviour
         //Debug.Log("Unfocus: " + transform.parent.name);
     }
 
+    public void AddInteraction(UnityEngine.Events.UnityAction unityAction)
+    {
+        onInteract.AddListener(unityAction);
+    }
+
     public void Interact()
     {
         onInteract.Invoke();
