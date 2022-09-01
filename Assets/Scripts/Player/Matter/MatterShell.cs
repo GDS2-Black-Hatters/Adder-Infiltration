@@ -33,7 +33,7 @@ public class MatterShell : MonoBehaviour
         for (int i = 0; i < activeMatters.Length; i++)
         {
             activeMatters[i] = Instantiate<Matter>(preWeaponMatter[i],matterAnchors[i]);
-            activeMatters[i].InitilizeMatter();
+            activeMatters[i].InitilizeMatter(matterAnchors[i].parent);
         }
     }
 
@@ -48,7 +48,7 @@ public class MatterShell : MonoBehaviour
         for (int i = 0; i < weaponizedMatter.Length; i++)
         {
             activeMatters[i] = Instantiate<Matter>(weaponizedMatter[i],matterAnchors[i]);
-            activeMatters[i].InitilizeMatter();
+            activeMatters[i].InitilizeMatter(matterAnchors[i].parent);
         }
     }
 }
