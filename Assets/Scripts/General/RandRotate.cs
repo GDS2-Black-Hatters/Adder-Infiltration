@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RandRotate : MonoBehaviour
 {
-    [SerializeField] private float rotationSpeed = 10;
+    [SerializeField] public float rotationSpeed = 10;
     [SerializeField] private Vector3 axisChangeFrequency = Vector3.one;
     [System.NonSerialized] public Vector3 axisOffset;
 
