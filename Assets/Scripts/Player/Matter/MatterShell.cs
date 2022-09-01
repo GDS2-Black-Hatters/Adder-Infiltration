@@ -2,14 +2,37 @@ using UnityEngine;
 
 public class MatterShell : MonoBehaviour
 {
+    private const int TargetingRange = 10;
+    private const int MaxEnemyInRange = 100;
+
     [SerializeField] private float matterDistance = 1;
     [SerializeField] private float matterOrbitSpeed = 2;
 
     [SerializeField] private Matter[] preWeaponMatter;
-    [SerializeField] private Matter[] weaponizedMatter;
+    [SerializeField] private WeaponMatter[] weaponizedMatter;
+
+    [SerializeField] LayerMask targetLayerMask;
+    [SerializeField] LayerMask targetOcclutionMask;
+    private Collider[] enemiesInRange = new Collider[MaxEnemyInRange];
+    private int currentEnemiesInRange = 0;
 
     private Transform[] matterAnchors;
     private Matter[] activeMatters;
+
+    //currentTarget currently would keep track of the nearest 
+    private Transform _currentTarget; //Do not modify this directly, use currentTarget property.
+    public Transform currentTarget{
+        get{ return _currentTarget; }
+        private set{
+            if(_currentTarget == value)
+            {
+                return;
+            }
+            _currentTarget = value;
+            OnTargetChange?.Invoke(_currentTarget);
+        }
+    }
+    public System.Action<Transform> OnTargetChange;
 
     private void Start()
     {
@@ -33,8 +56,34 @@ public class MatterShell : MonoBehaviour
         for (int i = 0; i < activeMatters.Length; i++)
         {
             activeMatters[i] = Instantiate<Matter>(preWeaponMatter[i],matterAnchors[i]);
-            activeMatters[i].InitilizeMatter(matterAnchors[i].parent);
+            activeMatters[i].InitilizeMatter(this, matterAnchors[i].parent);
         }
+    }
+
+    private void Update()
+    {
+        UpdateTargets();
+    }
+
+    private void UpdateTargets()
+    {
+        currentEnemiesInRange = Physics.OverlapSphereNonAlloc(transform.position, TargetingRange, enemiesInRange, targetLayerMask);
+
+        Transform tempBestTarget = null;
+
+        //loop through every result and 
+        for (int i = 0; i < currentEnemiesInRange; i++)
+        {
+            RaycastHit hitResult;
+            Physics.Raycast(transform.position, enemiesInRange[i].transform.position - transform.position, out hitResult, TargetingRange, targetOcclutionMask);
+            if(hitResult.collider == enemiesInRange[i])
+            {
+                tempBestTarget = enemiesInRange[i].transform;
+            }
+        }
+
+        //Assign temp result to current target
+        currentTarget = tempBestTarget;
     }
 
     public void WeaponizeMatter()
@@ -48,7 +97,7 @@ public class MatterShell : MonoBehaviour
         for (int i = 0; i < weaponizedMatter.Length; i++)
         {
             activeMatters[i] = Instantiate<Matter>(weaponizedMatter[i],matterAnchors[i]);
-            activeMatters[i].InitilizeMatter(matterAnchors[i].parent);
+            activeMatters[i].InitilizeMatter(this, matterAnchors[i].parent);
         }
     }
 }

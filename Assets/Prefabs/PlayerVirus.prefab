@@ -1394,6 +1394,12 @@ MonoBehaviour:
   - {fileID: 5398759799505139348, guid: 4f8c0df8db6333b408da98967d8f3bb2, type: 3}
   - {fileID: 5398759799505139348, guid: 4f8c0df8db6333b408da98967d8f3bb2, type: 3}
   - {fileID: 5398759799505139348, guid: 4f8c0df8db6333b408da98967d8f3bb2, type: 3}
+  targetLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  targetOcclutionMask:
+    serializedVersion: 2
+    m_Bits: 320
 --- !u!1 &8706000205671711966
 GameObject:
   m_ObjectHideFlags: 0
