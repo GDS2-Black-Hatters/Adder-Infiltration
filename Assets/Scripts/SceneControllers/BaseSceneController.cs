@@ -14,7 +14,7 @@ public abstract class BaseSceneController : MonoBehaviour
 
     //For children.
     protected List<BaseObjective> objectives = new();
-    protected event Action onPlayerDetection;
+    public event Action onPlayerDetection;
 
     //Skybox Lerping.
     [Header("Skybox Parameters")]
