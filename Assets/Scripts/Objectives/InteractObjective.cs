@@ -8,7 +8,7 @@ public class InteractObjective : BaseObjective
     protected override void Start()
     {
         base.Start();
-        objectiveTitle = "Interact with " + transform.name;
+        objectiveTitle = "Hack into " + transform.name;
         interactable = GetComponent<Interactable>();
         interactable.AddInteraction(Interact);
     }
