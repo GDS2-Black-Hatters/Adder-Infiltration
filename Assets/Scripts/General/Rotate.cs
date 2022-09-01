@@ -6,6 +6,6 @@ public class Rotate : MonoBehaviour
 
     void Update()
     {
-        transform.eulerAngles += rotationSpeed * Time.deltaTime;
+        transform.Rotate(rotationSpeed * 360 * Time.deltaTime);
     }
 }
