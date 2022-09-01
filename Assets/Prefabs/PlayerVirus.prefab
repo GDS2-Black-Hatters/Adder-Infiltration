@@ -1711,7 +1711,7 @@ VisualEffect:
       - m_Value: 0.24
         m_Name: Size
         m_Overridden: 1
-      - m_Value: 2
+      - m_Value: 1.5
         m_Name: Coverage
         m_Overridden: 1
       - m_Value: 10
@@ -1730,7 +1730,7 @@ VisualEffect:
       m_Array: []
     m_Int:
       m_Array:
-      - m_Value: 24
+      - m_Value: 18
         m_Name: Density
         m_Overridden: 1
       - m_Value: 2
@@ -1739,7 +1739,51 @@ VisualEffect:
     m_Matrix4x4f:
       m_Array: []
     m_AnimationCurve:
-      m_Array: []
+      m_Array:
+      - m_Value:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: -0.002256522
+            inSlope: 0.4126305
+            outSlope: 0.4126305
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.18147278
+            value: 0.18048096
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.79561514
+            value: 0.1717835
+            inSlope: -0.035847403
+            outSlope: -0.035847403
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.26633352
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: -0.050058838
+            outSlope: -0.050058838
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.3401102
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        m_Name: SizeOverLife
+        m_Overridden: 1
     m_Gradient:
       m_Array: []
     m_NamedObject:
