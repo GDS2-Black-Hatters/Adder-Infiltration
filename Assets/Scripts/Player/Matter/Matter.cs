@@ -6,11 +6,11 @@ public class Matter : MonoBehaviour
 
     public void InitilizeMatter(float matterDistance = 1f)
     {
-        matterObject.transform.localPosition = matterDistance * Random.insideUnitCircle.normalized;
+        //matterObject.transform.localPosition = matterDistance * Random.insideUnitCircle.normalized;
     }
 
     public void Weaponize()
     {
-        matterObject.GetComponent<MeshRenderer>().material.color = Color.red;
+        //matterObject.GetComponent<MeshRenderer>().material.color = Color.red;
     }
 }

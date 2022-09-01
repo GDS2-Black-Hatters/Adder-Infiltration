@@ -1384,10 +1384,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shellMatterCount: 3
+  matterDistance: 1
   matterObjectPrefabs:
   - {fileID: -4035184848738383061, guid: 52a58668d04a503489d6bdc55c1521bf, type: 3}
   - {fileID: 8089531170540599153, guid: 77139ba42dc6129439cee876debf5b63, type: 3}
   - {fileID: 1808925618182466711, guid: 7db6d819add33b84ebf5f22318111394, type: 3}
+  preWeaponMatter:
+  - {fileID: -4035184848738383061, guid: 52a58668d04a503489d6bdc55c1521bf, type: 3}
+  - {fileID: 8089531170540599153, guid: 77139ba42dc6129439cee876debf5b63, type: 3}
+  - {fileID: 1808925618182466711, guid: 7db6d819add33b84ebf5f22318111394, type: 3}
+  weaponizedMatter: []
 --- !u!1 &8706000205671711966
 GameObject:
   m_ObjectHideFlags: 0

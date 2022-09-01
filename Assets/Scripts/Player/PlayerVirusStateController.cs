@@ -74,7 +74,14 @@ public class PlayerVirusStateController : MonoBehaviour
         //Start Transform Shell Effect
         convertEffect.Play();
 
-        //Wait for Transform Duration
+        //Wait for Half the Transform Duration
+        while(curTime < transformShellEffectDuration/2)
+        {
+            yield return null;
+            curTime += Time.deltaTime;
+        }
+        //Weaponize Matter Shell, then proceed with waiting for the remaining half of the transformation duration
+        matterShell.WeaponizeMatter();
         while(curTime < transformShellEffectDuration)
         {
             yield return null;

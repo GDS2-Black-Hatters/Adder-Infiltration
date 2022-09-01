@@ -2,41 +2,53 @@ using UnityEngine;
 
 public class MatterShell : MonoBehaviour
 {
-    [SerializeField] private int shellMatterCount;
+    [SerializeField] private float matterDistance = 1;
+    [SerializeField] private float matterOrbitSpeed = 2;
 
-    [SerializeField] private Matter[] matterObjectPrefabs;
+    [SerializeField] private Matter[] preWeaponMatter;
+    [SerializeField] private Matter[] weaponizedMatter;
 
+    private Transform[] matterAnchors;
     private Matter[] activeMatters;
 
     private void Start()
     {
-        if (matterObjectPrefabs.Length == 0)
+        matterAnchors = new Transform[Mathf.Max(preWeaponMatter.Length, weaponizedMatter.Length)];
+
+        //Create Anchors
+        for (int i = 0; i < matterAnchors.Length; i++)
         {
-            return;
+            RandRotate newAnchorBaseRotator = new GameObject("MatterAnchorBase", typeof(RandRotate)).GetComponent<RandRotate>();
+            newAnchorBaseRotator.rotationSpeed = matterOrbitSpeed;
+            newAnchorBaseRotator.transform.SetParent(transform);
+            newAnchorBaseRotator.transform.localPosition = Vector3.zero;
+
+            matterAnchors[i] = new GameObject("MatterAnchor").transform;
+            matterAnchors[i].SetParent(newAnchorBaseRotator.transform);
+            matterAnchors[i].localPosition = matterDistance * Random.insideUnitCircle.normalized;
         }
 
-        activeMatters = new Matter[shellMatterCount];
-        for (int i = 0; i < shellMatterCount; i++)
+        //Spawn preWeaponMatters
+        activeMatters = new Matter[preWeaponMatter.Length];
+        for (int i = 0; i < activeMatters.Length; i++)
         {
-            activeMatters[i] = SpawnMatter();
+            activeMatters[i] = Instantiate<Matter>(preWeaponMatter[i],matterAnchors[i]);
+            activeMatters[i].InitilizeMatter();
         }
-
-        //Temporary test code
-        GameManager.LevelManager.ActiveSceneController.SetMatterShell(this);
-    }
-
-    private Matter SpawnMatter()
-    {
-        Matter newMatter = Instantiate<Matter>(matterObjectPrefabs[Random.Range(0, matterObjectPrefabs.Length)], transform.position, Quaternion.identity, transform);
-        newMatter.InitilizeMatter();
-        return newMatter;
     }
 
     public void WeaponizeMatter()
     {
         for (int i = 0; i < activeMatters.Length; i++)
         {
-            activeMatters[i].Weaponize();
+            Destroy(activeMatters[i].gameObject);
+        }
+
+        activeMatters = new Matter[weaponizedMatter.Length];
+        for (int i = 0; i < weaponizedMatter.Length; i++)
+        {
+            activeMatters[i] = Instantiate<Matter>(weaponizedMatter[i],matterAnchors[i]);
+            activeMatters[i].InitilizeMatter();
         }
     }
 }
