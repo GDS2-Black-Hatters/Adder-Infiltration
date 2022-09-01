@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -44,7 +45,7 @@ public class LevelManager : MonoBehaviour, IManager
     /// </summary>
     /// <param name="notify">A method called once the new scene has finished coding.</param>
     /// <param name="sceneName">The new scene to load.</param>
-    public void ChangeLevel(string sceneName, DoStatic.SimpleDelegate notify = null)
+    public void ChangeLevel(string sceneName, Action notify = null)
     {
         if (!isTransitioning)
         {
@@ -54,7 +55,7 @@ public class LevelManager : MonoBehaviour, IManager
         }
     }
 
-    private IEnumerator Transition(string newSceneName, DoStatic.SimpleDelegate notify = null, bool doTransitionIn = true)
+    private IEnumerator Transition(string newSceneName, Action notify = null, bool doTransitionIn = true)
     {
         IEnumerator LoadProgress(AsyncOperation async)
         {
@@ -97,7 +98,7 @@ public class LevelManager : MonoBehaviour, IManager
 
     public void SetActiveSceneController(BaseSceneController sceneController)
     {
-        if(ActiveSceneController != null)
+        if (ActiveSceneController != null)
         {
             Debug.LogWarning("The previously active SceneController has not yet been destroyed, please ensure you are certain you want two SceneControllers active right now.");
         }

@@ -32,7 +32,7 @@ public abstract class Enemy : MonoBehaviour
     /// </summary>
     protected virtual void Update()
     {
-        switch (!GameManager.LevelManager.ActiveSceneController.InCaughtMode ? EnemyState.Patrol : !canAttack ? EnemyState.Chase : EnemyState.Attack)
+        switch (GameManager.LevelManager.ActiveSceneController.sceneMode == BaseSceneController.SceneState.Stealth ? EnemyState.Patrol : !canAttack ? EnemyState.Chase : EnemyState.Attack)
         {
             case EnemyState.Patrol:
                 Patrol();
@@ -56,17 +56,17 @@ public abstract class Enemy : MonoBehaviour
     /// Meant to be overridden.
     /// This is for the Patrol behaviour.
     /// </summary>
-    protected virtual void Patrol() {}
+    protected virtual void Patrol() { }
 
     /// <summary>
     /// Meant to be overridden.
     /// This is for the Chase behaviour.
     /// </summary>
-    protected virtual void Chase() {}
+    protected virtual void Chase() { }
 
     /// <summary>
     /// Meant to be overridden.
     /// This is for the Attack behaviour.
     /// </summary>
-    protected virtual void Attack() {}
+    protected virtual void Attack() { }
 }

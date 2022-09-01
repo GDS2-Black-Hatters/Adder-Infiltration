@@ -1,15 +1,20 @@
-#pragma warning disable IDE1006 // Naming Styles
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class BaseSceneController : MonoBehaviour
 {
-    [field: SerializeField] public bool InCaughtMode { get; private set; } = false;
+    public enum SceneState
+    {
+        Stealth,
+        Combat,
+    }
+    public SceneState sceneMode { get; private set; } = SceneState.Stealth;
 
     //For children.
     protected Dictionary<string, bool> mandatoryObjectives = new();
     protected Dictionary<string, bool> optionalObjectives = new();
-    protected DoStatic.SimpleDelegate onPlayerDetection;
+    protected event Action onPlayerDetection;
 
     //Skybox Lerping.
     [SerializeField] private Color startColor = Color.green;
@@ -40,9 +45,9 @@ public abstract class BaseSceneController : MonoBehaviour
 
     public void StartCaughtMode()
     {
-        if (!InCaughtMode)
+        if (sceneMode == SceneState.Stealth)
         {
-            InCaughtMode = true;
+            sceneMode = SceneState.Combat;
             onPlayerDetection?.Invoke();
             lerper.SetValues(0, 1, lerpTime);
             if (matterShell)
