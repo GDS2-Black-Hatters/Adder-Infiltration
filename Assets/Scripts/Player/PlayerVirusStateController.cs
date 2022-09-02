@@ -1,18 +1,18 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerVirusStateController : MonoBehaviour
 {
-    enum PlayerState {
+    private enum PlayerState
+    {
         stealth,
         alert,
     }
 
     private PlayerState currentPlayerState;
 
-    [SerializeField] MatterShell matterShell;
-    [SerializeField] RandRotate geoShellRotator;
+    [SerializeField] private MatterShell matterShell;
+    [SerializeField] private RandRotate geoShellRotator;
 
     [Header("Transformation")]
     [SerializeField] private float matterShellTransformSize = 0.75f;
@@ -21,7 +21,7 @@ public class PlayerVirusStateController : MonoBehaviour
     [SerializeField] private float transformShellStartDelay = 1;
     [SerializeField] private float transformShellEffectDuration = 3;
 
-    void Start()
+    private void Start()
     {
         currentPlayerState = PlayerState.stealth;
         GetComponent<UnityEngine.VFX.VisualEffect>().Stop();
@@ -44,7 +44,7 @@ public class PlayerVirusStateController : MonoBehaviour
         Lerper matterShellSizeLerp = new();
         matterShellSizeLerp.SetValues(1, matterShellTransformSize, transformShellStartDelay);
         Vector3 initialMatterShellSize = matterShell.transform.localScale;
-        
+
         Lerper geometricShellSizeLerp = new();
         geometricShellSizeLerp.SetValues(1, geometricShellTransformSize, transformShellStartDelay);
         Vector3 initialGeoShellSize = geoShellRotator.transform.localScale;
@@ -54,7 +54,7 @@ public class PlayerVirusStateController : MonoBehaviour
         float initialGeoShellRotSpeed = geoShellRotator.rotationSpeed;
 
         //Start Lerping Matter and GeoShell size and delay TransformShell Start
-        while(curTime < transformShellStartDelay)
+        while (curTime < transformShellStartDelay)
         {
             yield return null;
 
@@ -75,14 +75,14 @@ public class PlayerVirusStateController : MonoBehaviour
         convertEffect.Play();
 
         //Wait for Half the Transform Duration
-        while(curTime < transformShellEffectDuration/2)
+        while (curTime < transformShellEffectDuration / 2)
         {
             yield return null;
             curTime += Time.deltaTime;
         }
         //Weaponize Matter Shell, then proceed with waiting for the remaining half of the transformation duration
         matterShell.WeaponizeMatter();
-        while(curTime < transformShellEffectDuration)
+        while (curTime < transformShellEffectDuration)
         {
             yield return null;
             curTime += Time.deltaTime;
@@ -97,7 +97,7 @@ public class PlayerVirusStateController : MonoBehaviour
         geometricShellRotationSpeedLerp.SetValues(geoShellRotationSpeedChange, 1, transformShellStartDelay);
 
         //Reset Geo and Matter Shell Size
-        while(curTime < transformShellStartDelay)
+        while (curTime < transformShellStartDelay)
         {
             yield return null;
 
@@ -106,7 +106,7 @@ public class PlayerVirusStateController : MonoBehaviour
 
             geometricShellSizeLerp.Update(Time.deltaTime);
             geoShellRotator.transform.localScale = initialGeoShellSize * geometricShellSizeLerp.currentValue;
-            
+
             geometricShellRotationSpeedLerp.Update(Time.deltaTime);
             geoShellRotator.rotationSpeed = initialGeoShellRotSpeed * geometricShellRotationSpeedLerp.currentValue;
 
