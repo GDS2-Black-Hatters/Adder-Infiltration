@@ -1,3 +1,6 @@
+/// <summary>
+/// Should probably be renamed to PlayerTestController.
+/// </summary>
 public class LevelSceneController : BaseSceneController
 {
     public UnityEngine.Events.UnityEvent OnPlayerDetection; //TEMP, REMOVE
@@ -10,5 +13,10 @@ public class LevelSceneController : BaseSceneController
     protected void TriggerPlayerDetection()
     {
         OnPlayerDetection.Invoke();
-    }
+	}
+	
+    protected override void Awake()
+    {
+        base.Awake();
+	}
 }

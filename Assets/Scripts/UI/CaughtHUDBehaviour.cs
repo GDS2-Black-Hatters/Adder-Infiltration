@@ -32,7 +32,7 @@ public class CaughtHUDBehaviour : MonoBehaviour
             return;
         }
 
-        if (controller && controller.InCaughtMode)
+        if (controller && controller.sceneMode != BaseSceneController.SceneState.Stealth)
         {
             lerp.SetValues(0, 1, fadeInSpeed);
         }

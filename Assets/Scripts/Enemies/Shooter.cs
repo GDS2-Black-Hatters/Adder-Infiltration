@@ -17,10 +17,13 @@ public class Shooter : Enemy
             attackCooldown.Reset();
             Rigidbody bullet = GameManager.PoolManager.GetObjectFromPool<Rigidbody>("BulletPool");
             bullet.transform.position = bulletPoint ? bulletPoint.position : Vector3.zero;
-			
+
+            Bullet bull = bullet.GetComponent<Bullet>();
+            bull.SetOwner(transform);
+
             Transform player = GameManager.LevelManager.player;
             bullet.transform.LookAt(player);
-            bullet.velocity = (player.position - bullet.transform.position).normalized * bulletSpeed;
+            bullet.velocity = (player.position - bullet.transform.position) * bulletSpeed;
         }
     }
 }

@@ -15,7 +15,7 @@ public class TimerTracker : VariableTracker
 
     protected override void UpdateUI()
     {
-        if (!GameManager.LevelManager.ActiveSceneController.InCaughtMode)
+        if (GameManager.LevelManager.ActiveSceneController.sceneMode != BaseSceneController.SceneState.Combat)
         {
             return;
         }

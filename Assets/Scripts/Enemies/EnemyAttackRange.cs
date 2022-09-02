@@ -15,17 +15,11 @@ public class EnemyAttackRange : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            enemy.canAttack = true;
-        }
+        enemy.canAttack = other.CompareTag("Player") || enemy.canAttack;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            enemy.canAttack = false;
-        }
+        enemy.canAttack = !other.CompareTag("Player") && enemy.canAttack;
     }
 }

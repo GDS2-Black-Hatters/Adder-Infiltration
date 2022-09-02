@@ -7,9 +7,9 @@ using UnityEngine;
 /// </summary>
 public class EnemyDetectionRange : MonoBehaviour
 {
-    void Update()
+    private void Update()
     {
-        gameObject.SetActive(!GameManager.LevelManager.ActiveSceneController.InCaughtMode);
+        gameObject.SetActive(GameManager.LevelManager.ActiveSceneController.sceneMode == BaseSceneController.SceneState.Stealth);
     }
 
     private void OnTriggerEnter(Collider other)

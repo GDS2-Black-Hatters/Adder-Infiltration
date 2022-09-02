@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float lifeTime = 3;
     [SerializeField] private float damage = 2;
     [SerializeField] private TimeTracker timer = new(0);
+    private Transform owner;
 
     private void OnEnable()
     {
@@ -18,6 +19,11 @@ public class Bullet : MonoBehaviour
         gameObject.SetActive(timer.tick > 0);
     }
 
+    public void SetOwner(Transform transform)
+    {
+        owner = transform;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -27,7 +33,7 @@ public class Bullet : MonoBehaviour
             timer.Finish();
         }
 
-        if (!other.gameObject.TryGetComponent(out MeshRenderer meshRenderer))
+        if (other.transform.IsChildOf(owner) || !other.gameObject.TryGetComponent(out MeshRenderer meshRenderer))
         {
             return;
         }

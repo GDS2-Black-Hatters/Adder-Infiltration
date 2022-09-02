@@ -52,6 +52,13 @@ public class PlayerInteracter : MonoBehaviour
 
         foreach (KeyValuePair<Interactable, LineRenderer> line in interactLines)
         {
+            if (line.Key == null)
+            {
+                linesToRemove.Add(line.Key);
+                Destroy(line.Value.gameObject);
+                continue;
+            }
+
             line.Value.SetPositions(new Vector3[] { line.Key.transform.position, transform.position });
 
             //Widen line width to cap if focus, else shrink it and mark for destroy if small enough

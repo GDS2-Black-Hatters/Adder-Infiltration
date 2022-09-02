@@ -1,17 +1,23 @@
 #pragma warning disable IDE1006 // Naming Styles
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class BaseSceneController : MonoBehaviour
 {
-    [field: SerializeField] public bool InCaughtMode { get; private set; } = false;
+    public enum SceneState
+    {
+        Stealth,
+        Combat,
+    }
+    public SceneState sceneMode { get; private set; } = SceneState.Stealth;
 
     //For children.
-    protected Dictionary<string, bool> mandatoryObjectives = new();
-    protected Dictionary<string, bool> optionalObjectives = new();
-    protected DoStatic.SimpleDelegate onPlayerDetection;
+    protected List<BaseObjective> objectives = new();
+    public event Action onPlayerDetection;
 
     //Skybox Lerping.
+    [Header("Skybox Parameters")]
     [SerializeField] private Color startColor = Color.green;
     [SerializeField] private Color endColor = Color.red;
     [SerializeField] private float lerpTime = 1f;
@@ -26,7 +32,11 @@ public abstract class BaseSceneController : MonoBehaviour
 
         //Create and assign a copy so we don't change the asset original values
         RenderSettings.skybox = new(RenderSettings.skybox);
-        RenderSettings.skybox.SetColor("_SkyTint", startColor); //Might be unecessary.
+    }
+
+    protected virtual void Start()
+    {
+        UpdateObjectiveList();
     }
 
     protected virtual void Update()
@@ -40,9 +50,9 @@ public abstract class BaseSceneController : MonoBehaviour
 
     public void StartCaughtMode()
     {
-        if (!InCaughtMode)
+        if (sceneMode == SceneState.Stealth)
         {
-            InCaughtMode = true;
+            sceneMode = SceneState.Combat;
             onPlayerDetection?.Invoke();
             lerper.SetValues(0, 1, lerpTime);
             if (matterShell)
@@ -55,5 +65,36 @@ public abstract class BaseSceneController : MonoBehaviour
     public void SetMatterShell(MatterShell shell)
     {
         matterShell = shell;
+    }
+
+    public void AddToObjectiveList(BaseObjective objective)
+    {
+        objectives.Add(objective);
+    }
+
+    public void UpdateObjectiveList()
+    {
+        string mandatory = "";
+        string optional = "";
+        int mandatoryCount = 0;
+        foreach (BaseObjective objective in objectives)
+        {
+            string item = (objective.isMandatory ? "<color=\"yellow\">" : "") + "\n\t";
+            item += (objective.isComplete ? "<s>" : "") + "- ";
+            item += objective.objectiveTitle;
+            item += objective.isComplete ? "</s>" : "";
+            item += objective.isMandatory ? "</color=\"yellow\">" : "";
+
+            if (objective.isMandatory)
+            {
+                mandatoryCount += objective.isComplete ? 0 : 1;
+                mandatory += item;
+            } else
+            {
+                optional += item;
+            }
+        }
+        string extra = mandatoryCount > 0 ? "" : "\nMission Completed, escape through spawn point.";
+        GameManager.LevelManager.objectiveList.text = "Objective List:" + mandatory + optional + extra;
     }
 }
