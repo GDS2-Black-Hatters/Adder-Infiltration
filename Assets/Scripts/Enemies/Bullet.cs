@@ -40,7 +40,7 @@ public class Bullet : MonoBehaviour
         {
             //Decrease health through VariableManager.
             GameManager.VariableManager.playerHealth.ReduceHealth(damage);
-            timer.Finish();
+            timer.Reset(true);
         }
 
         if (!other.gameObject.TryGetComponent(out MeshRenderer meshRenderer))
