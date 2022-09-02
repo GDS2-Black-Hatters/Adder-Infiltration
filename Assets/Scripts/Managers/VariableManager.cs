@@ -4,9 +4,7 @@ using UnityEngine;
 public class VariableManager : MonoBehaviour, IManager
 {
     //Game variables
-    [Header("Caught Timer")]
-    [SerializeField] private float countdownTimer;
-    [field: SerializeField] public TimeTracker timeToLive { get; private set; } //The timer for when getting caught. Is in seconds.
+    [field: SerializeField, Header("Caught Timer")] public TimeTracker timeToLive { get; private set; } //The timer for when getting caught. Is in seconds.
     [SerializeField] private GameObject caughtHUD;
 
 
@@ -18,7 +16,6 @@ public class VariableManager : MonoBehaviour, IManager
 
     public void StartUp()
     {
-        timeToLive = new(countdownTimer);
         playerHealth = new(maxPlayerHealth);
 
         timeToLive.Reset();

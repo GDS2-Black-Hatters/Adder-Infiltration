@@ -3,20 +3,19 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private float lifeTime = 3;
     [SerializeField] private float damage = 2;
-    [SerializeField] private TimeTracker timer = new(0);
+    [SerializeField] private TimeTracker lifeTime = new(0);
     private Transform owner;
 
     private void OnEnable()
     {
-        timer.Reset();
+        lifeTime.Reset();
     }
 
     void Update()
     {
-        timer.Update(Time.deltaTime);
-        gameObject.SetActive(timer.tick > 0);
+        lifeTime.Update(Time.deltaTime);
+        gameObject.SetActive(lifeTime.tick > 0);
     }
 
     public void SetOwner(Transform transform)
@@ -26,12 +25,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.layer == LayerMask.NameToLayer("Bullet"))
-        {
-            return;
-        }
-
-        if (other.transform.IsChildOf(owner))
+        if(other.gameObject.layer == LayerMask.NameToLayer("Bullet") || other.transform.IsChildOf(owner))
         {
             return;
         }
@@ -40,13 +34,12 @@ public class Bullet : MonoBehaviour
         {
             //Decrease health through VariableManager.
             GameManager.VariableManager.playerHealth.ReduceHealth(damage);
-            timer.Reset(true);
+            lifeTime.Reset(true);
         }
 
-        if (!other.gameObject.TryGetComponent(out MeshRenderer meshRenderer))
+        if (other.gameObject.TryGetComponent(out MeshRenderer meshRenderer))
         {
-            return;
+            lifeTime.Reset(true);
         }
-        timer.Reset(true);
     }
 }
