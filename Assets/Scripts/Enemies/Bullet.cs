@@ -33,6 +33,6 @@ public class Bullet : MonoBehaviour
         {
             //Decrease health through VariableManager.
         }
-        timer.Finish();
+        timer.Reset(true);
     }
 }

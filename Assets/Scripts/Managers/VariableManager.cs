@@ -4,15 +4,15 @@ using UnityEngine;
 public class VariableManager : MonoBehaviour, IManager
 {
     //Game variables
-    [SerializeField] private float countdownTimer;
-    public TimeTracker timeToLive { get; private set; } //The timer for when getting caught. Is in seconds.
+    [field: SerializeField] public TimeTracker timeToLive { get; private set; } //The timer for when getting caught. Is in seconds.
     [SerializeField] private GameObject caughtHUD;
 
     //Saveable variables
 
     public void StartUp()
     {
-        timeToLive = new(countdownTimer);
+        timeToLive.Reset();
+        timeToLive.onFinish += GameOver;
     }
 
     /// <summary>
@@ -29,5 +29,10 @@ public class VariableManager : MonoBehaviour, IManager
     public void Restart()
     {
         timeToLive.Reset();
+    }
+
+    private void GameOver() //Might not be the right to put this...
+    {
+        Debug.Log("Game Over code here.");
     }
 }

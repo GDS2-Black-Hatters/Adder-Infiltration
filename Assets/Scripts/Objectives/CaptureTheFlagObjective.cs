@@ -17,8 +17,7 @@ public class CaptureTheFlagObjective : BaseObjective
 
     private void UpdateName()
     {
-        timer.Update(Time.deltaTime * (withinRange ? 1 : -1));
-        float percentage = timer.tick / timer.timer;
+        float percentage = timer.Update(Time.deltaTime * (withinRange ? 1 : -1)) / timer.timer;
         objectiveTitle = $"{prefixName} ({percentage * 100:00.0}%)";
         GameManager.LevelManager.ActiveSceneController.UpdateObjectiveList();
         if (percentage == 1)

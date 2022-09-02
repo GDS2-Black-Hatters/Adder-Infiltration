@@ -92,6 +92,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4465324166270719627, guid: e067b651c87cee148946ec729831b7d6, type: 3}
+    - {fileID: 6490883651768434184, guid: e067b651c87cee148946ec729831b7d6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e067b651c87cee148946ec729831b7d6, type: 3}
 --- !u!4 &8327987172627383090 stripped
 Transform:
@@ -121,3 +122,4 @@ MonoBehaviour:
   attackCooldown:
     <timer>k__BackingField: 1
     <timeScale>k__BackingField: -1
+    <autoLoop>k__BackingField: 1

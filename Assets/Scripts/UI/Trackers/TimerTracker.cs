@@ -21,14 +21,18 @@ public class TimerTracker : VariableTracker
         }
 
         TimeTracker tracker = GameManager.VariableManager.timeToLive;
-        tracker.Update(Time.deltaTime);
-        float percentage = tracker.tick / tracker.timer;
-        //If percentage is 0, then mission failed.
+        float tick = tracker.Update(Time.deltaTime);
+        float percentage = tick / tracker.timer;
+        if (tick == 0)
+        {
+            tracker.Reset();
+        }
+
         ui.fillAmount = percentage;
         ui.color = Color.Lerp(low, full, percentage);
 
-        int minutes = (int)(tracker.tick / 60);
-        float seconds = tracker.tick - (60 * minutes);
+        int minutes = (int)(tick / 60);
+        float seconds = tick - (60 * minutes);
         text.text = minutes > 0 ? minutes.ToString("0") + ":" + seconds.ToString("00") : seconds.ToString("#0.00") + "s";
     }
 }
