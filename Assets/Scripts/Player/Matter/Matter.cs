@@ -2,15 +2,8 @@ using UnityEngine;
 
 public class Matter : MonoBehaviour
 {
-    [SerializeField] private MatterObject matterObject;
-
-    public void InitilizeMatter(float matterDistance = 1f)
+    public virtual void InitilizeMatter(MatterShell ownerShell, Transform anchorBase)
     {
-        matterObject.transform.localPosition = matterDistance * Random.onUnitSphere;
-    }
-
-    public void Weaponize()
-    {
-        matterObject.GetComponent<MeshRenderer>().material.color = Color.red;
+        //Do Nothing, Intended to be override by derived classes that may want more complex behavior.
     }
 }

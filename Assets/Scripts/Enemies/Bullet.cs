@@ -3,6 +3,8 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class Bullet : MonoBehaviour
 {
+    [SerializeField] private float lifeTime = 3;
+    [SerializeField] private float damage = 2;
     [SerializeField] private TimeTracker timer = new(0);
     private Transform owner;
 
@@ -24,7 +26,12 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.IsChildOf(owner) || !other.gameObject.TryGetComponent(out MeshRenderer meshRenderer))
+        if(other.gameObject.layer == LayerMask.NameToLayer("Bullet"))
+        {
+            return;
+        }
+
+        if (other.transform.IsChildOf(owner))
         {
             return;
         }
@@ -32,6 +39,13 @@ public class Bullet : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             //Decrease health through VariableManager.
+            GameManager.VariableManager.playerHealth.ReduceHealth(damage);
+            timer.Reset(true);
+        }
+
+        if (!other.gameObject.TryGetComponent(out MeshRenderer meshRenderer))
+        {
+            return;
         }
         timer.Reset(true);
     }

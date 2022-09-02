@@ -6,6 +6,5 @@ public class LevelSceneController : BaseSceneController
     protected override void Awake()
     {
         base.Awake();
-
-    }
+	}
 }

@@ -57,7 +57,7 @@ public abstract class BaseSceneController : MonoBehaviour
             lerper.SetValues(0, 1, lerpTime);
             if (matterShell)
             {
-                matterShell.WeaponizeMatter();
+                matterShell.WeaponizeMatter(); //Should be removed, matter shell converstion now handled by player virus state controller
             }
         }
     }

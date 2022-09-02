@@ -6,7 +6,7 @@ using UnityEngine;
 public class Shooter : Enemy
 {
     [SerializeField] private Transform bulletPoint; //Where the bullet will spawn.
-    [SerializeField] private float bulletSpeed = 3; //The speed of the bullet.
+    [SerializeField] private float bulletSpeed = 10; //The speed of the bullet.
     [SerializeField] protected TimeTracker attackCooldown = new(1, -1, true); //Intervals before next attack.
 
     private void Awake()
@@ -30,6 +30,6 @@ public class Shooter : Enemy
 
         Transform player = GameManager.LevelManager.player;
         bullet.transform.LookAt(player);
-        bullet.velocity = (player.position - bullet.transform.position) * bulletSpeed;
+        bullet.velocity = (player.position - bullet.transform.position).normalized * bulletSpeed;
     }
 }

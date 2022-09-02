@@ -4,9 +4,18 @@ using UnityEngine;
 
 public class RandRotate : MonoBehaviour
 {
-    [SerializeField] private float rotationSpeed = 10;
+    [SerializeField] private float _rotationSpeed = 10;
+    public float rotationSpeed{
+        get{
+            return _rotationSpeed;
+        }
+        set{
+            _rotationSpeed = value;
+            this.enabled = (_rotationSpeed != 0);
+        }
+    }
     [SerializeField] private Vector3 axisChangeFrequency = Vector3.one;
-    private Vector3 axisOffset;
+    [System.NonSerialized] public Vector3 axisOffset;
 
     void Awake()
     {
@@ -15,11 +24,11 @@ public class RandRotate : MonoBehaviour
 
     void Update()
     {
-        transform.Rotate(GetRotationAxis(), rotationSpeed);
+        transform.Rotate(GetRotationAxis(), _rotationSpeed);
     }
 
     Vector3 GetRotationAxis()
     {
-        return new Vector3(Mathf.Sin(Time.time * axisChangeFrequency.x + axisOffset.x),  Mathf.Sin(Time.time * axisChangeFrequency.y + axisOffset.y)/2 + 0.5f, Mathf.Sin(Time.time * axisChangeFrequency.z + axisOffset.z)).normalized;
+        return new Vector3(Mathf.Sin(Time.time * axisChangeFrequency.x + axisOffset.x),  Mathf.Sin(Time.time * axisChangeFrequency.y + axisOffset.y), Mathf.Sin(Time.time * axisChangeFrequency.z + axisOffset.z)).normalized;
     }
 }
