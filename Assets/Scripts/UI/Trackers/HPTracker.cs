@@ -5,7 +5,7 @@ public class HPTracker : VariableTracker
     protected override void UpdateUI()
     {
         //Get Current HP.
-        if (!GameManager.LevelManager.ActiveSceneController.InCaughtMode)
+        if (GameManager.LevelManager.ActiveSceneController.sceneMode == BaseSceneController.SceneState.Stealth)
         {
             return;
         }

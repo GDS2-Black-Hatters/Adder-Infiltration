@@ -26,6 +26,11 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.transform.IsChildOf(owner))
+        {
+            return;
+        }
+
         if (other.CompareTag("Player"))
         {
             //Decrease health through VariableManager.
@@ -33,7 +38,7 @@ public class Bullet : MonoBehaviour
             timer.Finish();
         }
 
-        if (other.transform.IsChildOf(owner) || !other.gameObject.TryGetComponent(out MeshRenderer meshRenderer))
+        if (!other.gameObject.TryGetComponent(out MeshRenderer meshRenderer))
         {
             return;
         }
