@@ -28,7 +28,7 @@ public class WeaponMatter : Matter
         ownerMatterShell.OnTargetChange += ChangeTarget;
     }
 
-    public void ChangeTarget(Transform newTargetTransform)
+    public virtual void ChangeTarget(Transform newTargetTransform)
     {
         if(newTargetTransform == null)
         {

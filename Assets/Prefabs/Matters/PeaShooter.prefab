@@ -67,18 +67,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4965295125949142175, guid: 52a58668d04a503489d6bdc55c1521bf, type: 3}
   m_PrefabInstance: {fileID: 739285683252350686}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5398759799505139348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5668411205134621249}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 110ee4cd2d72a284491a5883eb66ea3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1265563315178610593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,4 +80,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateToStareMaxSpeed: 15
+  stareAccuracyRequirement: 0.95
   spinSpeed: 15
+--- !u!114 &5097049983941252539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5668411205134621249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7856467c550df0b4fa0298d33024135e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletSpeed: 10
+  fireCooldown: 0.75
