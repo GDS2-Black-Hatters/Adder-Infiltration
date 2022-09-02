@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class DoStatic
 {
-    public delegate void SimpleDelegate();
-
     /// <summary>
     /// Get a random colour.
     /// </summary>

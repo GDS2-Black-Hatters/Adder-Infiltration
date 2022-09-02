@@ -1,17 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class DetectorEnvironmentObject : MonoBehaviour
+public abstract class DetectorEnvironmentObject : MonoBehaviour
 {
-    public void AlertPlayerDetection()
+    [SerializeField] private bool AlertLevelSceneManager = true;
+    [SerializeField] protected UnityEngine.Events.UnityEvent OnDetect;
+
+    protected virtual void Start()
     {
-        LevelSceneController lsc = (LevelSceneController)GameManager.LevelManager.ActiveSceneController;
-        if(lsc == null)
+        if(AlertLevelSceneManager)
         {
-            Debug.LogWarning("Cannot find LevelSceneController, will do nothing on player detection.");
-            return;
+            if(GameManager.LevelManager.ActiveSceneController == null)
+            {
+                Debug.LogWarning("Cannot find SceneController, SceneController will not be alerted on player detection.");
+                return;
+            }            
+            OnDetect.AddListener(GameManager.LevelManager.ActiveSceneController.StartCaughtMode);
         }
-        lsc.PlayerDetected();        
     }
+
+    public abstract void PlayerInRange();
 }

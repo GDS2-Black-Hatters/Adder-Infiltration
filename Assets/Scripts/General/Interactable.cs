@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
@@ -15,6 +13,11 @@ public class Interactable : MonoBehaviour
     public void OnUnfocus()
     {
         //Debug.Log("Unfocus: " + transform.parent.name);
+    }
+
+    public void AddInteraction(UnityEngine.Events.UnityAction unityAction)
+    {
+        onInteract.AddListener(unityAction);
     }
 
     public void Interact()
