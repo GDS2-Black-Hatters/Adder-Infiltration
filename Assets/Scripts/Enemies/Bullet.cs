@@ -47,6 +47,6 @@ public class Bullet : MonoBehaviour
         {
             return;
         }
-        timer.Finish();
+        timer.Reset(true);
     }
 }

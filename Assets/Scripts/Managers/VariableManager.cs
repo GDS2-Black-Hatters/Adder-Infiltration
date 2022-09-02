@@ -6,7 +6,7 @@ public class VariableManager : MonoBehaviour, IManager
     //Game variables
     [Header("Caught Timer")]
     [SerializeField] private float countdownTimer;
-    public TimeTracker timeToLive { get; private set; } //The timer for when getting caught. Is in seconds.
+    [field: SerializeField] public TimeTracker timeToLive { get; private set; } //The timer for when getting caught. Is in seconds.
     [SerializeField] private GameObject caughtHUD;
 
 
@@ -20,6 +20,9 @@ public class VariableManager : MonoBehaviour, IManager
     {
         timeToLive = new(countdownTimer);
         playerHealth = new(maxPlayerHealth);
+
+        timeToLive.Reset();
+        timeToLive.onFinish += GameOver;
     }
 
     /// <summary>
@@ -37,5 +40,10 @@ public class VariableManager : MonoBehaviour, IManager
     {
         timeToLive.Reset();
         playerHealth.Reset();
+    }
+
+    private void GameOver() //Might not be the right to put this...
+    {
+        Debug.Log("Game Over code here.");
     }
 }
