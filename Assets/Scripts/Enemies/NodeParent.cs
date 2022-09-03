@@ -6,15 +6,18 @@ public class NodeParent : MonoBehaviour
 {
     public GameObject enemyPatrol;
     int patrolNum = 0;
+
+    public Transform[] nodes;
     private void Awake()
     {
-        Transform[] nodes = GetComponentsInChildren<Transform>();
+        nodes = GetComponentsInChildren<Transform>();
 
 
         foreach (Transform node in nodes)
         {
             GameObject patrol = Instantiate(enemyPatrol, node.transform.position, node.transform.rotation);
             patrol.name = "Enemy Patrol " + patrolNum;
+            patrol.GetComponent<Shooter>().currentNode = patrolNum;
             patrolNum++;
         }
         Destroy(GameObject.Find("Enemy Patrol 0"));

@@ -8,13 +8,43 @@ public class Shooter : Enemy
     [SerializeField] private Transform bulletPoint; //Where the bullet will spawn.
     [SerializeField] private float bulletSpeed = 10; //The speed of the bullet.
     [SerializeField] protected TimeTracker attackCooldown = new(1, -1, true); //Intervals before next attack.
+    public int currentNode;
+    public int nextNode;
 
+    private GameObject nodeParent;
+    
+    public float speed = 10000.0f;
+    private Vector3 patrolDirection;
+    private Quaternion lookRotation;
     private void Awake()
     {
         attackCooldown.Reset();
         attackCooldown.onFinish += Shoot;
+        nodeParent = GameObject.Find("NodeParent");
     }
 
+    protected override void Patrol() 
+    {
+        if (currentNode <= nodeParent.GetComponent<NodeParent>().nodes.Length - 2)
+        {
+            nextNode = currentNode + 1;
+        }
+        else
+        {
+            nextNode = 1;
+        }
+
+        patrolDirection = (nodeParent.GetComponent<NodeParent>().nodes[nextNode].transform.position - transform.position).normalized;
+        lookRotation = Quaternion.LookRotation(patrolDirection);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 1000);
+        transform.Translate(Vector3.forward * speed * Time.deltaTime, Space.Self);
+        if (transform.position == nodeParent.GetComponent<NodeParent>().nodes[nextNode].transform.position && currentNode != nextNode)
+        {
+            currentNode = nextNode;
+        }
+        Debug.Log(gameObject.name + " " + nextNode);
+    }
+        
     protected override void Attack()
     {
         attackCooldown.Update(Time.deltaTime);
