@@ -13,7 +13,7 @@ public class Shooter : Enemy
 
     private GameObject nodeParent;
     
-    public float speed = 10000.0f;
+    public float speed = 10.0f;
     private Vector3 patrolDirection;
     private Quaternion lookRotation;
     private void Awake()
