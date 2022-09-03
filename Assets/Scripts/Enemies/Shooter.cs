@@ -5,6 +5,8 @@ using UnityEngine;
 /// </summary>
 public class Shooter : Enemy
 {
+    private const float patrolNodeDistanceLeeway = 0.2f;
+
     [SerializeField] private Transform bulletPoint; //Where the bullet will spawn.
     [SerializeField] private float bulletSpeed = 10; //The speed of the bullet.
     [SerializeField] protected TimeTracker attackCooldown = new(1, -1, true); //Intervals before next attack.
@@ -38,7 +40,7 @@ public class Shooter : Enemy
         lookRotation = Quaternion.LookRotation(patrolDirection);
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 1000);
         transform.Translate(Vector3.forward * speed * Time.deltaTime, Space.Self);
-        if (transform.position == nodeParent.GetComponent<NodeParent>().nodes[nextNode].transform.position && currentNode != nextNode)
+        if (Vector3.Distance(transform.position, nodeParent.GetComponent<NodeParent>().nodes[nextNode].transform.position) <= patrolNodeDistanceLeeway && currentNode != nextNode)
         {
             currentNode = nextNode;
         }
