@@ -118,6 +118,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 7268229092622374420, guid: e067b651c87cee148946ec729831b7d6, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 6278474733455918827, guid: c8128b1402ee8324fb2a9455114add40, type: 3}
     - target: {fileID: 7268229092622374421, guid: e067b651c87cee148946ec729831b7d6, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -164,7 +168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7268229092622374425, guid: e067b651c87cee148946ec729831b7d6, type: 3}
       propertyPath: m_Name
-      value: EnemyPatrol 0
+      value: Shooter
       objectReference: {fileID: 0}
     - target: {fileID: 7268229093206108037, guid: e067b651c87cee148946ec729831b7d6, type: 3}
       propertyPath: m_Layer
@@ -289,3 +293,6 @@ MonoBehaviour:
     <timer>k__BackingField: 1
     <timeScale>k__BackingField: -1
     <autoLoop>k__BackingField: 1
+  currentNode: 0
+  nextNode: 0
+  speed: 10
