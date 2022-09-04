@@ -38,6 +38,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 436855913292890666, guid: e067b651c87cee148946ec729831b7d6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 559185904963056106, guid: e067b651c87cee148946ec729831b7d6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -80,6 +84,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4741274548901469810, guid: e067b651c87cee148946ec729831b7d6, type: 3}
       propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5951943283377045061, guid: e067b651c87cee148946ec729831b7d6, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6439903393968392995, guid: e067b651c87cee148946ec729831b7d6, type: 3}
@@ -249,8 +257,8 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7268229092622374425, guid: e067b651c87cee148946ec729831b7d6, type: 3}
   m_PrefabInstance: {fileID: 1679591888163542311}
   m_PrefabAsset: {fileID: 0}
---- !u!136 &3433305608521142371
-CapsuleCollider:
+--- !u!135 &1559162419291259685
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -259,10 +267,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 2
+  m_Radius: 0.94
+  m_Center: {x: 0.000000059604645, y: 0.18459809, z: 0.18629959}
 --- !u!114 &1762367355547013725
 MonoBehaviour:
   m_ObjectHideFlags: 0
