@@ -8,7 +8,7 @@ public class EnemyAttackRange : MonoBehaviour
 {
     private Enemy enemy;
 
-    void Start()
+    void Awake()
     {
         enemy = GetComponentInParent<Enemy>(); //Expected to exist.
     }
