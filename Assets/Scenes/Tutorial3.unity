@@ -3838,6 +3838,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPatrol: {fileID: 8327987172627383102, guid: 4410d520a97a9014297faee48626ad7a, type: 3}
+  spawnLimiter: 1
   nodes: []
 --- !u!4 &1174728932
 Transform:
@@ -4950,6 +4951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPatrol: {fileID: 8327987172627383102, guid: 4410d520a97a9014297faee48626ad7a, type: 3}
+  spawnLimiter: 1
   nodes: []
 --- !u!4 &1431610353
 Transform:
@@ -5643,7 +5645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e04b0ab2b1e95b54fad75492bb21ec8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <isMandatory>k__BackingField: 0
+  <isMandatory>k__BackingField: 1
   <isComplete>k__BackingField: 0
 --- !u!4 &1804622633
 Transform:

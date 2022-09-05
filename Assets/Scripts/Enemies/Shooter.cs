@@ -13,7 +13,8 @@ public class Shooter : Enemy
     public int currentNode;
     public int nextNode;
 
-    private GameObject nodeParent;
+    //QUICK PATCHED, CHANGE SOON
+    public GameObject nodeParent;
     
     public float speed = 10.0f;
     private Vector3 patrolDirection;
@@ -22,7 +23,6 @@ public class Shooter : Enemy
     {
         attackCooldown.Reset();
         attackCooldown.onFinish += Shoot;
-        nodeParent = GameObject.Find("NodeParent");
     }
 
     protected override void Patrol() 

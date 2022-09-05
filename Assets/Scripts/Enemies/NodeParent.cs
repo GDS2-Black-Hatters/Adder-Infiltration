@@ -4,23 +4,28 @@ using UnityEngine;
 
 public class NodeParent : MonoBehaviour
 {
-    public GameObject enemyPatrol;
-    int patrolNum = 0;
+    [SerializeField] private GameObject enemyPatrol;
+    [SerializeField] private int spawnLimiter = 1;
+
 
     public Transform[] nodes;
     private void Awake()
     {
         nodes = GetComponentsInChildren<Transform>();
 
-
-        foreach (Transform node in nodes)
+        //Applied quick patch fix, THIS SHOULD BE CHANGED
+        for (int i = 0; i < Mathf.Min(nodes.Length-1, spawnLimiter); i++)
         {
-            GameObject patrol = Instantiate(enemyPatrol, node.transform.position, node.transform.rotation);
-            patrol.name = "Enemy Patrol " + patrolNum;
-            patrol.GetComponent<Shooter>().currentNode = patrolNum;
-            patrolNum++;
+            if(nodes[i] == this)
+            {
+                continue;
+            }
+
+            GameObject patrol = Instantiate(enemyPatrol, nodes[i].transform.position, nodes[i].transform.rotation, transform);
+            patrol.name = "Enemy Patrol " + i;
+            patrol.GetComponent<Shooter>().currentNode = i;
+            patrol.GetComponent<Shooter>().nodeParent = this.gameObject;
         }
-        Destroy(GameObject.Find("Enemy Patrol 0"));
     }
     // Start is called before the first frame update
     void Start()
