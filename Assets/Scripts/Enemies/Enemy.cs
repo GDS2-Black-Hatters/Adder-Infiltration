@@ -54,21 +54,7 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Meant to be overridden.
-    /// This is for the Patrol behaviour.
-    /// </summary>
-    protected virtual void Patrol() { }
-
-    /// <summary>
-    /// Meant to be overridden.
-    /// This is for the Chase behaviour.
-    /// </summary>
-    protected virtual void Chase() { }
-
-    /// <summary>
-    /// Meant to be overridden.
-    /// This is for the Attack behaviour.
-    /// </summary>
-    protected virtual void Attack() { }
+    protected abstract void Patrol();
+    protected abstract void Chase();
+    protected abstract void Attack();
 }
