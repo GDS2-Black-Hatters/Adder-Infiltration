@@ -6,6 +6,9 @@ public class PlayerExit : MonoBehaviour
 
     public void ExitLevel()
     {
-        GameManager.LevelManager.ChangeLevel(nextScene);
+        if (GameManager.LevelManager.ActiveSceneController.canFinish)
+        {
+            GameManager.LevelManager.ChangeLevel(nextScene);
+        }
     }
 }

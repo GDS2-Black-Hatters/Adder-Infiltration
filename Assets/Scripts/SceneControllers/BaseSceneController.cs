@@ -11,6 +11,7 @@ public class BaseSceneController : MonoBehaviour
         Combat,
     }
     public SceneState sceneMode { get; private set; } = SceneState.Stealth;
+    public bool canFinish { get; private set; } = false;
 
     //For children.
     protected List<BaseObjective> objectives = new();
@@ -85,12 +86,14 @@ public class BaseSceneController : MonoBehaviour
             {
                 mandatoryCount += objective.isComplete ? 0 : 1;
                 mandatory += item;
-            } else
+            }
+            else
             {
                 optional += item;
             }
         }
-        string extra = mandatoryCount > 0 ? "" : "\nMission Completed, escape through a cell tower.";
+        canFinish = mandatoryCount == 0;
+        string extra = canFinish ? "\nMission Completed, escape through a cell tower." : "";
         GameManager.LevelManager.objectiveList.text = "Objective List:" + mandatory + optional + extra;
     }
 }
