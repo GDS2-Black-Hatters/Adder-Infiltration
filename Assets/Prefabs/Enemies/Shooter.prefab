@@ -55,6 +55,14 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1688750639735256713, guid: e067b651c87cee148946ec729831b7d6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1688750639735256713, guid: e067b651c87cee148946ec729831b7d6, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1688750639735256713, guid: e067b651c87cee148946ec729831b7d6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -85,6 +93,10 @@ PrefabInstance:
     - target: {fileID: 4741274548901469810, guid: e067b651c87cee148946ec729831b7d6, type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5299908824376293024, guid: e067b651c87cee148946ec729831b7d6, type: 3}
+      propertyPath: m_Radius
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5951943283377045061, guid: e067b651c87cee148946ec729831b7d6, type: 3}
       propertyPath: m_Enabled
@@ -265,6 +277,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7268229092622374425, guid: e067b651c87cee148946ec729831b7d6, type: 3}
   m_PrefabInstance: {fileID: 1679591888163542311}
   m_PrefabAsset: {fileID: 0}
+--- !u!54 &5102737964709429107
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8327987172627383102}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!135 &1559162419291259685
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -291,6 +319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canAttack: 0
+  speed: 10
   bulletPoint: {fileID: 4611595807367970643}
   bulletSpeed: 7
   attackCooldown:
@@ -299,4 +328,5 @@ MonoBehaviour:
     <autoLoop>k__BackingField: 1
   currentNode: 0
   nextNode: 0
-  speed: 10
+  nodeParent: {fileID: 0}
+  closeRangeDistance: 5

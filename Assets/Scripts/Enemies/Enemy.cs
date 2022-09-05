@@ -27,6 +27,8 @@ public abstract class Enemy : MonoBehaviour
     protected EnemyState currentState = EnemyState.Patrol;
     public bool canAttack = false;
 
+    [SerializeField] protected float speed;
+
     /// <summary>
     /// Should be overridden ONLY when the enemy has their own enum states.
     /// </summary>

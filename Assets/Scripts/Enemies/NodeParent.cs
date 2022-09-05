@@ -21,21 +21,11 @@ public class NodeParent : MonoBehaviour
                 continue;
             }
 
-            GameObject patrol = Instantiate(enemyPatrol, nodes[i].transform.position, nodes[i].transform.rotation, transform);
+            Shooter patrol = Instantiate(enemyPatrol, nodes[i].transform.position, nodes[i].transform.rotation, transform).GetComponent<Shooter>();
             patrol.name = "Enemy Patrol " + i;
-            patrol.GetComponent<Shooter>().currentNode = i;
-            patrol.GetComponent<Shooter>().nodeParent = this.gameObject;
-        }
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+            patrol.currentNode = i;
+            patrol.SetNodeParent(this);
+        }
     }
 }
