@@ -20,7 +20,6 @@ public class CaughtHUDBehaviour : MonoBehaviour
         BaseSceneController controller = GameManager.LevelManager.ActiveSceneController;
         if (isOn)
         {
-            isOn = controller;
             return;
         }
 
@@ -36,5 +35,11 @@ public class CaughtHUDBehaviour : MonoBehaviour
         {
             lerp.SetValues(0, 1, fadeInSpeed);
         }
+    }
+
+    public void HideHUD()
+    {
+        isOn = false;
+        canvasGroup.alpha = 0;
     }
 }

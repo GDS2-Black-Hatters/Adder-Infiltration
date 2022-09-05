@@ -25,7 +25,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.layer == LayerMask.NameToLayer("Bullet") || other.transform.IsChildOf(owner))
+        if(other.gameObject.layer == LayerMask.NameToLayer("Bullet") || (owner && other.transform.IsChildOf(owner))) //Owner probably shouldn't be here.
         {
             return;
         }

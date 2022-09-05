@@ -110,6 +110,8 @@ public class LevelManager : MonoBehaviour, IManager
         
         OnApplicationFocus(true);
 
+        GameManager.VariableManager.Restart();
+
         bool isMainMenu = SceneManager.GetActiveScene().name.Equals("MainMenu");
         inGameHUD.SetActive(!isMainMenu);
         if (isMainMenu)
