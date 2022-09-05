@@ -1,40 +1,37 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+#pragma warning disable IDE1006 // Naming Styles
+using System;
 
+[Serializable]
 public class Health
 {
-    public float maxHealth { get; private set; }
-    public float currentHealth { get; private set; }
+    public OriginalValue<float> health;
+    public event Action onDeath;
 
     public Health(float maxHealth = 100)
     {
-        this.maxHealth = maxHealth;
-        currentHealth = maxHealth;
+        health = new(maxHealth);
     }
 
     public void Reset()
     {
-        currentHealth = maxHealth;
+        health.Reset();
     }
 
     public void ReduceHealth(float amount)
     {
-        currentHealth -= amount;
-    }
-
-    public float healthPercentage{
-        get{
-            return currentHealth/maxHealth;
+        health.value -= amount;
+        if (health.value <= 0)
+        {
+            health.value = 0;
+            onDeath?.Invoke();
         }
     }
 
-    /// <summary>
-    /// Updates the timer.
-    /// </summary>
-    /// <param name="deltaTime">Pass through the UnityEngine.Time.deltaTime or another controlled time variable</param>
-    public void Update(float deltaTime)
+    public float healthPercentage
     {
-
+        get
+        {
+            return health.value / health.originalValue;
+        }
     }
 }

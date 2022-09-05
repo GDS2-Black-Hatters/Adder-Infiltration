@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6106655758076692800}
-  - component: {fileID: 8800078215631949146}
+  - component: {fileID: 6251455402617695958}
   m_Layer: 0
   m_Name: BaseSceneController
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8800078215631949146
+--- !u!114 &6251455402617695958
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,7 +41,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 579575314666127893}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a7ec14ffafda2742a1ae7e5ab03f466, type: 3}
+  m_Script: {fileID: 11500000, guid: 684cec8901d8cb647af71183aed892f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  comment: Replace this component with another component that derives from the BaseSceneComponent.
+  startColor: {r: 0, g: 1, b: 0, a: 1}
+  endColor: {r: 1, g: 0, b: 0, a: 1}
+  lerpTime: 1

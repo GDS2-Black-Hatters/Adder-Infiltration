@@ -672,8 +672,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2018934174}
-  - component: {fileID: 2018934173}
   - component: {fileID: 2018934175}
+  - component: {fileID: 2018934176}
   m_Layer: 0
   m_Name: SceneController
   m_TagString: Untagged
@@ -681,21 +681,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2018934173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2018934172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3169dfe4d23763f47b18afaac574fdd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startColor: {r: 0, g: 1, b: 0, a: 1}
-  endColor: {r: 1, g: 0, b: 0, a: 1}
-  lerpTime: 1
 --- !u!4 &2018934174
 Transform:
   m_ObjectHideFlags: 0
@@ -724,6 +709,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logMessage: Player Detected
+--- !u!114 &2018934176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018934172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 684cec8901d8cb647af71183aed892f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startColor: {r: 0, g: 1, b: 0, a: 1}
+  endColor: {r: 1, g: 0, b: 0, a: 1}
+  lerpTime: 1
 --- !u!1001 &2124731581521542348
 PrefabInstance:
   m_ObjectHideFlags: 0

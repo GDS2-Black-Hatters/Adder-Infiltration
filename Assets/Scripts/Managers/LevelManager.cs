@@ -12,6 +12,7 @@ public class LevelManager : MonoBehaviour, IManager
     private Animator transitionAnim;
     private bool isTransitioning = false;
 
+    [SerializeField] private GameObject inGameHUD;
     [field: SerializeField] public TextMeshProUGUI objectiveList { get; private set; }
 
     public BaseSceneController ActiveSceneController { get; private set; }
@@ -25,8 +26,9 @@ public class LevelManager : MonoBehaviour, IManager
 
     public void OnApplicationFocus(bool focus)
     {
-        Cursor.visible = !focus;
-        Cursor.lockState = focus ? CursorLockMode.Locked : CursorLockMode.None;
+        bool lockMouse = focus && !SceneManager.GetActiveScene().name.Equals("MainMenu"); //Hardcoded do something else later!
+        Cursor.visible = !lockMouse;
+        Cursor.lockState = lockMouse ? CursorLockMode.Locked : CursorLockMode.None;
     }
 
     private void Start()
@@ -49,7 +51,7 @@ public class LevelManager : MonoBehaviour, IManager
     /// </summary>
     /// <param name="notify">A method called once the new scene has finished coding.</param>
     /// <param name="sceneName">The new scene to load.</param>
-    public void ChangeLevel(string sceneName, Action notify = null)
+    public void ChangeLevel(string sceneName, Action notify)
     {
         if (!isTransitioning)
         {
@@ -57,6 +59,16 @@ public class LevelManager : MonoBehaviour, IManager
             //Add code here if you want to customise the transitions and loading stuff here.
             StartCoroutine(Transition(sceneName, notify));
         }
+    }
+
+    /// <summary>
+    /// Changes the scene accordingly.
+    /// Use the other overload if delegates are needed.
+    /// </summary>
+    /// <param name="sceneName">The new scene to load.</param>
+    public void ChangeLevel(string sceneName)
+    {
+        ChangeLevel(sceneName, null);
     }
 
     private IEnumerator Transition(string newSceneName, Action notify = null, bool doTransitionIn = true)
@@ -90,11 +102,22 @@ public class LevelManager : MonoBehaviour, IManager
                 yield return StartCoroutine(LoadProgress(SceneManager.LoadSceneAsync(newSceneName)));
             }
             notify?.Invoke();
-            GameManager.Save();
+            //GameManager.Save(); //Uncomment later!
             PlayLevelMusic(SceneManager.GetActiveScene().name);
 
             yield return StartCoroutine(TransitionPlay(feedbackType.feedbackOut));
         }
+        
+        OnApplicationFocus(true);
+
+        bool isMainMenu = SceneManager.GetActiveScene().name.Equals("MainMenu");
+        inGameHUD.SetActive(!isMainMenu);
+        if (isMainMenu)
+        {
+            Camera.main.transform.eulerAngles = Vector3.zero;
+            Camera.main.transform.position = new(0, 10, -10); //VERY HARD CODED... Should be placed somewhere else!
+        }
+
         yield return StartCoroutine(TransitionPlay(transitionType.transitionOut));
         transitionAnim.Play("Waiting");
         isTransitioning = false;

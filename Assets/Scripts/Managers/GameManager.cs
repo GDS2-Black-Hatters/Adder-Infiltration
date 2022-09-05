@@ -46,4 +46,9 @@ public class GameManager : MonoBehaviour
         //Grab variables from VariableManager and save them here.
         SaveManager.SaveToFile();
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
