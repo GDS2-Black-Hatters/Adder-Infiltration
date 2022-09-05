@@ -39,6 +39,6 @@ public class VariableManager : MonoBehaviour, IManager
 
     private void GameOver() //Might not be the right to put this...
     {
-        //GameManager.LevelManager.ChangeLevel();
+        GameManager.LevelManager.ChangeLevel("MainMenu");
     }
 }
