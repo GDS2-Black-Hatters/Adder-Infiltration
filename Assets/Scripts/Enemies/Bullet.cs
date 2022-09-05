@@ -31,7 +31,7 @@ public class Bullet : MonoBehaviour
         }
 
         bool isPlayer = other.CompareTag("Player");
-        if (other.gameObject.TryGetComponent(out MeshRenderer _) || isPlayer)
+        if (isPlayer || other.gameObject.TryGetComponent(out MeshRenderer _))
         {
             GameManager.VariableManager.playerHealth.ReduceHealth(isPlayer ? damage : 0);
             lifeTime.Reset(true);
