@@ -17,7 +17,7 @@ public class PCGGround : MonoBehaviour
 
         for(int i = 0; i < Layers; i++)
         {
-            GameObject newLayer = Instantiate(DistGroundLayerPrefab, new Vector3(transform.position.x, (i + 1) * -LayerDist, transform.position.z), Quaternion.identity, transform);
+            GameObject newLayer = Instantiate(DistGroundLayerPrefab, new Vector3(transform.position.x, i * -LayerDist, transform.position.z), Quaternion.identity, transform);
             newLayer.transform.localScale = Vector3.one;
         }
     }
