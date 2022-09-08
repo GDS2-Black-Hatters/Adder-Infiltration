@@ -6,7 +6,16 @@ public class PCGBuildingGenerator : MonoBehaviour
 {
     [SerializeField] private PCGBuildingData BuildingGenData;
 
+    [SerializeField] private bool generateOnStart;
     [SerializeField] private bool testGenerate;
+
+    private void Start()
+    {
+        if(generateOnStart)
+        {
+            GenerateBuilding();
+        }
+    }
 
     private void GenerateBuilding()
     {
