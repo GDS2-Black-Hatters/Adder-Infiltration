@@ -26,7 +26,7 @@ public class PlayerVirusStateController : MonoBehaviour
         currentPlayerState = PlayerState.stealth;
         GetComponent<UnityEngine.VFX.VisualEffect>().Stop();
 
-        LevelSceneController lsc = (LevelSceneController)GameManager.LevelManager.ActiveSceneController;
+        BaseSceneController lsc = GameManager.LevelManager.ActiveSceneController;
         lsc.onPlayerDetection += EngageAlertMode;
     }
 

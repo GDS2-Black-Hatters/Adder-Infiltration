@@ -1,11 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerExit : MonoBehaviour
 {
+    [SerializeField] private string nextScene;
+
     public void ExitLevel()
     {
-        Debug.Log("Player Exit.");
+        if (GameManager.LevelManager.ActiveSceneController.canFinish)
+        {
+            GameManager.LevelManager.ChangeLevel(nextScene);
+        }
     }
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MatterShell : MonoBehaviour
 {
-    private const int TargetingRange = 10;
+    private const int TargetingRange = 20;
     private const int MaxEnemyInRange = 100;
 
     [SerializeField] private float matterDistance = 1;

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class BaseSceneController : MonoBehaviour
+public class BaseSceneController : MonoBehaviour
 {
     public enum SceneState
     {
@@ -11,6 +11,7 @@ public abstract class BaseSceneController : MonoBehaviour
         Combat,
     }
     public SceneState sceneMode { get; private set; } = SceneState.Stealth;
+    public bool canFinish { get; private set; } = false;
 
     //For children.
     protected List<BaseObjective> objectives = new();
@@ -34,13 +35,9 @@ public abstract class BaseSceneController : MonoBehaviour
         RenderSettings.skybox = new(RenderSettings.skybox);
     }
 
-    protected virtual void Start()
-    {
-        UpdateObjectiveList();
-    }
-
     protected virtual void Update()
     {
+        UpdateObjectiveList();
         if (lerper.isLerping)
         {
             lerper.Update(Time.deltaTime);
@@ -89,12 +86,14 @@ public abstract class BaseSceneController : MonoBehaviour
             {
                 mandatoryCount += objective.isComplete ? 0 : 1;
                 mandatory += item;
-            } else
+            }
+            else
             {
                 optional += item;
             }
         }
-        string extra = mandatoryCount > 0 ? "" : "\nMission Completed, escape through spawn point.";
+        canFinish = mandatoryCount == 0;
+        string extra = canFinish ? "\nMission Completed, escape through a cell tower." : "";
         GameManager.LevelManager.objectiveList.text = "Objective List:" + mandatory + optional + extra;
     }
 }

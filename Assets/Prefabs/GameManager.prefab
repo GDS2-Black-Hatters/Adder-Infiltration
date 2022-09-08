@@ -197,7 +197,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: -1914196309
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &5986146983580825355
 MonoBehaviour:
@@ -616,7 +616,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3176862767188065409}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 10, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1191,6 +1191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4baf138ef4b8b4c43b2ef8a1d0fd9b94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inGameHUD: {fileID: 9198650945742561449}
   <objectiveList>k__BackingField: {fileID: 3458231493487862400}
 --- !u!114 &2783689509851356698
 MonoBehaviour:
@@ -1271,7 +1272,10 @@ MonoBehaviour:
     <timeScale>k__BackingField: -1
     <autoLoop>k__BackingField: 0
   caughtHUD: {fileID: 2943355104210983910}
-  maxPlayerHealth: 100
+  <playerHealth>k__BackingField:
+    health:
+      <originalValue>k__BackingField: 100
+      value: 100
 --- !u!114 &4375820036461453840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1673,7 +1677,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 1299093257
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &8336526760379250462
 MonoBehaviour:

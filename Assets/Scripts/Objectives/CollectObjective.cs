@@ -19,10 +19,6 @@ public class CollectObjective : BaseObjective
         {
             Destroy(this);
         }
-        else
-        {
-            GameManager.LevelManager.ActiveSceneController.UpdateObjectiveList();
-        }
     }
 
     private void Update()

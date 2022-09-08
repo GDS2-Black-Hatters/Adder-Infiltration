@@ -30,16 +30,16 @@ public class Bullet : MonoBehaviour
             return;
         }
 
+        if (!other.gameObject.TryGetComponent(out MeshRenderer _))
+        {
+            return;
+        }
+
         if (other.CompareTag("Player"))
         {
             //Decrease health through VariableManager.
             GameManager.VariableManager.playerHealth.ReduceHealth(damage);
-            lifeTime.Reset(true);
         }
-
-        if (other.gameObject.TryGetComponent(out MeshRenderer meshRenderer))
-        {
-            lifeTime.Reset(true);
-        }
+        lifeTime.Reset(true);
     }
 }
