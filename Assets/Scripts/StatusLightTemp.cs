@@ -7,8 +7,12 @@ public class StatusLightTemp : MonoBehaviour
     [ColorUsage(true, true)]
     public Color LightColor;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
+    {
+        Debug.LogError("Temporary test script in use. REMOVE AT EARLIEST CONVENIENCE!!");
+    }
+
+    private void OnValidate()
     {
         Shader.SetGlobalColor("_StatusEmissionColor", LightColor);
     }
