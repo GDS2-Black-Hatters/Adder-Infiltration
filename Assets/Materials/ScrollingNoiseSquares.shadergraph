@@ -11,6 +11,9 @@
         },
         {
             "m_Id": "1c3ff6e93817439ba8fa9795a644f2db"
+        },
+        {
+            "m_Id": "5fe6f975c66d436bac527a3b295ab350"
         }
     ],
     "m_Keywords": [],
@@ -152,6 +155,9 @@
         },
         {
             "m_Id": "eaa663259fe2417b947b83fadc8c9e5b"
+        },
+        {
+            "m_Id": "fc3af1dc22ce425e847c10cec55f5c63"
         }
     ],
     "m_GroupDatas": [],
@@ -743,6 +749,20 @@
                     "m_Id": "4c9973279b78476b85516f112f54b34f"
                 },
                 "m_SlotId": 1
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+                    "m_Id": "fc3af1dc22ce425e847c10cec55f5c63"
+                },
+                "m_SlotId": 0
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "6202c1897cb34067b7d3233977f79c30"
+                },
+                "m_SlotId": 0
             }
         }
     ],
@@ -1348,6 +1368,9 @@
     "m_ObjectId": "1ecc1c2e9b16443baca6767e961f7ac9",
     "m_Name": "",
     "m_ChildObjectList": [
+        {
+            "m_Id": "5fe6f975c66d436bac527a3b295ab350"
+        },
         {
             "m_Id": "b221609578c945448950de34b34bf1ad"
         },
@@ -2740,6 +2763,35 @@
         "y": 0.0
     },
     "m_Labels": []
+}
+
+{
+    "m_SGVersion": 3,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.ColorShaderProperty",
+    "m_ObjectId": "5fe6f975c66d436bac527a3b295ab350",
+    "m_Guid": {
+        "m_GuidSerialized": "b2e03455-a80d-4e40-9cd8-d104f11ac5db"
+    },
+    "m_Name": "MainColor",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "MainColor",
+    "m_DefaultReferenceName": "_MainColor",
+    "m_OverrideReferenceName": "",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Value": {
+        "r": 0.37735849618911745,
+        "g": 0.37735849618911745,
+        "b": 0.37735849618911745,
+        "a": 0.0
+    },
+    "isMainColor": false,
+    "m_ColorMode": 1
 }
 
 {
@@ -4182,6 +4234,31 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector4MaterialSlot",
+    "m_ObjectId": "acdef0ca41924ee39c0ccf8d7411e773",
+    "m_Id": 0,
+    "m_DisplayName": "MainColor",
+    "m_SlotType": 1,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Out",
+    "m_StageCapability": 3,
+    "m_Value": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.0
+    },
+    "m_DefaultValue": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.0
+    },
+    "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "ad6ea7feafbd4c9f9a4322be2929976a",
     "m_Id": 3,
@@ -4761,9 +4838,9 @@
     "m_ShaderOutputName": "BaseColor",
     "m_StageCapability": 2,
     "m_Value": {
-        "x": 0.5,
-        "y": 0.5,
-        "z": 0.5
+        "x": 0.349056601524353,
+        "y": 0.349056601524353,
+        "z": 0.349056601524353
     },
     "m_DefaultValue": {
         "x": 0.0,
@@ -5483,6 +5560,41 @@
     },
     "m_Labels": [],
     "m_Channel": 0
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
+    "m_ObjectId": "fc3af1dc22ce425e847c10cec55f5c63",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "Property",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": -315.0,
+            "y": 256.0,
+            "width": 130.0,
+            "height": 34.0
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "acdef0ca41924ee39c0ccf8d7411e773"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_Property": {
+        "m_Id": "5fe6f975c66d436bac527a3b295ab350"
+    }
 }
 
 {
