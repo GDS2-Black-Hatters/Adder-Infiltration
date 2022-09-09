@@ -12,8 +12,8 @@ public class PCGGround : MonoBehaviour
 
     private void Start()
     {
-        GameObject ground = Instantiate(FloorGroundPrefab, Vector3.zero, Quaternion.identity, transform);
-        ground.transform.localScale = Vector3.one;
+        //GameObject ground = Instantiate(FloorGroundPrefab, Vector3.zero, Quaternion.identity, transform);
+        //ground.transform.localScale = Vector3.one;
 
         for(int i = 0; i < Layers; i++)
         {

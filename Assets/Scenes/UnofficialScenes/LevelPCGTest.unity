@@ -346,6 +346,53 @@ MonoBehaviour:
   BuildingGenData: {fileID: 11400000, guid: 2e90a672ae33cb8478a81e5766c9490f, type: 2}
   generateOnStart: 1
   testGenerate: 0
+--- !u!1 &330344381
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 330344383}
+  - component: {fileID: 330344382}
+  m_Layer: 6
+  m_Name: Island
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &330344382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330344381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5204cd611de48149b37a28e0064cb28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  islandSize: {x: 5, y: 5}
+  groundPrefab: {fileID: 265249028506440539, guid: f3e977a499559f14aa4394f64b7f19d5, type: 3}
+  floorCellPrefab: {fileID: 2089300250955244641, guid: 58f5b734fc4d192419f23f56cc00b592, type: 3}
+--- !u!4 &330344383
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330344381}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &399022235
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,19 +564,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8804111390498198748, guid: 69832c6d5cf7dbf488ce8eb1d64c8520, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8804111390498198748, guid: 69832c6d5cf7dbf488ce8eb1d64c8520, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.9765823
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8804111390498198748, guid: 69832c6d5cf7dbf488ce8eb1d64c8520, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.98
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8804111390498198748, guid: 69832c6d5cf7dbf488ce8eb1d64c8520, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.3781967
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8804111390498198748, guid: 69832c6d5cf7dbf488ce8eb1d64c8520, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1030,6 +1077,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crossroad
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3047e88d7084c5344820007fe0a643c8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3047e88d7084c5344820007fe0a643c8, type: 3}
 --- !u!1 &1297977049
@@ -1261,7 +1312,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1765479788
 GameObject:
@@ -1325,7 +1376,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1929756578
 Transform:
   m_ObjectHideFlags: 0
@@ -1467,7 +1518,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2100679174
 MonoBehaviour:
@@ -1563,9 +1614,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground
       objectReference: {fileID: 0}
+    - target: {fileID: 2702480978612237189, guid: bf8a887ee99e8bc4696f21d2ae171b26, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2702480978612237191, guid: bf8a887ee99e8bc4696f21d2ae171b26, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2702480978612237191, guid: bf8a887ee99e8bc4696f21d2ae171b26, type: 3}
       propertyPath: m_LocalPosition.x
