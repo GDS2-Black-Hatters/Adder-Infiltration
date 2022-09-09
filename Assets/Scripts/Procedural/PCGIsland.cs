@@ -12,6 +12,7 @@ public class PCGIsland : MonoBehaviour
 
     [SerializeField] private GameObject groundPrefab;
     [SerializeField] private GameObject floorCellPrefab;
+    [SerializeField] private GameObject cellFillerPrefab;
 
     private int[,] cellArray;
 
@@ -36,14 +37,30 @@ public class PCGIsland : MonoBehaviour
             {
                 if(cellArray[i,j] == 1)
                 {
-                    Instantiate(floorCellPrefab, new Vector3((i - (float)(islandSize.x - 1)/2) * cellSizeUnitMultiplier, 0, (j - (float)(islandSize.y - 1)/2) * cellSizeUnitMultiplier), Quaternion.identity, transform);
+                    Instantiate(floorCellPrefab, GridPosToWorldV3(i, j), Quaternion.identity, transform);
                 }
             }
         }
 
         foreach (BinaryArrayPartition.ChunkInfo chunk in chunks)
         {
-            //Debug.Log("Chunk: UL:" + chunk.upperLeft + ",BR:" + chunk.bottomRight);
+            for(int i = chunk.upperLeft.x; i <= chunk.bottomRight.x; i++)
+            {   
+                for(int j = chunk.upperLeft.y; j <= chunk.bottomRight.y; j++)
+                {
+                    Instantiate(cellFillerPrefab, GridPosToWorldV3(i, j), Quaternion.identity, transform);
+                }
+            }
         }
+    }
+
+    private Vector3 GridPosToWorldV3(int xCord, int yCord)
+    {
+        return new Vector3((xCord - (float)(islandSize.x - 1)/2) * cellSizeUnitMultiplier, 0, (yCord - (float)(islandSize.y - 1)/2) * cellSizeUnitMultiplier);
+    }
+
+    private Vector3 GridPosToWorldV3(Vector2Int gridCord)
+    {
+        return new Vector3((gridCord.x - (float)(islandSize.x - 1)/2) * cellSizeUnitMultiplier, 0, (gridCord.y - (float)(islandSize.y - 1)/2) * cellSizeUnitMultiplier);
     }
 }

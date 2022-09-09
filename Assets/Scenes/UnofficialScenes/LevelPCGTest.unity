@@ -375,9 +375,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5204cd611de48149b37a28e0064cb28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  islandSize: {x: 5, y: 5}
+  islandSize: {x: 20, y: 20}
+  maxChunkSizeLowerBound: 5
+  expectedChunkSizeVariation: 7
   groundPrefab: {fileID: 265249028506440539, guid: f3e977a499559f14aa4394f64b7f19d5, type: 3}
   floorCellPrefab: {fileID: 2089300250955244641, guid: 58f5b734fc4d192419f23f56cc00b592, type: 3}
+  cellFillerPrefab: {fileID: 4825726354195900380, guid: 341ee371d7a949b448eb65de0cb222f9, type: 3}
 --- !u!4 &330344383
 Transform:
   m_ObjectHideFlags: 0
