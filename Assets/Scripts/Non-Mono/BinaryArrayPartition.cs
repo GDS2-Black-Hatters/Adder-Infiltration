@@ -119,6 +119,17 @@ public static class BinaryArrayPartition
     }
 
     /// <summary>
+    /// Generates chunks using binary space partition concept with gaps between chunks.
+    /// Does the same thing as PartitionArray but will be faster is no array is needed.
+    /// </summary>
+    public static ChunkInfo[] GetPartitionedChunks(int mapWidth, int mapHeight, System.Func<int> maxChunkSizeFunc)
+    {
+        ChunkGraphNode rootGraphNode = CreatePartitionGraph(new(mapWidth, mapHeight), maxChunkSizeFunc);
+
+        return rootGraphNode.GetEndChunksInfo();
+    }
+
+    /// <summary>
     /// Creates a node graph where end nodes will be individual chunks of land
     /// </summary>
     private static ChunkGraphNode CreatePartitionGraph(Vector2Int graphSize, System.Func<int> maxChunkSizeFunc)

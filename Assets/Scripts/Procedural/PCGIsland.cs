@@ -43,7 +43,7 @@ public class PCGIsland : MonoBehaviour
 
         foreach (BinaryArrayPartition.ChunkInfo chunk in chunks)
         {
-            Debug.Log("Chunk: UL:" + chunk.upperLeft + ",BR:" + chunk.bottomRight);
+            //Debug.Log("Chunk: UL:" + chunk.upperLeft + ",BR:" + chunk.bottomRight);
         }
     }
 }
