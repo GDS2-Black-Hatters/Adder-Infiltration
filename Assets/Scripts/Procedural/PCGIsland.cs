@@ -5,6 +5,7 @@ using UnityEngine;
 public class PCGIsland : MonoBehaviour
 {
     private const float cellSizeUnitMultiplier = 50;
+    private const float chunkBoarderWidth = 0.5f;
 
     [SerializeField] private Vector2Int islandSize;
     [SerializeField] private int maxChunkSizeLowerBound = 2;
@@ -13,8 +14,6 @@ public class PCGIsland : MonoBehaviour
     [SerializeField] private GameObject groundPrefab;
     [SerializeField] private GameObject floorCellPrefab;
     [SerializeField] private GameObject cellFillerPrefab;
-
-    private int[,] cellArray;
 
     private void Start()
     {
@@ -27,39 +26,32 @@ public class PCGIsland : MonoBehaviour
         //Add 1 to generate boarder ground
         ground.transform.localScale = new Vector3((islandSize.x + 1) * cellSizeUnitMultiplier/10, 1, (islandSize.y + 1) * cellSizeUnitMultiplier/10);
 
-        cellArray = new int[islandSize.x, islandSize.y];
-
-        BinaryArrayPartition.ChunkInfo[] chunks = BinaryArrayPartition.PartitionArray<int>(ref cellArray, 1, (int i) => { return i==0; }, () => { return Mathf.FloorToInt(AdvanceRandom.ExponentialRandom(maxChunkSizeLowerBound, expectedChunkSizeVariation)); });
-
-        for(int i = 0; i < islandSize.x; i++)
-        {   
-            for(int j = 0; j < islandSize.y; j++)
-            {
-                if(cellArray[i,j] == 1)
-                {
-                    Instantiate(floorCellPrefab, GridPosToWorldV3(i, j), Quaternion.identity, transform);
-                }
-            }
-        }
+        BinaryArrayPartition.ChunkInfo[] chunks = BinaryArrayPartition.GetPartitionedChunks(islandSize.x, islandSize.y, () => { return Mathf.FloorToInt(AdvanceRandom.ExponentialRandom(maxChunkSizeLowerBound, expectedChunkSizeVariation)); });
 
         foreach (BinaryArrayPartition.ChunkInfo chunk in chunks)
         {
+            //Generate Chunk Floor
+            GameObject chunkFloor = Instantiate(floorCellPrefab, GridPosToWorldV3(chunk.ChunkCenter), Quaternion.identity, transform);
+            chunkFloor.transform.localScale = Vector3.Scale(chunkFloor.transform.localScale, new Vector3(chunk.ChunkWidth + chunkBoarderWidth, 1, chunk.ChunkHeight + chunkBoarderWidth));
+
+            //Fill Chunk with content
             for(int i = chunk.upperLeft.x; i <= chunk.bottomRight.x; i++)
             {   
                 for(int j = chunk.upperLeft.y; j <= chunk.bottomRight.y; j++)
                 {
-                    Instantiate(cellFillerPrefab, GridPosToWorldV3(i, j), Quaternion.identity, transform);
+                    GameObject newStructure = Instantiate(cellFillerPrefab, GridPosToWorldV3(i, j), Quaternion.identity);
+                    newStructure.transform.SetParent(chunkFloor.transform);
                 }
             }
         }
     }
 
-    private Vector3 GridPosToWorldV3(int xCord, int yCord)
+    private Vector3 GridPosToWorldV3(float xCord, float yCord)
     {
         return new Vector3((xCord - (float)(islandSize.x - 1)/2) * cellSizeUnitMultiplier, 0, (yCord - (float)(islandSize.y - 1)/2) * cellSizeUnitMultiplier);
     }
 
-    private Vector3 GridPosToWorldV3(Vector2Int gridCord)
+    private Vector3 GridPosToWorldV3(Vector2 gridCord)
     {
         return new Vector3((gridCord.x - (float)(islandSize.x - 1)/2) * cellSizeUnitMultiplier, 0, (gridCord.y - (float)(islandSize.y - 1)/2) * cellSizeUnitMultiplier);
     }

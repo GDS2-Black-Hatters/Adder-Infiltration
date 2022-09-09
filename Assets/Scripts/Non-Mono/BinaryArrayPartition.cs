@@ -31,9 +31,14 @@ public static class BinaryArrayPartition
             get { return bottomRight.y - upperLeft.y + 1; }
         }
 
-        public int ChunkSize
+        public int ChunkCellCount
         {
             get { return ChunkWidth * ChunkHeight; }
+        }
+
+        public Vector2 ChunkCenter
+        {
+            get { return new Vector2((float)(upperLeft.x + bottomRight.x)/2, (float)(upperLeft.y + bottomRight.y)/2); }
         }
 
         public bool IsWithinChunk(Vector2Int position)
@@ -149,7 +154,7 @@ public static class BinaryArrayPartition
     private static void RecursivePartitionChunk(ref ChunkGraphNode chunkNode, System.Func<int> maxChunkSizeFunc)
     {
         //Return if chunk is small enough or cannot be divided furthur
-        if(chunkNode.chunkInfo.ChunkSize < maxChunkSizeFunc.Invoke() || (chunkNode.chunkInfo.ChunkWidth < 3 && chunkNode.chunkInfo.ChunkHeight < 3))
+        if(chunkNode.chunkInfo.ChunkCellCount < maxChunkSizeFunc.Invoke() || (chunkNode.chunkInfo.ChunkWidth < 3 && chunkNode.chunkInfo.ChunkHeight < 3))
         {
             return;
         }
