@@ -105,7 +105,7 @@ public static class BinaryArrayPartition
     /// Expects a fully 'filled' array as a ref input where none of the cells are 'boundary' cell
     /// Will return an array of chunk info containing all non boundary chunks' cooridinates.
     /// </summary>
-    public static ChunkInfo[] PartitionArray<T>(ref T[,] array, T boundaryCell, System.Func<T, bool> IsBoundaryCompare, System.Func<int> maxChunkSizeFunc)
+    public static ChunkInfo[] PartitionArray<T>(ref T[,] array, T boundaryCell, System.Func<int> maxChunkSizeFunc)
     {
         ChunkGraphNode rootGraphNode = CreatePartitionGraph(new(array.GetLength(0), array.GetLength(1)), maxChunkSizeFunc);
 
