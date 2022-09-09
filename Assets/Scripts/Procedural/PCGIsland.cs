@@ -48,11 +48,11 @@ public class PCGIsland : MonoBehaviour
 
     private Vector3 GridPosToWorldV3(float xCord, float yCord)
     {
-        return new Vector3((xCord - (float)(islandSize.x - 1)/2) * cellSizeUnitMultiplier, 0, (yCord - (float)(islandSize.y - 1)/2) * cellSizeUnitMultiplier);
+        return transform.position + new Vector3( (xCord - (float)(islandSize.x - 1)/2) * cellSizeUnitMultiplier, 0, (yCord - (float)(islandSize.y - 1)/2) * cellSizeUnitMultiplier);
     }
 
     private Vector3 GridPosToWorldV3(Vector2 gridCord)
     {
-        return new Vector3((gridCord.x - (float)(islandSize.x - 1)/2) * cellSizeUnitMultiplier, 0, (gridCord.y - (float)(islandSize.y - 1)/2) * cellSizeUnitMultiplier);
+        return transform.position + new Vector3((gridCord.x - (float)(islandSize.x - 1)/2) * cellSizeUnitMultiplier, 0, (gridCord.y - (float)(islandSize.y - 1)/2) * cellSizeUnitMultiplier);
     }
 }
