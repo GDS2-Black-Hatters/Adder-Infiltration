@@ -13,6 +13,8 @@ public class LevelManager : MonoBehaviour, IManager
     private bool isTransitioning = false;
 
     [SerializeField] private GameObject inGameHUD;
+    private CaughtHUDBehaviour caughtHUD;
+
     [field: SerializeField] public TextMeshProUGUI objectiveList { get; private set; }
 
     public BaseSceneController ActiveSceneController { get; private set; }
@@ -20,8 +22,11 @@ public class LevelManager : MonoBehaviour, IManager
 
     public void StartUp()
     {
+        caughtHUD = inGameHUD.GetComponentInChildren<CaughtHUDBehaviour>();
         transitionAnim = GetComponentInChildren<Animator>();
         transitionAnim.updateMode = AnimatorUpdateMode.UnscaledTime;
+        GameManager.VariableManager.timeToLive.onFinish += GameOver;
+        GameManager.VariableManager.playerHealth.onDeath += GameOver;
     }
 
     public void OnApplicationFocus(bool focus)
@@ -109,10 +114,10 @@ public class LevelManager : MonoBehaviour, IManager
         }
         
         OnApplicationFocus(true);
-
         GameManager.VariableManager.Restart();
 
         bool isMainMenu = SceneManager.GetActiveScene().name.Equals("MainMenu");
+        caughtHUD.HideHUD();
         inGameHUD.SetActive(!isMainMenu);
         if (isMainMenu)
         {
@@ -125,6 +130,11 @@ public class LevelManager : MonoBehaviour, IManager
         isTransitioning = false;
     }
 
+    private void GameOver()
+    {
+        GameManager.LevelManager.ChangeLevel("MainMenu");
+    }
+
     public void SetActiveSceneController(BaseSceneController sceneController)
     {
         if (ActiveSceneController != null)
@@ -132,6 +142,7 @@ public class LevelManager : MonoBehaviour, IManager
             Debug.LogWarning("The previously active SceneController has not yet been destroyed, please ensure you are certain you want two SceneControllers active right now.");
         }
         ActiveSceneController = sceneController;
+        ActiveSceneController.onPlayerDetection += caughtHUD.FadeIn;
     }
 
     public void SetPlayer(Transform player)
