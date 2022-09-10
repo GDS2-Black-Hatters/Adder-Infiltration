@@ -24,30 +24,18 @@ public class PoolManager : MonoBehaviour, IManager
         /// </summary>
         /// <param name="autoActivate">Activate the GameObject upon return? Defaults to true.</param>
         /// <returns>A GameObject from the pool.</returns>
-        public GameObject GetObject(bool autoActivate = true)
+        public GameObject GetObject()
         {
-            GameObject obj;
-            foreach (Transform child in DoStatic.GetChildren(pool))
+            for (int i = 0; i < pool.childCount; i++)
             {
-                obj = child.gameObject;
+                GameObject obj = pool.GetChild(i).gameObject;
                 if (!obj.activeInHierarchy)
                 {
-                    obj.SetActive(autoActivate);
+                    obj.SetActive(true);
                     return obj;
                 }
             }
-            obj = Instantiate(prefab, pool);
-            obj.SetActive(autoActivate);
-            return obj;
-        }
-
-        /// <summary>
-        /// Add items into the pool.
-        /// </summary>
-        /// <param name="item">The prefab object.</param>
-        public void AddToPool(GameObject item)
-        {
-            item.transform.parent = pool.transform;
+            return Instantiate(prefab, pool);
         }
     }
 
@@ -75,9 +63,9 @@ public class PoolManager : MonoBehaviour, IManager
     /// <param name="poolName">The pool the GameObject is from.</param>
     /// <param name="autoActive">Activate given GameObject or not? Defaults to true.</param>
     /// <returns>The GameObject from the specified pool.</returns>
-    public GameObject GetObjectFromPool(string poolName, bool autoActive = true)
+    public GameObject GetObjectFromPool(string poolName)
     {
-        return pools[poolName].GetObject(autoActive);
+        return pools[poolName].GetObject();
     }
 
     /// <summary>
@@ -86,18 +74,8 @@ public class PoolManager : MonoBehaviour, IManager
     /// <param name="poolName">The pool the GameObject is from.</param>
     /// <param name="autoActive">Activate given GameObject or not? Defaults to true.</param>
     /// <returns>The component of the game GameObject from the specified pool.</returns>
-    public T GetObjectFromPool<T>(string poolName, bool autoActive = true) where T : Component
+    public T GetObjectFromPool<T>(string poolName) where T : Component
     {
-        return pools[poolName].GetObject(autoActive).GetComponentInChildren<T>();
-    }
-
-    /// <summary>
-    /// Add an GameObject into a specified pool.
-    /// </summary>
-    /// <param name="poolName">The pool to add the GameObject into.</param>
-    /// <param name="gameObject">The GameObject to be added into the pool.</param>
-    public void AddObjectIntoPool(string poolName, GameObject gameObject)
-    {
-        pools[poolName].AddToPool(gameObject);
+        return pools[poolName].GetObject().GetComponentInChildren<T>();
     }
 }
