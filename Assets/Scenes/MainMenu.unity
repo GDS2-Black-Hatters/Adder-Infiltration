@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.21768498, g: 0.50214714, b: 0.32581124, a: 1}
+  m_IndirectSpecularColor: {r: 0.21768552, g: 0.50214833, b: 0.325812, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -256,19 +256,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 145525617}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 145525619}
-        m_TargetAssemblyTypeName: DummyMenuTemp, Assembly-CSharp
-        m_MethodName: ExitGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &145525617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,9 +304,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 145525614}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e06e6ac6e713ca4788e499c96f86191, type: 3}
+  m_Script: {fileID: 11500000, guid: 7f42d2a4b54efb0448daa72182188ebc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonType: 1
+  levelToGo: 
 --- !u!1 &192824163
 GameObject:
   m_ObjectHideFlags: 0
@@ -538,19 +528,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 197185660}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 197185662}
-        m_TargetAssemblyTypeName: DummyMenuTemp, Assembly-CSharp
-        m_MethodName: StartGame
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Tutorial
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &197185660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -598,9 +576,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 197185657}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e06e6ac6e713ca4788e499c96f86191, type: 3}
+  m_Script: {fileID: 11500000, guid: 7f42d2a4b54efb0448daa72182188ebc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonType: 0
+  levelToGo: Tutorial
 --- !u!1 &602911506
 GameObject:
   m_ObjectHideFlags: 0
@@ -2611,63 +2591,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: cc4447bc637a4b940b4d49012b5e6745, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07baf4e9e419f704badc226f2f613009, type: 3}
---- !u!1 &1997195141
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1997195143}
-  - component: {fileID: 1997195142}
-  m_Layer: 0
-  m_Name: WwiseGlobal
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1997195142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1997195141}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f3b2083016721c49b2a6ec9e4f000d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InitializationSettings: {fileID: 11400000, guid: c923c1f40fa07d141a6e55a3c6be6be7, type: 2}
-  basePath: 
-  language: 
-  defaultPoolSize: 0
-  lowerPoolSize: 0
-  streamingPoolSize: 0
-  memoryCutoffThreshold: 0
-  monitorPoolSize: 0
-  monitorQueuePoolSize: 0
-  callbackManagerBufferSize: 0
-  spatialAudioPoolSize: 0
-  maxSoundPropagationDepth: 0
-  engineLogging: 0
---- !u!4 &1997195143
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1997195141}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2094321340
 GameObject:
   m_ObjectHideFlags: 0
