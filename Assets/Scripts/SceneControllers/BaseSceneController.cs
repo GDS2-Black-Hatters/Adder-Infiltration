@@ -12,6 +12,8 @@ public class BaseSceneController : MonoBehaviour
     }
     public SceneState sceneMode { get; private set; } = SceneState.Stealth;
     public bool canFinish { get; private set; } = false;
+    [SerializeField] private Transform allNodes;
+    [field: SerializeField] public Transform Enemies { get; private set; }
 
     //For children.
     protected List<BaseObjective> objectives = new();
@@ -95,5 +97,21 @@ public class BaseSceneController : MonoBehaviour
         canFinish = mandatoryCount == 0;
         string extra = canFinish ? "\nMission Completed, escape through a cell tower." : "";
         GameManager.LevelManager.objectiveList.text = "Objective List:" + mandatory + optional + extra;
+    }
+
+    public AINode GetClosestNode(Transform target)
+    {
+        AINode closest = null;
+        float closestDist = int.MaxValue;
+        foreach (AINode node in gameObject.GetComponentsInChildren<AINode>())
+        {
+            float nodeDist = (node.transform.position - target.position).sqrMagnitude;
+            if (closestDist > nodeDist)
+            {
+                closest = node;
+                closestDist = nodeDist;
+            }
+        }
+        return closest;
     }
 }
