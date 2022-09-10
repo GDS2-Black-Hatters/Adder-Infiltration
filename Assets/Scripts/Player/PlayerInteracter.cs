@@ -125,6 +125,10 @@ public class PlayerInteracter : MonoBehaviour
 
     private void OnDisable()
     {
-        GameManager.InputManager.GetAction(InputManager.Controls.Interact).performed -= Interact;
+        InputManager inputManager = GameManager.InputManager;
+        if (inputManager)
+        {
+            inputManager.GetAction(InputManager.Controls.Interact).performed -= Interact;
+        }
     }
 }
