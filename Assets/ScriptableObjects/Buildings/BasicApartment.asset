@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6100d38379885f4c880e384de1f1fa1, type: 3}
   m_Name: BasicApartment
   m_EditorClassIdentifier: 
-  MinStep: 3
-  MaxStep: 8
+  blockSize: {x: 1, y: 1}
+  MinStep: 8
+  MaxStep: 15
+  ConstantExtraRotation: 0
+  Random90DegreeRot: 1
   BaseModules:
   - {fileID: 8841645959296576160, guid: 6aa321902309dc0459d0838c038c4ae7, type: 3}
   MidModules:
@@ -21,4 +24,4 @@ MonoBehaviour:
   - {fileID: 4510991052822081446, guid: fc7ef3d715d1ebd47ac69037b309b936, type: 3}
   - {fileID: 4747681059723324010, guid: 3ba7531efba119048ab83770f4f8a98f, type: 3}
   - {fileID: 919172590962564301, guid: 2c14f706c86d35a42a0c05b8951d5dda, type: 3}
-  EndModules: []
+  CapModules: []

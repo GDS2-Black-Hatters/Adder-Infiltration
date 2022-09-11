@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c53ed4e9bbeb9a449ba6a618ef0be2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BuildingGenData: {fileID: 11400000, guid: 2e90a672ae33cb8478a81e5766c9490f, type: 2}
+  PossibleBuildingGenData:
+  - {fileID: 11400000, guid: 2e90a672ae33cb8478a81e5766c9490f, type: 2}
+  - {fileID: 11400000, guid: 20c726fccbdc9f7408ae958e70725bfc, type: 2}
   generateOnStart: 1
   testGenerate: 0

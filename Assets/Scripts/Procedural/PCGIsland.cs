@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PCGIsland : MonoBehaviour
 {
-    private const float cellSizeUnitMultiplier = 50;
+    private const float cellSizeUnitMultiplier = 25;
     private const float chunkBoarderWidth = 0.5f;
 
     [SerializeField] private Vector2Int islandSize;

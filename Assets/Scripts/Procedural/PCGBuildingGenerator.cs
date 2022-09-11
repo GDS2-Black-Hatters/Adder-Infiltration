@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PCGBuildingGenerator : MonoBehaviour
 {
-    [SerializeField] private PCGBuildingData BuildingGenData;
+    [SerializeField] private PCGBuildingData[] PossibleBuildingGenData;
 
     [SerializeField] private bool generateOnStart;
     [SerializeField] private bool testGenerate;
@@ -13,7 +13,7 @@ public class PCGBuildingGenerator : MonoBehaviour
     {
         if(generateOnStart)
         {
-            BuildingGenData.Generate(transform);
+            PossibleBuildingGenData[Random.Range(0, PossibleBuildingGenData.Length)].Generate(transform);
         }
     }
     private void OnValidate()
@@ -21,7 +21,7 @@ public class PCGBuildingGenerator : MonoBehaviour
         if(testGenerate)
         {
             testGenerate = false;
-            BuildingGenData.Generate(transform);
+            PossibleBuildingGenData[Random.Range(0, PossibleBuildingGenData.Length)].Generate(transform);
         }
     }
 }
