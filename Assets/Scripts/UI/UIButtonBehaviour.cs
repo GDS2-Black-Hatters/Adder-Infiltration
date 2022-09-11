@@ -4,17 +4,17 @@ using UnityEngine;
 [RequireComponent(typeof(Button))]
 public class UIButtonBehaviour : MonoBehaviour
 {
-    private enum ButtonType
+    protected enum ButtonType
     {
         ChangeLevelButton,
         ExitButton
     }
-    [SerializeField] private ButtonType buttonType = ButtonType.ChangeLevelButton;
-    private Button button;
+    [SerializeField] protected ButtonType buttonType = ButtonType.ChangeLevelButton;
+    protected Button button;
 
     [Header("Start Game Parameters"), SerializeField] private LevelManager.Level levelToGo;
 
-    private void Start()
+    protected virtual void Start()
     {
         button = GetComponent<Button>();
         button.onClick.AddListener(buttonType switch
