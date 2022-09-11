@@ -12,7 +12,7 @@ public class UIButtonBehaviour : MonoBehaviour
     [SerializeField] private ButtonType buttonType = ButtonType.ChangeLevelButton;
     private Button button;
 
-    [Header("Start Game Parameters"), SerializeField] private string levelToGo;
+    [Header("Start Game Parameters"), SerializeField] private LevelManager.Level levelToGo;
 
     private void Start()
     {

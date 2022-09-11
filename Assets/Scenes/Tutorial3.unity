@@ -491,7 +491,6 @@ MonoBehaviour:
   - {fileID: 236467000}
   - {fileID: 1740787433}
   - {fileID: 1685477709}
-  updateLines: 0
 --- !u!4 &97106423
 Transform:
   m_ObjectHideFlags: 0
@@ -1348,7 +1347,6 @@ MonoBehaviour:
   neighbours:
   - {fileID: 2077792171}
   - {fileID: 97106422}
-  updateLines: 0
 --- !u!4 &236467001
 Transform:
   m_ObjectHideFlags: 0
@@ -3491,7 +3489,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   neighbours:
   - {fileID: 2077792171}
-  updateLines: 0
 --- !u!4 &760529346
 Transform:
   m_ObjectHideFlags: 0
@@ -3538,7 +3535,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   neighbours:
   - {fileID: 2077792171}
-  updateLines: 0
 --- !u!4 &766652248
 Transform:
   m_ObjectHideFlags: 0
@@ -3852,10 +3848,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 266178665}
     m_Modifications:
-    - target: {fileID: 1762367355547013725, guid: 4410d520a97a9014297faee48626ad7a, type: 3}
-      propertyPath: speed
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1762367355547013725, guid: 4410d520a97a9014297faee48626ad7a, type: 3}
       propertyPath: customPatrolPath.Array.size
       value: 4
@@ -5070,7 +5062,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3994840751181675685, guid: 408998aee6f1dc940bc441df3162c0b0, type: 3}
       propertyPath: nextScene
-      value: Main1
+      value: 103
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 408998aee6f1dc940bc441df3162c0b0, type: 3}
@@ -5866,7 +5858,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   neighbours:
   - {fileID: 97106422}
-  updateLines: 0
 --- !u!1001 &1710522866
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6056,7 +6047,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   neighbours:
   - {fileID: 97106422}
-  updateLines: 0
 --- !u!4 &1740787434
 Transform:
   m_ObjectHideFlags: 0
@@ -7186,7 +7176,6 @@ MonoBehaviour:
   - {fileID: 766652247}
   - {fileID: 760529345}
   - {fileID: 236467000}
-  updateLines: 0
 --- !u!4 &2077792172
 Transform:
   m_ObjectHideFlags: 0

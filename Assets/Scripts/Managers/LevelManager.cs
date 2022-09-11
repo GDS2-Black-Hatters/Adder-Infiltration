@@ -7,6 +7,26 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour, IManager
 {
+    private const int gameLevels = 100; //In case we somehow have over 100 different game scenes.
+
+    //An enum of all the official scenes in the project.
+    //Remember, all the states in the enum must be the same name as the actual scene.
+    public enum Level
+    {
+        MainMenu,
+        Hub,
+
+        //Add game levels below this.
+        Tutorial = gameLevels,
+        Tutorial2,
+        Tutorial3,
+
+        SampleLevel,
+
+        Unknown, //This is for any unofficial levels.
+    }
+    public Level level { get; private set; }
+
     private (string transitionIn, string transitionOut) transitionType = ("FadeIn", "FadeOut");
     private (string feedbackIn, string feedbackOut) feedbackType = ("BoxSpinningIn", "BoxSpinningOut");
     private Animator transitionAnim;
@@ -23,30 +43,34 @@ public class LevelManager : MonoBehaviour, IManager
     public void StartUp()
     {
         caughtHUD = inGameHUD.GetComponentInChildren<CaughtHUDBehaviour>();
+        
         transitionAnim = GetComponentInChildren<Animator>();
         transitionAnim.updateMode = AnimatorUpdateMode.UnscaledTime;
+
         GameManager.VariableManager.timeToLive.onFinish += GameOver;
         GameManager.VariableManager.playerHealth.onDeath += GameOver;
     }
 
     public void OnApplicationFocus(bool focus)
     {
-        bool lockMouse = focus && !SceneManager.GetActiveScene().name.Equals("MainMenu"); //Hardcoded do something else later!
+        bool lockMouse = focus && (int)level >= gameLevels;
         Cursor.visible = !lockMouse;
         Cursor.lockState = lockMouse ? CursorLockMode.Locked : CursorLockMode.None;
     }
 
     private void Start()
     {
-        StartCoroutine(Transition(SceneManager.GetActiveScene().name, null, false));
-        PlayLevelMusic(SceneManager.GetActiveScene().name);
+        StartCoroutine(Transition(level, null, false));
+        PlayLevelMusic();
     }
 
-    private void PlayLevelMusic(string levelName)
+    private void PlayLevelMusic()
     {
-        GameManager.AudioManager.PlayMusic(levelName switch
+        GameManager.AudioManager.PlayMusic(level switch
         {
-            //Add scene names here
+            Level.Unknown => "",
+            Level.Hub => "",
+            Level.Tutorial => "",
             _ => ""
         });
     }
@@ -56,13 +80,13 @@ public class LevelManager : MonoBehaviour, IManager
     /// </summary>
     /// <param name="notify">A method called once the new scene has finished coding.</param>
     /// <param name="sceneName">The new scene to load.</param>
-    public void ChangeLevel(string sceneName, Action notify)
+    public void ChangeLevel(Level level, Action notify)
     {
         if (!isTransitioning)
         {
             isTransitioning = true;
             //Add code here if you want to customise the transitions and loading stuff here.
-            StartCoroutine(Transition(sceneName, notify));
+            StartCoroutine(Transition(level, notify));
         }
     }
 
@@ -71,12 +95,12 @@ public class LevelManager : MonoBehaviour, IManager
     /// Use the other overload if delegates are needed.
     /// </summary>
     /// <param name="sceneName">The new scene to load.</param>
-    public void ChangeLevel(string sceneName)
+    public void ChangeLevel(Level level)
     {
-        ChangeLevel(sceneName, null);
+        ChangeLevel(level, null);
     }
 
-    private IEnumerator Transition(string newSceneName, Action notify = null, bool doTransitionIn = true)
+    private IEnumerator Transition(Level newLevel, Action notify = null, bool doTransitionIn = true)
     {
         IEnumerator LoadProgress(AsyncOperation async)
         {
@@ -102,27 +126,28 @@ public class LevelManager : MonoBehaviour, IManager
             yield return StartCoroutine(TransitionPlay(transitionType.transitionIn));
             yield return StartCoroutine(TransitionPlay(feedbackType.feedbackIn));
 
-            if (!SceneManager.GetActiveScene().name.Equals(newSceneName))
+            if (level != newLevel)
             {
-                yield return StartCoroutine(LoadProgress(SceneManager.LoadSceneAsync(newSceneName)));
+                yield return StartCoroutine(LoadProgress(SceneManager.LoadSceneAsync(DoStatic.EnumAsString(newLevel))));
             }
             notify?.Invoke();
             //GameManager.Save(); //Uncomment later!
-            PlayLevelMusic(SceneManager.GetActiveScene().name);
+            PlayLevelMusic();
 
             yield return StartCoroutine(TransitionPlay(feedbackType.feedbackOut));
         }
         
         OnApplicationFocus(true);
-        GameManager.VariableManager.Restart();
-
-        bool isMainMenu = SceneManager.GetActiveScene().name.Equals("MainMenu");
         caughtHUD.HideHUD();
-        inGameHUD.SetActive(!isMainMenu);
-        if (isMainMenu)
+        GameManager.VariableManager.Restart();
+        UpdateLevelIndex();
+
+        bool isNotLevel = (int)level < gameLevels;
+        inGameHUD.SetActive(!isNotLevel);
+        if (isNotLevel)
         {
             Camera.main.transform.eulerAngles = Vector3.zero;
-            Camera.main.transform.position = new(0, 10, -10); //VERY HARD CODED... Should be placed somewhere else!
+            Camera.main.transform.position = new(0, 10, -10);
         }
 
         yield return StartCoroutine(TransitionPlay(transitionType.transitionOut));
@@ -130,9 +155,22 @@ public class LevelManager : MonoBehaviour, IManager
         isTransitioning = false;
     }
 
+    private void UpdateLevelIndex()
+    {
+        try
+        {
+            level = DoStatic.StringToEnum<Level>(SceneManager.GetActiveScene().name);
+        }
+        catch
+        {
+            level = Level.Unknown;
+        }
+        OnApplicationFocus(true);
+    }
+
     private void GameOver()
     {
-        GameManager.LevelManager.ChangeLevel("MainMenu");
+        GameManager.LevelManager.ChangeLevel(Level.Hub);
     }
 
     public void SetActiveSceneController(BaseSceneController sceneController)

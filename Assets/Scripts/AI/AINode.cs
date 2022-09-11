@@ -4,10 +4,6 @@ public class AINode : MonoBehaviour
 {
     [SerializeField] private AINode[] neighbours;
 
-    //Gizmo Variables
-    [SerializeField] private bool updateLines = true;
-    private Vector3 randomOffset = Vector3.zero;
-
     public AINode GetRandomNeighbour()
     {
         return neighbours.Length > 0 ? neighbours[Random.Range(0, neighbours.Length)] : null;
@@ -44,10 +40,8 @@ public class AINode : MonoBehaviour
         {
             if (neighbour) //To stop editor complaints.
             {
-                randomOffset = updateLines ? Random.insideUnitSphere : randomOffset;
-                Gizmos.DrawLine(transform.position + randomOffset, neighbour.transform.position);
+                Gizmos.DrawLine(transform.position, neighbour.transform.position);
             }
         }
-        updateLines = false;
     }
 }

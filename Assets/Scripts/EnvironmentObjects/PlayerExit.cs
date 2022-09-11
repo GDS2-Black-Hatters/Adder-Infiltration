@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerExit : MonoBehaviour
 {
-    [SerializeField] private string nextScene;
+    [SerializeField] private LevelManager.Level nextScene;
 
     public void ExitLevel()
     {
