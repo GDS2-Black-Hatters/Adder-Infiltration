@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: MatGround
+    second: {fileID: 2100000, guid: 08692b7b4bcbb5a4d9007eb0b9ad7821, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: MatHighway
     second: {fileID: 2100000, guid: d6fe91ce7fb887043abfa7bf1f2c891a, type: 2}
   materials:
