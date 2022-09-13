@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "ScriptableObject/ProceduralBuilding", fileName = "NewProceduralBuilding")]
+[CreateAssetMenu(menuName = "ScriptableObject/Block/ProceduralBuilding", fileName = "NewProceduralBuilding")]
 public class PCGBuildingData : PCGBlockScriptable
 {
+    [SerializeField] protected Vector2Int _blockSize = Vector2Int.one;
+    public override Vector2Int blockSize { get { return _blockSize; }}
+
     [Header("Generation Height Settings")]
     [SerializeField] private int MinStep = 2;
     [SerializeField] private int MaxStep = 5;
@@ -18,10 +21,10 @@ public class PCGBuildingData : PCGBlockScriptable
     [SerializeField] private PCGBuildingModule[] MidModules;
     [SerializeField] private PCGBuildingModule[] CapModules;
 
-    public override GameObject Generate(Transform rootParent = null)
+    public override GameObject Generate(Transform rootParent)
     {
         Transform root = new GameObject("BuildingRoot").transform;
-        if(rootParent != null) root.SetParent(rootParent);
+        root.SetParent(rootParent);
         root.localPosition = Vector3.zero;
 
         int Steps = Random.Range(MinStep, MaxStep);
@@ -51,10 +54,5 @@ public class PCGBuildingData : PCGBlockScriptable
         attachPointPosition = module.attatchPoint + module.transform.position;
 
         return root.gameObject;
-    }
-
-    private void Awake()
-    {
-        Debug.Log("SO Start");
     }
 }

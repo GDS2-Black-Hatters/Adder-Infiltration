@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PCGBuildingGenerator : MonoBehaviour
+public class PCGenerator : MonoBehaviour
 {
-    [SerializeField] private PCGBuildingData[] PossibleBuildingGenData;
+    [SerializeField] private PCGeneratableSO[] PossibleGeneratable;
 
     [SerializeField] private bool generateOnStart;
     [SerializeField] private bool testGenerate;
@@ -13,7 +13,7 @@ public class PCGBuildingGenerator : MonoBehaviour
     {
         if(generateOnStart)
         {
-            PossibleBuildingGenData[Random.Range(0, PossibleBuildingGenData.Length)].Generate(transform);
+            PossibleGeneratable[Random.Range(0, PossibleGeneratable.Length)].Generate(transform);
         }
     }
     private void OnValidate()
@@ -21,7 +21,8 @@ public class PCGBuildingGenerator : MonoBehaviour
         if(testGenerate)
         {
             testGenerate = false;
-            PossibleBuildingGenData[Random.Range(0, PossibleBuildingGenData.Length)].Generate(transform);
+            PossibleGeneratable[Random.Range(0, PossibleGeneratable.Length)].Generate(transform);
         }
     }
+
 }

@@ -12,8 +12,8 @@ public class PCGIsland : MonoBehaviour
     [SerializeField] private int expectedChunkSizeVariation = 6;
 
     [SerializeField] private GameObject groundPrefab;
-    [SerializeField] private GameObject floorCellPrefab;
-    [SerializeField] private GameObject cellFillerPrefab;
+
+    [SerializeField] private PCGChunkData[] availableChunks;
 
     private void Start()
     {
@@ -26,23 +26,19 @@ public class PCGIsland : MonoBehaviour
         //Add 1 to generate boarder ground
         ground.transform.localScale = new Vector3((islandSize.x + 1) * cellSizeUnitMultiplier/10, 1, (islandSize.y + 1) * cellSizeUnitMultiplier/10);
 
-        BinaryArrayPartition.ChunkInfo[] chunks = BinaryArrayPartition.GetPartitionedChunks(islandSize.x, islandSize.y, () => { return Mathf.FloorToInt(AdvanceRandom.ExponentialRandom(maxChunkSizeLowerBound, expectedChunkSizeVariation)); });
+        ChunkTransform[] chunkTransforms = BinaryArrayPartition.GetPartitionedChunks(islandSize.x, islandSize.y, () => { return Mathf.FloorToInt(AdvanceRandom.ExponentialRandom(maxChunkSizeLowerBound, expectedChunkSizeVariation)); });
 
-        foreach (BinaryArrayPartition.ChunkInfo chunk in chunks)
+        foreach (ChunkTransform chunkTransform in chunkTransforms)
         {
-            //Generate Chunk Floor
-            GameObject chunkFloor = Instantiate(floorCellPrefab, GridPosToWorldV3(chunk.ChunkCenter), Quaternion.identity, transform);
-            chunkFloor.transform.localScale = Vector3.Scale(chunkFloor.transform.localScale, new Vector3(chunk.ChunkWidth + chunkBoarderWidth, 1, chunk.ChunkHeight + chunkBoarderWidth));
+            //create a copy of chunk data so we don't modify the scriptable object on disk
+            PCGChunkData chunkDataCopy = Instantiate(availableChunks[Random.Range(0, availableChunks.Length)]);
 
-            //Fill Chunk with content
-            for(int i = chunk.upperLeft.x; i <= chunk.bottomRight.x; i++)
-            {   
-                for(int j = chunk.upperLeft.y; j <= chunk.bottomRight.y; j++)
-                {
-                    GameObject newStructure = Instantiate(cellFillerPrefab, GridPosToWorldV3(i, j), Quaternion.identity);
-                    newStructure.transform.SetParent(chunkFloor.transform);
-                }
-            }
+            //Initilize and generate chunk
+            chunkDataCopy.Initilize(chunkTransform, cellSizeUnitMultiplier);
+            GameObject chunkObj = chunkDataCopy.Generate(transform);
+            
+            //move chunk to new position
+            chunkObj.transform.localPosition = GridPosToWorldV3(chunkTransform.ChunkCenter);
         }
     }
 
