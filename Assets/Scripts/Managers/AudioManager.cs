@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour, IManager
+public sealed class AudioManager : MonoBehaviour, IManager
 {
     [System.Serializable]
     private class AudioTrack

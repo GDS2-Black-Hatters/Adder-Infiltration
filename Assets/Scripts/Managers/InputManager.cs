@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerInput))]
-public class InputManager : MonoBehaviour, IManager
+public sealed class InputManager : MonoBehaviour, IManager
 {
     #region Enums
     public enum ControlScheme

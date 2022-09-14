@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(LevelManager))]
 [RequireComponent(typeof(InputManager))]
 [RequireComponent(typeof(VariableManager))]
-public class GameManager : MonoBehaviour
+public sealed class GameManager : MonoBehaviour
 {
     private static GameManager Instance;
 

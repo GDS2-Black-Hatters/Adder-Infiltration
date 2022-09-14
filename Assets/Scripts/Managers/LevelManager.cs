@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelManager : MonoBehaviour, IManager
+public sealed class LevelManager : MonoBehaviour, IManager
 {
     private const int gameLevels = 100; //In case we somehow have over 100 different game scenes.
 

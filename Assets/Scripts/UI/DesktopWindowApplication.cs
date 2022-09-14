@@ -1,8 +1,9 @@
-using System.ComponentModel.Design.Serialization;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-using UnityEngine.Windows;
+using static InputManager.ControlScheme;
+using static InputManager.Controls;
+using static ActionInputSubscriber.CallBackContext;
 
 [RequireComponent(typeof(CanvasGroup))]
 public sealed class DesktopWindowApplication : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
@@ -32,7 +33,7 @@ public sealed class DesktopWindowApplication : MonoBehaviour, IPointerEnterHandl
 
         gameObject.AddComponent<ActionInputSubscriber>().AddActions(new()
         {
-            new(InputManager.ControlScheme.Hub, GameManager.InputManager.GetAction(InputManager.Controls.Click), ActionInputSubscriber.performed, Prioritise),
+            new(Hub, GameManager.InputManager.GetAction(Click), Performed, Prioritise),
         });
     }
 

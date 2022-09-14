@@ -1,7 +1,7 @@
 #pragma warning disable IDE1006 // Naming Styles
 using UnityEngine;
 
-public class VariableManager : MonoBehaviour, IManager
+public sealed class VariableManager : MonoBehaviour, IManager
 {
     //Game variables
     [field: SerializeField, Header("Caught Timer")] public TimeTracker timeToLive { get; private set; } //The timer for when getting caught. Is in seconds.

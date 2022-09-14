@@ -8,21 +8,17 @@ public sealed class ActionInputSubscriber : MonoBehaviour
 {
     public enum CallBackContext
     {
-        started,
-        performed,
-        canceled
+        Started,
+        Performed,
+        Canceled
     }
-
-    public const CallBackContext started = CallBackContext.started;
-    public const CallBackContext performed = CallBackContext.performed;
-    public const CallBackContext canceled = CallBackContext.canceled;
 
     public class ActionDelegate
     {
-        private ControlScheme controlScheme;
-        private CallBackContext callBackContext;
-        private InputAction inputAction;
-        private Action<InputAction.CallbackContext> inputDelegate;
+        private readonly ControlScheme controlScheme;
+        private readonly CallBackContext callBackContext;
+        private readonly InputAction inputAction;
+        private readonly Action<InputAction.CallbackContext> inputDelegate;
 
         public ActionDelegate(ControlScheme controlScheme, InputAction inputAction, CallBackContext callBackContext, Action<InputAction.CallbackContext> inputDelegate)
         {
@@ -37,15 +33,15 @@ public sealed class ActionInputSubscriber : MonoBehaviour
             GameManager.InputManager.ChangeControlMap(controlScheme);
             switch (callBackContext)
             {
-                case started:
+                case CallBackContext.Started:
                     inputAction.started += inputDelegate;
                     break;
 
-                case performed:
+                case CallBackContext.Performed:
                     inputAction.performed += inputDelegate;
                     break;
 
-                case canceled:
+                case CallBackContext.Canceled:
                     inputAction.canceled += inputDelegate;
                     break;
             }
@@ -56,15 +52,15 @@ public sealed class ActionInputSubscriber : MonoBehaviour
             GameManager.InputManager.ChangeControlMap(controlScheme);
             switch (callBackContext)
             {
-                case CallBackContext.started:
+                case CallBackContext.Started:
                     inputAction.started -= inputDelegate;
                     break;
 
-                case CallBackContext.performed:
+                case CallBackContext.Performed:
                     inputAction.performed -= inputDelegate;
                     break;
 
-                case CallBackContext.canceled:
+                case CallBackContext.Canceled:
                     inputAction.canceled -= inputDelegate;
                     break;
             }

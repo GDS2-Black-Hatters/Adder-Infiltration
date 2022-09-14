@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PoolManager : MonoBehaviour, IManager
+public sealed class PoolManager : MonoBehaviour, IManager
 {
     [System.Serializable]
     private class PrefabPool

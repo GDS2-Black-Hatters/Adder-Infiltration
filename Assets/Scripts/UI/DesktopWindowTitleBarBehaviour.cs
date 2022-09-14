@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using static ActionInputSubscriber.CallBackContext;
+using static InputManager.Controls;
+using static InputManager.ControlScheme;
 
 public class DesktopWindowTitleBarBehaviour : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -11,14 +14,13 @@ public class DesktopWindowTitleBarBehaviour : MonoBehaviour, IPointerEnterHandle
     private void Start()
     {
         input = GameManager.InputManager;
-        
-        InputManager.ControlScheme hub = InputManager.ControlScheme.Hub;
 
         gameObject.AddComponent<ActionInputSubscriber>().AddActions(new()
         {
-            new(hub, input.GetAction(InputManager.Controls.Click), ActionInputSubscriber.performed, OnHoverClick),
-            new(hub, input.GetAction(InputManager.Controls.Click), ActionInputSubscriber.canceled, OnHoverUnclick),
-            new(hub, input.GetAction(InputManager.Controls.Move), ActionInputSubscriber.performed, OnFocusMove),
+            new(Hub, input.GetAction(Click), Performed, OnHoverClick),
+            new(Hub, input.GetAction(Click), Canceled, OnHoverUnclick),
+            new(Hub, input.GetAction(Move), Started, OnFocusStartMove),
+            new(Hub, input.GetAction(Move), Performed, OnFocusMove),
         });
     }
 
@@ -42,11 +44,16 @@ public class DesktopWindowTitleBarBehaviour : MonoBehaviour, IPointerEnterHandle
         isPressed = false;
     }
 
+    private void OnFocusStartMove(InputAction.CallbackContext moveDelta)
+    {
+
+    }
+
     private void OnFocusMove(InputAction.CallbackContext moveDelta)
     {
         if (isPressed)
         {
-            //Move gameobject here.
+            transform.parent.Translate(moveDelta.ReadValue<Vector2>());
         }
     }
 }
