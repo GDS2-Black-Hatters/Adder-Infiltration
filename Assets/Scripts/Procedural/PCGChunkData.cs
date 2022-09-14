@@ -9,7 +9,8 @@ public class PCGChunkData : PCGeneratableSO
 
     [SerializeField] private GameObject chunkBaseObjectPrefab;
 
-    [SerializeField] private int minCellCountRequirement;
+    [SerializeField] private int _minCellCountRequirement;
+    public int minCellCountRequirement { get { return _minCellCountRequirement; }}
     [SerializeField] private PCGBlockScriptable[] requiredBlocks;
     [SerializeField] private PCGBlockScriptable[] availableFreeBlocks;
 

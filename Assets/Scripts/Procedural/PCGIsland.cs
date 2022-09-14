@@ -13,7 +13,14 @@ public class PCGIsland : MonoBehaviour
 
     [SerializeField] private GameObject groundPrefab;
 
+    [SerializeField] private PCGChunkData[] requiredChunks;
     [SerializeField] private PCGChunkData[] availableChunks;
+
+    private class IslandChunk
+    {
+        public ChunkTransform chunkTransform;
+        public PCGChunkData chunkData;
+    }
 
     private void Start()
     {
@@ -28,6 +35,8 @@ public class PCGIsland : MonoBehaviour
 
         ChunkTransform[] chunkTransforms = BinaryArrayPartition.GetPartitionedChunks(islandSize.x, islandSize.y, () => { return Mathf.FloorToInt(AdvanceRandom.ExponentialRandom(maxChunkSizeLowerBound, expectedChunkSizeVariation)); });
 
+        //VerifyChunkAvailability(requiredChunks, chunkTransforms);
+
         foreach (ChunkTransform chunkTransform in chunkTransforms)
         {
             //create a copy of chunk data so we don't modify the scriptable object on disk
@@ -40,6 +49,43 @@ public class PCGIsland : MonoBehaviour
             //move chunk to new position
             chunkObj.transform.localPosition = GridPosToWorldV3(chunkTransform.ChunkCenter);
         }
+    }
+
+    private bool VerifyChunkAvailability(PCGChunkData[] requiredChunks, ChunkTransform[] availableChunks)
+    {
+        //Fail if there aren't enough chunks
+        if(availableChunks.Length < requiredChunks.Length)
+            return false;
+
+        //Verify there are enough chunk of required size
+        List<int> availableChunkSizeCount = new List<int>();
+        foreach(ChunkTransform ct in availableChunks)
+        {
+            if(availableChunkSizeCount.Count <= ct.ChunkCellCount)
+            {
+                availableChunkSizeCount.AddRange(new int[ct.ChunkCellCount - availableChunkSizeCount.Count + 1]);
+            }
+            availableChunkSizeCount[ct.ChunkCellCount] += 1;
+        }
+        List<int> requiredChunkSizeCount = new List<int>();
+        foreach(PCGChunkData rc in requiredChunks)
+        {
+            if(requiredChunkSizeCount.Count <= rc.minCellCountRequirement)
+            {
+                requiredChunkSizeCount.AddRange(new int[rc.minCellCountRequirement - requiredChunkSizeCount.Count + 1]);
+            }
+            requiredChunkSizeCount[rc.minCellCountRequirement] += 1;
+        }
+        for (int i = requiredChunkSizeCount.Capacity; i > 0; i--)
+        {
+            for(int j = availableChunkSizeCount.Capacity; j > 0; j--)
+            {
+
+            }
+        }
+
+
+        return true;
     }
 
     private Vector3 GridPosToWorldV3(float xCord, float yCord)
