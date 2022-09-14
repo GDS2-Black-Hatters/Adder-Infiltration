@@ -15,7 +15,6 @@ public class LevelManager : MonoBehaviour, IManager
     {
         MainMenu,
         Hub,
-        Unknown, //This is for any unofficial levels.
 
         //Add game levels below this.
         Tutorial = gameLevels,
@@ -23,6 +22,7 @@ public class LevelManager : MonoBehaviour, IManager
         Tutorial3,
 
         SampleLevel,
+        Unknown, //This is for any unofficial levels.
     }
     public Level level { get; private set; }
 

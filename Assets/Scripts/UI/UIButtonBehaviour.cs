@@ -14,7 +14,7 @@ public class UIButtonBehaviour : MonoBehaviour
     protected Button button;
 
     [Header("Start Game Parameters"), SerializeField] private LevelManager.Level levelToGo;
-    [Header("Toggle GameObject Parameters"), SerializeField] private GameObject gameObjectToToggle;
+    [Header("Toggle Desktop GameObject Parameters"), SerializeField] private DesktopWindowApplication applicationToToggle;
 
     protected virtual void Start()
     {
@@ -22,10 +22,15 @@ public class UIButtonBehaviour : MonoBehaviour
         button.onClick.AddListener(buttonType switch
         {
             ButtonType.ChangeLevelButton => ChangeLevel,
-            ButtonType.ToggleGameObject => ToggleGameObject,
+            ButtonType.ToggleGameObject => ToggleDesktopApplication,
             ButtonType.ExitButton => ExitGame,
             _ => UnknownButton,
         });
+
+        if (applicationToToggle != null)
+        {
+            applicationToToggle.SetStartPos(transform.position);
+        }
     }
 
     private void ChangeLevel()
@@ -33,9 +38,9 @@ public class UIButtonBehaviour : MonoBehaviour
         GameManager.LevelManager.ChangeLevel(levelToGo);
     }
 
-    private void ToggleGameObject()
+    private void ToggleDesktopApplication()
     {
-        gameObjectToToggle.SetActive(!gameObjectToToggle.activeInHierarchy);
+        applicationToToggle.ToggleApplication();
     }
 
     private void ExitGame()
