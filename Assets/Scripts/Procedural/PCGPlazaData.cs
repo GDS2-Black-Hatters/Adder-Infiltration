@@ -8,16 +8,11 @@ public class PCGPlazaData : PCGBlockScriptable
     [SerializeField] protected Vector2Int _blockSize = Vector2Int.one;
     public override Vector2Int blockSize { get { return _blockSize; }}
 
-    [System.Flags]
-    private enum ObjectScale
-    { small = 1, medium = 2, large = 4}
-
-    [SerializeField] private GameObject PlazaCorePrefab;
-    [SerializeField] private ObjectScale plazaScale;
+    [SerializeField] private GameObject[] AvailablePlazaCorePrefab;
 
     public override GameObject Generate(Transform rootParent)
     {
-        Transform root = Instantiate(PlazaCorePrefab, rootParent.position, Quaternion.identity).transform;
+        Transform root = Instantiate(AvailablePlazaCorePrefab[Random.Range(0, AvailablePlazaCorePrefab.Length)], rootParent.position, Quaternion.identity).transform;
         root.SetParent(rootParent);
         root.localPosition = Vector3.zero;
 
