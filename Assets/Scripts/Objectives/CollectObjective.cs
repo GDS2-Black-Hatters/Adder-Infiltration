@@ -1,5 +1,8 @@
 public class CollectObjective : BaseObjective
 {
+    [UnityEngine.SerializeField] private string _objectiveStringPrefix = "Gather information";
+    public override string objectiveTitle { get { return $"{_objectiveStringPrefix} ({collectCount.value}/{collectCount.originalValue})"; }}
+
     private OriginalValue<int> collectCount;
     private int prevCount;
 
@@ -14,7 +17,6 @@ public class CollectObjective : BaseObjective
     {
         prevCount = transform.childCount;
         collectCount.value = collectCount.originalValue - transform.childCount;
-        objectiveTitle = $"Gather information ({collectCount.value}/{collectCount.originalValue})";
         if (collectCount.value == collectCount.originalValue)
         {
             Destroy(this);

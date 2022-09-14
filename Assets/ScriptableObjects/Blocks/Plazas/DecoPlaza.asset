@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   possibleCellPosition: -1
   _blockSize: {x: 1, y: 1}
-  PlazaCorePrefab: {fileID: 3878375814320614023, guid: 0ec4fb377f84bb94d81f1ce16f3ef627, type: 3}
-  plazaScale: 0
+  AvailablePlazaCorePrefab:
+  - {fileID: 5095943845017280946, guid: 82851884b75acd94f8eaa0ff29ae9c7b, type: 3}
+  - {fileID: 3878375814320614023, guid: 0ec4fb377f84bb94d81f1ce16f3ef627, type: 3}
+  - {fileID: 8011495433188030926, guid: 7b7a640f3816ddb4bb9b114e6d54d7e1, type: 3}
