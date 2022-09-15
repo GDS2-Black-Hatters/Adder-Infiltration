@@ -76,11 +76,22 @@ public sealed class ActionInputSubscriber : MonoBehaviour
     /// <param name="actionDelegates">The list of actions.</param>
     public void AddActions(List<ActionDelegate> actionDelegates)
     {
+        UnsubscribeActions();
         this.actionDelegates = actionDelegates;
-        OnEnable(); //Needs to be called as OnEnabled is called immediately on instantiation.
+        SubscribeActions();
     }
 
     private void OnEnable()
+    {
+        SubscribeActions();
+    }
+
+    private void OnDisable()
+    {
+        UnsubscribeActions();
+    }
+
+    private void SubscribeActions()
     {
         foreach (ActionDelegate action in actionDelegates)
         {
@@ -88,7 +99,7 @@ public sealed class ActionInputSubscriber : MonoBehaviour
         }
     }
 
-    public void SubscribeActions()
+    private void UnsubscribeActions()
     {
         foreach (ActionDelegate action in actionDelegates)
         {
