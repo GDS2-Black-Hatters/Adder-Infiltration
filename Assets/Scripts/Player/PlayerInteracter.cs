@@ -16,7 +16,7 @@ public class PlayerInteracter : MonoBehaviour
     [SerializeField] private float lineWidthCap = 0.1f;
     [SerializeField] private float lineShrinkSpeed = 0.05f;
     private Dictionary<Interactable, LineRenderer> interactLines = new();
-
+    
     private void Update()
     {
         UpdateInteractableFocus();
@@ -31,8 +31,8 @@ public class PlayerInteracter : MonoBehaviour
         Interactable newFocusInteractable = GetMostFocusedInteractable();
         if (focusInteractable != newFocusInteractable)
         {
-            focusInteractable?.OnUnfocus();
-            newFocusInteractable?.OnFocus();
+            if(focusInteractable != null) focusInteractable.OnUnfocus();
+            if(newFocusInteractable != null) newFocusInteractable.OnFocus();
             focusInteractable = newFocusInteractable;
 
             if (focusInteractable == null) return;
@@ -111,20 +111,30 @@ public class PlayerInteracter : MonoBehaviour
         return bfInteractable;
     }
 
-    public void Interact(UnityEngine.InputSystem.InputAction.CallbackContext ctx)
+    public void InteractStart(UnityEngine.InputSystem.InputAction.CallbackContext ctx)
     {
         if (focusInteractable == null) return;
 
-        focusInteractable.Interact();
+        focusInteractable.InteractStart();
     }
+
+    public void InteractHalt(UnityEngine.InputSystem.InputAction.CallbackContext ctx)
+    {
+        if (focusInteractable == null) return;
+
+        focusInteractable.InteractHalt();
+    }
+
 
     private void OnEnable()
     {
-        GameManager.InputManager.GetAction(InputManager.Controls.Interact).performed += Interact;
+        GameManager.InputManager.GetAction(InputManager.Controls.Interact).performed += InteractStart;
+        GameManager.InputManager.GetAction(InputManager.Controls.Interact).canceled += InteractHalt;
     }
 
     private void OnDisable()
     {
-        GameManager.InputManager.GetAction(InputManager.Controls.Interact).performed -= Interact;
+        GameManager.InputManager.GetAction(InputManager.Controls.Interact).performed -= InteractStart;
+        GameManager.InputManager.GetAction(InputManager.Controls.Interact).canceled -= InteractHalt;
     }
 }
