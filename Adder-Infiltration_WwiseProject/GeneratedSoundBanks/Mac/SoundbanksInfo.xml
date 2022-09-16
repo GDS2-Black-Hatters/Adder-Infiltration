@@ -22,6 +22,41 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
+		<SoundBank Id="1585661381" Type="User" Language="SFX" Hash="{6199B800-0654-2B9D-C6BA-C32AF2846617}">
+			<ShortName>Background_Music</ShortName>
+			<Path>Background_Music.bnk</Path>
+			<Media>
+				<File Id="492227116" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Adder Infiltration Stealth v2 (Combat).wav</ShortName>
+					<CachePath>SFX/Adder Infiltration Stealth v2 (Combat)_10C4C929.wem</CachePath>
+				</File>
+				<File Id="808526013" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Adder Infiltration Stealth v2 (Transition).wav</ShortName>
+					<CachePath>SFX/Adder Infiltration Stealth v2 (Transition)_10C4C929.wem</CachePath>
+				</File>
+				<File Id="879062290" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Adder Infiltration Stealth v2 (Stealth).wav</ShortName>
+					<CachePath>SFX/Adder Infiltration Stealth v2 (Stealth)_10C4C929.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="3940777078" Name="Play_Adder_Infiltration_Stealth_v2__Combat_" DurationType="OneShot" DurationMin="28.444458" DurationMax="28.444458">
+					<MediaRefs>
+						<MediaRef Id="492227116"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2869145355" Name="Play_Adder_Infiltration_Stealth_v2__Stealth_" DurationType="OneShot" DurationMin="28.444437" DurationMax="28.444437">
+					<MediaRefs>
+						<MediaRef Id="879062290"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3694309541" Name="Play_Adder_Infiltration_Stealth_v2__Transition_" DurationType="OneShot" DurationMin="16" DurationMax="16">
+					<MediaRefs>
+						<MediaRef Id="808526013"/>
+					</MediaRefs>
+				</Event>
+			</Events>
+		</SoundBank>
 	</SoundBanks>
-	<FileHash>{FF73F5CA-17D1-D9A7-A86E-3B9226CFC49C}</FileHash>
+	<FileHash>{93F9B340-75E1-0C8E-0A9A-02A8BC244A56}</FileHash>
 </SoundBanksInfo>
