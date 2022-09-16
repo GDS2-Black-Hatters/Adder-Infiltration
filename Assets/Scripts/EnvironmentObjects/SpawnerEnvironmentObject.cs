@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnerEnvironmentObject : MonoBehaviour
+public class SpawnerEnvironmentObject : BaseEnvironmentObject
 {
     [SerializeField] private GameObject objectToSpawn;
     [SerializeField] private Vector3 spawnPointOffset;

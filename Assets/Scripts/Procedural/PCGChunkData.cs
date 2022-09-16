@@ -15,18 +15,23 @@ public class PCGChunkData : PCGeneratableSO
     [SerializeField] private PCGBlockScriptable[] availableFreeBlocks;
 
     private ChunkTransform chunkTransform;
-    private float cellSizeUnitMultiplier;
+    private float cellUnitMultiplier;
 
-    public void Initilize(ChunkTransform chunkTransform, float cellSizeMultiplier)
+    public void Initilize(ChunkTransform chunkTransform)
     {
         this.chunkTransform = chunkTransform;
-        this.cellSizeUnitMultiplier = cellSizeMultiplier;
     }
 
-    public override GameObject Generate(Transform parentTransform)
+    public override GameObject Generate(Transform parentTransform, float cellUnitMultiplier)
     {
+        this.cellUnitMultiplier = cellUnitMultiplier;
+
+        Transform root = new GameObject("chunk").transform;
+        root.SetParent(parentTransform);
+        root.localPosition = Vector3.zero;
+
         //Generate Chunk Floor
-        GameObject chunkBase = Instantiate(chunkBaseObjectPrefab, Vector3.zero, Quaternion.identity, parentTransform);
+        GameObject chunkBase = Instantiate(chunkBaseObjectPrefab, Vector3.zero, Quaternion.identity, root);
         chunkBase.transform.localScale = Vector3.Scale(chunkBase.transform.localScale, new Vector3(chunkTransform.ChunkWidth + chunkBoarderWidth, 1, chunkTransform.ChunkHeight + chunkBoarderWidth));
 
         //keep a list of V2Int of filled cells
@@ -39,7 +44,7 @@ public class PCGChunkData : PCGeneratableSO
             Vector2Int fillCellV2I = new(Random.Range(chunkTransform.upperLeft.x, chunkTransform.bottomRight.x + 1), Random.Range(chunkTransform.upperLeft.y, chunkTransform.bottomRight.y + 1));
             if(cellFillCheck.Contains(fillCellV2I))
                 continue; //ignore attempt and retry if cell is already filled.
-            PopulateCell(requiredBlockList[0], fillCellV2I, chunkBase.transform);
+            PopulateCell(requiredBlockList[0], fillCellV2I, root);
             requiredBlockList.RemoveAt(0);
             cellFillCheck.Add(fillCellV2I);
         }
@@ -51,16 +56,16 @@ public class PCGChunkData : PCGeneratableSO
             {
                 if(cellFillCheck.Contains(new(i,j)))
                     continue; //skip fill cell if cell is already populated
-                PopulateCell(availableFreeBlocks[Random.Range(0, availableFreeBlocks.Length)], new(i,j), chunkBase.transform);
+                PopulateCell(availableFreeBlocks[Random.Range(0, availableFreeBlocks.Length)], new(i,j), root);
             }
         }
 
-        return chunkBase;
+        return root.gameObject;
     }
 
     private GameObject PopulateCell(PCGBlockScriptable fillContentBlock, Vector2 fillCellCord, Transform chunkBaseTransform)
     {
-        GameObject newStructure = fillContentBlock.Generate(chunkBaseTransform);
+        GameObject newStructure = fillContentBlock.Generate(chunkBaseTransform, cellUnitMultiplier);
         newStructure.transform.position = relativeCellPosition(fillCellCord.x, fillCellCord.y);
         newStructure.transform.SetParent(chunkBaseTransform);
         return newStructure;
@@ -68,6 +73,6 @@ public class PCGChunkData : PCGeneratableSO
 
     private Vector3 relativeCellPosition(float posX, float posY)
     {
-        return new Vector3((posX - chunkTransform.ChunkCenter.x) * cellSizeUnitMultiplier, 0, (posY - chunkTransform.ChunkCenter.y) * cellSizeUnitMultiplier);
+        return new Vector3((posX - chunkTransform.ChunkCenter.x) * cellUnitMultiplier, 0, (posY - chunkTransform.ChunkCenter.y) * cellUnitMultiplier);
     }
 }

@@ -14,5 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   possibleCellPosition: 6
   _blockSize: {x: 1, y: 1}
-  AvailablePlazaCorePrefab:
-  - {fileID: 8722992267095327460, guid: edf45b1dd0bc7fd459029ae2c8d880eb, type: 3}
+  availablePlazaCorePrefab:
+  - {fileID: 7521091924762042487, guid: edf45b1dd0bc7fd459029ae2c8d880eb, type: 3}
+  availableEnvObjPrefab:
+  - {fileID: -3793081709042580064, guid: a9050043cd38db749a19a18f128bd0bc, type: 3}
+  envObjPositionOffset:
+  - {x: 0.8, y: 0, z: 0.8}
+  - {x: -0.8, y: 0, z: 0.8}
+  - {x: 0.8, y: 0, z: -0.8}
+  - {x: -0.8, y: 0, z: -0.8}

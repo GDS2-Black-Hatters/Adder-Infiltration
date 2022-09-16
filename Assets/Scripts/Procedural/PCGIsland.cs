@@ -43,8 +43,8 @@ public class PCGIsland : MonoBehaviour
             PCGChunkData chunkDataCopy = Instantiate(availableChunks[Random.Range(0, availableChunks.Length)]);
 
             //Initilize and generate chunk
-            chunkDataCopy.Initilize(chunkTransform, cellSizeUnitMultiplier);
-            GameObject chunkObj = chunkDataCopy.Generate(transform);
+            chunkDataCopy.Initilize(chunkTransform);
+            GameObject chunkObj = chunkDataCopy.Generate(transform, cellSizeUnitMultiplier);
             
             //move chunk to new position
             chunkObj.transform.localPosition = GridPosToWorldV3(chunkTransform.ChunkCenter);

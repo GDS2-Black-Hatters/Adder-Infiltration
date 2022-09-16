@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PCGenerator : MonoBehaviour
 {
+    [SerializeField] private float cellSizeUnitMultiplier = 25;
+
     [SerializeField] private PCGeneratableSO[] PossibleGeneratable;
 
     [SerializeField] private bool generateOnStart;
@@ -13,7 +15,7 @@ public class PCGenerator : MonoBehaviour
     {
         if(generateOnStart)
         {
-            PossibleGeneratable[Random.Range(0, PossibleGeneratable.Length)].Generate(transform);
+            PossibleGeneratable[Random.Range(0, PossibleGeneratable.Length)].Generate(transform, cellSizeUnitMultiplier);
         }
     }
     private void OnValidate()
@@ -21,7 +23,7 @@ public class PCGenerator : MonoBehaviour
         if(testGenerate)
         {
             testGenerate = false;
-            PossibleGeneratable[Random.Range(0, PossibleGeneratable.Length)].Generate(transform);
+            PossibleGeneratable[Random.Range(0, PossibleGeneratable.Length)].Generate(transform, cellSizeUnitMultiplier);
         }
     }
 
