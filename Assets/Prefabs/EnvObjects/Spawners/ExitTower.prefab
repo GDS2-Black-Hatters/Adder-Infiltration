@@ -59,7 +59,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cd2b14b98857a94695a8c021f0ef462, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onInteract:
+  interactHoldDuration: 0
+  onInteractComplete:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3994840751181675685}
@@ -74,6 +75,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onInteractProgress:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3994840751181675685
 MonoBehaviour:
   m_ObjectHideFlags: 0

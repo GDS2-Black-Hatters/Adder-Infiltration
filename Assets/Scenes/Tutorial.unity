@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: d841c27238f9cbc4ea30f0006489b6e4, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -1101,21 +1101,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cd2b14b98857a94695a8c021f0ef462, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onInteract:
+  interactHoldDuration: 3
+  onInteractComplete:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1380249341}
-        m_TargetAssemblyTypeName: MaterialColorChange, Assembly-CSharp
-        m_MethodName: ChangeColor
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+  onInteractProgress:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &353394888
 BoxCollider:
   m_ObjectHideFlags: 0
