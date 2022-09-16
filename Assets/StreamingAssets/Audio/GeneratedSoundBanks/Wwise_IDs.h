@@ -11,6 +11,19 @@
 
 namespace AK
 {
+    namespace EVENTS
+    {
+        static const AkUniqueID PLAY_ADDER_INFILTRATION_STEALTH_V2__COMBAT_ = 3940777078U;
+        static const AkUniqueID PLAY_ADDER_INFILTRATION_STEALTH_V2__STEALTH_ = 2869145355U;
+        static const AkUniqueID PLAY_ADDER_INFILTRATION_STEALTH_V2__TRANSITION_ = 3694309541U;
+    } // namespace EVENTS
+
+    namespace BANKS
+    {
+        static const AkUniqueID INIT = 1355168291U;
+        static const AkUniqueID BACKGROUND_MUSIC = 1585661381U;
+    } // namespace BANKS
+
     namespace BUSSES
     {
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;

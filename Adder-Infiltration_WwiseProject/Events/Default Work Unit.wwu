@@ -1,6 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{4C23A925-D795-4893-9589-8E0F350F9294}" SchemaVersion="110">
 	<Events>
-		<WorkUnit Name="Default Work Unit" ID="{4C23A925-D795-4893-9589-8E0F350F9294}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{4C23A925-D795-4893-9589-8E0F350F9294}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Play_Adder_Infiltration_Stealth_v2__Combat_" ID="{31C486EB-27DD-4CA0-BE56-53DEAFA1ABF6}">
+					<ChildrenList>
+						<Action Name="" ID="{F0B346CC-4F9F-4DBF-BF35-C18F8DE2CFA2}" ShortID="38729355">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Adder Infiltration Stealth v2 (Combat)" ID="{4ADC4A8A-2F0D-40A1-B7A2-4212090D99F5}" WorkUnitID="{D5FBB3F7-72F3-40AC-9B3E-877FA285AAC1}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Adder_Infiltration_Stealth_v2__Stealth_" ID="{0BDCE66F-0CDF-4D32-BA60-B9C27D162556}">
+					<ChildrenList>
+						<Action Name="" ID="{0BDBCE2E-AE6F-4D50-A68C-CAA81998E18B}" ShortID="258062886">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Adder Infiltration Stealth v2 (Stealth)" ID="{3F0C2A76-3327-420D-BE69-C07E7EAE3FD9}" WorkUnitID="{D5FBB3F7-72F3-40AC-9B3E-877FA285AAC1}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Adder_Infiltration_Stealth_v2__Transition_" ID="{1CA2C87D-F044-47EC-979C-50C95A3D7E84}">
+					<ChildrenList>
+						<Action Name="" ID="{B924D95E-BE2A-44EF-AD10-B5D9C9AC82A3}" ShortID="90504135">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Adder Infiltration Stealth v2 (Transition)" ID="{ACB03119-C30F-425B-B0B0-A5E91AC6C2CF}" WorkUnitID="{D5FBB3F7-72F3-40AC-9B3E-877FA285AAC1}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
 	</Events>
 </WwiseDocument>

@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{AC71800F-984B-475B-8FD4-22201BFA1F0D}" SchemaVersion="110">
 	<SoundBanks>
-		<WorkUnit Name="Default Work Unit" ID="{AC71800F-984B-475B-8FD4-22201BFA1F0D}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{AC71800F-984B-475B-8FD4-22201BFA1F0D}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="Background_Music" ID="{A47868B4-8C20-4FEC-8AA3-EBD7E1305C75}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Play_Adder_Infiltration_Stealth_v2__Transition_" ID="{1CA2C87D-F044-47EC-979C-50C95A3D7E84}" WorkUnitID="{4C23A925-D795-4893-9589-8E0F350F9294}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Adder_Infiltration_Stealth_v2__Combat_" ID="{31C486EB-27DD-4CA0-BE56-53DEAFA1ABF6}" WorkUnitID="{4C23A925-D795-4893-9589-8E0F350F9294}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Adder_Infiltration_Stealth_v2__Stealth_" ID="{0BDCE66F-0CDF-4D32-BA60-B9C27D162556}" WorkUnitID="{4C23A925-D795-4893-9589-8E0F350F9294}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
 	</SoundBanks>
 </WwiseDocument>
