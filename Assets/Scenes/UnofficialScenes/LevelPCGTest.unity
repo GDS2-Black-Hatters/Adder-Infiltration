@@ -203,12 +203,14 @@ MonoBehaviour:
   maxChunkSizeLowerBound: 4
   expectedChunkSizeVariation: 6
   groundPrefab: {fileID: 265249028506440539, guid: f3e977a499559f14aa4394f64b7f19d5, type: 3}
-  requiredChunks: []
+  requiredChunks:
+  - {fileID: 11400000, guid: 0c7a5720be8df4c479834f13c3f8497c, type: 2}
+  - {fileID: 11400000, guid: 0c7a5720be8df4c479834f13c3f8497c, type: 2}
+  - {fileID: 11400000, guid: 0c7a5720be8df4c479834f13c3f8497c, type: 2}
   availableChunks:
   - {fileID: 11400000, guid: a06256e318864bf4c9f04627e7622151, type: 2}
   - {fileID: 11400000, guid: df8d6919a9761c44e865f45e7774a69c, type: 2}
   - {fileID: 11400000, guid: bb8bc7c5694055c47ac9b2bdeee754de, type: 2}
-  - {fileID: 11400000, guid: 0c7a5720be8df4c479834f13c3f8497c, type: 2}
 --- !u!4 &330344383
 Transform:
   m_ObjectHideFlags: 0
