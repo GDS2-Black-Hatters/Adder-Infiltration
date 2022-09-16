@@ -17,11 +17,11 @@ public class Hook : MonoBehaviour
     {
         if (Input.GetMouseButton(0) && gameObject.transform.position.y <= 4)
         {
-            gameObject.transform.position = new Vector3(0, gameObject.transform.position.y + moveSpeed * Time.deltaTime, 0);
+            gameObject.transform.position = new Vector3(-5, gameObject.transform.position.y + moveSpeed * Time.deltaTime, 0);
         }
         else if (gameObject.transform.position.y >= -4)
         {
-            gameObject.transform.position = new Vector3(0, gameObject.transform.position.y - moveSpeed * Time.deltaTime, 0);
+            gameObject.transform.position = new Vector3(-5, gameObject.transform.position.y - moveSpeed * Time.deltaTime, 0);
         }
     }
 
@@ -32,8 +32,11 @@ public class Hook : MonoBehaviour
             other.transform.parent = gameObject.transform;
             other.transform.position = transform.position;
             other.attachedRigidbody.velocity = new Vector3(0, 0, 0);
-            
-            
+        }
+
+        if (other.tag == "Antivirus")
+        {
+            GameObject.Find("ComputerParent").GetComponent<ComputerParent>().DecreaseScore();
         }
     }
 }

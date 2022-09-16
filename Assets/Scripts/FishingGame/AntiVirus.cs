@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Computer : MonoBehaviour
+public class AntiVirus : MonoBehaviour
 {
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -15,11 +13,6 @@ public class Computer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.y >= 4)
-        {
-            GameObject.Find("ComputerParent").GetComponent<ComputerParent>().IncreaseScore();
-            Destroy(gameObject);
-        }
 
         if (transform.position.x <= -15)
         {

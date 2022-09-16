@@ -26,7 +26,7 @@ public class ComputerParent : MonoBehaviour
     void Update()
     {
         spawnTimer += Time.deltaTime;
-        if (spawnTimer >= 1)
+        if (spawnTimer >= 2)
         {
             Rigidbody target;
             target = Instantiate(computer, new Vector3(15,Random.Range(3.5f,-3.5f),0), transform.rotation);
@@ -35,9 +35,15 @@ public class ComputerParent : MonoBehaviour
         }
     }
 
-    public void UpdateScoreBoard()
+    public void IncreaseScore()
     {
-        score++;
+        score += 1;
+        scoreboard.text = "Computers Phished: " + score;
+    }
+
+    public void DecreaseScore()
+    {
+        score -= 5;
         scoreboard.text = "Computers Phished: " + score;
     }
 }
