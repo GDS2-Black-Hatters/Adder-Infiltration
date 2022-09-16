@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Computer : MonoBehaviour
 {
-
+    GameObject computerParent;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        computerParent = GameObject.Find("ComputerParent");
     }
 
     // Update is called once per frame
@@ -17,7 +17,7 @@ public class Computer : MonoBehaviour
     {
         if (transform.position.y >= 4)
         {
-            GameObject.Find("ComputerParent").GetComponent<ComputerParent>().IncreaseScore();
+            computerParent.GetComponent<ComputerParent>().IncreaseScore();
             Destroy(gameObject);
         }
 
