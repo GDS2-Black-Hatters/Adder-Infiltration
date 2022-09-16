@@ -4,12 +4,16 @@ using UnityEngine.InputSystem;
 using static InputManager.ControlScheme;
 using static InputManager.Controls;
 using static ActionInputSubscriber.CallBackContext;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(CanvasGroup))]
 public sealed class DesktopWindowApplication : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private float fadeInSpeed = 0.25f;
     private bool isHovering;
+
+    [SerializeField] private CanvasGroup focusOutline;
+    private Outline[] outlines;
 
     [Header("Screen Padding"), SerializeField] private float leftPadding;
     [SerializeField] private float rightPadding;
@@ -33,12 +37,15 @@ public sealed class DesktopWindowApplication : MonoBehaviour, IPointerEnterHandl
 
         gameObject.AddComponent<ActionInputSubscriber>().AddActions(new()
         {
-            new(Hub, GameManager.InputManager.GetAction(Click), Performed, Prioritise),
+            new(Hub, GameManager.InputManager.GetAction(Click), Performed, ClickToFocus),
         });
+
+        outlines = focusOutline.GetComponentsInChildren<Outline>();
     }
 
     private void Update()
     {
+        focusOutline.alpha = IsCurrentlyFocused() ? 1 : 0;
         if (fade.isLerping)
         {
             canvasGroup.alpha = fade.Update(Time.deltaTime);
@@ -64,6 +71,7 @@ public sealed class DesktopWindowApplication : MonoBehaviour, IPointerEnterHandl
 
     public void ToggleApplication()
     {
+        Prioritise();
         if (fade.isLerping)
         {
             return;
@@ -87,13 +95,34 @@ public sealed class DesktopWindowApplication : MonoBehaviour, IPointerEnterHandl
         isHovering = false;
     }
 
-    private void Prioritise(InputAction.CallbackContext eventData)
+    private void ClickToFocus(InputAction.CallbackContext eventData)
     {
         if (isHovering)
         {
-            Transform grandparent = transform.parent;
-            transform.SetParent(transform.root, true);
-            transform.SetParent(grandparent, true); //Reattaches at the bottom, prioritising UI on top of others.
+            Prioritise();
         }
+    }
+
+    private void Prioritise()
+    {
+        bool wasNotFocused = !IsCurrentlyFocused();
+        Transform grandparent = transform.parent;
+        transform.SetParent(transform.root, true);
+        transform.SetParent(grandparent, true); //Reattaches at the bottom, prioritising UI on top of others.
+        
+        if (wasNotFocused)
+        {
+            Color color = DoStatic.RandomColor();
+            foreach (Outline outline in outlines)
+            {
+                outline.effectColor = color;
+            }
+        }
+    }
+
+    private bool IsCurrentlyFocused()
+    {
+        Transform parent = transform.parent;
+        return parent.GetChild(parent.childCount - 1) == transform;
     }
 }
