@@ -20,20 +20,24 @@ public class Lerper
         isLerping = startLerping;
     }
 
-    public void Update(float deltaTime)
+    /// <summary>
+    /// Updates the lerp.
+    /// </summary>
+    /// <param name="deltaTime">The amount of time that has passed.</param>
+    /// <returns>The new current value.</returns>
+    public float Update(float deltaTime)
     {
-        if (!isLerping)
+        if (isLerping)
         {
-            return;
+            timer.Update(deltaTime);
+            float clamp = Mathf.Clamp(timer.tick / timer.timer, 0, 1);
+            currentValue = clamp * (end - start) + start;
+            if (clamp == 1)
+            {
+                Reset();
+            }
         }
-
-        timer.Update(deltaTime);
-        float clamp = Mathf.Clamp(timer.tick / timer.timer, 0, 1);
-        currentValue = clamp * (end - start) + start;
-        if (clamp == 1)
-        {
-            Reset();
-        }
+        return currentValue;
     }
 
     private void Reset()

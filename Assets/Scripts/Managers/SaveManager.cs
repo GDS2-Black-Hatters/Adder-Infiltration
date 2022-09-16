@@ -3,7 +3,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
-public class SaveManager : MonoBehaviour, IManager
+public sealed class SaveManager : MonoBehaviour, IManager
 {
     public enum VariableToSave
     {

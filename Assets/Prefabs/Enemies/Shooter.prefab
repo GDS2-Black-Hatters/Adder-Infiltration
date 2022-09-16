@@ -320,13 +320,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canAttack: 0
   speed: 10
+  health:
+    health:
+      <originalValue>k__BackingField: 0
+      value: 0
+  closeRangeDistance: 20
+  customPatrolPath: []
+  nodeLeniency: 1
   bulletPoint: {fileID: 4611595807367970643}
   bulletSpeed: 7
   attackCooldown:
     <timer>k__BackingField: 1
     <timeScale>k__BackingField: -1
     <autoLoop>k__BackingField: 1
-  currentNode: 0
-  nextNode: 0
-  nodeParent: {fileID: 0}
-  closeRangeDistance: 5

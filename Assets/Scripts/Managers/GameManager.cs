@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(LevelManager))]
 [RequireComponent(typeof(InputManager))]
 [RequireComponent(typeof(VariableManager))]
-public class GameManager : MonoBehaviour
+public sealed class GameManager : MonoBehaviour
 {
     private static GameManager Instance;
 
@@ -45,10 +45,5 @@ public class GameManager : MonoBehaviour
     {
         //Grab variables from VariableManager and save them here.
         SaveManager.SaveToFile();
-    }
-
-    public void QuitGame()
-    {
-        Application.Quit();
     }
 }

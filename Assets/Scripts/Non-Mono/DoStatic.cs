@@ -19,50 +19,7 @@ public class DoStatic
     /// <returns>A random bool.</returns>
     public static bool RandomBool(float successRate = 0.5f)
     {
-        return Random.value > 1 - successRate;
-    }
-
-    /// <summary>
-    /// Gets all the children in the given gameobject.
-    /// This is a recursive function with utilising the Depth First Search algorithm.
-    /// </summary>
-    /// <param name="transform">The transform of the gameobject.</param>
-    /// <param name="generationDepth">The depth of the search.</param>
-    /// <param name="childrenRef">Starting children, if any, mainly used for generation depth.</param>
-    /// <returns>An array of all the children.</returns>
-    public static Transform[] GetChildren(Transform transform, int generationDepth = 1, List<Transform> childrenRef = null)
-    {
-        generationDepth--;
-        List<Transform> children = childrenRef ?? new List<Transform>();
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            Transform child = transform.GetChild(i);
-            children.Add(child);
-            if (generationDepth > 0 && child.childCount > 0)
-            {
-                GetChildren(child, generationDepth, children);
-            }
-        }
-        return children.ToArray();
-    }
-
-    /// <summary>
-    /// Get a child with tag. Utilises GetChildren() meaning, it is a recursive function.
-    /// </summary>
-    /// <param name="tag">The first tag to find</param>
-    /// <param name="parent">The parent to search through.</param>
-    /// <param name="generationDepth">The depth of the search.</param>
-    /// <returns>The child with the corresponding tag, may return a null.</returns>
-    public static GameObject GetChildWithTag(string tag, Transform parent, int generationDepth = 1)
-    {
-        foreach (Transform child in GetChildren(parent, generationDepth))
-        {
-            if (child.CompareTag(tag))
-            {
-                return child.gameObject;
-            }
-        }
-        return null;
+        return Random.value < successRate;
     }
 
     /// <summary>

@@ -7,35 +7,32 @@ public class SpawnerEnvironmentObject : MonoBehaviour
     [SerializeField] private GameObject objectToSpawn;
     [SerializeField] private Vector3 spawnPointOffset;
     [SerializeField] private TimeTracker spawnTimer = new(5, -1, true);
-
     [SerializeField] private Animator animCtr;
-
-    private bool isActive;
 
     private void Start()
     {
         GameManager.LevelManager.ActiveSceneController.onPlayerDetection += ActivateSpawner;
         spawnTimer.Reset();
         spawnTimer.onFinish += Spawn;
+        enabled = false;
     }
 
     private void Update()
     {
-        if(isActive)
-        {
-            spawnTimer.Update(Time.deltaTime);
-        }
+        spawnTimer.Update(Time.deltaTime);
     }
 
     private void ActivateSpawner()
     {
-        isActive = true;
-        animCtr.SetBool("IsActive", true);
+        animCtr.SetBool("IsActive", enabled = true);
     }
 
     private void Spawn()
     {
-        Instantiate(objectToSpawn, transform.position + spawnPointOffset, Quaternion.identity);
+        Instantiate(
+            objectToSpawn, transform.position + spawnPointOffset, Quaternion.identity,
+            GameManager.LevelManager.ActiveSceneController.Enemies
+        );
     }
 
     private void OnDrawGizmos()
