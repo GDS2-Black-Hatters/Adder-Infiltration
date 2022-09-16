@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class DetectorEnvironmentObject : MonoBehaviour
+public abstract class DetectorEnvironmentObject : BaseEnvironmentObject
 {
     [SerializeField] private bool AlertLevelSceneManager = true;
     [SerializeField] protected UnityEngine.Events.UnityEvent OnDetect;

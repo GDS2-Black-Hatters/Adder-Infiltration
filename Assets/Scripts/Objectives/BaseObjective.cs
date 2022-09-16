@@ -3,9 +3,15 @@ using UnityEngine;
 
 public abstract class BaseObjective : MonoBehaviour
 {
-    [field: SerializeField] public bool isMandatory { get; protected set; } = false;
+    [SerializeField, Range(0,1)] protected float mandatoryChance = 0;
+    public bool isMandatory { get; protected set; }
     [field: SerializeField] public bool isComplete { get; protected set; } = false;
-    public string objectiveTitle { get; protected set; }
+    public abstract string objectiveTitle { get; }
+
+    protected virtual void Awake()
+    {
+        isMandatory = DoStatic.RandomBool(mandatoryChance);
+    }
 
     protected virtual void Start()
     {

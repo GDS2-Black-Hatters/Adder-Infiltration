@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca76b306edd809b448d5457fb464af60, type: 3}
+  m_Name: DecoPlaza
+  m_EditorClassIdentifier: 
+  possibleCellPosition: -1
+  _blockSize: {x: 1, y: 1}
+  availablePlazaCorePrefab:
+  - {fileID: 4039769377099424171, guid: 82851884b75acd94f8eaa0ff29ae9c7b, type: 3}
+  - {fileID: 2611751774163007665, guid: 0ec4fb377f84bb94d81f1ce16f3ef627, type: 3}
+  - {fileID: 2798764495127428344, guid: 7b7a640f3816ddb4bb9b114e6d54d7e1, type: 3}
+  availableEnvObjPrefab:
+  - {fileID: 9167817112470381913, guid: 59dc2f858e626f34bacfe59e5501a11a, type: 3}
+  envObjPositionOffset:
+  - {x: 0.8, y: 0, z: 0.8}
+  - {x: -0.8, y: 0, z: 0.8}
+  - {x: 0.8, y: 0, z: -0.8}
+  - {x: -0.8, y: 0, z: -0.8}
