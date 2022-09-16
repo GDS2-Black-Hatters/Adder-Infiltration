@@ -37,10 +37,34 @@ public class PCGIsland : MonoBehaviour
 
         //VerifyChunkAvailability(requiredChunks, chunkTransforms);
 
+        List<ChunkTransform> filledChunks = new List<ChunkTransform>();
+
+        foreach (PCGChunkData requiredChunk in requiredChunks)
+        {
+            ChunkTransform chunkTransform;
+            do
+            {
+                chunkTransform = chunkTransforms[Random.Range(0, chunkTransforms.Length)];
+            } while (filledChunks.Contains(chunkTransform)); //keep retrying until unfilled chunk found.
+
+            filledChunks.Add(chunkTransform);
+            GenerateChunk(requiredChunk, chunkTransform);
+        }
+
         foreach (ChunkTransform chunkTransform in chunkTransforms)
         {
+            if(filledChunks.Contains(chunkTransform))
+            {
+                continue; //Skip if chunk is already filled.
+            }
+            GenerateChunk(availableChunks[Random.Range(0, availableChunks.Length)], chunkTransform);
+        }
+    }
+
+    private void GenerateChunk(PCGChunkData chunkData, ChunkTransform chunkTransform)
+    {
             //create a copy of chunk data so we don't modify the scriptable object on disk
-            PCGChunkData chunkDataCopy = Instantiate(availableChunks[Random.Range(0, availableChunks.Length)]);
+            PCGChunkData chunkDataCopy = Instantiate(chunkData);
 
             //Initilize and generate chunk
             chunkDataCopy.Initilize(chunkTransform);
@@ -48,7 +72,6 @@ public class PCGIsland : MonoBehaviour
             
             //move chunk to new position
             chunkObj.transform.localPosition = GridPosToWorldV3(chunkTransform.ChunkCenter);
-        }
     }
 
     private bool VerifyChunkAvailability(PCGChunkData[] requiredChunks, ChunkTransform[] availableChunks)
