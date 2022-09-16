@@ -11,8 +11,6 @@ public class HubParallax : MonoBehaviour
     [SerializeField] private bool useCustomPivotPoint = false;
     [Tooltip("(0, 0) BottomLeft, (1, 1) TopRight"), SerializeField]
     private Vector2 customPivotPoint;
-
-
     private Camera cam;
 
     void Start()
