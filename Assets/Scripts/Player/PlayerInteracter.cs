@@ -137,8 +137,8 @@ public class PlayerInteracter : MonoBehaviour
         InputManager inputManager = GameManager.InputManager;
         if (inputManager)
         {
-            inputManager.GetAction(inputManager.Controls.Interact).performed -= InteractStart;
-            inputManager.GetAction(inputManager.Controls.Interact).canceled -= InteractHalt;
+            inputManager.GetAction(InputManager.Controls.Interact).performed -= InteractStart;
+            inputManager.GetAction(InputManager.Controls.Interact).canceled -= InteractHalt;
         }
     }
 }
