@@ -14,7 +14,7 @@ public static class BinaryArrayPartition
     {
         public ChunkGraphNode(Vector2Int upperLeft, Vector2Int bottomRight)
         {
-            chunkTransform = new( upperLeft, bottomRight);
+            chunkTransform = new(upperLeft, bottomRight);
         }
 
         public ChunkTransform chunkTransform;
@@ -29,18 +29,7 @@ public static class BinaryArrayPartition
 
         public bool IsWithinEndChunkNode(Vector2Int position)
         {
-            //Debug.Log("Chunk: UL:" + this.upperLeft + ",BR:" + this.bottomRight + ", CheckPos:" + position);
-
-            //Return False if position is not within this chunk, the position is likely a boundary position, or belongs to the other path.
-            if(!chunkTransform.IsWithinChunk(position))
-            {
-                return false;
-            }
-            if(IsEndChunkNode)
-            {
-                return true;
-            }
-            return( leftChild.IsWithinEndChunkNode(position) || rightChild.IsWithinEndChunkNode(position));
+            return chunkTransform.IsWithinChunk(position) && (IsEndChunkNode || leftChild.IsWithinEndChunkNode(position) || rightChild.IsWithinEndChunkNode(position));
         }
 
         public ChunkTransform[] GetEndChunksTransform()
@@ -57,6 +46,7 @@ public static class BinaryArrayPartition
                 refList.Add(chunkTransform);
                 return;
             }
+
             leftChild.GetEndChunksTransform(ref refList);
             rightChild.GetEndChunksTransform(ref refList);
         }
@@ -151,14 +141,14 @@ public static class BinaryArrayPartition
         switch(partDirection)
         {
             case lineDirection.alongX:
-            splitPosition = Mathf.Clamp(Mathf.RoundToInt(AdvanceRandom.GaussianRandom( (chunkTransform.bottomRight.y + chunkTransform.upperLeft.y)/2, Mathf.Pow(chunkTransform.ChunkHeight, centeringPower))), chunkTransform.upperLeft.y + 1, chunkTransform.bottomRight.y - 1);
+            splitPosition = Mathf.Clamp(Mathf.RoundToInt(AdvanceRandom.GaussianRandom( (chunkTransform.bottomRight.y + chunkTransform.upperLeft.y) * 0.5f, Mathf.Pow(chunkTransform.ChunkHeight, centeringPower))), chunkTransform.upperLeft.y + 1, chunkTransform.bottomRight.y - 1);
             chunkToPart.leftChild = new(new(chunkTransform.upperLeft.x, chunkTransform.upperLeft.y), new(chunkTransform.bottomRight.x, splitPosition - 1));
             chunkToPart.rightChild = new(new(chunkTransform.upperLeft.x, splitPosition + 1), new(chunkTransform.bottomRight.x, chunkTransform.bottomRight.y));
             //Debug.Log("Chunk: UL:" + chunkToPart.upperLeft + ",BR:" + chunkToPart.bottomRight + ", SplitYPos:" + splitPosition);
             break;
 
             case lineDirection.alongY:
-            splitPosition = Mathf.Clamp(Mathf.RoundToInt(AdvanceRandom.GaussianRandom( (chunkTransform.bottomRight.x + chunkTransform.upperLeft.x)/2, Mathf.Pow(chunkTransform.ChunkWidth, centeringPower))), chunkTransform.upperLeft.x + 1, chunkTransform.bottomRight.x - 1);
+            splitPosition = Mathf.Clamp(Mathf.RoundToInt(AdvanceRandom.GaussianRandom( (chunkTransform.bottomRight.x + chunkTransform.upperLeft.x) * 0.5f, Mathf.Pow(chunkTransform.ChunkWidth, centeringPower))), chunkTransform.upperLeft.x + 1, chunkTransform.bottomRight.x - 1);
             chunkToPart.leftChild = new(new(chunkTransform.upperLeft.x, chunkTransform.upperLeft.y), new(splitPosition - 1, chunkTransform.bottomRight.y));
             chunkToPart.rightChild = new(new(splitPosition + 1, chunkTransform.upperLeft.y), new(chunkTransform.bottomRight.x, chunkTransform.bottomRight.y));
             //Debug.Log("Chunk: UL:" + chunkToPart.upperLeft + ",BR:" + chunkToPart.bottomRight + ", SplitXPos:" + splitPosition);

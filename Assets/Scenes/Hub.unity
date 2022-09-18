@@ -1500,7 +1500,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: 0
-  levelToGo: 2
+  levelToGo: 104
   applicationToToggle: {fileID: 0}
 --- !u!114 &2076585626
 MonoBehaviour:
@@ -1752,6 +1752,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7492990974190013590, guid: fa44d070dd407e5499ae67b331d18280, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7492990974190013590, guid: fa44d070dd407e5499ae67b331d18280, type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8348760170521585448, guid: fa44d070dd407e5499ae67b331d18280, type: 3}

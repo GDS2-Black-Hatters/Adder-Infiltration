@@ -34,14 +34,17 @@ public class PCGIsland : MonoBehaviour
     {
         GameObject ground = Instantiate(roadwayGroundPrefab, transform.position, Quaternion.identity, transform);
         //Add 1 to generate boarder ground
-        ground.transform.localScale = new Vector3((islandSize.x + 1) * cellSizeUnitMultiplier/10, 1, (islandSize.y + 1) * cellSizeUnitMultiplier/10);
+        float calculatedMult = cellSizeUnitMultiplier * 0.1f;
+        Vector3 scale = new Vector3(islandSize.x + 1, 1, islandSize.y + 1) * calculatedMult;
+        scale.y = 1;
+        ground.transform.localScale = scale;
 
         ChunkTransform[] chunkTransforms = BinaryArrayPartition.GetPartitionedChunks(islandSize.x, islandSize.y, () => { return Mathf.FloorToInt(AdvanceRandom.ExponentialRandom(maxChunkSizeLowerBound, expectedChunkSizeVariation)); });
 
         //VerifyChunkAvailability(requiredChunks, chunkTransforms);
 
-        List<ChunkTransform> filledChunks = new List<ChunkTransform>();
-
+        //Grab all requiredChunks before generation and add them in first.
+        List<ChunkTransform> filledChunks = new();
         foreach (PCGChunkData requiredChunk in requiredChunks)
         {
             ChunkTransform chunkTransform;
@@ -54,6 +57,7 @@ public class PCGIsland : MonoBehaviour
             GenerateChunk(requiredChunk, chunkTransform);
         }
 
+        //Fill in the rest of the chunks.
         foreach (ChunkTransform chunkTransform in chunkTransforms)
         {
             if(filledChunks.Contains(chunkTransform))
@@ -84,7 +88,7 @@ public class PCGIsland : MonoBehaviour
             return false;
 
         //Verify there are enough chunk of required size
-        List<int> availableChunkSizeCount = new List<int>();
+        List<int> availableChunkSizeCount = new();
         foreach(ChunkTransform ct in availableChunks)
         {
             if(availableChunkSizeCount.Count <= ct.ChunkCellCount)
@@ -93,7 +97,8 @@ public class PCGIsland : MonoBehaviour
             }
             availableChunkSizeCount[ct.ChunkCellCount] += 1;
         }
-        List<int> requiredChunkSizeCount = new List<int>();
+
+        List<int> requiredChunkSizeCount = new();
         foreach(PCGChunkData rc in requiredChunks)
         {
             if(requiredChunkSizeCount.Count <= rc.minCellCountRequirement)
@@ -102,6 +107,7 @@ public class PCGIsland : MonoBehaviour
             }
             requiredChunkSizeCount[rc.minCellCountRequirement] += 1;
         }
+
         for (int i = requiredChunkSizeCount.Capacity; i > 0; i--)
         {
             for(int j = availableChunkSizeCount.Capacity; j > 0; j--)
@@ -110,17 +116,16 @@ public class PCGIsland : MonoBehaviour
             }
         }
 
-
         return true;
     }
 
     private Vector3 GridPosToWorldV3(float xCord, float yCord)
     {
-        return transform.position + new Vector3( (xCord - (float)(islandSize.x - 1)/2) * cellSizeUnitMultiplier, 0, (yCord - (float)(islandSize.y - 1)/2) * cellSizeUnitMultiplier);
+        return transform.position + new Vector3(xCord - (islandSize.x - 1) * 0.5f, 0, yCord - (islandSize.y - 1) * 0.5f) * cellSizeUnitMultiplier;
     }
 
     private Vector3 GridPosToWorldV3(Vector2 gridCord)
     {
-        return transform.position + new Vector3((gridCord.x - (float)(islandSize.x - 1)/2) * cellSizeUnitMultiplier, 0, (gridCord.y - (float)(islandSize.y - 1)/2) * cellSizeUnitMultiplier);
+        return transform.position + new Vector3(gridCord.x - (islandSize.x - 1) * 0.5f, 0, gridCord.y - (islandSize.y - 1) * 0.5f) * cellSizeUnitMultiplier;
     }
 }

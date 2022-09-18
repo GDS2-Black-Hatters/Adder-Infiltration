@@ -9,6 +9,11 @@ public class PlayerVirusController : MonoBehaviour
     private Rigidbody rb;
     private InputAction moveAction;
 
+    private void Awake()
+    {
+        GameManager.LevelManager.SetPlayer(transform);
+    }
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -16,7 +21,6 @@ public class PlayerVirusController : MonoBehaviour
         InputManager inputManager = GameManager.InputManager;
         inputManager.ChangeControlMap(InputManager.ControlScheme.MainGame);
         moveAction = inputManager.GetAction(InputManager.Controls.Move);
-        GameManager.LevelManager.SetPlayer(transform);
     }
 
     private void FixedUpdate()
