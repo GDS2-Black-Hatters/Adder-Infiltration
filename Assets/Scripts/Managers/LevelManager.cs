@@ -16,6 +16,9 @@ public sealed class LevelManager : MonoBehaviour, IManager
         MainMenu,
         Hub,
 
+        //For Demo Purpose
+        DemoProceduralLevel,
+
         //Add game levels below this.
         Tutorial = gameLevels,
         Tutorial2,

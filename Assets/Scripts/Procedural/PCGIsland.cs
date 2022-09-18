@@ -11,10 +11,12 @@ public class PCGIsland : MonoBehaviour
     [SerializeField] private int maxChunkSizeLowerBound = 2;
     [SerializeField] private int expectedChunkSizeVariation = 6;
 
-    [SerializeField] private GameObject groundPrefab;
+    [SerializeField] private GameObject roadwayGroundPrefab;
 
     [SerializeField] private PCGChunkData[] requiredChunks;
     [SerializeField] private PCGChunkData[] availableChunks;
+
+    [SerializeField] private bool generateOnStart = false;
 
     private class IslandChunk
     {
@@ -24,12 +26,13 @@ public class PCGIsland : MonoBehaviour
 
     private void Start()
     {
-        GenerateIsland();
+        if(generateOnStart)
+            GenerateIsland();
     }
 
-    private void GenerateIsland()
+    public void GenerateIsland()
     {
-        GameObject ground = Instantiate(groundPrefab, transform.position, Quaternion.identity, transform);
+        GameObject ground = Instantiate(roadwayGroundPrefab, transform.position, Quaternion.identity, transform);
         //Add 1 to generate boarder ground
         ground.transform.localScale = new Vector3((islandSize.x + 1) * cellSizeUnitMultiplier/10, 1, (islandSize.y + 1) * cellSizeUnitMultiplier/10);
 
