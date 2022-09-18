@@ -7,15 +7,17 @@ public abstract class BaseObjective : MonoBehaviour
     public bool isMandatory { get; protected set; }
     [field: SerializeField] public bool isComplete { get; protected set; } = false;
     public abstract string objectiveTitle { get; }
+    public bool canBeMandatory { get; protected set; } = true;
 
     protected virtual void Awake()
     {
         isMandatory = DoStatic.RandomBool(mandatoryChance);
+        GameManager.LevelManager.ActiveSceneController.AddToObjectiveList(this);
     }
 
-    protected virtual void Start()
+    public void ForceMandatory()
     {
-        GameManager.LevelManager.ActiveSceneController.AddToObjectiveList(this);
+        isMandatory = true;
     }
 
     protected virtual void OnDestroy()

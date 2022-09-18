@@ -6,9 +6,8 @@ public class CollectObjective : BaseObjective
     private OriginalValue<int> collectCount;
     private int prevCount;
 
-    protected override void Start()
+    protected void Start()
     {
-        base.Start();
         collectCount = new(transform.childCount);
         UpdateName();
     }

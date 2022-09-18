@@ -11,9 +11,12 @@ public class BaseSceneController : MonoBehaviour
         Combat,
     }
     public SceneState sceneMode { get; private set; } = SceneState.Stealth;
+
     public bool canFinish { get; private set; } = false;
     [SerializeField] private Transform allNodes;
     [field: SerializeField] public Transform Enemies { get; private set; }
+    private List<Transform> spawnPoints = new();
+    private bool hasAMandatoryObjective = false;
 
     //For children.
     protected List<BaseObjective> objectives = new();
@@ -47,6 +50,16 @@ public class BaseSceneController : MonoBehaviour
         }
     }
 
+    public void AddSpawnPoint(Transform transform)
+    {
+        spawnPoints.Add(transform);
+    }
+
+    public void SetSpawnPoint()
+    {
+        GameManager.LevelManager.player.position = spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Count)].position;
+    }
+
     public void StartCaughtMode()
     {
         if (sceneMode == SceneState.Stealth)
@@ -69,6 +82,10 @@ public class BaseSceneController : MonoBehaviour
     public void AddToObjectiveList(BaseObjective objective)
     {
         objectives.Add(objective);
+        if (!hasAMandatoryObjective && (hasAMandatoryObjective = objective.canBeMandatory))
+        {
+            objective.ForceMandatory();
+        }
     }
 
     public void UpdateObjectiveList()
