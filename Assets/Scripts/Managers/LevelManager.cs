@@ -16,15 +16,16 @@ public sealed class LevelManager : MonoBehaviour, IManager
         MainMenu,
         Hub,
 
-        //For Demo Purpose
-        DemoProceduralLevel,
-
         //Add game levels below this.
         Tutorial = gameLevels,
         Tutorial2,
         Tutorial3,
 
         SampleLevel,
+
+        //For Demo Purpose
+        DemoProceduralLevel,
+
         Unknown, //This is for any unofficial levels.
     }
     public Level level { get; private set; }
