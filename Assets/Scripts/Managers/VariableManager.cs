@@ -8,6 +8,10 @@ public sealed class VariableManager : MonoBehaviour, IManager
     [field: SerializeField, Header("Player Health")] public Health playerHealth { get; private set; } = new(100);
 
     //Saveable variables
+    [field: Header("Player Resources")]
+    [field: SerializeField] public int byteCoins { get; private set; } = 0;
+    [field: SerializeField] public int intelligenceData { get; private set; } = 0;
+    [field: SerializeField] public int processingPower { get; private set; } = 0;
 
     public void StartUp()
     {

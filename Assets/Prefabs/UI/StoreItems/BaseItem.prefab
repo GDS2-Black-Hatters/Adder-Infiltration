@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3609846952347362330}
   - component: {fileID: 7411846214711265599}
   m_Layer: 5
-  m_Name: Name
+  m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -276,6 +276,16 @@ MonoBehaviour:
   normal: {r: 0.1254902, g: 0.13333334, b: 0.14509805, a: 1}
   onHover: {r: 0.25490198, g: 0.25490198, b: 0.25490198, a: 1}
   selected: {r: 0.34509805, g: 0.39607844, b: 0.9490196, a: 1}
+  label: {fileID: 7411846214711265599}
+  itemName: Item Name
+  itemDescription: 'Description
+
+    Description
+
+'
+  baseBytecoinCost: 1
+  baseIntelligenceDataCost: 1
+  baseProcessingPowerCost: 1
 --- !u!1 &7640992893313837485
 GameObject:
   m_ObjectHideFlags: 0

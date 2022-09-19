@@ -95,6 +95,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5830702591418360266, guid: 1675f159728b9cc4fbd4c110e5eb0e0e, type: 3}
+      propertyPath: itemName
+      value: Dash Ability
+      objectReference: {fileID: 0}
+    - target: {fileID: 5830702591418360266, guid: 1675f159728b9cc4fbd4c110e5eb0e0e, type: 3}
+      propertyPath: itemDescription
+      value: 'Dash forward to whatever direction you are facing.
+
+
+        Cooldown:
+        3s'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5830702591418360266, guid: 1675f159728b9cc4fbd4c110e5eb0e0e, type: 3}
+      propertyPath: baseBytecoinCost
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5830702591418360266, guid: 1675f159728b9cc4fbd4c110e5eb0e0e, type: 3}
+      propertyPath: baseProcessingPowerCost
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5830702591418360266, guid: 1675f159728b9cc4fbd4c110e5eb0e0e, type: 3}
+      propertyPath: baseIntelligenceDataCost
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7005876751082412806, guid: 1675f159728b9cc4fbd4c110e5eb0e0e, type: 3}
       propertyPath: m_Name
       value: Dash

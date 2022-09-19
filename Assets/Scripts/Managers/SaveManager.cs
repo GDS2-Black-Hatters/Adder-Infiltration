@@ -5,10 +5,22 @@ using UnityEngine;
 
 public sealed class SaveManager : MonoBehaviour, IManager
 {
+    /// <summary>
+    /// These variables are saved to file.
+    /// <br></br>
+    /// <br></br>RULES:
+    /// <br></br>   1. EVERY ENUM MUST BE ASSIGNED TO A UNIQUE NUMBER
+    /// <br></br>   2. Name appropriately.
+    /// <br></br>
+    /// <br></br>If the need to change an enum's unique number to another number
+    /// you must delete all save files as they will become "corrupt".
+    /// </summary>
     public enum VariableToSave
     {
-        Level,
-        Money,
+        //Player resources
+        bytecoins = 1000,
+        intelligenceData = 1001,
+        processingPower = 1002,
     }
 
     private string saveFile;
