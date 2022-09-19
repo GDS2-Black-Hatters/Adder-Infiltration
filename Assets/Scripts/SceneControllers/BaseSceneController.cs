@@ -45,6 +45,13 @@ public class BaseSceneController : MonoBehaviour
             lerper.Update(Time.deltaTime);
             RenderSettings.skybox.SetColor("_SkyTint", Color.Lerp(startColor, endColor, lerper.currentValue));
         }
+
+        //Fall Off Check
+        LevelManager levelManager = GameManager.LevelManager;
+        if (levelManager.player.position.y < -15f)
+        {
+            levelManager.ChangeLevel(LevelManager.Level.Hub);
+        }
     }
 
     public void StartCaughtMode()
