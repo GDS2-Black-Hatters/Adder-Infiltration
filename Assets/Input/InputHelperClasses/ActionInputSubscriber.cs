@@ -49,7 +49,7 @@ public sealed class ActionInputSubscriber : MonoBehaviour
 
         public void UnsubscribeAction()
         {
-            GameManager.InputManager.ChangeControlMap(controlScheme);
+            //GameManager.InputManager.ChangeControlMap(controlScheme);
             switch (callBackContext)
             {
                 case CallBackContext.Started:

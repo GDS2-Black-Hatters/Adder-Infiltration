@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.21768552, g: 0.50214833, b: 0.325812, a: 1}
+  m_IndirectSpecularColor: {r: 0.21771833, g: 0.5048249, b: 0.32644093, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -304,11 +304,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 145525614}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f42d2a4b54efb0448daa72182188ebc, type: 3}
+  m_Script: {fileID: 11500000, guid: 15b218c64f37c2049810c3255cd30a10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonType: 1
-  levelToGo: 0
 --- !u!1 &192824163
 GameObject:
   m_ObjectHideFlags: 0
@@ -576,11 +574,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 197185657}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f42d2a4b54efb0448daa72182188ebc, type: 3}
+  m_Script: {fileID: 11500000, guid: 98d25fa142f2b5a4a8c446b013334e9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonType: 0
-  levelToGo: 100
 --- !u!1 &602911506
 GameObject:
   m_ObjectHideFlags: 0

@@ -446,12 +446,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2445081172185930105}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d95831094157d04b97a13335a620bb5, type: 3}
+  m_Script: {fileID: 11500000, guid: cfa3fea54b184654e98b05cb39e42c3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonType: 1
-  levelToGo: 0
-  applicationToToggle: {fileID: 1154725054548529993}
+  windowApplication: {fileID: 1154725054548529993}
 --- !u!222 &7194254203810714692
 CanvasRenderer:
   m_ObjectHideFlags: 0

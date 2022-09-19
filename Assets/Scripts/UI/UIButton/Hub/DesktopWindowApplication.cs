@@ -10,7 +10,8 @@ using UnityEngine.UI;
 public sealed class DesktopWindowApplication : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private float fadeInSpeed = 0.25f;
-    private bool isHovering;
+    private bool isHovering = false;
+    private bool isFocused = false;
 
     [SerializeField] private CanvasGroup focusOutline;
     private Outline[] outlines;
@@ -39,13 +40,13 @@ public sealed class DesktopWindowApplication : MonoBehaviour, IPointerEnterHandl
         {
             new(Hub, GameManager.InputManager.GetAction(Click), Performed, ClickToFocus),
         });
-
+ 
         outlines = focusOutline.GetComponentsInChildren<Outline>();
     }
 
     private void Update()
     {
-        focusOutline.alpha = IsCurrentlyFocused() ? 1 : 0;
+        focusOutline.alpha = isFocused ? 1 : 0;
         if (fade.isLerping)
         {
             canvasGroup.alpha = fade.Update(Time.deltaTime);
@@ -72,6 +73,7 @@ public sealed class DesktopWindowApplication : MonoBehaviour, IPointerEnterHandl
     public void ToggleApplication()
     {
         Prioritise();
+        isFocused = true;
         if (fade.isLerping)
         {
             return;
@@ -97,7 +99,7 @@ public sealed class DesktopWindowApplication : MonoBehaviour, IPointerEnterHandl
 
     private void ClickToFocus(InputAction.CallbackContext eventData)
     {
-        if (isHovering)
+        if (isFocused = isHovering)
         {
             Prioritise();
         }
@@ -105,10 +107,11 @@ public sealed class DesktopWindowApplication : MonoBehaviour, IPointerEnterHandl
 
     private void Prioritise()
     {
-        bool wasNotFocused = !IsCurrentlyFocused();
-        Transform grandparent = transform.parent;
+        bool wasNotFocused = !isFocused; // The state prior to the change.
+
+        Transform parent = transform.parent; //The original parent.
         transform.SetParent(transform.root, true);
-        transform.SetParent(grandparent, true); //Reattaches at the bottom, prioritising UI on top of others.
+        transform.SetParent(parent, true); //Reattaches at the bottom, prioritising UI on top of others.
         
         if (wasNotFocused)
         {
@@ -118,11 +121,5 @@ public sealed class DesktopWindowApplication : MonoBehaviour, IPointerEnterHandl
                 outline.effectColor = color;
             }
         }
-    }
-
-    private bool IsCurrentlyFocused()
-    {
-        Transform parent = transform.parent;
-        return parent.GetChild(parent.childCount - 1) == transform;
     }
 }

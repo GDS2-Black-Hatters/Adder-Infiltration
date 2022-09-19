@@ -2,13 +2,13 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(Animator))]
-public class DesktopIconBehaviour : UIButtonBehaviour, IPointerEnterHandler, IPointerExitHandler
+public abstract class BaseDesktopButton : BaseButton, IPointerEnterHandler, IPointerExitHandler
 {
     private Animator anim;
 
-    protected override void Start()
+    protected override void Awake()
     {
-        base.Start();
+        base.Awake();
         anim = GetComponent<Animator>();
     }
 
