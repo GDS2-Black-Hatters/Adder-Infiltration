@@ -4,7 +4,6 @@ using UnityEngine.InputSystem;
 public class PlayerVirusController : MonoBehaviour
 {
     [SerializeField] private float movementSpeed = 10f;
-    [SerializeField] private float cameraSensitivity = 0.5f;
     [SerializeField] private Transform cameraAnchor;
     private Rigidbody rb;
     private InputAction moveAction;
@@ -34,7 +33,6 @@ public class PlayerVirusController : MonoBehaviour
         InputManager inputManager = GameManager.InputManager;
         inputManager.ChangeControlMap(InputManager.ControlScheme.MainGame);
 
-        inputManager.GetAction(InputManager.Controls.Look).performed += RotateCamera;
         inputManager.GetAction(InputManager.Controls.Move).canceled += MovementHalt;
     }
 
@@ -46,17 +44,7 @@ public class PlayerVirusController : MonoBehaviour
         {
             return;
         }
-        inputManager.GetAction(InputManager.Controls.Look).performed -= RotateCamera;
         inputManager.GetAction(InputManager.Controls.Move).canceled -= MovementHalt;
-    }
-
-    private void RotateCamera(InputAction.CallbackContext LookDelta)
-    {
-        Vector2 lookDeltaV2 = LookDelta.ReadValue<Vector2>() * cameraSensitivity;
-        Vector2 rot = cameraAnchor.eulerAngles;
-        rot.x = Mathf.Clamp(rot.x - lookDeltaV2.y - (rot.x > 90 ? 360 : 0), -90, 90);
-        rot.y += lookDeltaV2.x;
-        cameraAnchor.eulerAngles = rot;
     }
 
     //Handle movement by force in fixed update so lag doesn't change the player's speed
