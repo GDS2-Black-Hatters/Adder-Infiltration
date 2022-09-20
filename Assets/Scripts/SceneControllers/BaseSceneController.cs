@@ -13,6 +13,7 @@ public class BaseSceneController : MonoBehaviour
     public SceneState sceneMode { get; private set; } = SceneState.Stealth;
 
     public bool canFinish { get; private set; } = false;
+    [field: SerializeField] public EnemyAdmin enemyAdmin { get; private set; }
     [SerializeField] private Transform allNodes;
     [field: SerializeField] public Transform Enemies { get; private set; }
     private List<Transform> spawnPoints = new();
