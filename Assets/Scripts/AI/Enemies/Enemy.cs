@@ -34,7 +34,7 @@ public abstract class Enemy : MonoBehaviour
         BaseSceneController controller = GameManager.LevelManager.ActiveSceneController;
         controller.onPlayerDetection += OnPlayerDetection;
         stateAction = controller.sceneMode == BaseSceneController.SceneState.Stealth ? Patrol : Chase;
-        nodeTarget = customPatrolPath.Length == 0 ? controller.GetClosestNode(transform) : customPatrolPath[0];
+        nodeTarget = customPatrolPath.Length == 0 ? controller.enemyAdmin.GetClosestNode(transform) : customPatrolPath[0];
     }
 
     protected void Update()
@@ -45,7 +45,7 @@ public abstract class Enemy : MonoBehaviour
     protected virtual void OnPlayerDetection()
     {
         stateAction = Chase;
-        nodeTarget = GameManager.LevelManager.ActiveSceneController.GetClosestNode(transform).GetNextNodeToPlayer();
+        nodeTarget = GameManager.LevelManager.ActiveSceneController.enemyAdmin.GetClosestNode(transform).GetNextNodeToPlayer();
     }
 
     protected void GoTowards(Transform target)
@@ -95,7 +95,7 @@ public abstract class Enemy : MonoBehaviour
         {
             if (!nodeTarget || (nodeTarget.transform.position - transform.position).sqrMagnitude < nodeLeniency)
             {
-                nodeTarget = GameManager.LevelManager.ActiveSceneController.GetClosestNode(transform).GetNextNodeToPlayer();
+                nodeTarget = GameManager.LevelManager.ActiveSceneController.enemyAdmin.GetClosestNode(transform).GetNextNodeToPlayer();
             }
             LookAt(nodeTarget.transform);
             GoTowards(nodeTarget.transform);

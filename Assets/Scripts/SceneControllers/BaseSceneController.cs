@@ -14,9 +14,7 @@ public class BaseSceneController : MonoBehaviour
 
     public bool canFinish { get; private set; } = false;
     [field: SerializeField] public EnemyAdmin enemyAdmin { get; private set; }
-    [SerializeField] private Transform allNodes;
-    [field: SerializeField] public Transform Enemies { get; private set; }
-    private List<Transform> spawnPoints = new();
+    private List<Transform> playerSpawnPoints = new();
     private bool hasAMandatoryObjective = false;
 
     //For children.
@@ -53,12 +51,12 @@ public class BaseSceneController : MonoBehaviour
 
     public void AddSpawnPoint(Transform transform)
     {
-        spawnPoints.Add(transform);
+        playerSpawnPoints.Add(transform);
     }
 
     public void SetSpawnPoint()
     {
-        GameManager.LevelManager.player.position = spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Count)].position;
+        GameManager.LevelManager.player.position = playerSpawnPoints[UnityEngine.Random.Range(0, playerSpawnPoints.Count)].position;
     }
 
     public void StartCaughtMode()
@@ -115,21 +113,5 @@ public class BaseSceneController : MonoBehaviour
         canFinish = mandatoryCount == 0;
         string extra = canFinish ? "\nMission Completed, escape through a cell tower." : "";
         GameManager.LevelManager.objectiveList.text = "Objective List:" + mandatory + optional + extra;
-    }
-
-    public AINode GetClosestNode(Transform target)
-    {
-        AINode closest = null;
-        float closestDist = int.MaxValue;
-        foreach (AINode node in gameObject.GetComponentsInChildren<AINode>())
-        {
-            float nodeDist = (node.transform.position - target.position).sqrMagnitude;
-            if (closestDist > nodeDist)
-            {
-                closest = node;
-                closestDist = nodeDist;
-            }
-        }
-        return closest;
     }
 }

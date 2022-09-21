@@ -188,9 +188,14 @@ public class PCGIsland : MonoBehaviour
         }
 
         //added in null check for temporary measure before the enemy handling gets removed from scene controller.
-        //remove the null check after enemy admin takes control of enemy management.
-        GameManager.LevelManager.ActiveSceneController.enemyAdmin?.NewAiNodes(nodeList.ToArray());
+        GameManager.LevelManager.ActiveSceneController.enemyAdmin.NewAiNodes(nodeList.ToArray());
         //Debug.Log("Node Gen Time Cost: "+ (Time.realtimeSinceStartup - aiNodeGenStartTime));
+
+        //SpawnEnemies
+        for (int i = 0; i < 10; i++)
+        {
+            GameManager.LevelManager.ActiveSceneController.enemyAdmin.SpawnNewEnemy();        
+        }
     }
 
     private void GenerateChunk(PCGChunkData chunkData, ChunkTransform chunkTransform)

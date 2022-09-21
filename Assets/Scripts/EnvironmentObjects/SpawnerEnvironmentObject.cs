@@ -31,7 +31,7 @@ public class SpawnerEnvironmentObject : BaseEnvironmentObject
     {
         Instantiate(
             objectToSpawn, transform.position + spawnPointOffset, Quaternion.identity,
-            GameManager.LevelManager.ActiveSceneController.Enemies
+            GameManager.LevelManager.ActiveSceneController.enemyAdmin.EnemiesParent
         );
     }
 
