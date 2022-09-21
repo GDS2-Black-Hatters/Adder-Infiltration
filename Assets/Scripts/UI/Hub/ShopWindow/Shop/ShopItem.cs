@@ -16,7 +16,14 @@ public class ShopItem : ScriptableObject
 
     [field: SerializeField, Header("Text and Labels")] public string ItemName { get; private set; }
     [TextArea(5, 5)] public string description;
-    public virtual string Label => ItemName;
+    public virtual string Label
+    {
+        get
+        {
+            string purchased = Item.IsUnlocked ? "Purchased" : "";
+            return $"{ItemName}\n<size=80%>{purchased}</size>";
+        }
+    }
     public virtual string Description => description;
 
     [Header("Price")]

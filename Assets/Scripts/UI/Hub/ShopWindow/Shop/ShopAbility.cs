@@ -10,7 +10,7 @@ public class ShopAbility : ShopItem
         get
         {
             string subtitle = Ability.Level == 0 ? "" : $"Level {Ability.Level}";
-            return $"{ItemName}\n{subtitle}";
+            return $"{ItemName}\n<size=80%>{subtitle}</size>";
         }
     }
 

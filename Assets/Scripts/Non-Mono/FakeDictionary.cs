@@ -28,7 +28,7 @@ public class FakeDictionary<key, value>
         {
             if (dictionary.ContainsKey(item.key))
             {
-                Debug.Log(item.key + " already exists in the dictionary!");
+                Debug.LogError(item.key + " already exists in the dictionary!");
                 continue;
             }
             dictionary.Add(item.key, item.value);
