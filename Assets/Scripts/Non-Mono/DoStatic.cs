@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class DoStatic
@@ -75,5 +76,15 @@ public class DoStatic
     public static T StringToEnum<T>(string enumerator) where T : System.Enum
     {
         return (T)System.Enum.Parse(typeof(T), enumerator);
+    }
+
+    /// <summary>
+    /// Get a list of all the enum values.
+    /// </summary>
+    /// <typeparam name="T">Any enumerator type</typeparam>
+    /// <returns>An array of all the enums values.</returns>
+    public static T[] EnumList<T>() where T : System.Enum
+    {
+        return System.Enum.GetValues(typeof(T)).Cast<T>().ToArray();
     }
 }

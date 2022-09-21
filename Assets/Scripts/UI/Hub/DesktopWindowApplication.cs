@@ -1,10 +1,11 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-using static InputManager.ControlScheme;
-using static InputManager.Controls;
-using static ActionInputSubscriber.CallBackContext;
 using UnityEngine.UI;
+using static ActionInputSubscriber.CallBackContext;
+using static InputManager.Controls;
+using static InputManager.ControlScheme;
 
 [RequireComponent(typeof(CanvasGroup))]
 public sealed class DesktopWindowApplication : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
@@ -16,7 +17,7 @@ public sealed class DesktopWindowApplication : MonoBehaviour, IPointerEnterHandl
     [SerializeField] private CanvasGroup focusOutline;
     private Outline[] outlines;
 
-    [Header("Screen Padding"), SerializeField] private float leftPadding;
+    [Header("Screen Spawning Padding"), SerializeField] private float leftPadding;
     [SerializeField] private float rightPadding;
     [SerializeField] private float topPadding;
     [SerializeField] private float bottomPadding = 50;
@@ -40,19 +41,8 @@ public sealed class DesktopWindowApplication : MonoBehaviour, IPointerEnterHandl
         {
             new(Hub, GameManager.InputManager.GetAction(Click), Performed, ClickToFocus),
         });
- 
-        outlines = focusOutline.GetComponentsInChildren<Outline>();
-    }
 
-    private void Update()
-    {
-        focusOutline.alpha = isFocused ? 1 : 0;
-        if (fade.isLerping)
-        {
-            canvasGroup.alpha = fade.Update(Time.deltaTime);
-            rectTransform.anchoredPosition = Vector2.Lerp(fadeStartPos, fadeEndPos, fade.currentValue);
-            rectTransform.localScale = Vector2.one * fade.currentValue;
-        }
+        outlines = focusOutline.GetComponentsInChildren<Outline>();
     }
 
     private Vector2 RandomisePosition()
@@ -73,18 +63,10 @@ public sealed class DesktopWindowApplication : MonoBehaviour, IPointerEnterHandl
     public void ToggleApplication()
     {
         Prioritise();
-        isFocused = true;
-        if (fade.isLerping)
+        if (!fade.isLerping)
         {
-            return;
+            StartCoroutine(Fading());
         }
-
-        //Toggles fade in or out.
-        float start = canvasGroup.alpha;
-        fade.SetValues(start, 1 - start, fadeInSpeed);
-
-        //Toggles the position lerp in or out
-        fadeEndPos = start == 0 ? RandomisePosition() : rectTransform.anchoredPosition;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -99,20 +81,25 @@ public sealed class DesktopWindowApplication : MonoBehaviour, IPointerEnterHandl
 
     private void ClickToFocus(InputAction.CallbackContext eventData)
     {
-        if (isFocused = isHovering)
+        if (isHovering)
         {
             Prioritise();
+        }
+        else
+        {
+            isFocused = false;
+            focusOutline.alpha = 0;
         }
     }
 
     private void Prioritise()
     {
         bool wasNotFocused = !isFocused; // The state prior to the change.
-
         Transform parent = transform.parent; //The original parent.
+
         transform.SetParent(transform.root, true);
         transform.SetParent(parent, true); //Reattaches at the bottom, prioritising UI on top of others.
-        
+
         if (wasNotFocused)
         {
             Color color = DoStatic.RandomColor();
@@ -121,5 +108,25 @@ public sealed class DesktopWindowApplication : MonoBehaviour, IPointerEnterHandl
                 outline.effectColor = color;
             }
         }
+        isFocused = true;
+        focusOutline.alpha = 1;
+    }
+
+    private IEnumerator Fading()
+    {
+        //Toggles fade in or out.
+        float start = canvasGroup.alpha;
+        fade.SetValues(start, 1 - start, fadeInSpeed);
+
+        //Toggles the position lerp in or out
+        fadeEndPos = start == 0 ? RandomisePosition() : rectTransform.anchoredPosition;
+
+        do
+        {
+            canvasGroup.alpha = fade.Update(Time.deltaTime);
+            rectTransform.anchoredPosition = Vector2.Lerp(fadeStartPos, fadeEndPos, fade.currentValue);
+            rectTransform.localScale = Vector2.one * fade.currentValue;
+            yield return null;
+        } while (fade.isLerping);
     }
 }

@@ -7,13 +7,15 @@ public sealed class SaveManager : MonoBehaviour, IManager
 {
     /// <summary>
     /// These variables are saved to file.
-    /// <br></br>
-    /// <br></br>RULES:
-    /// <br></br>   1. EVERY ENUM MUST BE ASSIGNED TO A UNIQUE NUMBER
-    /// <br></br>   2. Name appropriately.
-    /// <br></br>
-    /// <br></br>If the need to change an enum's unique number to another number
-    /// you must delete all save files as they will become "corrupt".
+    /// <br/>
+    /// <br/> Rules:
+    /// <br/> 1. Every enum must be assigned to a unique number.
+    /// <br/> 2. You can add more enums but never remove them.
+    /// <br/> 3. Name appropriately. (Feel free to rename enums)
+    /// <br/>
+    /// <br/> If the need to change an enum's unique number to another
+    /// <br/> number or remove an enum you must delete all save files as
+    /// <br/> they will become "corrupt".
     /// </summary>
     public enum VariableToSave
     {
@@ -21,11 +23,12 @@ public sealed class SaveManager : MonoBehaviour, IManager
         bytecoins = 1000,
         intelligenceData = 1001,
         processingPower = 1002,
+        allUnlockables = 1003,
     }
 
     private string saveFile;
     private readonly BinaryFormatter formatter = new(); //Converts data from and into a serialised format.
-    private Dictionary<string, object> savedVars = new(); //The dictionary of where all the data is saved.
+    private Dictionary<VariableToSave, object> savedVars = new(); //The dictionary of where all the data is saved.
 
     public void StartUp()
     {
@@ -65,18 +68,17 @@ public sealed class SaveManager : MonoBehaviour, IManager
     /// Saves the variable called through from other components.
     /// Warning: If the key already exists, the value of it will be overwritten.
     /// </summary>
-    /// <param name="key">The string of the variable name, will error if there is more than one key.</param>
+    /// <param name="variable">The variable name.</param>
     /// <param name="obj">Any variable that can be serialised.</param>
     public void SaveVariable(VariableToSave variable, object obj)
     {
-        string key = DoStatic.EnumAsString(variable);
-        if (savedVars.ContainsKey(key))
+        try
         {
-            savedVars[key] = obj;
+            savedVars[variable] = obj;
         }
-        else
+        catch
         {
-            savedVars.Add(key, obj);
+            savedVars.Add(variable, obj);
         }
     }
     #endregion
@@ -92,7 +94,7 @@ public sealed class SaveManager : MonoBehaviour, IManager
 
         savedVars.Clear();
         FileStream file = File.Open(filename, FileMode.Open);
-        savedVars = (Dictionary<string, object>)formatter.Deserialize(file);
+        savedVars = (Dictionary<VariableToSave, object>)formatter.Deserialize(file);
         file.Close();
     }
 
@@ -103,23 +105,21 @@ public sealed class SaveManager : MonoBehaviour, IManager
     /// <summary>
     /// Grab a variable from the save file.
     /// </summary>
-    /// <param name="key">The key for the wanted variable.</param>
+    /// <param name="variable">The wanted variable.</param>
     /// <returns>The object if the key exists otherwise returns null.</returns>
     public T LoadVariable<T>(VariableToSave variable, RequireClass<T> _ = null) where T : class
     {
-        string key = DoStatic.EnumAsString(variable);
-        return savedVars.ContainsKey(key) ? (T)savedVars[key] : null;
+        return savedVars.ContainsKey(variable) ? (T)savedVars[variable] : null;
     }
 
     /// <summary>
     /// Grab a variable from the save file.
     /// </summary>
-    /// <param name="key">The key for the wanted variable.</param>
+    /// <param name="variable">The the wanted variable.</param>
     /// <returns>The object if the key exists otherwise returns default.</returns>
     public T LoadVariable<T>(VariableToSave variable, RequireStruct<T> _ = null) where T : struct
     {
-        string key = DoStatic.EnumAsString(variable);
-        return savedVars.ContainsKey(key) ? (T)savedVars[key] : default;
+        return savedVars.ContainsKey(variable) ? (T)savedVars[variable] : default;
     }
     #endregion
 }
