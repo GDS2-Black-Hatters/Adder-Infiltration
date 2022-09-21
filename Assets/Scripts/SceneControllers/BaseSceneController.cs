@@ -39,6 +39,11 @@ public class BaseSceneController : MonoBehaviour
         RenderSettings.skybox = new(RenderSettings.skybox);
     }
 
+    protected virtual void Start()
+    {
+        enemyAdmin.onFullAlert += StartCaughtMode;
+    }
+
     protected virtual void Update()
     {
         UpdateObjectiveList();

@@ -94,7 +94,6 @@ GameObject:
   - component: {fileID: 2124731580871512692}
   - component: {fileID: 2124731580871512695}
   - component: {fileID: 2124731580871512694}
-  - component: {fileID: 2124731580871512693}
   m_Layer: 10
   m_Name: ScanHead
   m_TagString: Untagged
@@ -168,19 +167,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2124731580871512693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2124731580871512699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d78be9c539bf03a408e5a227cedd3bb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: {x: 0, y: 0.083333336, z: 0}
 --- !u!1 &2124731581167024656
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,7 +354,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6384e8a3160098e41abd501d6abd7cd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AlertLevelSceneManager: 1
+  IncreaseAlertnessAmount: 0.2
   OnDetect:
     m_PersistentCalls:
       m_Calls: []
+  randomizeStartingRotation: 1
+  allowedSpinDirection: -1
+  rotationSpeed: 0.085
+  spinnerHeadTransform: {fileID: 2124731580871512692}

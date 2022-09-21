@@ -9,7 +9,6 @@ public class EnemyAdmin : MonoBehaviour
     [Header("Enemies")]
     [SerializeField] private Enemy[] availableEnemyPrefabs;
     [SerializeField] private int absoluteMaxEnemyCount;
-    [field: SerializeField] public Transform EnemiesParent { get; private set; }
 
     [Header("Alert Status Light Color")]
     [SerializeField, Range(0, 1)] private float alertness = 0;
@@ -18,12 +17,40 @@ public class EnemyAdmin : MonoBehaviour
     [SerializeField] private float fullAlertColorLerpTime = 2;
     private float fullAlertColorLerp = 0;
 
+    public event System.Action onFullAlert;
+    private bool fullAlertTriggered = false;
 
     private void Update()
     {
         //if alertness is basically 1, lerp into full alert color, otherwise evaluate the gradient
         fullAlertColorLerp = Mathf.Clamp( fullAlertColorLerp + Time.deltaTime * (Mathf.Approximately(alertness, 1) ? 1 : -1), 0, fullAlertColorLerpTime);
         Shader.SetGlobalColor("_StatusEmissionColor", Color.Lerp( worldAlertLightColor.Evaluate(alertness), fullAlertColor, fullAlertColorLerp / fullAlertColorLerpTime));
+    }
+
+    public void IncreaseAlertness(float delta)
+    {
+        StartCoroutine( LerpIncreaseAlertness(delta) );
+    }
+
+    private IEnumerator LerpIncreaseAlertness(float delta, float increasePeriod = 0.5f)
+    {
+        float increasedAmount = 0;
+        do
+        {
+            if(fullAlertTriggered) yield break; //To prevent double full alert trigger.
+
+            float change = Mathf.Min( Time.deltaTime / increasePeriod * delta, delta - increasedAmount);
+            alertness += change;
+            increasedAmount += change;
+
+            if(alertness >= 1)
+            {
+                onFullAlert?.Invoke();
+                fullAlertTriggered = true;
+            }
+
+            yield return null;
+        } while (increasedAmount < delta);
     }
 
     public void NewAiNodes(AINode[] newAiNodes)
