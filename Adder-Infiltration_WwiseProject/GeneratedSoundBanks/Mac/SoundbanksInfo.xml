@@ -22,6 +22,23 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
+		<SoundBank Id="4096625075" Type="User" Language="SFX" Hash="{161BCAD3-1CD9-E9F1-2A21-6FA34DD3D81E}">
+			<ShortName>MainLevelSoundBank</ShortName>
+			<Path>MainLevelSoundBank.bnk</Path>
+			<Media>
+				<File Id="803960293" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Adder Infiltration Stealth v2 (Stealth).wav</ShortName>
+					<CachePath>SFX/Adder Infiltration Stealth v2 (Stealth)_10C4C929.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="1666178350" Name="LevelStart_Event" DurationType="OneShot" DurationMin="28.444437" DurationMax="28.444437">
+					<MediaRefs>
+						<MediaRef Id="803960293"/>
+					</MediaRefs>
+				</Event>
+			</Events>
+		</SoundBank>
 	</SoundBanks>
-	<FileHash>{FF73F5CA-17D1-D9A7-A86E-3B9226CFC49C}</FileHash>
+	<FileHash>{48FC886C-34AD-5C54-7158-6FC6B7B507A2}</FileHash>
 </SoundBanksInfo>

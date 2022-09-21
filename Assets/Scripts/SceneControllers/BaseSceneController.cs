@@ -20,6 +20,7 @@ public class BaseSceneController : MonoBehaviour
     //For children.
     protected List<BaseObjective> objectives = new();
     public event Action onPlayerDetection;
+    [SerializeField] private AK.Wwise.Event playerDetectionMusicEvent;
 
     //Skybox Lerping.
     [Header("Skybox Parameters")]
@@ -69,6 +70,7 @@ public class BaseSceneController : MonoBehaviour
         if (sceneMode == SceneState.Stealth)
         {
             sceneMode = SceneState.Combat;
+            playerDetectionMusicEvent.Post(gameObject);
             onPlayerDetection?.Invoke();
             lerper.SetValues(0, 1, lerpTime);
             if (matterShell)

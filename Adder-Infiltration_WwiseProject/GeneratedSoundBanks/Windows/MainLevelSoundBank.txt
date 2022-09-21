@@ -1,0 +1,17 @@
+Event	ID	Name			Wwise Object Path	Notes
+	1666178350	LevelStart_Event			\Default Work Unit\LevelStart_Event	
+	2538572501	PlayerDiscovered_Event			\Default Work Unit\PlayerDiscovered_Event	
+
+State Group	ID	Name			Wwise Object Path	Notes
+	3924600286	PlayerDetectionState			\Default Work Unit\PlayerDetectionState	
+
+State	ID	Name	State Group			Notes
+	748895195	None	PlayerDetectionState			
+	2206681103	Discovered	PlayerDetectionState			
+	2909291642	Stealth	PlayerDetectionState			
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	368855487	Adder Infiltration Stealth v2 (Transition)	D:\Users\User\Documents\UnityProjects\GDS2\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Adder Infiltration Stealth v2 (Transition)_D79FB2B7.wem		\Interactive Music Hierarchy\MainLevelMusic\MainLevelMusicSwitch\Combat\Adder Infiltration Stealth v2 (Transition)\Adder Infiltration Stealth v2 (Transition)		3072096
+	803960293	Adder Infiltration Stealth v2 (Stealth)	D:\Users\User\Documents\UnityProjects\GDS2\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Adder Infiltration Stealth v2 (Stealth)_D79FB2B7.wem		\Interactive Music Hierarchy\MainLevelMusic\MainLevelMusicSwitch\Stealth\Adder Infiltration Stealth v2 (Stealth)\Adder Infiltration Stealth v2 (Stealth)		5461428
+	916228964	Adder Infiltration Stealth v2 (Combat)	D:\Users\User\Documents\UnityProjects\GDS2\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Adder Infiltration Stealth v2 (Combat)_D79FB2B7.wem		\Interactive Music Hierarchy\MainLevelMusic\MainLevelMusicSwitch\Combat\Adder Infiltration Stealth v2 (Combat)\Adder Infiltration Stealth v2 (Combat)		5461432
+

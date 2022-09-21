@@ -1,6 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{4C23A925-D795-4893-9589-8E0F350F9294}" SchemaVersion="110">
 	<Events>
-		<WorkUnit Name="Default Work Unit" ID="{4C23A925-D795-4893-9589-8E0F350F9294}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{4C23A925-D795-4893-9589-8E0F350F9294}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="LevelStart_Event" ID="{64BDD4A4-F509-46E3-B602-18F899BF7C7F}">
+					<ChildrenList>
+						<Action Name="" ID="{023A90CA-041C-4BE1-8246-8819B5149E39}" ShortID="894297651">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Stealth" ID="{6D1E6837-D7E6-44E2-B23F-1332F24A6413}" WorkUnitID="{D121DC3F-56C6-4CFE-8476-95A73A0A239F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{68ABFD00-616D-4E14-94E5-CFC432AB9F87}" ShortID="874364131">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="MainLevelMusicSwitch" ID="{1BF47E48-DAC5-4469-B3E0-C7D4024C8DD4}" WorkUnitID="{1719941C-F6F4-449C-9BDA-B349C712EA54}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="PlayerDiscovered_Event" ID="{0EA3272C-0EBC-4EFA-AA8E-7E2A8275A77D}">
+					<ChildrenList>
+						<Action Name="" ID="{FE278F35-1AB0-4934-AEAF-19B35EFB24A2}" ShortID="729788818">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Discovered" ID="{A1DEFB37-D936-4D90-B11F-819A2A41B730}" WorkUnitID="{D121DC3F-56C6-4CFE-8476-95A73A0A239F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{4FB9D098-BDD0-4BA2-8D17-999FA4C3AA85}" ShortID="63659695">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="MainLevelMusicSwitch" ID="{1BF47E48-DAC5-4469-B3E0-C7D4024C8DD4}" WorkUnitID="{1719941C-F6F4-449C-9BDA-B349C712EA54}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
 	</Events>
 </WwiseDocument>

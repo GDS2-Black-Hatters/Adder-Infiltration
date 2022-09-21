@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{27583624-5B8E-2CDA-D317-E9F7A02C7AF9}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{ACA25DD8-9670-0032-2926-7B18207BCF1D}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -21,7 +21,83 @@
 			<Busses>
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
+			<StateGroups>
+				<StateGroup Id="3924600286" Name="PlayerDetectionState">
+					<States>
+						<State Id="748895195" Name="None"/>
+						<State Id="2206681103" Name="Discovered"/>
+						<State Id="2909291642" Name="Stealth"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
+		</SoundBank>
+		<SoundBank Id="4096625075" Type="User" Language="SFX" Hash="{EE5E958C-1527-1A23-BF9F-8AFB15F918B8}">
+			<ShortName>MainLevelSoundBank</ShortName>
+			<Path>MainLevelSoundBank.bnk</Path>
+			<Media>
+				<File Id="368855487" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Adder Infiltration Stealth v2 (Transition).wav</ShortName>
+					<CachePath>SFX/Adder Infiltration Stealth v2 (Transition)_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="803960293" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Adder Infiltration Stealth v2 (Stealth).wav</ShortName>
+					<CachePath>SFX/Adder Infiltration Stealth v2 (Stealth)_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="916228964" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Adder Infiltration Stealth v2 (Combat).wav</ShortName>
+					<CachePath>SFX/Adder Infiltration Stealth v2 (Combat)_D79FB2B7.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="1666178350" Name="LevelStart_Event" DurationType="Infinite">
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="3924600286" Id="2909291642"/>
+							<MediaRefs>
+								<MediaRef Id="803960293"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="3924600286" Id="2206681103"/>
+							<MediaRefs>
+								<MediaRef Id="368855487"/>
+								<MediaRef Id="916228964"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="3924600286" Id="2909291642"/>
+							<MediaRefs>
+								<MediaRef Id="803960293"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="3924600286" Id="2206681103"/>
+							<MediaRefs>
+								<MediaRef Id="368855487"/>
+								<MediaRef Id="916228964"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
+					<ActionSetState>
+						<ActionSetStateEntry GroupId="3924600286" Id="2909291642" Name="Stealth"/>
+					</ActionSetState>
+				</Event>
+				<Event Id="2538572501" Name="PlayerDiscovered_Event" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0">
+					<ActionSetState>
+						<ActionSetStateEntry GroupId="3924600286" Id="2206681103" Name="Discovered"/>
+					</ActionSetState>
+				</Event>
+			</Events>
+			<StateGroups>
+				<StateGroup Id="3924600286" Name="PlayerDetectionState">
+					<States>
+						<State Id="748895195" Name="None"/>
+						<State Id="2206681103" Name="Discovered"/>
+						<State Id="2909291642" Name="Stealth"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{556A030B-7666-167A-6D26-B01F799E7B0A}</FileHash>
+	<FileHash>{A6EC80B6-8519-0C93-1154-25ACC5B67D66}</FileHash>
 </SoundBanksInfo>

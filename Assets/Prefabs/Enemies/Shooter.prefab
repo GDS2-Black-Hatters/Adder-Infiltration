@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4611595807367970643}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: BulletPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3405877208240663559, guid: e067b651c87cee148946ec729831b7d6, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3405877208240663559, guid: e067b651c87cee148946ec729831b7d6, type: 3}
       propertyPath: m_IsActive
@@ -80,7 +80,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3531345471837921710, guid: e067b651c87cee148946ec729831b7d6, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3597102811323386031, guid: e067b651c87cee148946ec729831b7d6, type: 3}
       propertyPath: m_Enabled
@@ -92,7 +92,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4741274548901469810, guid: e067b651c87cee148946ec729831b7d6, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5299908824376293024, guid: e067b651c87cee148946ec729831b7d6, type: 3}
       propertyPath: m_Radius
@@ -182,17 +182,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shooter
       objectReference: {fileID: 0}
+    - target: {fileID: 7268229092622374425, guid: e067b651c87cee148946ec729831b7d6, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7268229092622374427, guid: e067b651c87cee148946ec729831b7d6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 46aca6a6625bd9f4fbee595f3c12e930, type: 2}
     - target: {fileID: 7268229093206108037, guid: e067b651c87cee148946ec729831b7d6, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8394829831910496559, guid: e067b651c87cee148946ec729831b7d6, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4465324166270719627, guid: e067b651c87cee148946ec729831b7d6, type: 3}
