@@ -208,6 +208,7 @@
 							<Playlist>
 								<MusicPlaylistItem Name="" ID="{2C3C0983-89CF-40A4-8462-35743CFBA160}" ShortID="825470294">
 									<PropertyList>
+										<Property Name="LoopCount" Type="int16" Value="0"/>
 										<Property Name="PlayMode" Type="int16" Value="1"/>
 									</PropertyList>
 									<ChildrenList>
@@ -366,7 +367,19 @@
 							</PropertyList>
 							<ChildrenList>
 								<MusicTransition Name="Transition" ID="{8E097664-6BAD-4E1F-9461-7146E5064CAE}">
-									<TransitionInfo/>
+									<PropertyList>
+										<Property Name="EnableSourceFadeOut" Type="bool" Value="True"/>
+										<Property Name="ExitSourceAt" Type="int16" Value="0"/>
+									</PropertyList>
+									<TransitionInfo>
+										<SourceFadeOut>
+											<MusicFade Name="Source Fade-out" ID="{65557BEB-58F4-4ACA-95CE-3D58E029503E}">
+												<PropertyList>
+													<Property Name="FadeType" Type="int16" Value="1"/>
+												</PropertyList>
+											</MusicFade>
+										</SourceFadeOut>
+									</TransitionInfo>
 								</MusicTransition>
 							</ChildrenList>
 							<TransitionInfo/>
