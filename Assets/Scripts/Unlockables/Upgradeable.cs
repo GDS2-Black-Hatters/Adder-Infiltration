@@ -1,11 +1,15 @@
 using System;
-using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewUpgradeable", menuName = "ScriptableObject/Unlockable/Upgradeable")]
+[Serializable]
 public class Upgradeable : Unlockable
 {
-    [field: NonSerialized] public int Level { get; protected set; } = 0;
-    [field: SerializeField, Min(1)] public int MaxLevel { get; protected set; } = 10;
+    public int Level { get; protected set; } = 0;
+    public int MaxLevel { get; protected set; } = 10;
+
+    public Upgradeable(int maxLevel)
+    {
+        MaxLevel = maxLevel;
+    }
 
     public override bool IsUnlocked => Level == MaxLevel;
     public float UnlockProgression => (float)Level / MaxLevel;

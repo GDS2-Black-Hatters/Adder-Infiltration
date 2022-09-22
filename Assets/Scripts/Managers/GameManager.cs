@@ -40,10 +40,4 @@ public sealed class GameManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
     }
-
-    public static void Save()
-    {
-        //Grab variables from VariableManager and save them here.
-        SaveManager.SaveToFile();
-    }
 }

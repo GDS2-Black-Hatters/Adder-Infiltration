@@ -1,6 +1,7 @@
 #pragma warning disable IDE1006 // Naming Styles
 using System.Collections.Generic;
 using UnityEngine;
+using static SaveManager.VariableToSave;
 
 public sealed class VariableManager : MonoBehaviour, IManager
 {
@@ -11,9 +12,9 @@ public sealed class VariableManager : MonoBehaviour, IManager
     #region Saveable variables
     //Todo: Deserialise these later.
     [field: Header("Player Resources")]
-    [field: SerializeField] public int bytecoins { get; private set; } = 0;
-    [field: SerializeField] public int intelligenceData { get; private set; } = 0;
-    [field: SerializeField] public int processingPower { get; private set; } = 0;
+    [field: SerializeField] public int Bytecoins { get; private set; } = 0;
+    [field: SerializeField] public int IntelligenceData { get; private set; } = 0;
+    [field: SerializeField] public int ProcessingPower { get; private set; } = 0;
 
     /// <summary>
     /// Similar description to SaveManager.VariableToSave
@@ -29,13 +30,29 @@ public sealed class VariableManager : MonoBehaviour, IManager
         PhishingMinigame = 101
     }
     private Dictionary<AllUnlockables, Unlockable> allUnlocks;
-    [SerializeField, Header("All Unlockables")] private FakeDictionary<AllUnlockables, Unlockable> unlocks;
     #endregion
 
     public void StartUp()
     {
         Restart();
-        allUnlocks = unlocks.ToDictionary();
+        //TODO: Attempt to load file otherwise load default stuff here.
+        SaveManager sav = GameManager.SaveManager;
+        Bytecoins = sav.LoadVariable<int>(bytecoins);
+        IntelligenceData = sav.LoadVariable<int>(intelligenceData);
+        ProcessingPower = sav.LoadVariable<int>(processingPower);
+        allUnlocks = sav.LoadVariable<Dictionary<AllUnlockables, Unlockable>>(allUnlockables);
+        if (allUnlocks != null)
+        {
+            return;
+        }
+
+        allUnlocks = new()
+        {
+            { AllUnlockables.Dash, new Upgradeable(10) },
+            { AllUnlockables.TrojanHorse, new Upgradeable(10) },
+            { AllUnlockables.EMP, new Upgradeable(10) },
+            { AllUnlockables.PhishingMinigame, new() }
+        };
     }
 
     /// <summary>
@@ -54,8 +71,19 @@ public sealed class VariableManager : MonoBehaviour, IManager
 
     public void Purchase(int bytecoinsAmount, int intelligenceDataAmount, int processingPowerAmount)
     {
-        bytecoins -= bytecoinsAmount;
-        intelligenceData -= intelligenceDataAmount;
-        processingPower -= processingPowerAmount;
+        Bytecoins -= bytecoinsAmount;
+        IntelligenceData -= intelligenceDataAmount;
+        ProcessingPower -= processingPowerAmount;
+        SaveVariables();
+    }
+
+    public void SaveVariables()
+    {
+        SaveManager saveManager = GameManager.SaveManager;
+        saveManager.SaveVariable(bytecoins, Bytecoins);
+        saveManager.SaveVariable(intelligenceData, IntelligenceData);
+        saveManager.SaveVariable(processingPower, ProcessingPower);
+        saveManager.SaveVariable(allUnlockables, allUnlocks);
+        saveManager.SaveToFile();
     }
 }

@@ -19,9 +19,9 @@ public class StoreItemButton : BaseButton, IPointerEnterHandler, IPointerExitHan
             if (!item.Item.IsUnlocked)
             {
                 VariableManager var = GameManager.VariableManager;
-                AppendDescription(ref itemRichDescription, var.bytecoins, item.BytecoinPrice, "\nByteCoins:\t");
-                AppendDescription(ref itemRichDescription, var.intelligenceData, item.IntelligenceDataPrice, "Intelligence Data:");
-                AppendDescription(ref itemRichDescription, var.processingPower, item.ProcessingPowerPrice, "Processing Power:");
+                AppendDescription(ref itemRichDescription, var.Bytecoins, item.BytecoinPrice, "\nByteCoins:\t");
+                AppendDescription(ref itemRichDescription, var.IntelligenceData, item.IntelligenceDataPrice, "Intelligence Data:");
+                AppendDescription(ref itemRichDescription, var.ProcessingPower, item.ProcessingPowerPrice, "Processing Power:");
             }
             return itemRichDescription;
         }
@@ -97,16 +97,16 @@ public class StoreItemButton : BaseButton, IPointerEnterHandler, IPointerExitHan
     private bool HasSufficientMoney()
     {
         VariableManager var = GameManager.VariableManager;
-        bool sufficientMoney = var.bytecoins >= item.BytecoinPrice;
-        sufficientMoney = sufficientMoney && var.intelligenceData >= item.IntelligenceDataPrice;
-        sufficientMoney = sufficientMoney && var.processingPower >= item.ProcessingPowerPrice;
+        bool sufficientMoney = var.Bytecoins >= item.BytecoinPrice;
+        sufficientMoney = sufficientMoney && var.IntelligenceData >= item.IntelligenceDataPrice;
+        sufficientMoney = sufficientMoney && var.ProcessingPower >= item.ProcessingPowerPrice;
         return sufficientMoney;
     }
 
     public void Purchase()
     {
-        GameManager.VariableManager.Purchase(item.BytecoinPrice, item.IntelligenceDataPrice, item.ProcessingPowerPrice);
         item.Item.Unlock();
+        GameManager.VariableManager.Purchase(item.BytecoinPrice, item.IntelligenceDataPrice, item.ProcessingPowerPrice);
         UpdateValues();
     }
 }

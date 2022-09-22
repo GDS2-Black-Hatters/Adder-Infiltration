@@ -1,10 +1,9 @@
 using System;
-using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewUnlockable", menuName = "ScriptableObject/Unlockable/One Time Unlock")]
-public class Unlockable : ScriptableObject
+[Serializable]
+public class Unlockable
 {
-    [NonSerialized] protected bool isUnlocked = false;
+    protected bool isUnlocked = false;
     public virtual bool IsUnlocked => isUnlocked;
 
     public virtual void Unlock()
