@@ -11,9 +11,16 @@ public abstract class Enemy : MonoBehaviour
     private int raycastMask;
     protected Rigidbody rb;
 
-    [Header("Stats"), SerializeField] protected float speed;
+    [Header("Stats"), SerializeField] protected float movementSpeed = 10;
+    [SerializeField] protected float rotationSpeed = 30;
     [SerializeField] protected Health health;
     [SerializeField] protected float closeRangeDistance = 10;
+
+    [Header("Movement Behaviour")]
+    [SerializeField] protected PIDController movementPIDController = new();
+    [SerializeField] protected float forwardPower = 8;
+    [SerializeField] protected PIDController rotationPIDController = new();
+    [SerializeField] protected float torqueForce = 30;
 
     [Header("AI Pathfinding"),Tooltip("Custom Patrol Path for the AI Enemy to follow. Leave empty for random movement."), SerializeField]
     private AINode[] customPatrolPath;
@@ -26,6 +33,7 @@ public abstract class Enemy : MonoBehaviour
     protected virtual void Awake()
     {
         health.Reset();
+        health.onDeath += Death;
         raycastMask = 1 << LayerMask.NameToLayer("Player") | 1 << LayerMask.NameToLayer("Terrain"); //Bruh, bit shifting be wild.
     }
 
@@ -48,9 +56,29 @@ public abstract class Enemy : MonoBehaviour
         nodeTarget = GameManager.LevelManager.ActiveSceneController.enemyAdmin.GetClosestNode(transform).GetNextNodeToPlayer();
     }
 
+    protected void PIDMoveTowards(Transform target)
+    {
+        float throttle = movementPIDController.Update(Time.fixedDeltaTime, -Vector3.Distance(transform.position, target.position), 0);
+        rb.AddForce(throttle * forwardPower * Vector3.Dot(transform.forward, (target.position - transform.position).normalized) * transform.forward);
+    }
+
     protected void GoTowards(Transform target)
     {
-        rb.velocity = target ? (target.position - transform.position).normalized * speed : Vector3.zero;
+        rb.velocity = target ? (target.position - transform.position).normalized * movementSpeed : Vector3.zero;
+    }
+
+    protected void PIDTurnTowards(Transform target)
+    {
+        var targetPosition = target.position;
+        targetPosition.y = rb.position.y;    //ignore difference in Y
+        var targetDir = (targetPosition - rb.position).normalized;
+        var forwardDir = rb.rotation * Vector3.forward;
+
+        var currentAngle = Vector3.SignedAngle(Vector3.forward, forwardDir, Vector3.up);
+        var targetAngle = Vector3.SignedAngle(Vector3.forward, targetDir, Vector3.up);
+
+        float input = rotationPIDController.UpdateAngle(Time.fixedDeltaTime, currentAngle, targetAngle);
+        rb.AddTorque(new Vector3(0, input * torqueForce, 0));
     }
 
     protected void LookAt(Transform target)
@@ -69,8 +97,8 @@ public abstract class Enemy : MonoBehaviour
             return;
         }
         
-        LookAt(nodeTarget.transform);
-        GoTowards(nodeTarget.transform);
+        PIDTurnTowards(nodeTarget.transform);
+        PIDMoveTowards(nodeTarget.transform);
         if ((nodeTarget.transform.position - transform.position).sqrMagnitude < nodeLeniency)
         {
             nodeTarget = customPatrolPath.Length < 2 ? nodeTarget.GetRandomNeighbour() : customPatrolPath[customIndex = (customIndex + 1) % customPatrolPath.Length];
@@ -85,8 +113,12 @@ public abstract class Enemy : MonoBehaviour
         if (hit && hitInfo.transform == player) //If the enemy can see the player, book it to them.
         {
             nodeTarget = null;
-            LookAt(player);
-            GoTowards(dir.sqrMagnitude > closeRangeDistance ? player : null);
+            PIDTurnTowards(player);
+            if(dir.sqrMagnitude > closeRangeDistance)
+            {
+                PIDMoveTowards(player);
+            }
+            //GoTowards(dir.sqrMagnitude > closeRangeDistance ? player : null);
             if (dir.sqrMagnitude < closeRangeDistance)
             {
                 stateAction = Attack;
@@ -97,9 +129,19 @@ public abstract class Enemy : MonoBehaviour
             {
                 nodeTarget = GameManager.LevelManager.ActiveSceneController.enemyAdmin.GetClosestNode(transform).GetNextNodeToPlayer();
             }
-            LookAt(nodeTarget.transform);
-            GoTowards(nodeTarget.transform);
+            PIDTurnTowards(nodeTarget.transform);
+            PIDMoveTowards(nodeTarget.transform);
         }
+    }
+
+    public virtual void TakeDamage(float amount)
+    {
+        health.ReduceHealth(amount);
+    }
+
+    protected virtual void Death()
+    {
+        Destroy(gameObject);
     }
 
     protected abstract void Attack();

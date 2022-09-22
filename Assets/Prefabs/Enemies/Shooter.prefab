@@ -9,14 +9,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6460277301797791517}
-  - component: {fileID: 4667792205625587030}
+  - component: {fileID: 1388090929118801333}
   m_Layer: 8
   m_Name: HeightHitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6460277301797791517
 Transform:
   m_ObjectHideFlags: 0
@@ -32,8 +32,8 @@ Transform:
   m_Father: {fileID: 8327987172627383090}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &4667792205625587030
-CapsuleCollider:
+--- !u!65 &1388090929118801333
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -42,10 +42,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.4
-  m_Height: 1.75
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 2
+  m_Size: {x: 0.3, y: 1, z: 0.3}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &8811767923514835489
 GameObject:
   m_ObjectHideFlags: 0
@@ -70,7 +69,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8811767923514835489}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.83, z: 0}
+  m_LocalPosition: {x: 0, y: -0.638, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -157,20 +156,28 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6439903393968392995, guid: e067b651c87cee148946ec729831b7d6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 6439903393968392995, guid: e067b651c87cee148946ec729831b7d6, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 0.6830127
       objectReference: {fileID: 0}
     - target: {fileID: 6439903393968392995, guid: e067b651c87cee148946ec729831b7d6, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.18301274
       objectReference: {fileID: 0}
     - target: {fileID: 6439903393968392995, guid: e067b651c87cee148946ec729831b7d6, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.18301274
       objectReference: {fileID: 0}
     - target: {fileID: 6439903393968392995, guid: e067b651c87cee148946ec729831b7d6, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.7071068
+      value: 0.6830127
+      objectReference: {fileID: 0}
+    - target: {fileID: 6439903393968392995, guid: e067b651c87cee148946ec729831b7d6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6439903393968392995, guid: e067b651c87cee148946ec729831b7d6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -190,11 +197,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7268229092622374421, guid: e067b651c87cee148946ec729831b7d6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 4.04
       objectReference: {fileID: 0}
     - target: {fileID: 7268229092622374421, guid: e067b651c87cee148946ec729831b7d6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 40
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7268229092622374421, guid: e067b651c87cee148946ec729831b7d6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -233,6 +240,10 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7268229092622374427, guid: e067b651c87cee148946ec729831b7d6, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7268229092622374427, guid: e067b651c87cee148946ec729831b7d6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 46aca6a6625bd9f4fbee595f3c12e930, type: 2}
@@ -247,6 +258,8 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 4465324166270719627, guid: e067b651c87cee148946ec729831b7d6, type: 3}
     - {fileID: 6490883651768434184, guid: e067b651c87cee148946ec729831b7d6, type: 3}
+    - {fileID: 5865909332516724329, guid: e067b651c87cee148946ec729831b7d6, type: 3}
+    - {fileID: 9070729777800836991, guid: e067b651c87cee148946ec729831b7d6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e067b651c87cee148946ec729831b7d6, type: 3}
 --- !u!1 &6233967014759811925 stripped
 GameObject:
@@ -336,12 +349,12 @@ Rigidbody:
   m_GameObject: {fileID: 8327987172627383102}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_Drag: 0.75
+  m_AngularDrag: 5
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!135 &1559162419291259685
 SphereCollider:
@@ -355,7 +368,26 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.94
-  m_Center: {x: 0.000000059604645, y: 0.18459809, z: 0.18629959}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-794970467898608534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8327987172627383102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb9a8145bb11a5549b869c3593f60a25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverHeight: 6
+  hoverForce: 10
+  hoverPhysicsMask:
+    serializedVersion: 2
+    m_Bits: 64
+  bobbleMaxAmplitude: 1
+  bobbleFrequency: 0.3
 --- !u!114 &1762367355547013725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,14 +401,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canAttack: 0
-  speed: 10
+  movementSpeed: 8
+  rotationSpeed: 70
   health:
     health:
-      <originalValue>k__BackingField: 0
+      <originalValue>k__BackingField: 20
       value: 0
-  closeRangeDistance: 20
+  closeRangeDistance: 100
+  movementPIDController:
+    proportionalGain: 1
+    integralGain: 0
+    derivativeGain: 5
+    outputMin: -0.5
+    outputMax: 1
+    integralSaturation: 0
+    derivativeMeasurement: 0
+    valueLast: 0
+    errorLast: 0
+    integrationStored: 0
+    velocity: 0
+    derivativeInitialized: 0
+  forwardPower: 5
+  rotationPIDController:
+    proportionalGain: 1
+    integralGain: 0
+    derivativeGain: 0.5
+    outputMin: -1
+    outputMax: 1
+    integralSaturation: 0
+    derivativeMeasurement: 1
+    valueLast: 0
+    errorLast: 0
+    integrationStored: 0
+    velocity: 0
+    derivativeInitialized: 0
+  torqueForce: 2
   customPatrolPath: []
-  nodeLeniency: 7.5
+  nodeLeniency: 75
   bulletPoint: {fileID: 4611595807367970643}
   bulletSpeed: 7
   attackCooldown:

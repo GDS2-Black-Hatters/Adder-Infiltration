@@ -17,8 +17,6 @@ public class Shooter : Enemy
 
         rb = GetComponent<Rigidbody>();
 
-        //Temporary fix, ideally this enemy prefab should be reworked to handle it's own hovering
-        transform.Translate(Vector3.up * 3);
     }
 
     protected override void Attack()
