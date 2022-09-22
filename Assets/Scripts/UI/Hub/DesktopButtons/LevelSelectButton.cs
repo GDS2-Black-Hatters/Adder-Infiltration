@@ -1,8 +1,11 @@
+using UnityEngine;
+
 public class LevelSelectButton : BaseDesktopButton
 {
+    [SerializeField] private LevelManager.Level level = LevelManager.Level.Tutorial;
+
     protected override void OnClick()
     {
-        //For now:
-        GameManager.LevelManager.ChangeLevel(LevelManager.Level.Tutorial);
+        GameManager.LevelManager.ChangeLevel(level);
     }
 }
