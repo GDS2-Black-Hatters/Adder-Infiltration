@@ -13,7 +13,11 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID ENEMYDRONEAMB = 1504246845U;
+        static const AkUniqueID HUBMUSICSTART_EVENT = 2461714704U;
+        static const AkUniqueID LAZERFIRE_EVENT = 3822340686U;
         static const AkUniqueID LEVELSTART_EVENT = 1666178350U;
+        static const AkUniqueID OBJECTIVECOMPLETE_EVENT = 551763010U;
         static const AkUniqueID PLAYERDISCOVERED_EVENT = 2538572501U;
     } // namespace EVENTS
 
@@ -32,6 +36,11 @@ namespace AK
         } // namespace PLAYERDETECTIONSTATE
 
     } // namespace STATES
+
+    namespace GAME_PARAMETERS
+    {
+        static const AkUniqueID MAINAUDIOVOLUME = 3830172926U;
+    } // namespace GAME_PARAMETERS
 
     namespace BANKS
     {

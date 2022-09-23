@@ -8,6 +8,8 @@ public class Shooter : Enemy
     [Header("Shooter Params"), SerializeField] private Transform bulletPoint; //Where the bullet will spawn.
     [SerializeField] private float bulletSpeed = 10; //The speed of the bullet.
     [SerializeField] protected TimeTracker attackCooldown = new(1, -1, true); //Intervals before next attack.
+    [SerializeField] protected AK.Wwise.Event DroneAmb;
+    [SerializeField] protected AK.Wwise.Event ShootSound;
 
     protected override void Awake()
     {
@@ -17,6 +19,12 @@ public class Shooter : Enemy
 
         rb = GetComponent<Rigidbody>();
 
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+        DroneAmb.Post(gameObject);
     }
 
     protected override void Attack()
@@ -40,5 +48,7 @@ public class Shooter : Enemy
         Transform player = GameManager.LevelManager.player;
         bullet.transform.LookAt(player);
         bullet.velocity = (player.position - bullet.transform.position).normalized * bulletSpeed;
+
+        ShootSound.Post(gameObject);
     }
 }
