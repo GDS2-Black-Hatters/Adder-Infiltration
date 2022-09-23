@@ -56,7 +56,7 @@ public sealed class LevelManager : MonoBehaviour, IManager
 
     public void OnApplicationFocus(bool focus)
     {
-        bool lockMouse = focus && (int)level >= gameLevels;
+        bool lockMouse = focus && (int)level >= gameLevels && !PauseMenuController.GameIsPaused;
         Cursor.visible = !lockMouse;
         Cursor.lockState = lockMouse ? CursorLockMode.Locked : CursorLockMode.None;
     }

@@ -112,6 +112,15 @@ public partial class @MainGameInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""83d35524-61b1-4a00-a7aa-8af1bdad120e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -246,6 +255,17 @@ public partial class @MainGameInput : IInputActionCollection2, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""14260ecb-b193-4768-aeba-3b79fa9b4034"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -261,6 +281,7 @@ public partial class @MainGameInput : IInputActionCollection2, IDisposable
         m_MainGame_Move = m_MainGame.FindAction("Move", throwIfNotFound: true);
         m_MainGame_Look = m_MainGame.FindAction("Look", throwIfNotFound: true);
         m_MainGame_Interact = m_MainGame.FindAction("Interact", throwIfNotFound: true);
+        m_MainGame_Pause = m_MainGame.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -364,6 +385,7 @@ public partial class @MainGameInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_MainGame_Move;
     private readonly InputAction m_MainGame_Look;
     private readonly InputAction m_MainGame_Interact;
+    private readonly InputAction m_MainGame_Pause;
     public struct MainGameActions
     {
         private @MainGameInput m_Wrapper;
@@ -371,6 +393,7 @@ public partial class @MainGameInput : IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_MainGame_Move;
         public InputAction @Look => m_Wrapper.m_MainGame_Look;
         public InputAction @Interact => m_Wrapper.m_MainGame_Interact;
+        public InputAction @Pause => m_Wrapper.m_MainGame_Pause;
         public InputActionMap Get() { return m_Wrapper.m_MainGame; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -389,6 +412,9 @@ public partial class @MainGameInput : IInputActionCollection2, IDisposable
                 @Interact.started -= m_Wrapper.m_MainGameActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_MainGameActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_MainGameActionsCallbackInterface.OnInteract;
+                @Pause.started -= m_Wrapper.m_MainGameActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_MainGameActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_MainGameActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_MainGameActionsCallbackInterface = instance;
             if (instance != null)
@@ -402,6 +428,9 @@ public partial class @MainGameInput : IInputActionCollection2, IDisposable
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -416,5 +445,6 @@ public partial class @MainGameInput : IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }

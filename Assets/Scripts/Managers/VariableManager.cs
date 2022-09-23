@@ -77,6 +77,13 @@ public sealed class VariableManager : MonoBehaviour, IManager
         SaveVariables();
     }
 
+    public void RandomIncrement()
+    {
+        Bytecoins += Random.Range(0, 100);
+        IntelligenceData += Random.Range(0, 100);
+        ProcessingPower += Random.Range(0, 100);
+    }
+
     public void SaveVariables()
     {
         SaveManager saveManager = GameManager.SaveManager;

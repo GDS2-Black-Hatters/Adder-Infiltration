@@ -8,8 +8,9 @@ public class InteractObjective : BaseObjective
 
     private Interactable interactable;
 
-    protected void Start()
+    protected override void Start()
     {
+        base.Start();
         interactable = GetComponent<Interactable>();
         interactable.AddInteraction(Interact);
     }

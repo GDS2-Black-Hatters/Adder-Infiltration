@@ -69,8 +69,8 @@ MonoBehaviour:
   m_text: "Objective List:\n\t- <color=\"yellow\"><s>Mandatory</s></color=\"yellow\">\n\t-
     <s>Optional</s>"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f7c94ea6255abfd4fa76eb871eec53bc, type: 2}
+  m_sharedMaterial: {fileID: -3825676226570431861, guid: f7c94ea6255abfd4fa76eb871eec53bc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1101,7 +1101,6 @@ GameObject:
   - component: {fileID: 2783689509851356698}
   - component: {fileID: 6663919192189081431}
   - component: {fileID: 5003774128566146685}
-  - component: {fileID: 7277529556498724716}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameController
@@ -1275,44 +1274,9 @@ MonoBehaviour:
     health:
       <originalValue>k__BackingField: 100
       value: 100
-  <bytecoins>k__BackingField: 0
-  <intelligenceData>k__BackingField: 0
-  <processingPower>k__BackingField: 0
-  unlocks:
-    items:
-    - key: 10
-      value: {fileID: 11400000, guid: 057a9dd257d7a494ebce1b710c055872, type: 2}
-    - key: 11
-      value: {fileID: 11400000, guid: 7ea8b57cb1d365c4da94078c9cfcdf44, type: 2}
-    - key: 12
-      value: {fileID: 11400000, guid: b3f511b8935009743890a22f72c91c95, type: 2}
-    - key: 101
-      value: {fileID: 11400000, guid: 7568b6989b4083d48b6b387563661c61, type: 2}
---- !u!114 &7277529556498724716
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7761759052319665104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f3b2083016721c49b2a6ec9e4f000d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InitializationSettings: {fileID: 11400000, guid: c923c1f40fa07d141a6e55a3c6be6be7, type: 2}
-  basePath: 
-  language: 
-  defaultPoolSize: 0
-  lowerPoolSize: 0
-  streamingPoolSize: 0
-  memoryCutoffThreshold: 0
-  monitorPoolSize: 0
-  monitorQueuePoolSize: 0
-  callbackManagerBufferSize: 0
-  spatialAudioPoolSize: 0
-  maxSoundPropagationDepth: 0
-  engineLogging: 0
+  <Bytecoins>k__BackingField: 0
+  <IntelligenceData>k__BackingField: 0
+  <ProcessingPower>k__BackingField: 0
 --- !u!1 &8279418842613605780
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,6 +17,7 @@ public sealed class InputManager : MonoBehaviour, IManager
         Click, //Hub
         Look, //MainGame
         Interact, //MainGame
+        Pause, //MainGame
     }
     #endregion
 

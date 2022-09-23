@@ -10,8 +10,9 @@ public class CaptureTheFlagObjective : BaseObjective
     private string _objectiveTitle;
     public override string objectiveTitle { get { return _objectiveTitle; }}
 
-    protected virtual void Start()
+    protected override void Start()
     {
+        base.Start();
         timer = new(captureTime, 1);
         UpdateName();
     }

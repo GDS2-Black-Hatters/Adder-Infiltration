@@ -7,6 +7,7 @@ public class StoreButtonContainer : MonoBehaviour
     [SerializeField] private ItemDescription itemInfo;
     [SerializeField] private Button purchaseButton;
     [SerializeField] private ResourceTracker shoppingResourceTracker;
+    [SerializeField] private ResourceTracker shoppingResourceTracker2; //Todo: FIX ME!
 
     private void Awake()
     {
@@ -16,6 +17,7 @@ public class StoreButtonContainer : MonoBehaviour
             selectedItem.Purchase();
             UpdateValues();
             shoppingResourceTracker.UpdateValues();
+            shoppingResourceTracker2.UpdateValues();
         });
     }
 

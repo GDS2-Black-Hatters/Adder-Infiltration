@@ -8,20 +8,21 @@
 				<Property Name="ExternalSourcesInputPath" Type="string">
 					<ValueList>
 						<Value Platform="Windows"></Value>
-						<Value Platform="Mac"></Value>
 					</ValueList>
 				</Property>
 				<Property Name="ExternalSourcesOutputPath" Type="string">
 					<ValueList>
 						<Value Platform="Windows">GeneratedSoundBanks\Windows\</Value>
-						<Value Platform="Mac">GeneratedSoundBanks\Mac\</Value>
 					</ValueList>
 				</Property>
 				<Property Name="Game Profiler\Voice Monitor\LastBus" Type="string" Value="{00000000-0000-0000-0000-000000000000}"/>
 				<Property Name="General\LatestLanguage" Type="int32" Value="684519430"/>
-				<Property Name="General\LatestPlatform" Type="string" Value="Mac"/>
+				<Property Name="General\LatestPlatform" Type="string" Value="Windows"/>
+				<Property Name="GenerateSoundBanks\x64_SelectedLanguages" Type="string" Value=""/>
+				<Property Name="GenerateSoundBanks\x64_SelectedPlatforms" Type="string" Value=""/>
+				<Property Name="GenerateSoundBanks\x64_SelectedSoundBanks" Type="string" Value=""/>
 				<Property Name="HardwareController\CurrentSession" Type="string" Value="{2451DD2E-A7B2-45E6-B93B-6F49B9B887AD}"/>
-				<Property Name="HardwareController\{2451DD2E-A7B2-45E6-B93B-6F49B9B887AD}\x64_ActiveGroups_v2" Type="string" Value="y+6LjNRlqkmUVWFhXN3bngEAW6vqAAAAwKTQCvh/AABIUGVYowIAAAAAAACjAgAAwKTQCvh/AAAkkVcL+H8AAKCZ4GujAgAAAAAAAKMCAAAIAAAAAAAAAJjmW6vqAAAAcP1rC/h/AACP/msL+H8AAHD9awv4fwAAwKTQCvh/AADApNAK+H8AAEhQZVijAgAAAQAAAIsFbc0psPFJuJhc7NZRyCABAFur6gAAAMCk0Ar4fwAASFBlWKMCAAAAAAAAowIAAMCk0Ar4fwAAJJFXC/h/AACgmeBrowIAAAAAAACjAgAACAAAAAAAAACY5lur6gAAAHD9awv4fwAAj/5rC/h/AABw/WsL+H8AAMCk0Ar4fwAAwKTQCvh/AABIUGVYowIAAAEAAAA="/>
+				<Property Name="HardwareController\{2451DD2E-A7B2-45E6-B93B-6F49B9B887AD}\x64_ActiveGroups_v2" Type="string" Value="iwVtzSmw8Um4mFzs1lHIIAEA2KfoAAAAwKSFu/5/AABIx97/8AEAAAAAAADwAQAAwKSFu/5/AAAkkbW7/n8AAKCdKJPwAQAAAAAAAPABAAAIAAAAAAAAAMjn2KfoAAAAcP3Ju/5/AACP/sm7/n8AAHD9ybv+fwAAwKSFu/5/AADApIW7/n8AAEjH3v/wAQAAAQAAAMvui4zUZapJlFVhYVzd254BANin6AAAAMCkhbv+fwAASMfe//ABAAAAAAAA8AEAAMCkhbv+fwAAJJG1u/5/AACgnSiT8AEAAAAAAADwAQAACAAAAAAAAADI59in6AAAAHD9ybv+fwAAj/7Ju/5/AABw/cm7/n8AAMCkhbv+fwAAwKSFu/5/AABIx97/8AEAAAEAAAA="/>
 				<Property Name="MeterView\LastObject1" Type="string" Value="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"/>
 				<Property Name="MeterView\MeterMode1" Type="int32" Value="1"/>
 				<Property Name="MeterView\MeterMode1Viewpoint0" Type="int32" Value="1"/>
@@ -79,7 +80,7 @@
 				<Property Name="ProjectExplorer\SelectionChannel0\CurrentSearch" Type="string" Value=""/>
 				<Property Name="ProjectExplorer\SelectionChannel0\CurrentTab" Type="int32" Value="0"/>
 				<Property Name="ProjectExplorer\SelectionChannel1\CurrentSearch" Type="string" Value=""/>
-				<Property Name="ProjectExplorer\SelectionChannel1\CurrentTab" Type="int32" Value="0"/>
+				<Property Name="ProjectExplorer\SelectionChannel1\CurrentTab" Type="int32" Value="2"/>
 				<Property Name="ProjectExplorer\SelectionChannel2\CurrentSearch" Type="string" Value=""/>
 				<Property Name="ProjectExplorer\SelectionChannel2\CurrentTab" Type="int32" Value="0"/>
 				<Property Name="SchematicView\SearchText" Type="string" Value=""/>
@@ -91,31 +92,26 @@
 				<Property Name="SoundBankPaths" Type="string">
 					<ValueList>
 						<Value Platform="Windows">GeneratedSoundBanks\Windows\</Value>
-						<Value Platform="Mac">GeneratedSoundBanks\Mac\</Value>
 					</ValueList>
 				</Property>
 				<Property Name="SoundBankPostGenerateCustomCmdDescription" Type="string">
 					<ValueList>
 						<Value Platform="Windows"></Value>
-						<Value Platform="Mac"></Value>
 					</ValueList>
 				</Property>
 				<Property Name="SoundBankPostGenerateCustomCmdLines" Type="string">
 					<ValueList>
 						<Value Platform="Windows"></Value>
-						<Value Platform="Mac"></Value>
 					</ValueList>
 				</Property>
 				<Property Name="SoundBankPreGenerateCustomCmdDescription" Type="string">
 					<ValueList>
 						<Value Platform="Windows"></Value>
-						<Value Platform="Mac"></Value>
 					</ValueList>
 				</Property>
 				<Property Name="SoundBankPreGenerateCustomCmdLines" Type="string">
 					<ValueList>
 						<Value Platform="Windows"></Value>
-						<Value Platform="Mac"></Value>
 					</ValueList>
 				</Property>
 			</PropertyList>

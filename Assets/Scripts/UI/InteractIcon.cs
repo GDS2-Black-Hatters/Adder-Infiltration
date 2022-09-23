@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InteractIcon : MonoBehaviour
@@ -7,6 +5,10 @@ public class InteractIcon : MonoBehaviour
     [SerializeField] private SpriteRenderer backgroundRend;
     [SerializeField] private SpriteRenderer progressRingRend;
 
+    private void Start()
+    {
+        transform.rotation = Quaternion.identity;
+    }
 
     public void UpdateProgress(float progress)
     {

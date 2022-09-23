@@ -77,6 +77,11 @@ public class BoomCameraControl : MonoBehaviour
 
     private void RotateCamera(InputAction.CallbackContext LookDelta)
     {
+        if (PauseMenuController.GameIsPaused) //Todo: Fix later!
+        {
+            return;
+        }
+
         Vector2 lookDeltaV2 = LookDelta.ReadValue<Vector2>();
         RotateLeftRight(lookDeltaV2.x);
         LookUpDown(lookDeltaV2.y);

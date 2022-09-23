@@ -12,6 +12,10 @@ public abstract class BaseObjective : MonoBehaviour
     protected virtual void Awake()
     {
         isMandatory = DoStatic.RandomBool(mandatoryChance);
+    }
+
+    protected virtual void Start()
+    {
         GameManager.LevelManager.ActiveSceneController.AddToObjectiveList(this);
     }
 

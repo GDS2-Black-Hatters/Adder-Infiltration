@@ -24,7 +24,7 @@ public class RandRotate : MonoBehaviour
 
     void Update()
     {
-        transform.Rotate(GetRotationAxis(), _rotationSpeed);
+        transform.Rotate(GetRotationAxis(), _rotationSpeed * Time.deltaTime);
     }
 
     Vector3 GetRotationAxis()
