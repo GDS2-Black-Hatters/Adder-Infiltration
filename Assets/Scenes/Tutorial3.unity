@@ -1470,9 +1470,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: BaseSceneController
       objectReference: {fileID: 0}
+    - target: {fileID: 3090376246219879728, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.34399414
+      objectReference: {fileID: 0}
+    - target: {fileID: 3090376246529277390, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.28027344
+      objectReference: {fileID: 0}
+    - target: {fileID: 3090376246785061997, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.18798828
+      objectReference: {fileID: 0}
     - target: {fileID: 3090376247672236820, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.4567871
+      objectReference: {fileID: 0}
+    - target: {fileID: 3090376247960356101, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.2998047
+      objectReference: {fileID: 0}
+    - target: {fileID: 3090376248059447153, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.34399414
       objectReference: {fileID: 0}
     - target: {fileID: 3141422433671740996, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
       propertyPath: m_Layer
@@ -3889,14 +3909,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 266178665}
     m_Modifications:
     - target: {fileID: 1762367355547013725, guid: 4410d520a97a9014297faee48626ad7a, type: 3}
-      propertyPath: forwardPower
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1762367355547013725, guid: 4410d520a97a9014297faee48626ad7a, type: 3}
-      propertyPath: nodeLeniency
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 1762367355547013725, guid: 4410d520a97a9014297faee48626ad7a, type: 3}
       propertyPath: customPatrolPath.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -5909,14 +5921,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 266178665}
     m_Modifications:
-    - target: {fileID: 1762367355547013725, guid: 4410d520a97a9014297faee48626ad7a, type: 3}
-      propertyPath: forwardPower
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1762367355547013725, guid: 4410d520a97a9014297faee48626ad7a, type: 3}
-      propertyPath: nodeLeniency
-      value: 150
-      objectReference: {fileID: 0}
     - target: {fileID: 8327987172627383090, guid: 4410d520a97a9014297faee48626ad7a, type: 3}
       propertyPath: m_RootOrder
       value: 0
