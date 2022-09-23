@@ -23,6 +23,7 @@ public class CaptureTheFlagObjective : BaseObjective
         _objectiveTitle = $"{prefixName} ({percentage * 100:00.0}%)";
         if (percentage == 1)
         {
+            ObjectiveCompleteSound.Post(gameObject);
             Destroy(this);
         }
     }

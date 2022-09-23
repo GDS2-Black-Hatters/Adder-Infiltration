@@ -17,6 +17,7 @@ public class InteractObjective : BaseObjective
 
     private void Interact()
     {
+        ObjectiveCompleteSound.Post(gameObject);
         Destroy(this);
         Destroy(interactable);
     }
