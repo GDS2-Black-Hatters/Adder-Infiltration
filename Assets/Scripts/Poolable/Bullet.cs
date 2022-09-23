@@ -30,6 +30,11 @@ public class Bullet : MonoBehaviour
             return;
         }
 
+        if(other.TryGetComponent<Enemy>(out Enemy enemy))
+        {
+            enemy.TakeDamage(damage);
+        }
+
         bool isPlayer = other.CompareTag("Player");
         if (isPlayer || other.gameObject.TryGetComponent(out MeshRenderer _))
         {

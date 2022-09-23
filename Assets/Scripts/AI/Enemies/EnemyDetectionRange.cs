@@ -16,7 +16,8 @@ public class EnemyDetectionRange : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            GameManager.LevelManager.ActiveSceneController.StartCaughtMode();
+            GameManager.LevelManager.ActiveSceneController.enemyAdmin.IncreaseAlertness(0.5f);
+            //GameManager.LevelManager.ActiveSceneController.StartCaughtMode();
         }
     }
 }

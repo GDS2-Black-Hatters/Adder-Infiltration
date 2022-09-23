@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.21768498, g: 0.50214714, b: 0.32581124, a: 1}
+  m_IndirectSpecularColor: {r: 0.04574263, g: 0.14463428, b: 0.07591257, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1082,8 +1082,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e04b0ab2b1e95b54fad75492bb21ec8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <isMandatory>k__BackingField: 1
+  mandatoryChance: 0
   <isComplete>k__BackingField: 0
+  _objectiveStringPrefix: Gather information
 --- !u!1 &1028835406
 GameObject:
   m_ObjectHideFlags: 0
@@ -1447,9 +1448,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031562b2f980d574cbb5f9499d8a8e8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <isMandatory>k__BackingField: 0
+  mandatoryChance: 0
   <isComplete>k__BackingField: 0
   captureTime: 5
+  prefixName: Secure vulnerability
 --- !u!23 &1564475008
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2026,8 +2028,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86ed4ffe98d7b0d4faf5d582f280c9b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <isMandatory>k__BackingField: 0
+  mandatoryChance: 0
   <isComplete>k__BackingField: 0
+  _objectiveText: Hack into device
 --- !u!114 &1933370662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2040,21 +2043,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cd2b14b98857a94695a8c021f0ef462, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onInteract:
+  interactHoldDuration: 3
+  onInteractComplete:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 97366076}
-        m_TargetAssemblyTypeName: MaterialColorChange, Assembly-CSharp
-        m_MethodName: ChangeColor
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+  onInteractProgress:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &1933370663
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2225,8 +2220,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86ed4ffe98d7b0d4faf5d582f280c9b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <isMandatory>k__BackingField: 1
+  mandatoryChance: 0
   <isComplete>k__BackingField: 0
+  _objectiveText: Hack into device
 --- !u!114 &2056310441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2239,21 +2235,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cd2b14b98857a94695a8c021f0ef462, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onInteract:
+  interactHoldDuration: 3
+  onInteractComplete:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 744916971}
-        m_TargetAssemblyTypeName: MaterialColorChange, Assembly-CSharp
-        m_MethodName: ChangeColor
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+  onInteractProgress:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &2056310442
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2659,9 +2647,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a93c049f45831c641a2be02e0921e60e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <isMandatory>k__BackingField: 0
+  mandatoryChance: 0
   <isComplete>k__BackingField: 0
   captureTime: 3
+  prefixName: Secure vulnerability
   sizeMultiplier: 1.2
 --- !u!1001 &8804111389171085099
 PrefabInstance:

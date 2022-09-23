@@ -11,13 +11,16 @@ public class BaseSceneController : MonoBehaviour
         Combat,
     }
     public SceneState sceneMode { get; private set; } = SceneState.Stealth;
+
     public bool canFinish { get; private set; } = false;
-    [SerializeField] private Transform allNodes;
-    [field: SerializeField] public Transform Enemies { get; private set; }
+    [field: SerializeField] public EnemyAdmin enemyAdmin { get; private set; }
+    private List<Transform> playerSpawnPoints = new();
+    private bool hasAMandatoryObjective = false;
 
     //For children.
     protected List<BaseObjective> objectives = new();
     public event Action onPlayerDetection;
+    [SerializeField] private AK.Wwise.Event playerDetectionMusicEvent;
 
     //Skybox Lerping.
     [Header("Skybox Parameters")]
@@ -37,6 +40,11 @@ public class BaseSceneController : MonoBehaviour
         RenderSettings.skybox = new(RenderSettings.skybox);
     }
 
+    protected virtual void Start()
+    {
+        enemyAdmin.onFullAlert += StartCaughtMode;
+    }
+
     protected virtual void Update()
     {
         UpdateObjectiveList();
@@ -47,11 +55,22 @@ public class BaseSceneController : MonoBehaviour
         }
     }
 
+    public void AddSpawnPoint(Transform transform)
+    {
+        playerSpawnPoints.Add(transform);
+    }
+
+    public void SetSpawnPoint()
+    {
+        GameManager.LevelManager.player.position = playerSpawnPoints[UnityEngine.Random.Range(0, playerSpawnPoints.Count)].position;
+    }
+
     public void StartCaughtMode()
     {
         if (sceneMode == SceneState.Stealth)
         {
             sceneMode = SceneState.Combat;
+            playerDetectionMusicEvent.Post(gameObject);
             onPlayerDetection?.Invoke();
             lerper.SetValues(0, 1, lerpTime);
             if (matterShell)
@@ -69,6 +88,10 @@ public class BaseSceneController : MonoBehaviour
     public void AddToObjectiveList(BaseObjective objective)
     {
         objectives.Add(objective);
+        if (!hasAMandatoryObjective && (hasAMandatoryObjective = objective.canBeMandatory))
+        {
+            objective.ForceMandatory();
+        }
     }
 
     public void UpdateObjectiveList()
@@ -97,21 +120,5 @@ public class BaseSceneController : MonoBehaviour
         canFinish = mandatoryCount == 0;
         string extra = canFinish ? "\nMission Completed, escape through a cell tower." : "";
         GameManager.LevelManager.objectiveList.text = "Objective List:" + mandatory + optional + extra;
-    }
-
-    public AINode GetClosestNode(Transform target)
-    {
-        AINode closest = null;
-        float closestDist = int.MaxValue;
-        foreach (AINode node in gameObject.GetComponentsInChildren<AINode>())
-        {
-            float nodeDist = (node.transform.position - target.position).sqrMagnitude;
-            if (closestDist > nodeDist)
-            {
-                closest = node;
-                closestDist = nodeDist;
-            }
-        }
-        return closest;
     }
 }

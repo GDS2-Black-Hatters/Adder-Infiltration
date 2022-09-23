@@ -18,16 +18,18 @@ public class PCGPlazaData : PCGBlockScriptable
         root.SetParent(rootParent);
         root.localPosition = Vector3.zero;
 
-        Transform plazaCore = Instantiate(availablePlazaCorePrefab[Random.Range(0, availablePlazaCorePrefab.Length)], rootParent.position, Quaternion.identity).transform;
-        plazaCore.SetParent(root);
-        plazaCore.localPosition = Vector3.zero;
+        BaseEnvironmentObject plazaCoreEnvObj = Instantiate(availablePlazaCorePrefab[Random.Range(0, availablePlazaCorePrefab.Length)], rootParent.position, Quaternion.identity);
+        plazaCoreEnvObj.Initilize();
+        plazaCoreEnvObj.transform.SetParent(root);
+        plazaCoreEnvObj.transform.localPosition = Vector3.zero;
 
         if(availableEnvObjPrefab.Length <= 0) return root.gameObject; //return if no env obj is available for populating surrounding
 
         foreach(Vector3 offset in envObjPositionOffset)
         {
-            Transform newEnvObj = Instantiate(availableEnvObjPrefab[Random.Range(0, availableEnvObjPrefab.Length)], root.position + offset * cellUnitMultiplier/2, Quaternion.identity).transform;
-            newEnvObj.SetParent(root);
+            BaseEnvironmentObject newEnvObj = Instantiate(availableEnvObjPrefab[Random.Range(0, availableEnvObjPrefab.Length)], root.position + offset * cellUnitMultiplier/2, Quaternion.identity);
+            newEnvObj.Initilize();
+            newEnvObj.transform.SetParent(root);
         }
 
         return root.gameObject;

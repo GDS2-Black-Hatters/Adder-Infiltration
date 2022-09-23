@@ -16,6 +16,7 @@ public class Shooter : Enemy
         attackCooldown.onFinish += Shoot;
 
         rb = GetComponent<Rigidbody>();
+
     }
 
     protected override void Attack()

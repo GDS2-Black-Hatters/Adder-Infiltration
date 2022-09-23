@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PCGGround : MonoBehaviour
 {
-    [SerializeField] private GameObject FloorGroundPrefab;
+    //[SerializeField] private GameObject FloorGroundPrefab;
     [SerializeField] private GameObject DistGroundLayerPrefab;
 
     [SerializeField] private int Layers = 3;
