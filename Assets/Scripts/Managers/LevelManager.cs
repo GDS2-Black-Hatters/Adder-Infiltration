@@ -130,7 +130,7 @@ public sealed class LevelManager : MonoBehaviour, IManager
                 yield return StartCoroutine(LoadProgress(SceneManager.LoadSceneAsync(DoStatic.EnumAsString(newLevel))));
             }
             notify?.Invoke();
-            //GameManager.Save(); //Uncomment later!
+            GameManager.SaveManager.SaveToFile();
             PlayLevelMusic();
 
             yield return StartCoroutine(TransitionPlay(feedbackType.feedbackOut));
