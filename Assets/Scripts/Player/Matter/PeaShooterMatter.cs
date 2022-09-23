@@ -10,6 +10,8 @@ public class PeaShooterMatter : WeaponMatter
     private Transform target; 
     private TimeTracker fireCooldownTimer;
 
+    [SerializeField] protected AK.Wwise.Event ShootSound;
+
     private void Awake()
     {
         fireCooldownTimer = new(fireCooldown);
@@ -46,6 +48,8 @@ public class PeaShooterMatter : WeaponMatter
 
             bullet.transform.LookAt(target);
             bullet.velocity = bull.transform.forward * bulletSpeed;
+
+            ShootSound.Post(gameObject);
         }
     }
 }

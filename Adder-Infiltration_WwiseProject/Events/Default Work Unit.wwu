@@ -5,6 +5,13 @@
 			<ChildrenList>
 				<Event Name="LevelStart_Event" ID="{64BDD4A4-F509-46E3-B602-18F899BF7C7F}">
 					<ChildrenList>
+						<Action Name="" ID="{E0909AE6-EBC9-471D-846B-86D804AE2011}" ShortID="325980132">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="3"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList/>
+						</Action>
 						<Action Name="" ID="{023A90CA-041C-4BE1-8246-8819B5149E39}" ShortID="894297651">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="22"/>
@@ -33,6 +40,57 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Discovered" ID="{A1DEFB37-D936-4D90-B11F-819A2A41B730}" WorkUnitID="{D121DC3F-56C6-4CFE-8476-95A73A0A239F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="LazerFire_Event" ID="{7D3C9B39-3DDE-49EA-A340-C835908FDAAA}">
+					<ChildrenList>
+						<Action Name="" ID="{27D0042B-F1C6-4C2C-BEDA-F70F4E90428D}" ShortID="61459362">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RandomLazerSounds" ID="{8D4C2C68-2B90-4F82-A431-D88EBEE2A4BC}" WorkUnitID="{D5FBB3F7-72F3-40AC-9B3E-877FA285AAC1}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="ObjectiveComplete_Event" ID="{7D02FC9D-D476-42AE-B364-5DD961CD4199}">
+					<ChildrenList>
+						<Action Name="" ID="{2E2BDDE0-5FAD-42D0-A918-5A50C42A7B81}" ShortID="405148109">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="ObjectiveCompleteSound" ID="{DF321A4D-4FB4-4D8B-99D7-C44539FE7A0A}" WorkUnitID="{D5FBB3F7-72F3-40AC-9B3E-877FA285AAC1}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="EnemyDroneAmb" ID="{524392DD-C862-4DA6-9C60-A7B3A1AE39B0}">
+					<ChildrenList>
+						<Action Name="" ID="{9FBD5A25-F919-427B-9270-8405352B90CF}" ShortID="163102622">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="EnemyDroneAmbient" ID="{387FB7F5-72C4-4623-98F6-F80DF12DE11C}" WorkUnitID="{D5FBB3F7-72F3-40AC-9B3E-877FA285AAC1}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="HubMusicStart_Event" ID="{1ABE9120-0C6D-49E4-B530-CC620FE60ED9}">
+					<ChildrenList>
+						<Action Name="" ID="{A723B06B-561B-4C09-A0F4-568E949114AE}" ShortID="1064024700">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="3"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList/>
+						</Action>
+						<Action Name="" ID="{5ED6AB21-953A-4306-ABF6-B4A4C67D8479}" ShortID="855443103">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="HubMusicLoop" ID="{682B5E5C-A264-4670-9E93-5B086DC00213}" WorkUnitID="{0292C1BB-731A-4436-9E77-C5FE57F18494}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

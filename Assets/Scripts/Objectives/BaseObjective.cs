@@ -9,6 +9,8 @@ public abstract class BaseObjective : MonoBehaviour
     public abstract string objectiveTitle { get; }
     public bool canBeMandatory { get; protected set; } = true;
 
+    [SerializeField] protected AK.Wwise.Event ObjectiveCompleteSound;
+
     protected virtual void Awake()
     {
         isMandatory = DoStatic.RandomBool(mandatoryChance);
