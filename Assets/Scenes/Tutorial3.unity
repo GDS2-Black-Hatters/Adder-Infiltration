@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.21771833, g: 0.5048249, b: 0.32644093, a: 1}
+  m_IndirectSpecularColor: {r: 0.04574263, g: 0.14463428, b: 0.07591257, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1470,18 +1470,54 @@ PrefabInstance:
       propertyPath: m_Name
       value: BaseSceneController
       objectReference: {fileID: 0}
+    - target: {fileID: 3090376247672236820, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.4567871
+      objectReference: {fileID: 0}
     - target: {fileID: 3141422433671740996, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3367398371395522093, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3441952349015161882, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4526123236416099533, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
+      propertyPath: allAiNodes.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526123236416099533, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
+      propertyPath: allAiNodes.Array.data[0]
+      value: 
+      objectReference: {fileID: 766652247}
+    - target: {fileID: 4526123236416099533, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
+      propertyPath: allAiNodes.Array.data[1]
+      value: 
+      objectReference: {fileID: 2077792171}
+    - target: {fileID: 4526123236416099533, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
+      propertyPath: allAiNodes.Array.data[2]
+      value: 
+      objectReference: {fileID: 760529345}
+    - target: {fileID: 4526123236416099533, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
+      propertyPath: allAiNodes.Array.data[3]
+      value: 
+      objectReference: {fileID: 236467000}
+    - target: {fileID: 4526123236416099533, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
+      propertyPath: allAiNodes.Array.data[4]
+      value: 
+      objectReference: {fileID: 97106422}
+    - target: {fileID: 4526123236416099533, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
+      propertyPath: allAiNodes.Array.data[5]
+      value: 
+      objectReference: {fileID: 1740787433}
+    - target: {fileID: 4526123236416099533, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
+      propertyPath: allAiNodes.Array.data[6]
+      value: 
+      objectReference: {fileID: 1685477709}
     - target: {fileID: 6106655758076692800, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1529,6 +1565,10 @@ PrefabInstance:
     - target: {fileID: 6620700962575851934, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7930928041492568696, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
@@ -3849,6 +3889,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 266178665}
     m_Modifications:
     - target: {fileID: 1762367355547013725, guid: 4410d520a97a9014297faee48626ad7a, type: 3}
+      propertyPath: forwardPower
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762367355547013725, guid: 4410d520a97a9014297faee48626ad7a, type: 3}
+      propertyPath: nodeLeniency
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762367355547013725, guid: 4410d520a97a9014297faee48626ad7a, type: 3}
       propertyPath: customPatrolPath.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -5060,10 +5108,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ExitTower
       objectReference: {fileID: 0}
-    - target: {fileID: 3994840751181675685, guid: 408998aee6f1dc940bc441df3162c0b0, type: 3}
-      propertyPath: nextScene
-      value: 103
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 408998aee6f1dc940bc441df3162c0b0, type: 3}
 --- !u!1 &1411660994
@@ -5865,6 +5909,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 266178665}
     m_Modifications:
+    - target: {fileID: 1762367355547013725, guid: 4410d520a97a9014297faee48626ad7a, type: 3}
+      propertyPath: forwardPower
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762367355547013725, guid: 4410d520a97a9014297faee48626ad7a, type: 3}
+      propertyPath: nodeLeniency
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 8327987172627383090, guid: 4410d520a97a9014297faee48626ad7a, type: 3}
       propertyPath: m_RootOrder
       value: 0

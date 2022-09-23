@@ -21,8 +21,6 @@ public sealed class LevelManager : MonoBehaviour, IManager
         Tutorial2,
         Tutorial3,
 
-        SampleLevel,
-
         //For Demo Purpose
         DemoProceduralLevel,
 
