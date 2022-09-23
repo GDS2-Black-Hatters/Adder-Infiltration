@@ -37,6 +37,11 @@ namespace AK
 
     } // namespace STATES
 
+    namespace GAME_PARAMETERS
+    {
+        static const AkUniqueID MAINAUDIOVOLUME = 3830172926U;
+    } // namespace GAME_PARAMETERS
+
     namespace BANKS
     {
         static const AkUniqueID INIT = 1355168291U;
