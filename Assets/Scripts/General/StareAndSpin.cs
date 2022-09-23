@@ -19,6 +19,11 @@ public class StareAndSpin : MonoBehaviour
 
     private void Update()
     {
+        if (!stareTarget)
+        {
+            return;
+        }
+
         Vector3 stareDirection = (stareTarget.position - transform.position).normalized;
         // Debug.DrawRay(transform.position, transform.forward, Color.blue, 1);
         // Debug.DrawRay(transform.position, stareDirection, Color.red, 1);

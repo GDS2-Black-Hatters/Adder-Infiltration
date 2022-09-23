@@ -29,6 +29,7 @@ public abstract class Enemy : MonoBehaviour
     protected AINode nodeTarget;
     [SerializeField] protected float nodeLeniency = 0.5f;
     protected Action stateAction; //You should only be assigning not subscribing.
+    protected Action fixedStateAction;
 
     protected virtual void Awake()
     {
@@ -42,6 +43,7 @@ public abstract class Enemy : MonoBehaviour
         BaseSceneController controller = GameManager.LevelManager.ActiveSceneController;
         controller.onPlayerDetection += OnPlayerDetection;
         stateAction = controller.sceneMode == BaseSceneController.SceneState.Stealth ? Patrol : Chase;
+        fixedStateAction = controller.sceneMode == BaseSceneController.SceneState.Stealth ? FixedPatrol : FixedChase;
         nodeTarget = customPatrolPath.Length == 0 ? controller.enemyAdmin.GetClosestNode(transform) : customPatrolPath[0];
     }
 
@@ -50,9 +52,15 @@ public abstract class Enemy : MonoBehaviour
         stateAction?.Invoke();
     }
 
+    protected void FixedUpdate()
+    {
+        fixedStateAction?.Invoke();
+    }
+
     protected virtual void OnPlayerDetection()
     {
         stateAction = Chase;
+        fixedStateAction = FixedChase;
         nodeTarget = GameManager.LevelManager.ActiveSceneController.enemyAdmin.GetClosestNode(transform).GetNextNodeToPlayer();
     }
 
@@ -90,7 +98,8 @@ public abstract class Enemy : MonoBehaviour
         transform.eulerAngles = rot;
     }
 
-    protected virtual void Patrol()
+    protected virtual void Patrol() {}
+    protected virtual void FixedPatrol()
     {
         if (!nodeTarget)
         {
@@ -105,7 +114,8 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
-    protected virtual void Chase()
+    protected virtual void Chase() {}
+    protected virtual void FixedChase()
     {
         Transform player = GameManager.LevelManager.player;
         Vector3 dir = player.position - transform.position;
@@ -122,6 +132,7 @@ public abstract class Enemy : MonoBehaviour
             if (dir.sqrMagnitude < closeRangeDistance)
             {
                 stateAction = Attack;
+                fixedStateAction = FixedAttack;
             }
         } else
         {
@@ -144,5 +155,6 @@ public abstract class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
-    protected abstract void Attack();
+    protected virtual void Attack() { }
+    protected virtual void FixedAttack() { }
 }

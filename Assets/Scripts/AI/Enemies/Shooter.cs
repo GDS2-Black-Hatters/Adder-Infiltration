@@ -33,6 +33,7 @@ public class Shooter : Enemy
         if ((GameManager.LevelManager.player.position - transform.position).sqrMagnitude > closeRangeDistance)
         {
             stateAction = Chase;
+            fixedStateAction = FixedChase;
         }
     }
 
