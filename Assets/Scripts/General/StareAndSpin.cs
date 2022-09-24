@@ -21,6 +21,7 @@ public class StareAndSpin : MonoBehaviour
     {
         if (!stareTarget)
         {
+            enabled = false;
             return;
         }
 
