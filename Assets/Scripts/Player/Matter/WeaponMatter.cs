@@ -11,17 +11,12 @@ public class WeaponMatter : Matter
     private RandRotate selfRandRoter;
     private StareAndSpin selfStareAndSpin;
 
-    private float anchorRotSpeed;
-    private float selfRotSpeed;
-
     public override void InitilizeMatter(MatterShell ownerShell, Transform anchorBase)
     {
         anchorRandRoter = anchorBase.GetComponent<RandRotate>();
         anchorStareAndSpin = anchorBase.GetComponent<StareAndSpin>();
         selfRandRoter = GetComponent<RandRotate>();
         selfStareAndSpin = GetComponent<StareAndSpin>();
-        anchorRotSpeed = anchorRandRoter.rotationSpeed;
-        selfRotSpeed = selfRandRoter.rotationSpeed;
         
         ownerMatterShell = ownerShell;
         ChangeTarget(ownerMatterShell.currentTarget);
@@ -30,24 +25,16 @@ public class WeaponMatter : Matter
 
     public virtual void ChangeTarget(Transform newTargetTransform)
     {
-        if(newTargetTransform == null)
-        {
-            anchorRandRoter.rotationSpeed = anchorRotSpeed;
-            selfRandRoter.rotationSpeed = selfRotSpeed;
+        bool hasTarget = !(newTargetTransform == null);
+
+        anchorRandRoter.enabled = !hasTarget;
+        selfRandRoter.enabled = !hasTarget;
             
-            anchorStareAndSpin.enabled = false;
-            selfStareAndSpin.enabled = false;
-
-            return;
-        }
-
-        anchorRandRoter.rotationSpeed = 0;
-        selfRandRoter.rotationSpeed = 0;            
+        anchorStareAndSpin.enabled = hasTarget;
+        selfStareAndSpin.enabled = hasTarget;
 
         anchorStareAndSpin.stareTarget = newTargetTransform;
-        anchorStareAndSpin.enabled = true;
         selfStareAndSpin.stareTarget = newTargetTransform;
-        selfStareAndSpin.enabled = true;
     }
 
     private void OnEnable()
