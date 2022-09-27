@@ -2,10 +2,10 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using static ActionInputSubscriber.CallBackContext;
 using static InputManager.ControlScheme;
+using static LevelManager;
 
 public class PauseMenuController : MonoBehaviour
 {
-    public static bool GameIsPaused;
     public GameObject pauseMenuUI;
     private CursorLockMode lastCursorLockMode;
     private bool cursorWasLocked;
@@ -16,8 +16,6 @@ public class PauseMenuController : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        GameIsPaused = false;
-
         gameObject.AddComponent<ActionInputSubscriber>().AddActions(new()
         {
             new(MainGame, GameManager.InputManager.GetAction(InputManager.Controls.Pause), Performed, TogglePause)
@@ -27,7 +25,7 @@ public class PauseMenuController : MonoBehaviour
     private void TogglePause(InputAction.CallbackContext moveDelta)
     {
         //Todo: maybe optimise later.
-        if (GameIsPaused)
+        if (isGamePaused)
         {
             Resume();
         }
@@ -41,7 +39,7 @@ public class PauseMenuController : MonoBehaviour
     {
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
-        GameIsPaused = false;
+        isGamePaused = false;
 
         Cursor.lockState = lastCursorLockMode;
         Cursor.visible = cursorWasLocked;
@@ -51,7 +49,7 @@ public class PauseMenuController : MonoBehaviour
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
-        GameIsPaused = true;
+        isGamePaused = true;
 
         lastCursorLockMode = Cursor.lockState;
         Cursor.lockState = CursorLockMode.None;
@@ -78,12 +76,11 @@ public class PauseMenuController : MonoBehaviour
     {
         Time.timeScale = 1f;
         LevelManager levelManager = GameManager.LevelManager;
-        levelManager.ChangeLevel(LevelManager.Level.Hub);
+        levelManager.ChangeLevel(Level.Hub);
     }
 
     public void QuitGame()
     {
-        Debug.Log("Quit Game!");
         Application.Quit();
     }
 }

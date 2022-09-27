@@ -1,6 +1,8 @@
 #pragma warning disable IDE1006 // Naming Styles
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class BaseSceneController : MonoBehaviour
@@ -17,10 +19,12 @@ public class BaseSceneController : MonoBehaviour
     private List<Transform> playerSpawnPoints = new();
     private bool hasAMandatoryObjective = false;
 
+    [SerializeField] private CaughtHUDBehaviour caughtHUD;
+    [field: SerializeField] public TextMeshProUGUI objectiveList { get; private set; }
+
     //For children.
     protected List<BaseObjective> objectives = new();
-    public event Action onPlayerDetection;
-    [SerializeField] private AK.Wwise.Event playerDetectionMusicEvent;
+    [SerializeField] private AK.Wwise.Event playerDetectionMusicEvent; //Private? Under the for children section?
 
     //Skybox Lerping.
     [Header("Skybox Parameters")]
@@ -43,16 +47,12 @@ public class BaseSceneController : MonoBehaviour
     protected virtual void Start()
     {
         enemyAdmin.onFullAlert += StartCaughtMode;
+        enemyAdmin.onFullAlert += caughtHUD.FadeIn;
     }
 
     protected virtual void Update()
     {
         UpdateObjectiveList();
-        if (lerper.isLerping)
-        {
-            lerper.Update(Time.deltaTime);
-            RenderSettings.skybox.SetColor("_SkyTint", Color.Lerp(startColor, endColor, lerper.currentValue));
-        }
 
         //Fall Off Check
         LevelManager levelManager = GameManager.LevelManager;
@@ -78,8 +78,7 @@ public class BaseSceneController : MonoBehaviour
         {
             sceneMode = SceneState.Combat;
             playerDetectionMusicEvent.Post(gameObject);
-            onPlayerDetection?.Invoke();
-            lerper.SetValues(0, 1, lerpTime);
+            StartCoroutine(LerpSkybox());
             if (matterShell)
             {
                 matterShell.WeaponizeMatter(); //Should be removed, matter shell converstion now handled by player virus state controller
@@ -126,6 +125,17 @@ public class BaseSceneController : MonoBehaviour
         }
         canFinish = mandatoryCount == 0;
         string extra = canFinish ? "\nMission Completed, escape through a cell tower." : "";
-        GameManager.LevelManager.objectiveList.text = "Objective List:" + mandatory + optional + extra;
+        objectiveList.text = $"Objective List:{mandatory}{optional}{extra}";
+    }
+
+    private IEnumerator LerpSkybox()
+    {
+        lerper.SetValues(0, 1, lerpTime);
+        do
+        {
+            lerper.Update(Time.deltaTime);
+            RenderSettings.skybox.SetColor("_SkyTint", Color.Lerp(startColor, endColor, lerper.currentValue));
+            yield return null;
+        } while (lerper.isLerping);
     }
 }

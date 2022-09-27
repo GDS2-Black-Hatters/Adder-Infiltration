@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static ActionInputSubscriber.CallBackContext;
 using static InputManager.Controls;
 using static InputManager.ControlScheme;
 
@@ -14,15 +13,10 @@ public class PlayerVirusController : MonoBehaviour
     private void Awake()
     {
         GameManager.LevelManager.SetPlayer(transform);
-    }
-
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-        
         InputManager inputManager = GameManager.InputManager;
         inputManager.ChangeControlMap(MainGame);
         moveAction = inputManager.GetAction(Move);
+        rb = GetComponent<Rigidbody>();
     }
 
     private void FixedUpdate()

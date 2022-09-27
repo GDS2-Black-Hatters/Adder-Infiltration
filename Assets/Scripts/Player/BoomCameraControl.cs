@@ -1,7 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static LevelManager;
+using static InputManager.ControlScheme;
+using static InputManager.Controls;
+using static ActionInputSubscriber.CallBackContext;
 
 public class BoomCameraControl : MonoBehaviour
 {
@@ -34,6 +36,13 @@ public class BoomCameraControl : MonoBehaviour
     }
     [SerializeField] private Transform leftRightRotTransform;
 
+    private void Awake()
+    {
+        gameObject.AddComponent<ActionInputSubscriber>().AddActions(new()
+        {
+            new(MainGame, GameManager.InputManager.GetAction(Look), Performed, RotateCamera)
+        });
+    }
 
     private void Update()
     {
@@ -45,8 +54,7 @@ public class BoomCameraControl : MonoBehaviour
 
     private void TranslateBoom(ref Vector3 boomV3, Vector3 boomDirection, float boomDistance)
     {
-        RaycastHit boomResult;
-        if(Physics.SphereCast(boomV3, boomSphereRadius, boomDirection, out boomResult, boomDistance, sphereCastMask))
+        if (Physics.SphereCast(boomV3, boomSphereRadius, boomDirection, out RaycastHit boomResult, boomDistance, sphereCastMask))
         {
             boomV3 += (boomResult.distance - boomSphereRadius) * boomDirection;
         }
@@ -56,28 +64,9 @@ public class BoomCameraControl : MonoBehaviour
         }
     }
 
-    private void OnEnable()
-    {
-        //Retrieve InputManager and register input events
-        InputManager inputManager = GameManager.InputManager;
-        inputManager.ChangeControlMap(InputManager.ControlScheme.MainGame);
-
-        inputManager.GetAction(InputManager.Controls.Look).performed += RotateCamera;
-    }
-
-    private void OnDisable()
-    {
-        InputManager inputManager = GameManager.InputManager;
-        if (!inputManager)
-        {
-            return;
-        }
-        inputManager.GetAction(InputManager.Controls.Look).performed -= RotateCamera;
-    }
-
     private void RotateCamera(InputAction.CallbackContext LookDelta)
     {
-        if (PauseMenuController.GameIsPaused) //Todo: Fix later!
+        if (isGamePaused)
         {
             return;
         }

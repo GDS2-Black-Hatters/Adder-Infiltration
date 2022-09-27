@@ -5,7 +5,8 @@ using AK.Wwise;
 
 public class EnemyAdmin : MonoBehaviour
 {
-    [SerializeField] private AINode[] allAiNodes;
+    [SerializeField] private GameObject aiNodes;
+    private AINode[] allAiNodes;
 
     [Header("Enemies")]
     [SerializeField] private Enemy[] availableEnemyPrefabs; //Todo make it find the child.
@@ -21,6 +22,11 @@ public class EnemyAdmin : MonoBehaviour
     public event System.Action onFullAlert;
     private bool fullAlertTriggered = false;
 
+    private void Awake()
+    {
+        allAiNodes = aiNodes.GetComponentsInChildren<AINode>();
+    }
+
     private void Update()
     {
         //if alertness is basically 1, lerp into full alert color, otherwise evaluate the gradient
@@ -30,7 +36,7 @@ public class EnemyAdmin : MonoBehaviour
 
     public void IncreaseAlertness(float delta)
     {
-        StartCoroutine( LerpIncreaseAlertness(delta) );
+        StartCoroutine(LerpIncreaseAlertness(delta));
     }
 
     private IEnumerator LerpIncreaseAlertness(float delta, float increasePeriod = 0.5f)

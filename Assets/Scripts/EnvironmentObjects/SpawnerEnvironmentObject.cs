@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnerEnvironmentObject : BaseEnvironmentObject
@@ -11,7 +9,7 @@ public class SpawnerEnvironmentObject : BaseEnvironmentObject
 
     private void Start()
     {
-        GameManager.LevelManager.ActiveSceneController.onPlayerDetection += ActivateSpawner;
+        GameManager.LevelManager.ActiveSceneController.enemyAdmin.onFullAlert += ActivateSpawner;
         spawnTimer.Reset();
         spawnTimer.onFinish += Spawn;
         enabled = false;
