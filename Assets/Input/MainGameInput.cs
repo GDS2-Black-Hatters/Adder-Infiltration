@@ -105,6 +105,15 @@ public partial class @MainGameInput : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""83d35524-61b1-4a00-a7aa-8af1bdad120e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Interact"",
                     ""type"": ""Button"",
                     ""id"": ""81b495b9-371c-446a-a50d-ac0bfc2b826d"",
@@ -114,10 +123,19 @@ public partial class @MainGameInput : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Pause"",
+                    ""name"": ""Ability"",
                     ""type"": ""Button"",
-                    ""id"": ""83d35524-61b1-4a00-a7aa-8af1bdad120e"",
+                    ""id"": ""6c909cb1-4c43-4585-bab9-cdd3e0f0cfdf"",
                     ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Scroll"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""9109ce93-f106-4b5a-b5c3-6a2395a66265"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -247,6 +265,39 @@ public partial class @MainGameInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""14260ecb-b193-4768-aeba-3b79fa9b4034"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""942e3034-1c39-4b07-a111-57c36f0dfbd0"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ability"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""27985312-ef03-4c9f-837d-cfccba7cc116"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ability"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""48abc67d-d07e-4afc-9a3a-ab5d78b8770f"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
@@ -258,12 +309,23 @@ public partial class @MainGameInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""14260ecb-b193-4768-aeba-3b79fa9b4034"",
-                    ""path"": ""<Keyboard>/escape"",
+                    ""id"": ""d868466c-a848-4e23-8711-96c7ce3e9872"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Pause"",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""86e1bd9f-ac8e-4138-9d34-6667cc5be821"",
+                    ""path"": ""<Mouse>/scroll/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Scroll"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -280,8 +342,10 @@ public partial class @MainGameInput : IInputActionCollection2, IDisposable
         m_MainGame = asset.FindActionMap("MainGame", throwIfNotFound: true);
         m_MainGame_Move = m_MainGame.FindAction("Move", throwIfNotFound: true);
         m_MainGame_Look = m_MainGame.FindAction("Look", throwIfNotFound: true);
-        m_MainGame_Interact = m_MainGame.FindAction("Interact", throwIfNotFound: true);
         m_MainGame_Pause = m_MainGame.FindAction("Pause", throwIfNotFound: true);
+        m_MainGame_Interact = m_MainGame.FindAction("Interact", throwIfNotFound: true);
+        m_MainGame_Ability = m_MainGame.FindAction("Ability", throwIfNotFound: true);
+        m_MainGame_Scroll = m_MainGame.FindAction("Scroll", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -384,16 +448,20 @@ public partial class @MainGameInput : IInputActionCollection2, IDisposable
     private IMainGameActions m_MainGameActionsCallbackInterface;
     private readonly InputAction m_MainGame_Move;
     private readonly InputAction m_MainGame_Look;
-    private readonly InputAction m_MainGame_Interact;
     private readonly InputAction m_MainGame_Pause;
+    private readonly InputAction m_MainGame_Interact;
+    private readonly InputAction m_MainGame_Ability;
+    private readonly InputAction m_MainGame_Scroll;
     public struct MainGameActions
     {
         private @MainGameInput m_Wrapper;
         public MainGameActions(@MainGameInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_MainGame_Move;
         public InputAction @Look => m_Wrapper.m_MainGame_Look;
-        public InputAction @Interact => m_Wrapper.m_MainGame_Interact;
         public InputAction @Pause => m_Wrapper.m_MainGame_Pause;
+        public InputAction @Interact => m_Wrapper.m_MainGame_Interact;
+        public InputAction @Ability => m_Wrapper.m_MainGame_Ability;
+        public InputAction @Scroll => m_Wrapper.m_MainGame_Scroll;
         public InputActionMap Get() { return m_Wrapper.m_MainGame; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -409,12 +477,18 @@ public partial class @MainGameInput : IInputActionCollection2, IDisposable
                 @Look.started -= m_Wrapper.m_MainGameActionsCallbackInterface.OnLook;
                 @Look.performed -= m_Wrapper.m_MainGameActionsCallbackInterface.OnLook;
                 @Look.canceled -= m_Wrapper.m_MainGameActionsCallbackInterface.OnLook;
-                @Interact.started -= m_Wrapper.m_MainGameActionsCallbackInterface.OnInteract;
-                @Interact.performed -= m_Wrapper.m_MainGameActionsCallbackInterface.OnInteract;
-                @Interact.canceled -= m_Wrapper.m_MainGameActionsCallbackInterface.OnInteract;
                 @Pause.started -= m_Wrapper.m_MainGameActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_MainGameActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_MainGameActionsCallbackInterface.OnPause;
+                @Interact.started -= m_Wrapper.m_MainGameActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_MainGameActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_MainGameActionsCallbackInterface.OnInteract;
+                @Ability.started -= m_Wrapper.m_MainGameActionsCallbackInterface.OnAbility;
+                @Ability.performed -= m_Wrapper.m_MainGameActionsCallbackInterface.OnAbility;
+                @Ability.canceled -= m_Wrapper.m_MainGameActionsCallbackInterface.OnAbility;
+                @Scroll.started -= m_Wrapper.m_MainGameActionsCallbackInterface.OnScroll;
+                @Scroll.performed -= m_Wrapper.m_MainGameActionsCallbackInterface.OnScroll;
+                @Scroll.canceled -= m_Wrapper.m_MainGameActionsCallbackInterface.OnScroll;
             }
             m_Wrapper.m_MainGameActionsCallbackInterface = instance;
             if (instance != null)
@@ -425,12 +499,18 @@ public partial class @MainGameInput : IInputActionCollection2, IDisposable
                 @Look.started += instance.OnLook;
                 @Look.performed += instance.OnLook;
                 @Look.canceled += instance.OnLook;
-                @Interact.started += instance.OnInteract;
-                @Interact.performed += instance.OnInteract;
-                @Interact.canceled += instance.OnInteract;
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @Interact.started += instance.OnInteract;
+                @Interact.performed += instance.OnInteract;
+                @Interact.canceled += instance.OnInteract;
+                @Ability.started += instance.OnAbility;
+                @Ability.performed += instance.OnAbility;
+                @Ability.canceled += instance.OnAbility;
+                @Scroll.started += instance.OnScroll;
+                @Scroll.performed += instance.OnScroll;
+                @Scroll.canceled += instance.OnScroll;
             }
         }
     }
@@ -444,7 +524,9 @@ public partial class @MainGameInput : IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
-        void OnInteract(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
+        void OnAbility(InputAction.CallbackContext context);
+        void OnScroll(InputAction.CallbackContext context);
     }
 }
