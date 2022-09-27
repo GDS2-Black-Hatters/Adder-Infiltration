@@ -20,4 +20,9 @@ public class HPTracker : CaughtVariableTracker
         ui.fillAmount = fillAmountLerper.ValueAtPercentage(percent);
         ui.color = Color.Lerp(empty, full, DoStatic.RoundToNearestFloat(percent, 0.25f));
     }
+
+    private void OnDisable()
+    {
+        GameManager.VariableManager.playerHealth.onHurt -= UpdateHP;
+    }
 }

@@ -48,6 +48,10 @@ public sealed class LevelManager : MonoBehaviour, IManager
         GameManager.VariableManager.playerHealth.onDeath += GameOver;
     }
 
+    /// <summary>
+    /// Toggles the state of the mouse.
+    /// </summary>
+    /// <param name="focus">True to hide the mouse and lock it in place.</param>
     public void OnApplicationFocus(bool focus)
     {
         bool lockMouse = focus && (int)level >= gameLevels && !isGamePaused;
@@ -134,6 +138,7 @@ public sealed class LevelManager : MonoBehaviour, IManager
             yield return StartCoroutine(TransitionPlay(feedbackType.feedbackOut));
         }
         
+        isGamePaused = false;
         OnApplicationFocus(true);
         GameManager.VariableManager.Restart();
         UpdateLevelIndex();
@@ -143,7 +148,6 @@ public sealed class LevelManager : MonoBehaviour, IManager
             Camera.main.transform.eulerAngles = Vector3.zero;
             Camera.main.transform.position = new(0, 10, -10);
         }
-
         yield return StartCoroutine(TransitionPlay(transitionType.transitionOut));
         transitionAnim.Play("Waiting");
         isTransitioning = false;

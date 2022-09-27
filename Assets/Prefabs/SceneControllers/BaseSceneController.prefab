@@ -1115,6 +1115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f9aff2c5a4c45f47b3e6f5fdf097500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  full: {r: 0, g: 1, b: 0, a: 1}
+  empty: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &7085887599088677415
 GameObject:
   m_ObjectHideFlags: 0
@@ -1369,34 +1371,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6106655758076692800}
     m_Modifications:
-    - target: {fileID: 3043156498004729563, guid: 18e99a22807dbb1499939dc41483846d, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.34423828
-      objectReference: {fileID: 0}
-    - target: {fileID: 3043156498188192208, guid: 18e99a22807dbb1499939dc41483846d, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.0925293
-      objectReference: {fileID: 0}
-    - target: {fileID: 3043156498287162046, guid: 18e99a22807dbb1499939dc41483846d, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.4567871
-      objectReference: {fileID: 0}
-    - target: {fileID: 3043156498606977744, guid: 18e99a22807dbb1499939dc41483846d, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 7.106476
-      objectReference: {fileID: 0}
-    - target: {fileID: 3043156498728397978, guid: 18e99a22807dbb1499939dc41483846d, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.34423828
-      objectReference: {fileID: 0}
-    - target: {fileID: 3043156499278900679, guid: 18e99a22807dbb1499939dc41483846d, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.18798828
-      objectReference: {fileID: 0}
-    - target: {fileID: 3043156499390344027, guid: 18e99a22807dbb1499939dc41483846d, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.26348877
-      objectReference: {fileID: 0}
     - target: {fileID: 5492871303900691858, guid: 18e99a22807dbb1499939dc41483846d, type: 3}
       propertyPath: m_Name
       value: PauseMenuHUD
