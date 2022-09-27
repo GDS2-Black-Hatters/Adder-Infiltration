@@ -652,8 +652,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4baf138ef4b8b4c43b2ef8a1d0fd9b94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inGameHUD: {fileID: 0}
-  <objectiveList>k__BackingField: {fileID: 0}
 --- !u!114 &2783689509851356698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -734,7 +732,7 @@ MonoBehaviour:
     <autoLoop>k__BackingField: 0
   <playerHealth>k__BackingField:
     health:
-      <originalValue>k__BackingField: 100
+      <originalValue>k__BackingField: 20
       value: 100
   <Bytecoins>k__BackingField: 0
   <IntelligenceData>k__BackingField: 0

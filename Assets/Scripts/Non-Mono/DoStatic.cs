@@ -87,4 +87,16 @@ public class DoStatic
     {
         return System.Enum.GetValues(typeof(T)).Cast<T>().ToArray();
     }
+
+    /// <summary>
+    /// Get the nearest given number from given value.
+    /// </summary>
+    /// <param name="value">The value to round up or down</param>
+    /// <param name="nearest">The value where the value is rounded to become divisible</param>
+    /// <returns>A rounded value</returns>
+    public static float RoundToNearestFloat(float value, float nearest = 1)
+    {
+        float fractional = 1 / nearest;
+        return Mathf.Round(value * fractional) / fractional;
+    }
 }
