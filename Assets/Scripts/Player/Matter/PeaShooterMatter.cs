@@ -7,7 +7,6 @@ public class PeaShooterMatter : WeaponMatter
     [SerializeField] private float bulletSpeed = 10;   
     [SerializeField] private float fireCooldown = 0.75f;   
 
-    private Transform target; 
     private TimeTracker fireCooldownTimer;
 
     [SerializeField] protected AK.Wwise.Event ShootSound;
@@ -18,24 +17,11 @@ public class PeaShooterMatter : WeaponMatter
         fireCooldownTimer.Update(Random.Range(0, fireCooldown)); //give the weapon a random initial
     }
 
-    private void Update()
+    protected override void AttackUpdate()
     {
         if(target == null)
-        {
             return;
-        }
 
-        AttackUpdate();
-    }
-
-    public override void ChangeTarget(Transform newTargetTransform)
-    {
-        base.ChangeTarget(newTargetTransform);
-        target = newTargetTransform;
-    }
-
-    private void AttackUpdate()
-    {
         fireCooldownTimer.Update(Time.deltaTime);
         if(fireCooldownTimer.tick == 0)
         {

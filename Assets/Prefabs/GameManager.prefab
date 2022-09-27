@@ -1167,6 +1167,8 @@ MonoBehaviour:
   prefabPools:
   - poolName: BulletPool
     prefab: {fileID: 5159249742545533617, guid: 1a1e9bbc8d887c241a8e83e045a5cf28, type: 3}
+  - poolName: LazerPool
+    prefab: {fileID: 6765888429761549111, guid: dbb203e602f41fb41864f242f37db73c, type: 3}
 --- !u!114 &8444650310670316860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1250,6 +1252,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 81b495b9-371c-446a-a50d-ac0bfc2b826d
     m_ActionName: MainGame/Interact[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 83d35524-61b1-4a00-a7aa-8af1bdad120e
+    m_ActionName: MainGame/Pause[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Hub

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(StareAndSpin))]
 public class WeaponMatter : Matter
 {
     MatterShell ownerMatterShell;
@@ -10,6 +11,9 @@ public class WeaponMatter : Matter
     private StareAndSpin anchorStareAndSpin;
     private RandRotate selfRandRoter;
     private StareAndSpin selfStareAndSpin;
+
+    protected Transform target; 
+
 
     public override void InitilizeMatter(MatterShell ownerShell, Transform anchorBase)
     {
@@ -23,8 +27,19 @@ public class WeaponMatter : Matter
         ownerMatterShell.OnTargetChange += ChangeTarget;
     }
 
+    protected virtual void Update()
+    {
+        AttackUpdate();
+    }
+
+    protected virtual void AttackUpdate(){}
+
     public virtual void ChangeTarget(Transform newTargetTransform)
     {
+        //set target
+        target = newTargetTransform;
+
+        //change orbit behaviou depending on if a target exist
         bool hasTarget = !(newTargetTransform == null);
 
         anchorRandRoter.enabled = !hasTarget;
@@ -35,6 +50,7 @@ public class WeaponMatter : Matter
 
         anchorStareAndSpin.stareTarget = newTargetTransform;
         selfStareAndSpin.stareTarget = newTargetTransform;
+
     }
 
     private void OnEnable()
