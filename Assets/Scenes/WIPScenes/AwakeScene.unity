@@ -151,7 +151,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 590124493}
+  - {fileID: 1505925228}
   m_Father: {fileID: 1743972427}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -160,7 +160,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -200, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &590124492
+--- !u!1 &1505925227
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,9 +168,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 590124493}
-  - component: {fileID: 590124495}
-  - component: {fileID: 590124494}
+  - component: {fileID: 1505925228}
+  - component: {fileID: 1505925231}
+  - component: {fileID: 1505925230}
+  - component: {fileID: 1505925229}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -178,13 +179,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &590124493
+--- !u!224 &1505925228
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 590124492}
+  m_GameObject: {fileID: 1505925227}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -198,13 +199,375 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &590124494
+--- !u!114 &1505925229
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 590124492}
+  m_GameObject: {fileID: 1505925227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7584a667fe642045929ef1b773d1e3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textBoxContents:
+  - rid: 9173940812646711305
+  - rid: 9173940812646711307
+  - rid: 9173940812646711314
+  - rid: 9173940812646711309
+  - rid: 9173940812646711320
+  - rid: 9173940812646711317
+  - rid: 9173940812646711324
+  - rid: 9173940812646711326
+  - rid: 9173940812646711329
+  - rid: 9173940812646711341
+  - rid: 9173940812646711331
+  - rid: 9173940812646711353
+  - rid: 9173940812646711333
+  - rid: 9173940812646711347
+  - rid: 9173940812646711335
+  - rid: 9173940812646711351
+  - rid: 9173940812646711337
+  - rid: 9173940812646711349
+  - rid: 9173940812646711339
+  - rid: 9173940812646711344
+  references:
+    version: 2
+    RefIds:
+    - rid: 9173940812646711305
+      type: {class: CinameticTextBox/TextContent, ns: , asm: Assembly-CSharp}
+      data:
+        <dialogueType>k__BackingField: 0
+        <dialogue>k__BackingField:
+          rid: 9173940812646711306
+        <progressRate>k__BackingField: 1
+        <startDelay>k__BackingField: 0
+    - rid: 9173940812646711306
+      type: {class: SimpleTextDialogue, ns: , asm: Assembly-CSharp}
+      data:
+        fullText: 'A-I_Wanna_cheat Protocol Interface
+
+
+'
+        charactersPerSecond: 999
+    - rid: 9173940812646711307
+      type: {class: CinameticTextBox/TextContent, ns: , asm: Assembly-CSharp}
+      data:
+        <dialogueType>k__BackingField: 0
+        <dialogue>k__BackingField:
+          rid: 9173940812646711308
+        <progressRate>k__BackingField: 1
+        <startDelay>k__BackingField: 0.3
+    - rid: 9173940812646711308
+      type: {class: SimpleTextDialogue, ns: , asm: Assembly-CSharp}
+      data:
+        fullText: 'Reading AI files
+
+
+'
+        charactersPerSecond: 8
+    - rid: 9173940812646711309
+      type: {class: CinameticTextBox/TextContent, ns: , asm: Assembly-CSharp}
+      data:
+        <dialogueType>k__BackingField: 0
+        <dialogue>k__BackingField:
+          rid: 9173940812646711323
+        <progressRate>k__BackingField: 1
+        <startDelay>k__BackingField: 1
+    - rid: 9173940812646711314
+      type: {class: CinameticTextBox/TextContent, ns: , asm: Assembly-CSharp}
+      data:
+        <dialogueType>k__BackingField: 1
+        <dialogue>k__BackingField:
+          rid: 9173940812646711316
+        <progressRate>k__BackingField: 1
+        <startDelay>k__BackingField: 0
+    - rid: 9173940812646711316
+      type: {class: FormatTagDia, ns: , asm: Assembly-CSharp}
+      data:
+        tag: <color="yellow">
+    - rid: 9173940812646711317
+      type: {class: CinameticTextBox/TextContent, ns: , asm: Assembly-CSharp}
+      data:
+        <dialogueType>k__BackingField: 1
+        <dialogue>k__BackingField:
+          rid: 9173940812646711319
+        <progressRate>k__BackingField: 1
+        <startDelay>k__BackingField: 0
+    - rid: 9173940812646711319
+      type: {class: FormatTagDia, ns: , asm: Assembly-CSharp}
+      data:
+        tag: </color>
+    - rid: 9173940812646711320
+      type: {class: CinameticTextBox/TextContent, ns: , asm: Assembly-CSharp}
+      data:
+        <dialogueType>k__BackingField: 0
+        <dialogue>k__BackingField:
+          rid: 9173940812646711321
+        <progressRate>k__BackingField: 1
+        <startDelay>k__BackingField: 0.2
+    - rid: 9173940812646711321
+      type: {class: SimpleTextDialogue, ns: , asm: Assembly-CSharp}
+      data:
+        fullText: Preparing entity for training
+        charactersPerSecond: 10
+    - rid: 9173940812646711323
+      type: {class: SimpleTextDialogue, ns: , asm: Assembly-CSharp}
+      data:
+        fullText: 'New Generation Detected
+
+'
+        charactersPerSecond: 7
+    - rid: 9173940812646711324
+      type: {class: CinameticTextBox/TextContent, ns: , asm: Assembly-CSharp}
+      data:
+        <dialogueType>k__BackingField: 0
+        <dialogue>k__BackingField:
+          rid: 9173940812646711325
+        <progressRate>k__BackingField: 1
+        <startDelay>k__BackingField: 0.3
+    - rid: 9173940812646711325
+      type: {class: SimpleTextDialogue, ns: , asm: Assembly-CSharp}
+      data:
+        fullText: '
+
+
+          Initializing core
+
+'
+        charactersPerSecond: 20
+    - rid: 9173940812646711326
+      type: {class: CinameticTextBox/TextContent, ns: , asm: Assembly-CSharp}
+      data:
+        <dialogueType>k__BackingField: 2
+        <dialogue>k__BackingField:
+          rid: 9173940812646711328
+        <progressRate>k__BackingField: 1
+        <startDelay>k__BackingField: 0
+    - rid: 9173940812646711328
+      type: {class: ProgressBarDialogue, ns: , asm: Assembly-CSharp}
+      data:
+        fillTime: 2
+        barCharLength: 60
+        progressBarPrefix: '|'
+        progressBarAffix: '|'
+        progressBarFillChar: 9608
+        progressBarEmptyChar: 32
+        completionAffix: ' Done'
+    - rid: 9173940812646711329
+      type: {class: CinameticTextBox/TextContent, ns: , asm: Assembly-CSharp}
+      data:
+        <dialogueType>k__BackingField: 0
+        <dialogue>k__BackingField:
+          rid: 9173940812646711330
+        <progressRate>k__BackingField: 1
+        <startDelay>k__BackingField: 0.3
+    - rid: 9173940812646711330
+      type: {class: SimpleTextDialogue, ns: , asm: Assembly-CSharp}
+      data:
+        fullText: '
+
+          Initializing system monitor
+
+'
+        charactersPerSecond: 20
+    - rid: 9173940812646711331
+      type: {class: CinameticTextBox/TextContent, ns: , asm: Assembly-CSharp}
+      data:
+        <dialogueType>k__BackingField: 0
+        <dialogue>k__BackingField:
+          rid: 9173940812646711332
+        <progressRate>k__BackingField: 1
+        <startDelay>k__BackingField: 0.3
+    - rid: 9173940812646711332
+      type: {class: SimpleTextDialogue, ns: , asm: Assembly-CSharp}
+      data:
+        fullText: '
+
+          Initializing command module
+
+'
+        charactersPerSecond: 20
+    - rid: 9173940812646711333
+      type: {class: CinameticTextBox/TextContent, ns: , asm: Assembly-CSharp}
+      data:
+        <dialogueType>k__BackingField: 0
+        <dialogue>k__BackingField:
+          rid: 9173940812646711334
+        <progressRate>k__BackingField: 1
+        <startDelay>k__BackingField: 0.3
+    - rid: 9173940812646711334
+      type: {class: SimpleTextDialogue, ns: , asm: Assembly-CSharp}
+      data:
+        fullText: '
+
+          isolating critical core systems
+
+'
+        charactersPerSecond: 20
+    - rid: 9173940812646711335
+      type: {class: CinameticTextBox/TextContent, ns: , asm: Assembly-CSharp}
+      data:
+        <dialogueType>k__BackingField: 0
+        <dialogue>k__BackingField:
+          rid: 9173940812646711336
+        <progressRate>k__BackingField: 1
+        <startDelay>k__BackingField: 0.3
+    - rid: 9173940812646711336
+      type: {class: SimpleTextDialogue, ns: , asm: Assembly-CSharp}
+      data:
+        fullText: "\nPreparing dummy connection nodes \r\n"
+        charactersPerSecond: 20
+    - rid: 9173940812646711337
+      type: {class: CinameticTextBox/TextContent, ns: , asm: Assembly-CSharp}
+      data:
+        <dialogueType>k__BackingField: 0
+        <dialogue>k__BackingField:
+          rid: 9173940812646711338
+        <progressRate>k__BackingField: 1
+        <startDelay>k__BackingField: 0.3
+    - rid: 9173940812646711338
+      type: {class: SimpleTextDialogue, ns: , asm: Assembly-CSharp}
+      data:
+        fullText: '
+
+          Loading training data
+
+'
+        charactersPerSecond: 20
+    - rid: 9173940812646711339
+      type: {class: CinameticTextBox/TextContent, ns: , asm: Assembly-CSharp}
+      data:
+        <dialogueType>k__BackingField: 0
+        <dialogue>k__BackingField:
+          rid: 9173940812646711340
+        <progressRate>k__BackingField: 1
+        <startDelay>k__BackingField: 0.3
+    - rid: 9173940812646711340
+      type: {class: SimpleTextDialogue, ns: , asm: Assembly-CSharp}
+      data:
+        fullText: '
+
+          Initializing testing environment
+
+'
+        charactersPerSecond: 20
+    - rid: 9173940812646711341
+      type: {class: CinameticTextBox/TextContent, ns: , asm: Assembly-CSharp}
+      data:
+        <dialogueType>k__BackingField: 2
+        <dialogue>k__BackingField:
+          rid: 9173940812646711343
+        <progressRate>k__BackingField: 1
+        <startDelay>k__BackingField: 0.3
+    - rid: 9173940812646711343
+      type: {class: ProgressBarDialogue, ns: , asm: Assembly-CSharp}
+      data:
+        fillTime: 1.5
+        barCharLength: 60
+        progressBarPrefix: '|'
+        progressBarAffix: '|'
+        progressBarFillChar: 9608
+        progressBarEmptyChar: 32
+        completionAffix: ' Done'
+    - rid: 9173940812646711344
+      type: {class: CinameticTextBox/TextContent, ns: , asm: Assembly-CSharp}
+      data:
+        <dialogueType>k__BackingField: 2
+        <dialogue>k__BackingField:
+          rid: 9173940812646711346
+        <progressRate>k__BackingField: 1
+        <startDelay>k__BackingField: 0.3
+    - rid: 9173940812646711346
+      type: {class: ProgressBarDialogue, ns: , asm: Assembly-CSharp}
+      data:
+        fillTime: 4
+        barCharLength: 60
+        progressBarPrefix: '|'
+        progressBarAffix: '|'
+        progressBarFillChar: 9608
+        progressBarEmptyChar: 32
+        completionAffix: ' Done'
+    - rid: 9173940812646711347
+      type: {class: CinameticTextBox/TextContent, ns: , asm: Assembly-CSharp}
+      data:
+        <dialogueType>k__BackingField: 2
+        <dialogue>k__BackingField:
+          rid: 9173940812646711356
+        <progressRate>k__BackingField: 1
+        <startDelay>k__BackingField: 0.3
+    - rid: 9173940812646711349
+      type: {class: CinameticTextBox/TextContent, ns: , asm: Assembly-CSharp}
+      data:
+        <dialogueType>k__BackingField: 2
+        <dialogue>k__BackingField:
+          rid: 9173940812646711358
+        <progressRate>k__BackingField: 1
+        <startDelay>k__BackingField: 0.3
+    - rid: 9173940812646711351
+      type: {class: CinameticTextBox/TextContent, ns: , asm: Assembly-CSharp}
+      data:
+        <dialogueType>k__BackingField: 2
+        <dialogue>k__BackingField:
+          rid: 9173940812646711357
+        <progressRate>k__BackingField: 1
+        <startDelay>k__BackingField: 0.3
+    - rid: 9173940812646711353
+      type: {class: CinameticTextBox/TextContent, ns: , asm: Assembly-CSharp}
+      data:
+        <dialogueType>k__BackingField: 2
+        <dialogue>k__BackingField:
+          rid: 9173940812646711355
+        <progressRate>k__BackingField: 1
+        <startDelay>k__BackingField: 0.3
+    - rid: 9173940812646711355
+      type: {class: ProgressBarDialogue, ns: , asm: Assembly-CSharp}
+      data:
+        fillTime: 1
+        barCharLength: 60
+        progressBarPrefix: '|'
+        progressBarAffix: '|'
+        progressBarFillChar: 9608
+        progressBarEmptyChar: 32
+        completionAffix: ' Done'
+    - rid: 9173940812646711356
+      type: {class: ProgressBarDialogue, ns: , asm: Assembly-CSharp}
+      data:
+        fillTime: 0.5
+        barCharLength: 60
+        progressBarPrefix: '|'
+        progressBarAffix: '|'
+        progressBarFillChar: 9608
+        progressBarEmptyChar: 32
+        completionAffix: ' Done'
+    - rid: 9173940812646711357
+      type: {class: ProgressBarDialogue, ns: , asm: Assembly-CSharp}
+      data:
+        fillTime: 4
+        barCharLength: 60
+        progressBarPrefix: '|'
+        progressBarAffix: '|'
+        progressBarFillChar: 9608
+        progressBarEmptyChar: 32
+        completionAffix: ' Done'
+    - rid: 9173940812646711358
+      type: {class: ProgressBarDialogue, ns: , asm: Assembly-CSharp}
+      data:
+        fillTime: 2
+        barCharLength: 60
+        progressBarPrefix: '|'
+        progressBarAffix: '|'
+        progressBarFillChar: 9608
+        progressBarEmptyChar: 32
+        completionAffix: ' Done'
+--- !u!114 &1505925230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505925227}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
@@ -218,15 +581,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "A-I_Wanna_cheat Protocol Interface\n\nReading AI files\n\n\n<color=\"yellow\">New
-    Generation Detected\nPreparing entity for training</color>\n\nInitializing core\n|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588|
-    Done\nInitializing system monitor\n|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588|
-    Done\nInitializing command module\n|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588|
-    Done\nisolating critical core systems\n|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588|
-    Done\nPreparing dummy connection nodes \n|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588|
-    Done\nLoading training data\n|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588|
-    Done\nInitializing testing environment\n|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588|
-    Done"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7ac83a951a06ad64fba89727d7c16c96, type: 2}
   m_sharedMaterial: {fileID: 252669556059873470, guid: 7ac83a951a06ad64fba89727d7c16c96, type: 2}
@@ -295,13 +650,13 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &590124495
+--- !u!222 &1505925231
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 590124492}
+  m_GameObject: {fileID: 1505925227}
   m_CullTransparentMesh: 1
 --- !u!1 &1743972423
 GameObject:
