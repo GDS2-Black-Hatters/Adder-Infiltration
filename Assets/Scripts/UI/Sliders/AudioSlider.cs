@@ -10,6 +10,11 @@ public class AudioSlider : BaseSlider
         slider.value = 50; //TODO: Grab the value from the save file.
     }
 
+    protected void Start()
+    {
+        slider.value = volumeRTPC.GetGlobalValue();
+    }
+
     protected override void OnValueChanged(float value)
     {
         volumeRTPC.SetGlobalValue(value);
