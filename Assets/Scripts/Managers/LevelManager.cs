@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public sealed class LevelManager : MonoBehaviour, IManager
+public sealed class LevelManager : BaseManager
 {
     #region Levels
     private const int gameLevels = 100; //In case we somehow have over 100 different game scenes.
@@ -39,13 +39,14 @@ public sealed class LevelManager : MonoBehaviour, IManager
     public BaseSceneController ActiveSceneController { get; private set; }
     public Transform player { get; private set; }
 
-    public void StartUp()
+    public override BaseManager StartUp()
     {
         transitionAnim = GetComponentInChildren<Animator>();
         transitionAnim.updateMode = AnimatorUpdateMode.UnscaledTime;
 
         GameManager.VariableManager.timeToLive.onFinish += GameOver;
         GameManager.VariableManager.playerHealth.onDeath += GameOver;
+        return this;
     }
 
     /// <summary>
@@ -62,18 +63,6 @@ public sealed class LevelManager : MonoBehaviour, IManager
     private void Start()
     {
         StartCoroutine(Transition(level, null, false));
-        PlayLevelMusic();
-    }
-
-    private void PlayLevelMusic()
-    {
-        GameManager.AudioManager.PlayMusic(level switch
-        {
-            Level.Unknown => "",
-            Level.Hub => "",
-            Level.Tutorial => "",
-            _ => ""
-        });
     }
 
     /// <summary>
@@ -133,7 +122,6 @@ public sealed class LevelManager : MonoBehaviour, IManager
             }
             notify?.Invoke();
             GameManager.SaveManager.SaveToFile();
-            PlayLevelMusic();
 
             yield return StartCoroutine(TransitionPlay(feedbackType.feedbackOut));
         }
