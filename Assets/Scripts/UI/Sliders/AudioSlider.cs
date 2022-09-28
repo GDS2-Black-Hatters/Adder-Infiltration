@@ -4,19 +4,9 @@ public class AudioSlider : BaseSlider
 {
     [SerializeField] private AK.Wwise.RTPC volumeRTPC;
 
-    protected override void Awake()
-    {
-        base.Awake();
-        slider.value = 50; //TODO: Grab the value from the save file.
-    }
-
-    protected void Start()
-    {
-        slider.value = volumeRTPC.GetGlobalValue();
-    }
-
     protected override void OnValueChanged(float value)
     {
+        base.OnValueChanged(value);
         volumeRTPC.SetGlobalValue(value);
     }
 }
