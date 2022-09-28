@@ -29,7 +29,10 @@ public sealed class LevelManager : MonoBehaviour, IManager
     public Level level { get; private set; }
     #endregion
 
-    public static bool isGamePaused;
+    public static bool isGamePaused { get; private set; }
+    public System.Action<bool> onGamePauseStateChange;
+    public System.Action onGamePause;
+    public System.Action onGameResume;
 
     private (string transitionIn, string transitionOut) transitionType = ("FadeIn", "FadeOut");
     private (string feedbackIn, string feedbackOut) feedbackType = ("BoxSpinningIn", "BoxSpinningOut");
@@ -37,7 +40,7 @@ public sealed class LevelManager : MonoBehaviour, IManager
     private bool isTransitioning = false;
 
     public BaseSceneController ActiveSceneController { get; private set; }
-    public Transform player { get; private set; }
+    public PlayerVirus player { get; private set; }
 
     public void StartUp()
     {
@@ -138,7 +141,7 @@ public sealed class LevelManager : MonoBehaviour, IManager
             yield return StartCoroutine(TransitionPlay(feedbackType.feedbackOut));
         }
         
-        isGamePaused = false;
+        SetIsGamePaused(false);
         OnApplicationFocus(true);
         GameManager.VariableManager.Restart();
         UpdateLevelIndex();
@@ -171,6 +174,25 @@ public sealed class LevelManager : MonoBehaviour, IManager
         GameManager.LevelManager.ChangeLevel(Level.Hub);
     }
 
+    public void SetIsGamePaused(bool isGamePaused)
+    {
+        if(LevelManager.isGamePaused == isGamePaused)
+        {
+            return;
+        }
+
+        LevelManager.isGamePaused = isGamePaused;
+        if(isGamePaused)
+        {
+            onGamePause?.Invoke();
+        }
+        else
+        {
+            onGameResume?.Invoke();
+        }
+        onGamePauseStateChange?.Invoke(isGamePaused);
+    }
+
     public void SetActiveSceneController(BaseSceneController sceneController)
     {
         if (ActiveSceneController != null)
@@ -180,7 +202,7 @@ public sealed class LevelManager : MonoBehaviour, IManager
         ActiveSceneController = sceneController;
     }
 
-    public void SetPlayer(Transform player)
+    public void SetPlayer(PlayerVirus player)
     {
         this.player = player;
     }

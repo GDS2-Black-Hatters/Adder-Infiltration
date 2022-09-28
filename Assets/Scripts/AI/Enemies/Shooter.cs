@@ -30,7 +30,7 @@ public class Shooter : Enemy
     protected override void Attack()
     {
         attackCooldown.Update(Time.deltaTime);
-        if ((GameManager.LevelManager.player.position - transform.position).sqrMagnitude > closeRangeDistance)
+        if ((GameManager.LevelManager.player.transform.position - transform.position).sqrMagnitude > closeRangeDistance)
         {
             stateAction = Chase;
             fixedStateAction = FixedChase;
@@ -45,7 +45,7 @@ public class Shooter : Enemy
         Bullet bull = bullet.GetComponent<Bullet>();
         bull.SetOwner(transform);
 
-        Transform player = GameManager.LevelManager.player;
+        Transform player = GameManager.LevelManager.player.transform;
         bullet.transform.LookAt(player);
         bullet.velocity = (player.position - bullet.transform.position).normalized * bulletSpeed;
 

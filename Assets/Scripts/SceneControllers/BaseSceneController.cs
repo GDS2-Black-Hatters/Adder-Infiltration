@@ -56,7 +56,7 @@ public class BaseSceneController : MonoBehaviour
 
         //Fall Off Check
         LevelManager levelManager = GameManager.LevelManager;
-        if (levelManager.player.position.y < -15f)
+        if (levelManager.player.transform.position.y < -15f)
         {
             levelManager.ChangeLevel(LevelManager.Level.Hub);
         }
@@ -69,7 +69,7 @@ public class BaseSceneController : MonoBehaviour
 
     public void SetSpawnPoint()
     {
-        GameManager.LevelManager.player.position = playerSpawnPoints[UnityEngine.Random.Range(0, playerSpawnPoints.Count)].position;
+        GameManager.LevelManager.player.transform.position = playerSpawnPoints[UnityEngine.Random.Range(0, playerSpawnPoints.Count)].position;
     }
 
     public void StartCaughtMode()
