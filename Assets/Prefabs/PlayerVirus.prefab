@@ -1519,6 +1519,7 @@ GameObject:
   - component: {fileID: 4169504594784333909}
   - component: {fileID: 2232037646192236318}
   - component: {fileID: 523722310211131261}
+  - component: {fileID: 7747902911932455478}
   - component: {fileID: 9183356478859854675}
   - component: {fileID: 6272513995186038614}
   - component: {fileID: 7106322431670188270}
@@ -1591,6 +1592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <virusController>k__BackingField: {fileID: 4169504594784333909}
+  playerCoreObj: {fileID: 3237263685448395218}
 --- !u!114 &4169504594784333909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1642,6 +1644,19 @@ MonoBehaviour:
   backMinDistance: 2
   backMaxDistance: 10
   leftRightRotTransform: {fileID: 8865276065745158128}
+--- !u!114 &7747902911932455478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8804111390498198749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 117fc5acfad1bee45a15f0f4f13d3b9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeAbility: {fileID: 0}
 --- !u!114 &9183356478859854675
 MonoBehaviour:
   m_ObjectHideFlags: 0

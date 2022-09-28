@@ -11,8 +11,10 @@ public class PlayerVirusController : MonoBehaviour
     public System.Action<Vector2> onLookInputUpdate;
     public System.Action onInteractStart;
     public System.Action onInteractEnd;
-    public System.Action onAbilityStart;
-    public System.Action onAbilityEnd;
+    public System.Action onAbilityTriggerStart;
+    public System.Action onAbilityTriggerEnd;
+    public System.Action onAbilityHoldStart;
+    public System.Action onAbilityHoldEnd;
 
     private void Awake()
     {
@@ -26,6 +28,7 @@ public class PlayerVirusController : MonoBehaviour
             new(MainGame, GameManager.InputManager.GetAction(Look), ActionInputSubscriber.CallBackContext.Performed, lookInputChange),
             new(MainGame, GameManager.InputManager.GetAction(Interact), ActionInputSubscriber.CallBackContext.Performed, interactStart),
             new(MainGame, GameManager.InputManager.GetAction(Interact), ActionInputSubscriber.CallBackContext.Canceled, interactHalt),
+            new(MainGame, GameManager.InputManager.GetAction(Ability), ActionInputSubscriber.CallBackContext.Performed, triggerAbility),
         });
     }
 
@@ -71,6 +74,6 @@ public class PlayerVirusController : MonoBehaviour
 
     private void triggerAbility(InputAction.CallbackContext ctx)
     {
-        onAbilityStart?.Invoke();
+        onAbilityTriggerStart?.Invoke();
     }
 }
