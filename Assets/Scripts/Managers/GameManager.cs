@@ -30,9 +30,9 @@ public sealed class GameManager : MonoBehaviour
         //There may be a better way than this but this is theoretically faster than the previous version.
         //Also we can now control the execution order.
         VariableManager = (VariableManager)GetComponent<VariableManager>().StartUp();
+        SaveManager = (SaveManager)GetComponent<SaveManager>().StartUp();
         AudioManager = (AudioManager)GetComponent<AudioManager>().StartUp();
         PoolManager = (PoolManager)GetComponent<PoolManager>().StartUp();
-        SaveManager = (SaveManager)GetComponent<SaveManager>().StartUp();
         LevelManager = (LevelManager)GetComponent<LevelManager>().StartUp();
         InputManager = (InputManager)GetComponent<InputManager>().StartUp();
 

@@ -612,7 +612,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba6c1c19e8ee2cd478a6f3d76a30c7ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioTracks: []
+  volumeRTPC:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: a3f2b193c7425ce49853cdebe99106d9, type: 2}
 --- !u!114 &7761759052319665116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -734,6 +737,3 @@ MonoBehaviour:
     health:
       <originalValue>k__BackingField: 20
       value: 100
-  <Bytecoins>k__BackingField: 0
-  <IntelligenceData>k__BackingField: 0
-  <ProcessingPower>k__BackingField: 0
