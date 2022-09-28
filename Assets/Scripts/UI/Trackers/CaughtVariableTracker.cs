@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Image))]
-public class VariableTracker : MonoBehaviour
+public class CaughtVariableTracker : MonoBehaviour
 {
     protected Image ui;
 
@@ -10,11 +10,4 @@ public class VariableTracker : MonoBehaviour
     {
         ui = GetComponent<Image>();
     }
-
-    protected void Update()
-    {
-        UpdateUI();
-    }
-
-    protected virtual void UpdateUI() {}
 }

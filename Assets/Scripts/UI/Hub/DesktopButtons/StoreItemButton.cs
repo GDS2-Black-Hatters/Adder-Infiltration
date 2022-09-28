@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Image))]
-public class StoreItemButton : BaseButton, IPointerEnterHandler, IPointerExitHandler
+public class StoreItemButton : BaseButton
 {
     private StoreButtonContainer container;
     [SerializeField] private TextMeshProUGUI label;
@@ -43,7 +43,7 @@ public class StoreItemButton : BaseButton, IPointerEnterHandler, IPointerExitHan
     }
 
     #region mouse hover and etc.
-    public void OnPointerEnter(PointerEventData eventData)
+    public override void OnPointerEnter(PointerEventData eventData)
     {
         UpdateColour(onHover);
     }
@@ -57,7 +57,7 @@ public class StoreItemButton : BaseButton, IPointerEnterHandler, IPointerExitHan
         }
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+    public override void OnPointerExit(PointerEventData eventData)
     {
         UpdateColour(normal);
     }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ProceduralWorldThemer : MonoBehaviour
@@ -14,7 +12,7 @@ public class ProceduralWorldThemer : MonoBehaviour
 
     private void Update()
     {
-        if(changeTheme)
+        if (changeTheme)
         {
             ChangeTheme();
             changeTheme = false;

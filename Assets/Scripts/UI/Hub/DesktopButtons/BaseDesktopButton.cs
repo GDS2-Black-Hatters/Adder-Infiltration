@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(Animator))]
-public abstract class BaseDesktopButton : BaseButton, IPointerEnterHandler, IPointerExitHandler
+public abstract class BaseDesktopButton : BaseButton
 {
     private Animator anim;
 
@@ -12,12 +12,12 @@ public abstract class BaseDesktopButton : BaseButton, IPointerEnterHandler, IPoi
         anim = GetComponent<Animator>();
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
+    public override void OnPointerEnter(PointerEventData eventData)
     {
         anim.SetBool("IsHovering", true);
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+    public override void OnPointerExit(PointerEventData eventData)
     {
         anim.SetBool("IsHovering", false);
     }

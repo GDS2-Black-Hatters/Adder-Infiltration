@@ -41,7 +41,7 @@ public abstract class Enemy : MonoBehaviour
     protected virtual void Start()
     {
         BaseSceneController controller = GameManager.LevelManager.ActiveSceneController;
-        controller.onPlayerDetection += OnPlayerDetection;
+        controller.enemyAdmin.onFullAlert += OnPlayerDetection;
         stateAction = controller.sceneMode == BaseSceneController.SceneState.Stealth ? Patrol : Chase;
         fixedStateAction = controller.sceneMode == BaseSceneController.SceneState.Stealth ? FixedPatrol : FixedChase;
         nodeTarget = customPatrolPath.Length == 0 ? controller.enemyAdmin.GetClosestNode(transform) : customPatrolPath[0];

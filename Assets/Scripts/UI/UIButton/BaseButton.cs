@@ -1,8 +1,9 @@
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(Button))]
-public abstract class BaseButton : MonoBehaviour
+public abstract class BaseButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     protected Button button;
 
@@ -13,4 +14,7 @@ public abstract class BaseButton : MonoBehaviour
     }
 
     protected abstract void OnClick();
+
+    public virtual void OnPointerEnter(PointerEventData eventData) { }
+    public virtual void OnPointerExit(PointerEventData eventData) { }
 }

@@ -9,7 +9,7 @@ public class StalkingObjective : CaptureTheFlagObjective
     {
         base.Start();
         prefixName = "Observe security behaviour";
-        GameManager.LevelManager.ActiveSceneController.onPlayerDetection += WhenCaught;
+        GameManager.LevelManager.ActiveSceneController.enemyAdmin.onFullAlert += WhenCaught;
     }
 
     private void WhenCaught()
@@ -21,6 +21,6 @@ public class StalkingObjective : CaptureTheFlagObjective
     protected override void OnDestroy()
     {
         base.OnDestroy();
-        GameManager.LevelManager.ActiveSceneController.onPlayerDetection -= WhenCaught;
+        GameManager.LevelManager.ActiveSceneController.enemyAdmin.onFullAlert -= WhenCaught;
     }
 }

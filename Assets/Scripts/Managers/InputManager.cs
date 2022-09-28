@@ -13,11 +13,16 @@ public sealed class InputManager : MonoBehaviour, IManager
 
     public enum Controls
     {
-        Move, //Hub (Mouse Movement) || MainGame (WASD/Arrow Keys)
-        Click, //Hub
-        Look, //MainGame
-        Interact, //MainGame
-        Pause, //MainGame
+        //Hub
+        Move, //Hub (Mouse movement) || MainGame (WASD/Arrow Keys)
+        Click,
+
+        //MainGame
+        Look,
+        Pause,
+        Interact,
+        Ability,
+        Scroll,
     }
     #endregion
 

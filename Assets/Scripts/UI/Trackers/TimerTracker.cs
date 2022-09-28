@@ -1,7 +1,8 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
-public class TimerTracker : VariableTracker
+public class TimerTracker : CaughtVariableTracker
 {
     private TextMeshProUGUI text;
     [SerializeField] private Color full = Color.green;
@@ -11,28 +12,32 @@ public class TimerTracker : VariableTracker
     {
         base.Start();
         text = GetComponentInChildren<TextMeshProUGUI>();
+        GameManager.LevelManager.ActiveSceneController.enemyAdmin.onFullAlert += StartUI;
     }
 
-    protected override void UpdateUI()
+    private void StartUI()
     {
-        if (!GameManager.LevelManager.ActiveSceneController || GameManager.LevelManager.ActiveSceneController.sceneMode != BaseSceneController.SceneState.Combat)
-        {
-            return;
-        }
+        StartCoroutine(TimeTick());
+    }
 
+    private IEnumerator TimeTick()
+    {
         TimeTracker tracker = GameManager.VariableManager.timeToLive;
-        float tick = tracker.Update(Time.deltaTime);
-        float percentage = tick / tracker.timer;
-        if (tick == 0)
+        float tick;
+        Lerper lerper = new();
+        lerper.SetValues(1, 0.5f, 1);
+        do
         {
-            tracker.Reset();
-        }
+            tick = tracker.Update(Time.deltaTime);
+            float percentage = tick / tracker.timer;
+            ui.fillAmount = lerper.ValueAtPercentage(1 - percentage);
+            ui.color = Color.Lerp(low, full, percentage);
 
-        ui.fillAmount = percentage;
-        ui.color = Color.Lerp(low, full, percentage);
-
-        int minutes = (int)(tick / 60);
-        float seconds = tick - (60 * minutes);
-        text.text = minutes > 0 ? minutes.ToString("0") + ":" + seconds.ToString("00") : seconds.ToString("#0.00") + "s";
+            int minutes = (int)(tick / 60);
+            float seconds = tick - (60 * minutes);
+            text.text = minutes > 0 ? $"{minutes:0}:{seconds:00}" : $"{seconds:#0.00}s";
+            yield return null;
+        } while (tick != 0);
+        tracker.Reset();
     }
 }
