@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public sealed class LevelManager : MonoBehaviour, IManager
 {
+    private const string loadSceneName = "LoadingScene";
     private const int gameLevels = 100; //In case we somehow have over 100 different game scenes.
 
     //An enum of all the official scenes in the project.

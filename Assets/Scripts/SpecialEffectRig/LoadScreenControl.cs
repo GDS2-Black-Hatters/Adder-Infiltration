@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class LoadScreenControl : MonoBehaviour
 {
-    private const float approachLerpSpeed = 0.3f;
+    public static LoadScreenControl Instance { get; private set; }
+
+    //General Parameters
+    private const float transitionFogDensity = 0.01f;
+    private const float loadFogDensity = 0.3f;
+
+    //Entry Parameters
+    private const float entryRate = 0.2f;
+
+    //Exit Parameters
+    private const float approachLerpSpeed = 0.8f;
     private const float minApproachDistance = 10;
     private const float maxApproachDistance = 15;
     private const float initialOffset = 10;
     private const float targetEndApproachSpeed = 1;
-    public static LoadScreenControl Instance { get; private set; }
 
     [SerializeField] private Transform exitRigTransform;
     [SerializeField] private SmoothRandomForward cameraAutoMovement;
+
+    private bool canExit = false;
 
     private void Awake()
     {
@@ -21,6 +32,7 @@ public class LoadScreenControl : MonoBehaviour
 
     private void Start()
     {
+        StartCoroutine(InitiateEntry());
         StartCoroutine(DelayExit());
     }
 
@@ -28,7 +40,20 @@ public class LoadScreenControl : MonoBehaviour
     private IEnumerator DelayExit()
     {
         yield return new WaitForSeconds(5);
-        StartCoroutine(InitiateExit(() => {}));
+        StartCoroutine(InitiateExit(() => { GameManager.LevelManager.ActiveSceneController.EngageScene(); }));
+    }
+
+    public IEnumerator InitiateEntry()
+    {
+        float progress = 0;
+        while(progress < 1)
+        {
+            RenderSettings.fogDensity = Mathf.SmoothStep(transitionFogDensity, loadFogDensity, progress);
+
+            progress += Time.deltaTime * entryRate;
+            yield return null;
+        }
+        canExit = true;
     }
 
     public IEnumerator InitiateExit(System.Action onCompletionCall)
@@ -68,6 +93,8 @@ public class LoadScreenControl : MonoBehaviour
 
             cameraAutoMovement.forwardSpeed = Mathf.SmoothStep(iniApproachSpeed, targetEndApproachSpeed, progress);
 
+            RenderSettings.fogDensity = Mathf.SmoothStep(loadFogDensity, transitionFogDensity, progress);
+
             progress += Time.deltaTime * approachLerpSpeed;
             yield return null;
         }
@@ -76,6 +103,8 @@ public class LoadScreenControl : MonoBehaviour
         exitRigTransform.localPosition = Vector3.zero;
         exitRigTransform.localRotation = Quaternion.identity;
         onCompletionCall.Invoke();
+
+        yield return new WaitForEndOfFrame();
         UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(gameObject.scene);
     }
 }

@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class WireframeLoadEffectRig : MonoBehaviour
 {
+    [SerializeField] private Camera rigCamera;
     [SerializeField] private Transform wireMaskSphereTransform;
     [SerializeField] private Transform plainMaskSphereTransform;
     [SerializeField] private float expansionRate = 75f;
     [SerializeField] private float plainColorLag = 50f;
 
     [SerializeField] private bool isExpanding;
+
+    public void StartRig()
+    {
+        isExpanding = true;
+        rigCamera.targetTexture = null;
+    }
 
     private void Update()
     {

@@ -32,6 +32,8 @@ public class BaseSceneController : MonoBehaviour
     //MatterShell
     private MatterShell matterShell;
 
+    [SerializeField] protected WireframeLoadEffectRig loadEffectRig;
+
     protected virtual void Awake()
     {
         GameManager.LevelManager.SetActiveSceneController(this);
@@ -43,6 +45,11 @@ public class BaseSceneController : MonoBehaviour
     protected virtual void Start()
     {
         enemyAdmin.onFullAlert += StartCaughtMode;
+    }
+
+    public virtual void EngageScene()
+    {
+        loadEffectRig.StartRig();
     }
 
     protected virtual void Update()
