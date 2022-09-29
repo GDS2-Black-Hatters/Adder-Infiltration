@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SmoothRandomForward : MonoBehaviour
 {
-    [SerializeField] private float forwardSpeed;
+    public float forwardSpeed;
     public float rotSpeed;
 
     private float xRotChangeFrequency;
