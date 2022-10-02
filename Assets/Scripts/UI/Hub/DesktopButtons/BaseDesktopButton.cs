@@ -5,6 +5,8 @@ using UnityEngine.EventSystems;
 public abstract class BaseDesktopButton : BaseButton
 {
     private Animator anim;
+    [SerializeField] private TooltipBehaviour tooltip;
+    [SerializeField] protected string tooltipTitle;
 
     protected override void Awake()
     {
@@ -15,10 +17,12 @@ public abstract class BaseDesktopButton : BaseButton
     public override void OnPointerEnter(PointerEventData eventData)
     {
         anim.SetBool("IsHovering", true);
+        tooltip.ShowText(tooltipTitle, transform);
     }
 
     public override void OnPointerExit(PointerEventData eventData)
     {
         anim.SetBool("IsHovering", false);
+        tooltip.ShowText();
     }
 }
