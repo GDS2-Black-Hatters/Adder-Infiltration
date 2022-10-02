@@ -1,7 +1,6 @@
 #pragma warning disable IDE1006 // Naming Styles
 using System;
 using System.Collections;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -125,7 +124,7 @@ public sealed class LevelManager : BaseManager
 
             yield return StartCoroutine(TransitionPlay(feedbackType.feedbackOut));
         }
-        
+
         isGamePaused = false;
         OnApplicationFocus(true);
         GameManager.VariableManager.Restart();

@@ -31,6 +31,7 @@ public sealed class SaveManager : BaseManager
 
     private string saveFile;
     private readonly BinaryFormatter formatter = new(); //Converts data from and into a serialised format.
+    [SerializeField] private GameObject saveIcon;
 
     public override BaseManager StartUp()
     {
@@ -45,6 +46,7 @@ public sealed class SaveManager : BaseManager
     /// </summary>
     public void SaveToFile()
     {
+        saveIcon.SetActive(true);
         FileStream file = File.Create(saveFile); //Overwrites the old file.
         formatter.Serialize(file, GameManager.VariableManager.GetAllVars());
         file.Close();
