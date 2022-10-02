@@ -1,4 +1,5 @@
 #pragma warning disable IDE1006 // Naming Styles
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using static SaveManager;
@@ -10,7 +11,7 @@ public sealed class VariableManager : BaseManager
     [field: SerializeField, Header("Caught Timer")] public TimeTracker timeToLive { get; private set; } //The timer for when getting caught. Is in seconds.
     [field: SerializeField, Header("Player Health")] public Health playerHealth { get; private set; } = new(100);
     private Dictionary<VariableToSave, object> savedVars; //The dictionary of where all the data is saved.
-
+    public event Action purchaseCallback;
     /// <summary>
     /// Read and follow all rules in description of SaveManager.VariableToSave
     /// </summary>
@@ -50,14 +51,15 @@ public sealed class VariableManager : BaseManager
         SetVariable(bytecoins, GetVariable<int>(bytecoins) - bytecoinsAmount);
         SetVariable(intelligenceData, GetVariable<int>(intelligenceData) - intelligenceDataAmount);
         SetVariable(processingPower, GetVariable<int>(processingPower) - processingPowerAmount);
+        purchaseCallback?.Invoke();
         GameManager.SaveManager.SaveToFile();
     }
 
     public void RandomIncrement()
     {
-        SetVariable(bytecoins, GetVariable<int>(bytecoins) + Random.Range(0, 100));
-        SetVariable(intelligenceData, GetVariable<int>(intelligenceData) + Random.Range(0, 100));
-        SetVariable(processingPower, GetVariable<int>(processingPower) + Random.Range(0, 100));
+        SetVariable(bytecoins, GetVariable<int>(bytecoins) + UnityEngine.Random.Range(0, 100));
+        SetVariable(intelligenceData, GetVariable<int>(intelligenceData) + UnityEngine.Random.Range(0, 100));
+        SetVariable(processingPower, GetVariable<int>(processingPower) + UnityEngine.Random.Range(0, 100));
         GameManager.SaveManager.SaveToFile();
     }
 

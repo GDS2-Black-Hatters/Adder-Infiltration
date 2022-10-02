@@ -12,6 +12,16 @@ public class ResourceTracker : MonoBehaviour
         UpdateValues();
     }
 
+    private void OnEnable()
+    {
+        GameManager.VariableManager.purchaseCallback += UpdateValues;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.VariableManager.purchaseCallback -= UpdateValues;
+    }
+
     public void UpdateValues()
     {
         VariableManager var = GameManager.VariableManager;

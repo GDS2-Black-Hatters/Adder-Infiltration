@@ -14,15 +14,7 @@ public abstract class BaseSlider : MonoBehaviour
         slider = GetComponent<Slider>();
         defaultValue = slider.value;
         slider.onValueChanged.AddListener(OnValueChanged);
-        try
-        {
-            slider.value = GameManager.VariableManager.GetVariable<float>(settingVariable);
-        }
-        catch
-        {
-            print("This was a problem?!");
-            slider.value = GameManager.VariableManager.GetVariable<int>(settingVariable);
-        }
+        slider.value = GameManager.VariableManager.GetVariable<float>(settingVariable);
     }
 
     public void ResetToDefualt()
