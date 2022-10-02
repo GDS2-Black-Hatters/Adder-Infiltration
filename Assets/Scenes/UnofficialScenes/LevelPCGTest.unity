@@ -156,6 +156,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <enemyAdmin>k__BackingField: {fileID: 1619160104}
+  caughtHUD: {fileID: 0}
+  <objectiveList>k__BackingField: {fileID: 0}
   playerDetectionMusicEvent:
     idInternal: 0
     valueGuidInternal: 
@@ -287,8 +289,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5204cd611de48149b37a28e0064cb28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  islandSize: {x: 16, y: 16}
-  maxChunkSizeLowerBound: 4
+  islandSize: {x: 15, y: 18}
+  maxChunkSizeLowerBound: 12
   expectedChunkSizeVariation: 6
   roadwayGroundPrefab: {fileID: 265249028506440539, guid: f3e977a499559f14aa4394f64b7f19d5, type: 3}
   requiredChunks:
@@ -296,10 +298,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0c7a5720be8df4c479834f13c3f8497c, type: 2}
   - {fileID: 11400000, guid: 0c7a5720be8df4c479834f13c3f8497c, type: 2}
   - {fileID: 11400000, guid: 0c7a5720be8df4c479834f13c3f8497c, type: 2}
+  - {fileID: 11400000, guid: af828253da142d1468023feedb6fe867, type: 2}
   availableChunks:
   - {fileID: 11400000, guid: a06256e318864bf4c9f04627e7622151, type: 2}
   - {fileID: 11400000, guid: df8d6919a9761c44e865f45e7774a69c, type: 2}
   - {fileID: 11400000, guid: bb8bc7c5694055c47ac9b2bdeee754de, type: 2}
+  - {fileID: 11400000, guid: af828253da142d1468023feedb6fe867, type: 2}
   aiNodePrefab: {fileID: 1002651925752980835, guid: b8330dc458e8daa45ab23f5a1045c669, type: 3}
   generateOnStart: 1
 --- !u!4 &330344383
@@ -712,7 +716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef71154daebe7c84f9c09845cfb2798e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allAiNodes: []
+  aiNodes: {fileID: 0}
   availableEnemyPrefabs:
   - {fileID: 1762367355547013725, guid: 4410d520a97a9014297faee48626ad7a, type: 3}
   absoluteMaxEnemyCount: 10

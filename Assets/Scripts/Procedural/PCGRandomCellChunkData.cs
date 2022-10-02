@@ -2,37 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "ScriptableObject/Chunk", fileName = "NewChunk")]
-public class PCGChunkData : PCGeneratableSO
+[CreateAssetMenu(menuName = "ScriptableObject/Chunk/RandomCellFillChunk", fileName = "NewCellFillChunk")]
+public class PCGRandomCellChunkData : PCGChunkDataBase
 {
-    private const float chunkBoarderWidth = 0.5f;
-
-    [SerializeField] private GameObject chunkBaseObjectPrefab;
-
-    [SerializeField] private int _minCellCountRequirement;
-    public int minCellCountRequirement { get { return _minCellCountRequirement; }}
     [SerializeField] private PCGBlockScriptable[] requiredBlocks;
     [SerializeField] private PCGBlockScriptable[] availableFreeBlocks;
-
-    private ChunkTransform chunkTransform;
-    private float cellUnitMultiplier;
-
-    public void Initilize(ChunkTransform chunkTransform)
-    {
-        this.chunkTransform = chunkTransform;
-    }
 
     public override GameObject Generate(Transform parentTransform, float cellUnitMultiplier)
     {
         this.cellUnitMultiplier = cellUnitMultiplier;
 
-        Transform root = new GameObject("chunk").transform;
-        root.SetParent(parentTransform);
-        root.localPosition = Vector3.zero;
-
-        //Generate Chunk Floor
-        GameObject chunkBase = Instantiate(chunkBaseObjectPrefab, Vector3.zero, Quaternion.identity, root);
-        chunkBase.transform.localScale = Vector3.Scale(chunkBase.transform.localScale, new Vector3(chunkTransform.ChunkWidth + chunkBoarderWidth, 1, chunkTransform.ChunkHeight + chunkBoarderWidth));
+        Transform root = InstantiateRootAndGround(parentTransform);
 
         //keep a list of V2Int of filled cells
         List<Vector2Int> cellFillCheck = new List<Vector2Int>();
@@ -71,8 +51,8 @@ public class PCGChunkData : PCGeneratableSO
         return newStructure;
     }
 
-    private Vector3 relativeCellPosition(float posX, float posY)
+    public override bool CanGenerateInTransform(ChunkTransform chunkTransform)
     {
-        return new Vector3((posX - chunkTransform.ChunkCenter.x) * cellUnitMultiplier, 0, (posY - chunkTransform.ChunkCenter.y) * cellUnitMultiplier);
+        return true;
     }
 }
