@@ -6,6 +6,32 @@ using UnityEngine;
 public class PCGSingleStructureChunkData : PCGChunkDataBase
 {
     [SerializeField] private PCGStructureModule[] structureModules;
+    [SerializeField] private float generateThroughPathChance = 0;
+
+    private class throughPathInfo
+    {
+        public throughPathInfo(SnapAxis axis, int cord)
+        {
+            this.axis = axis;
+            this.cord = cord;
+        }
+
+        public SnapAxis axis { get; private set; }
+        public int cord {get; private set; }
+
+        public bool isPartOfThroughPath(Vector2Int v2i)
+        {
+            if(axis == SnapAxis.X)
+            {
+                return v2i.y == cord;
+            }
+            if(axis == SnapAxis.Y)
+            {
+                return v2i.x == cord;
+            }
+            return false;
+        }
+    }
 
     public override GameObject Generate(Transform parentTransform, float cellUnitMultiplier)
     {
@@ -13,35 +39,77 @@ public class PCGSingleStructureChunkData : PCGChunkDataBase
 
         Transform root = InstantiateRootAndGround(parentTransform);
 
-
         //Assign the modules into lists
         List<PCGStructureModule> cornerModules = new List<PCGStructureModule>();
         List<PCGStructureModule> sideModules = new List<PCGStructureModule>();
+        List<PCGStructureModule> sideThroughModules = new List<PCGStructureModule>();
         List<PCGStructureModule> centerModules = new List<PCGStructureModule>();
+        List<PCGStructureModule> centerThroughModules = new List<PCGStructureModule>();
 
         foreach (PCGStructureModule module in structureModules)
         {
+            List<PCGStructureModule> assignList = centerModules;
+    
             switch (module.modulePosition)
             {   
                 case ChunkTransform.ChunkCellPosition.corner:
-                cornerModules.Add(module);
+                assignList = cornerModules;
                 break;
 
                 case ChunkTransform.ChunkCellPosition.edge:
-                sideModules.Add(module);
+                assignList = module.walkable ? sideThroughModules : sideModules;
                 break;
 
                 case ChunkTransform.ChunkCellPosition.center:
-                centerModules.Add(module);
+                assignList = module.walkable ? centerThroughModules : centerModules;
                 break;
 
                 default:
                 Debug.LogWarning("Module position not assigned for module: " + module.name);
-                break;
+                continue;
             }
+            assignList.Add(module);
         }
 
-        ref List<PCGStructureModule> activeModuleList = ref centerModules;
+        throughPathInfo throughPath = null;
+        if((chunkTransform.ChunkWidth >= 3 || chunkTransform.ChunkHeight >= 3) && DoStatic.RandomBool(generateThroughPathChance))
+        {
+            SnapAxis alongAxis;
+            if(chunkTransform.ChunkWidth < 3)
+            {
+                alongAxis = SnapAxis.X;
+            }
+            else if(chunkTransform.ChunkHeight < 3)
+            {
+                alongAxis = SnapAxis.Y;
+            }
+            else
+            {
+                //select direction randomly weighted in advantage to put a path perpendicular to the 'longer' side
+                //added in first order smoothstep to furthur increase bias
+                float x = chunkTransform.ChunkHeight/(float)(chunkTransform.ChunkHeight + chunkTransform.ChunkWidth);
+                alongAxis = DoStatic.RandomBool(x * x * x * (x * (x * 6 - 15) + 10)) ? SnapAxis.X : SnapAxis.Y;
+            }
+
+            int cord;
+            float centeringPower = 0.3f;
+            if(alongAxis == SnapAxis.X)
+            {
+                cord = Mathf.Clamp(Mathf.RoundToInt(AdvanceRandom.GaussianRandom( chunkTransform.ChunkCenter.y, Mathf.Pow(chunkTransform.ChunkHeight, centeringPower))), chunkTransform.upperLeft.y + 1, chunkTransform.bottomRight.y - 1);
+            }
+            else
+            {
+                cord = Mathf.Clamp(Mathf.RoundToInt(AdvanceRandom.GaussianRandom( chunkTransform.ChunkCenter.x, Mathf.Pow(chunkTransform.ChunkWidth, centeringPower))), chunkTransform.upperLeft.x + 1, chunkTransform.bottomRight.x - 1);
+            }
+
+            // Debug.Log("Width: " + chunkTransform.ChunkWidth + " Height: " + chunkTransform.ChunkHeight);
+            // Debug.Log("Left: " + chunkTransform.upperLeft + " Right: " + chunkTransform.bottomRight);
+            // Debug.Log("Axis: " + alongAxis + " Cord: " + cord);
+
+            throughPath = new(alongAxis, cord);
+        }
+
+        List<PCGStructureModule> activeModuleList = centerModules;
         for(int x = chunkTransform.upperLeft.x; x <= chunkTransform.bottomRight.x; x++)
         {
             for(int y = chunkTransform.upperLeft.y; y <= chunkTransform.bottomRight.y; y++)
@@ -49,20 +117,20 @@ public class PCGSingleStructureChunkData : PCGChunkDataBase
                 switch(CellCordToPosition(new( x, y )))
                 {
                     case ChunkTransform.ChunkCellPosition.corner:
-                    activeModuleList = ref cornerModules;
+                    activeModuleList = cornerModules;
                     break;
 
                     case ChunkTransform.ChunkCellPosition.edge:
-                    activeModuleList = ref sideModules;
+                    activeModuleList = (throughPath != null && throughPath.isPartOfThroughPath(new(x, y))) ? sideThroughModules : sideModules;
                     break;
 
                     case ChunkTransform.ChunkCellPosition.center:
                     default:
-                    activeModuleList = ref centerModules;
+                    activeModuleList = (throughPath != null && throughPath.isPartOfThroughPath(new(x, y))) ? centerThroughModules : centerModules;
                     break;
                 }
 
-                PopulateCell(activeModuleList[Random.Range(0, activeModuleList.Count)], new(x,y), GetChunkBorderModuleRotateMultiplier(new(x,y)), root);
+                PopulateCell(activeModuleList[Random.Range(0, activeModuleList.Count)], new(x,y), GetChunkModuleRotateMultiplier(new(x,y), throughPath != null ? throughPath.axis : SnapAxis.None), root);
             }
         }
 
@@ -99,12 +167,15 @@ public class PCGSingleStructureChunkData : PCGChunkDataBase
         return ChunkTransform.ChunkCellPosition.center;
     }
 
-    private int GetChunkBorderModuleRotateMultiplier(Vector2Int cellCord)
+    private int GetChunkModuleRotateMultiplier(Vector2Int cellCord, SnapAxis throughAxis)
     {
         // 2221
         // 3XX1
         // 3XX1
         // 3000
+        if(cellCord.y == chunkTransform.bottomRight.y && cellCord.x != chunkTransform.upperLeft.x)
+            return 0;
+
         if(cellCord.x == chunkTransform.bottomRight.x && cellCord.y != chunkTransform.bottomRight.y)
             return 1;
         
@@ -114,7 +185,7 @@ public class PCGSingleStructureChunkData : PCGChunkDataBase
         if(cellCord.x == chunkTransform.upperLeft.x && cellCord.y != chunkTransform.upperLeft.y)
             return 3;
         
-        return 0;
+        return throughAxis == SnapAxis.X ? 1 : 0;
     }
 
     public override bool CanGenerateInTransform(ChunkTransform chunkTransform)

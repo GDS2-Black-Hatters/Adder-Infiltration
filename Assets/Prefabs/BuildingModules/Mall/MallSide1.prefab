@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6729358077111305280}
   - component: {fileID: 7918451440286490349}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MallSide1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fa19ac98fe7ee64ba5f0a0ebf92e044, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  modulePosition: 2
+  <modulePosition>k__BackingField: 2
+  <walkable>k__BackingField: 0
 --- !u!1001 &5277506649659254608
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -101,8 +102,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: MallSide1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1020a3cf481d90542ae3e4fe8614adef, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1020a3cf481d90542ae3e4fe8614adef, type: 3}
+--- !u!1 &5042924957567195649 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1020a3cf481d90542ae3e4fe8614adef, type: 3}
+  m_PrefabInstance: {fileID: 5277506649659254608}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &868783424379577094
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5042924957567195649}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 25.037216, y: 19.0393, z: 25.3125}
+  m_Center: {x: 0.018606663, y: 9.288211, z: 0.15625048}
 --- !u!4 &5672214647702208699 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1020a3cf481d90542ae3e4fe8614adef, type: 3}
