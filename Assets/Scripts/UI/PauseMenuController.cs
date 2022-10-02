@@ -1,8 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static ActionInputSubscriber.CallBackContext;
-using static InputManager.ControlScheme;
-using static InputManager.Controls;
+using static ActionInputSubscriber.CallbackContext;
+using static InputManager;
 using static LevelManager;
 
 public class PauseMenuController : MonoBehaviour
@@ -19,7 +18,7 @@ public class PauseMenuController : MonoBehaviour
 
         gameObject.AddComponent<ActionInputSubscriber>().AddActions(new()
         {
-            new(MainGame, GameManager.InputManager.GetAction(Pause), Performed, TogglePause),
+            new(MainGamePause, Performed, TogglePause),
         });
     }
 

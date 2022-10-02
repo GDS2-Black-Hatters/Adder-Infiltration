@@ -16,13 +16,20 @@ public abstract class BaseDesktopButton : BaseButton
 
     public override void OnPointerEnter(PointerEventData eventData)
     {
-        anim.SetBool("IsHovering", true);
-        tooltip.ShowText(tooltipTitle, transform);
+        UpdateButton(true, tooltipTitle, transform);
     }
 
     public override void OnPointerExit(PointerEventData eventData)
     {
-        anim.SetBool("IsHovering", false);
-        tooltip.ShowText();
+        UpdateButton(false);
+    }
+
+    private void UpdateButton(bool isHovering, string title = null, Transform newParent = null)
+    {
+        anim.SetBool("IsHovering", isHovering);
+        if (tooltip)
+        {
+            tooltip.ShowText(title, newParent);
+        }
     }
 }

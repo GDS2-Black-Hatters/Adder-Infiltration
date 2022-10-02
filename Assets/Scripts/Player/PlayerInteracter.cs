@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
+using static InputManager;
+using static ActionInputSubscriber.CallbackContext;
 
 public class PlayerInteracter : MonoBehaviour
 {
@@ -16,7 +18,16 @@ public class PlayerInteracter : MonoBehaviour
     [SerializeField] private float lineWidthCap = 0.1f;
     [SerializeField] private float lineShrinkSpeed = 0.05f;
     private Dictionary<Interactable, LineRenderer> interactLines = new();
-    
+
+    private void Awake()
+    {
+        gameObject.AddComponent<ActionInputSubscriber>().AddActions(new()
+        {
+            new(MainGameInteract, Performed, InteractStart),
+            new(MainGameInteract, Canceled, InteractHalt),
+        });
+    }
+
     private void Update()
     {
         UpdateInteractableFocus();
@@ -123,22 +134,5 @@ public class PlayerInteracter : MonoBehaviour
         if (focusInteractable == null) return;
 
         focusInteractable.InteractHalt();
-    }
-
-
-    private void OnEnable()
-    {
-        GameManager.InputManager.GetAction(InputManager.Controls.Interact).performed += InteractStart;
-        GameManager.InputManager.GetAction(InputManager.Controls.Interact).canceled += InteractHalt;
-    }
-
-    private void OnDisable()
-    {
-        InputManager inputManager = GameManager.InputManager;
-        if (inputManager)
-        {
-            inputManager.GetAction(InputManager.Controls.Interact).performed -= InteractStart;
-            inputManager.GetAction(InputManager.Controls.Interact).canceled -= InteractHalt;
-        }
     }
 }

@@ -1,9 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static LevelManager;
-using static InputManager.ControlScheme;
-using static InputManager.Controls;
-using static ActionInputSubscriber.CallBackContext;
+using static InputManager;
+using static ActionInputSubscriber.CallbackContext;
 
 public class BoomCameraControl : MonoBehaviour
 {
@@ -40,7 +39,7 @@ public class BoomCameraControl : MonoBehaviour
     {
         gameObject.AddComponent<ActionInputSubscriber>().AddActions(new()
         {
-            new(MainGame, GameManager.InputManager.GetAction(Look), Performed, RotateCamera)
+            new(MainGameLook, Performed, RotateCamera)
         });
     }
 

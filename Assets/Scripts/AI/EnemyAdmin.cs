@@ -9,7 +9,7 @@ public class EnemyAdmin : MonoBehaviour
     private AINode[] allAiNodes;
 
     [Header("Enemies")]
-    [SerializeField] private Enemy[] availableEnemyPrefabs; //Todo make it find the child.
+    [SerializeField] private Enemy[] availableEnemyPrefabs;
     [SerializeField] private int absoluteMaxEnemyCount;
 
     [Header("Alert Status Light Color")]

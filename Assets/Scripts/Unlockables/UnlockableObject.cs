@@ -21,7 +21,7 @@ public class UnlockableObject : MonoBehaviour
         {
             GameManager.VariableManager.purchaseCallback -= CheckUnlock;
             gameObject.SetActive(true);
-            //TODO: Do a fade in or transition in for the install.
+            //TODO: Sprint 5 - Do a fade in or transition in for the install.
         }
     }
 }
