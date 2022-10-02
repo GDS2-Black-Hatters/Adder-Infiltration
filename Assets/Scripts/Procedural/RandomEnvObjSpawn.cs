@@ -9,7 +9,7 @@ public class RandomEnvObjSpawn : MonoBehaviour
 
     private void Start()
     {
-        BaseEnvironmentObject newObj = Instantiate(availableObjectToSpawn[Random.Range(0, availableObjectToSpawn.Length - 1)]);
+        BaseEnvironmentObject newObj = Instantiate(availableObjectToSpawn[Random.Range(0, availableObjectToSpawn.Length)]);
         newObj.transform.SetParent(transform);
         newObj.transform.localPosition = spawnPoint;
         Destroy(this);

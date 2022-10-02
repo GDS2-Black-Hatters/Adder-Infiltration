@@ -101,7 +101,7 @@ public class PCGIsland : MonoBehaviour
 
     public void GenerateIsland()
     {
-        GameObject ground = Instantiate(roadwayGroundPrefab, transform.position, Quaternion.identity, transform);
+        GameObject ground = Instantiate(roadwayGroundPrefab, transform.position, transform.rotation, transform);
         //Add 1.5 to generate boarder ground area for enemies patrol
         float calculatedMult = cellSizeUnitMultiplier * 0.1f;
         Vector3 scale = new Vector3(islandSize.x + 1.5f, 1, islandSize.y + 1.5f) * calculatedMult;
@@ -163,7 +163,7 @@ public class PCGIsland : MonoBehaviour
         {
             if(!nodeDict.ContainsKey(coordV2Int))
             {
-                nodeDict.Add(coordV2Int, new(Instantiate<AINode>(aiNodePrefab, GridPosToWorldV3(coordV2Int), Quaternion.identity)));
+                nodeDict.Add(coordV2Int, new(Instantiate<AINode>(aiNodePrefab, transform.TransformPoint(GridPosToLocalV3(coordV2Int)), Quaternion.identity)));
             }
             return nodeDict[coordV2Int];
         } 
@@ -229,6 +229,7 @@ public class PCGIsland : MonoBehaviour
             
             //move chunk to new position
             chunkObj.transform.localPosition = GridPosToWorldV3(chunkTransform.ChunkCenter);
+            chunkObj.transform.localRotation = Quaternion.identity;
     }
 
     private Dictionary<ChunkTransform, PCGChunkDataBase> AssignTransformsWithChunkData(ChunkTransform[] chunkTransforms)
@@ -288,6 +289,11 @@ public class PCGIsland : MonoBehaviour
     private Vector3 GridPosToWorldV3(float xCord, float yCord)
     {
         return transform.position + new Vector3(xCord - (islandSize.x - 1) * 0.5f, 0, yCord - (islandSize.y - 1) * 0.5f) * cellSizeUnitMultiplier;
+    }
+
+    private Vector3 GridPosToLocalV3(Vector2 gridCord)
+    {
+        return new Vector3(gridCord.x - (islandSize.x - 1) * 0.5f, 0, gridCord.y - (islandSize.y - 1) * 0.5f) * cellSizeUnitMultiplier;
     }
 
     private Vector3 GridPosToWorldV3(Vector2 gridCord)
