@@ -4,6 +4,12 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(PlayerInput))]
 public sealed class InputManager : BaseManager
 {
+    public enum ControlScheme
+    {
+        Hub,
+        MainGame,
+    }
+
     #region Hub Controls
     public static InputAction HubMove { get; private set; }
     public static InputAction HubClick { get; private set; }
@@ -23,11 +29,11 @@ public sealed class InputManager : BaseManager
     {
         playerInput = GetComponent<PlayerInput>();
 
-        playerInput.SwitchCurrentActionMap("Hub");
+        SetControlScheme(ControlScheme.Hub);
         HubMove = playerInput.actions["Move"];
         HubClick = playerInput.actions["Click"];
 
-        playerInput.SwitchCurrentActionMap("MainGame");
+        SetControlScheme(ControlScheme.MainGame);
         MainGameMove = playerInput.actions["Move"];
         MainGameLook = playerInput.actions["Look"];
         MainGamePause = playerInput.actions["Pause"];
@@ -36,5 +42,10 @@ public sealed class InputManager : BaseManager
         MainGameScroll = playerInput.actions["Scroll"];
 
         return this;
+    }
+
+    public void SetControlScheme(ControlScheme scheme)
+    {
+        playerInput.SwitchCurrentActionMap(DoStatic.EnumAsString(scheme));
     }
 }

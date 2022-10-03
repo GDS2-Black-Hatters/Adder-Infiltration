@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static InputManager.ControlScheme;
 
 public sealed class LevelManager : BaseManager
 {
@@ -29,9 +30,9 @@ public sealed class LevelManager : BaseManager
     #endregion
 
     public static bool isGamePaused { get; private set; }
-    public System.Action<bool> onGamePauseStateChange;
-    public System.Action onGamePause;
-    public System.Action onGameResume;
+    public Action<bool> onGamePauseStateChange;
+    public Action onGamePause;
+    public Action onGameResume;
 
     private (string transitionIn, string transitionOut) transitionType = ("FadeIn", "FadeOut");
     private (string feedbackIn, string feedbackOut) feedbackType = ("BoxSpinningIn", "BoxSpinningOut");
@@ -127,17 +128,20 @@ public sealed class LevelManager : BaseManager
 
             yield return StartCoroutine(TransitionPlay(feedbackType.feedbackOut));
         }
-        
+
         SetIsGamePaused(false);
         OnApplicationFocus(true);
         GameManager.VariableManager.Restart();
         UpdateLevelIndex();
 
-        if ((int)level < gameLevels) //Camera Reset
+        bool isNotInGame = (int)level < gameLevels;
+        if (isNotInGame) //Camera Reset
         {
             Camera.main.transform.eulerAngles = Vector3.zero;
             Camera.main.transform.position = new(0, 10, -10);
         }
+        GameManager.InputManager.SetControlScheme(isNotInGame ? Hub : MainGame);
+
         yield return StartCoroutine(TransitionPlay(transitionType.transitionOut));
         transitionAnim.Play("Waiting");
         isTransitioning = false;
@@ -163,13 +167,13 @@ public sealed class LevelManager : BaseManager
 
     public void SetIsGamePaused(bool isGamePaused)
     {
-        if(LevelManager.isGamePaused == isGamePaused)
+        if (LevelManager.isGamePaused == isGamePaused)
         {
             return;
         }
 
         LevelManager.isGamePaused = isGamePaused;
-        if(isGamePaused)
+        if (isGamePaused)
         {
             onGamePause?.Invoke();
         }

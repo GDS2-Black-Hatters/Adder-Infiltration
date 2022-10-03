@@ -32,8 +32,7 @@ public class DesktopWindowTitleBarBehaviour : MonoBehaviour, IPointerEnterHandle
 
     private void OnHoverClick(InputAction.CallbackContext moveDelta)
     {
-        isPressed = isHovering;
-        if (isPressed)
+        if (isPressed = isHovering)
         {
             RectTransform rectTransform = (RectTransform)transform.root;
             Vector2 half = new(rectTransform.rect.width * 0.5f, rectTransform.rect.height * 0.5f);
