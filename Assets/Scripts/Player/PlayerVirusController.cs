@@ -11,10 +11,12 @@ public class PlayerVirusController : MonoBehaviour
     public System.Action<Vector2> onLookInputUpdate;
     public System.Action onInteractStart;
     public System.Action onInteractEnd;
-    public System.Action onAbilityTriggerStart;
-    public System.Action onAbilityTriggerEnd;
-    public System.Action onAbilityHoldStart;
-    public System.Action onAbilityHoldEnd;
+    public System.Action onAbilityTrigger;
+    //public System.Action onAbilityTriggerEnd;
+    public System.Action onAbilityPrimeStart;
+    public System.Action onAbilityPrimeEnd;
+
+    private bool abilityPrimeHeld = false;
 
     private void Awake()
     {
@@ -26,9 +28,10 @@ public class PlayerVirusController : MonoBehaviour
             new(MainGame, GameManager.InputManager.GetAction(Move), ActionInputSubscriber.CallBackContext.Performed, moveInputChange),
             new(MainGame, GameManager.InputManager.GetAction(Move), ActionInputSubscriber.CallBackContext.Canceled, moveInputStop),
             new(MainGame, GameManager.InputManager.GetAction(Look), ActionInputSubscriber.CallBackContext.Performed, lookInputChange),
-            new(MainGame, GameManager.InputManager.GetAction(Interact), ActionInputSubscriber.CallBackContext.Performed, interactStart),
+            new(MainGame, GameManager.InputManager.GetAction(Interact), ActionInputSubscriber.CallBackContext.Performed, primaryTrigger),
             new(MainGame, GameManager.InputManager.GetAction(Interact), ActionInputSubscriber.CallBackContext.Canceled, interactHalt),
-            new(MainGame, GameManager.InputManager.GetAction(Ability), ActionInputSubscriber.CallBackContext.Performed, triggerAbility),
+            new(MainGame, GameManager.InputManager.GetAction(Ability), ActionInputSubscriber.CallBackContext.Performed, primeAbility),
+            new(MainGame, GameManager.InputManager.GetAction(Ability), ActionInputSubscriber.CallBackContext.Canceled, primeAbilityEnd),
         });
     }
 
@@ -62,7 +65,19 @@ public class PlayerVirusController : MonoBehaviour
         onLookInputUpdate?.Invoke(ctx.ReadValue<Vector2>());
     }
 
-    private void interactStart(InputAction.CallbackContext ctx)
+    private void primaryTrigger(InputAction.CallbackContext ctx)
+    {
+        if(abilityPrimeHeld)
+        {
+            triggerAbility();
+        }
+        else
+        {
+            interactStart();
+        }
+    }
+
+    private void interactStart()
     {
         onInteractStart?.Invoke();
     }
@@ -72,8 +87,20 @@ public class PlayerVirusController : MonoBehaviour
         onInteractEnd?.Invoke();
     }
 
-    private void triggerAbility(InputAction.CallbackContext ctx)
+    private void triggerAbility()
     {
-        onAbilityTriggerStart?.Invoke();
+        onAbilityTrigger?.Invoke();
+    }
+
+    private void primeAbility(InputAction.CallbackContext ctx)
+    {
+        abilityPrimeHeld = true;
+        onAbilityPrimeStart?.Invoke();
+    }
+
+    private void primeAbilityEnd(InputAction.CallbackContext ctx)
+    {
+        abilityPrimeHeld = false;
+        onAbilityPrimeEnd?.Invoke();
     }
 }

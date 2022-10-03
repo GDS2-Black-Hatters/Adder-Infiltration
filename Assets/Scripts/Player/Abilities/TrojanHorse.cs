@@ -5,7 +5,7 @@ using UnityEngine;
 public class TrojanHorse : AbilityBase
 {
     [SerializeField] float abilityDuration = 10;
-    [SerializeField] Mesh trojinMesh;
+    [SerializeField] GameObject trojinVisual;
 
     private Mesh originalCoreMesh;
 
@@ -18,9 +18,8 @@ public class TrojanHorse : AbilityBase
         PlayerVirus pv = GameManager.LevelManager.player;
         pv.gameObject.layer = LayerMask.NameToLayer("Default");
 
-        MeshFilter mf = pv.playerCoreObj.GetComponent<MeshFilter>();
-        originalCoreMesh = mf.sharedMesh;
-        mf.mesh = trojinMesh;
+        pv.playerVisual.SetActive(false);
+        trojinVisual.SetActive(true);
 
         isAbilityActive = true;
         StartCoroutine(DelayDisableAbility());
@@ -40,7 +39,8 @@ public class TrojanHorse : AbilityBase
     {
         yield return new WaitForSeconds(abilityDuration);
         GameManager.LevelManager.player.gameObject.layer = LayerMask.NameToLayer("Player");
-        GameManager.LevelManager.player.playerCoreObj.GetComponent<MeshFilter>().mesh = originalCoreMesh;
+        GameManager.LevelManager.player.playerVisual.SetActive(true);
+        trojinVisual.SetActive(false);
         isAbilityActive = false;
     }
 }

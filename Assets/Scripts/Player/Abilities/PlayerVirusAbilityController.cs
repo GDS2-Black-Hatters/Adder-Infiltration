@@ -8,11 +8,23 @@ public class PlayerVirusAbilityController : MonoBehaviour
 
     private void Start()
     {
-        GameManager.LevelManager.player.virusController.onAbilityTriggerStart += abilityTriggerStart;
+        GameManager.LevelManager.player.virusController.onAbilityTrigger += abilityTriggerStart;
+        GameManager.LevelManager.player.virusController.onAbilityPrimeStart += abilityPrimeStart;
+        GameManager.LevelManager.player.virusController.onAbilityPrimeEnd += abilityPrimeEnd;
     }
 
     private void abilityTriggerStart()
     {
         activeAbility.ActivateAbility();
+    }
+
+    private void abilityPrimeStart()
+    {
+        activeAbility.StartAbilityPrime();
+    }
+
+    private void abilityPrimeEnd()
+    {
+        activeAbility.EndAbilityPrime();
     }
 }
