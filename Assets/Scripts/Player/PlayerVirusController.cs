@@ -1,5 +1,7 @@
 using UnityEngine;
 using static InputManager;
+using static ActionInputSubscriber.CallbackContext;
+using UnityEngine.InputSystem;
 
 public class PlayerVirusController : MonoBehaviour
 {
@@ -18,18 +20,15 @@ public class PlayerVirusController : MonoBehaviour
 
     private void Awake()
     {
-        InputManager inputManager = GameManager.InputManager;
-        inputManager.ChangeControlMap(MainGame);
-        
         ais = gameObject.AddComponent<ActionInputSubscriber>();
         ais.AddActions( new System.Collections.Generic.List<ActionInputSubscriber.ActionDelegate>{
-            new(MainGame, GameManager.InputManager.GetAction(Move), ActionInputSubscriber.CallBackContext.Performed, moveInputChange),
-            new(MainGame, GameManager.InputManager.GetAction(Move), ActionInputSubscriber.CallBackContext.Canceled, moveInputStop),
-            new(MainGame, GameManager.InputManager.GetAction(Look), ActionInputSubscriber.CallBackContext.Performed, lookInputChange),
-            new(MainGame, GameManager.InputManager.GetAction(Interact), ActionInputSubscriber.CallBackContext.Performed, primaryTrigger),
-            new(MainGame, GameManager.InputManager.GetAction(Interact), ActionInputSubscriber.CallBackContext.Canceled, interactHalt),
-            new(MainGame, GameManager.InputManager.GetAction(Ability), ActionInputSubscriber.CallBackContext.Performed, primeAbility),
-            new(MainGame, GameManager.InputManager.GetAction(Ability), ActionInputSubscriber.CallBackContext.Canceled, primeAbilityEnd),
+            new(MainGameMove, Performed, moveInputChange),
+            new(MainGameMove, Canceled, moveInputStop),
+            new(MainGameLook, Performed, lookInputChange),
+            new(MainGameInteract, Performed, primaryTrigger),
+            new(MainGameInteract, Canceled, interactHalt),
+            new(MainGameAbility, Performed, primeAbility),
+            new(MainGameAbility, Canceled, primeAbilityEnd),
         });
     }
 
