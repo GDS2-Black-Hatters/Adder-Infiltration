@@ -35,19 +35,16 @@ public class BoomCameraControl : MonoBehaviour
     }
     [SerializeField] private Transform leftRightRotTransform;
 
-    private void Awake()
+    private void Start()
     {
-        gameObject.AddComponent<ActionInputSubscriber>().AddActions(new()
-        {
-            new(MainGameLook, Performed, RotateCamera)
-        });
+        GameManager.LevelManager.player.virusController.onLookInputUpdate += RotateCamera;
     }
 
     private void Update()
     {
         Vector3 boomedPosition = transform.position;
         TranslateBoom(ref boomedPosition, transform.up, upDistance);
-        TranslateBoom(ref boomedPosition, -transform.forward, backDistance);
+        TranslateBoom(ref boomedPosition, -leftRightRotTransform.forward, backDistance);
         cameraBindTransform.position = boomedPosition;
     }
 
@@ -63,21 +60,15 @@ public class BoomCameraControl : MonoBehaviour
         }
     }
 
-    private void RotateCamera(InputAction.CallbackContext LookDelta)
+    private void RotateCamera(Vector2 lookDeltaV2)
     {
-        if (isGamePaused)
-        {
-            return;
-        }
-
-        Vector2 lookDeltaV2 = LookDelta.ReadValue<Vector2>();
         RotateLeftRight(lookDeltaV2.x);
         LookUpDown(lookDeltaV2.y);
     }
 
     private void RotateLeftRight(float deltaAngle)
     {
-        leftRightRotTransform.Rotate(Vector3.up, deltaAngle);
+        leftRightRotTransform.Rotate(leftRightRotTransform.up, deltaAngle);
     }
 
     private void LookUpDown(float delta)

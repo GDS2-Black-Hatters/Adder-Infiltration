@@ -24,7 +24,7 @@ public class PauseMenuController : MonoBehaviour
 
     private void TogglePause(InputAction.CallbackContext moveDelta)
     {
-        isGamePaused = !isGamePaused;
+        GameManager.LevelManager.SetIsGamePaused(!isGamePaused);
         GameManager.LevelManager.OnApplicationFocus(!isGamePaused);
         canvasGroup.alpha = 1 - canvasGroup.alpha;
         canvasGroup.interactable = isGamePaused;

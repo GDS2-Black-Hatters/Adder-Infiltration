@@ -18,14 +18,11 @@ public class PlayerInteracter : MonoBehaviour
     [SerializeField] private float lineWidthCap = 0.1f;
     [SerializeField] private float lineShrinkSpeed = 0.05f;
     private Dictionary<Interactable, LineRenderer> interactLines = new();
-
-    private void Awake()
+    
+    private void Start()
     {
-        gameObject.AddComponent<ActionInputSubscriber>().AddActions(new()
-        {
-            new(MainGameInteract, Performed, InteractStart),
-            new(MainGameInteract, Canceled, InteractHalt),
-        });
+        GameManager.LevelManager.player.virusController.onInteractStart += InteractStart;
+        GameManager.LevelManager.player.virusController.onInteractEnd += InteractHalt;
     }
 
     private void Update()
@@ -122,14 +119,14 @@ public class PlayerInteracter : MonoBehaviour
         return bfInteractable;
     }
 
-    public void InteractStart(UnityEngine.InputSystem.InputAction.CallbackContext ctx)
+    public void InteractStart()
     {
         if (focusInteractable == null) return;
 
         focusInteractable.InteractStart();
     }
 
-    public void InteractHalt(UnityEngine.InputSystem.InputAction.CallbackContext ctx)
+    public void InteractHalt()
     {
         if (focusInteractable == null) return;
 

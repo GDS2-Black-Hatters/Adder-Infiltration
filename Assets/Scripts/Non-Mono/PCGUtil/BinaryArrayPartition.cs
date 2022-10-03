@@ -132,11 +132,13 @@ public static class BinaryArrayPartition
         else
         {
             //select direction randomly weighted in advantage to split the 'longer' side
-            partDirection = DoStatic.RandomBool(chunkTransform.ChunkHeight/(float)(chunkTransform.ChunkHeight + chunkTransform.ChunkWidth)) ? lineDirection.alongX : lineDirection.alongY;
+            //added in first order smoothstep to furthur increase bias
+            float x = chunkTransform.ChunkHeight/(float)(chunkTransform.ChunkHeight + chunkTransform.ChunkWidth);
+            partDirection = DoStatic.RandomBool(x * x * x * (x * (x * 6 - 15) + 10)) ? lineDirection.alongX : lineDirection.alongY;
         }
 
         //Perform the partition, use GaussianRandom so the chunk is more likely to be split near the center
-        const float centeringPower = 0.2f;
+        const float centeringPower = 0.3f;
         int splitPosition;
         switch(partDirection)
         {

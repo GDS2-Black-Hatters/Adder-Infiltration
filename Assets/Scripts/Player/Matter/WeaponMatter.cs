@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(StareAndSpin))]
 public class WeaponMatter : Matter
 {
     MatterShell ownerMatterShell;
@@ -11,8 +12,8 @@ public class WeaponMatter : Matter
     private RandRotate selfRandRoter;
     private StareAndSpin selfStareAndSpin;
 
-    private float anchorRotSpeed;
-    private float selfRotSpeed;
+    protected Transform target; 
+
 
     public override void InitilizeMatter(MatterShell ownerShell, Transform anchorBase)
     {
@@ -20,34 +21,36 @@ public class WeaponMatter : Matter
         anchorStareAndSpin = anchorBase.GetComponent<StareAndSpin>();
         selfRandRoter = GetComponent<RandRotate>();
         selfStareAndSpin = GetComponent<StareAndSpin>();
-        anchorRotSpeed = anchorRandRoter.rotationSpeed;
-        selfRotSpeed = selfRandRoter.rotationSpeed;
         
         ownerMatterShell = ownerShell;
         ChangeTarget(ownerMatterShell.currentTarget);
         ownerMatterShell.OnTargetChange += ChangeTarget;
     }
 
+    protected virtual void Update()
+    {
+        AttackUpdate();
+    }
+
+    protected virtual void AttackUpdate(){}
+
     public virtual void ChangeTarget(Transform newTargetTransform)
     {
-        if(newTargetTransform == null)
-        {
-            anchorRandRoter.rotationSpeed = anchorRotSpeed;
-            selfRandRoter.rotationSpeed = selfRotSpeed;
+        //set target
+        target = newTargetTransform;
+
+        //change orbit behaviou depending on if a target exist
+        bool hasTarget = !(newTargetTransform == null);
+
+        anchorRandRoter.enabled = !hasTarget;
+        selfRandRoter.enabled = !hasTarget;
             
-            anchorStareAndSpin.enabled = false;
-            selfStareAndSpin.enabled = false;
-
-            return;
-        }
-
-        anchorRandRoter.rotationSpeed = 0;
-        selfRandRoter.rotationSpeed = 0;            
+        anchorStareAndSpin.enabled = hasTarget;
+        selfStareAndSpin.enabled = hasTarget;
 
         anchorStareAndSpin.stareTarget = newTargetTransform;
-        anchorStareAndSpin.enabled = true;
         selfStareAndSpin.stareTarget = newTargetTransform;
-        selfStareAndSpin.enabled = true;
+
     }
 
     private void OnEnable()
