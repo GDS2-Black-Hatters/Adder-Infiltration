@@ -10,6 +10,7 @@ using TMPro;
 public class ComputerParent : MonoBehaviour
 {
     public float spawnTimer = 0;
+    private float spawnNextComputer = 2;
 
     private Rigidbody computer;
 
@@ -26,11 +27,12 @@ public class ComputerParent : MonoBehaviour
     void Update()
     {
         spawnTimer += Time.deltaTime;
-        if (spawnTimer >= 2)
+        if (spawnTimer >= spawnNextComputer)
         {
             Rigidbody target;
-            target = Instantiate(computer, new Vector3(15,Random.Range(3.5f,-3.5f),0), transform.rotation);
-            target.velocity = new Vector3(-10, 0, 0);
+            target = Instantiate(computer, new Vector3(15,Random.Range(3.5f,-3.5f),0), Quaternion.Euler(0f,0f,0f));
+            target.velocity = new Vector3(-10, Random.Range(-2.5f,2.5f), 0);
+            spawnNextComputer = Random.Range(1.5f, 2.5f);
             spawnTimer = 0;
         }
     }
