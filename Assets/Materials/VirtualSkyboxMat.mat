@@ -20,8 +20,16 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _AltText:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BlendFieldTexture:
+        m_Texture: {fileID: 2800000, guid: 2ed00586f2fc258469cf6bb883edad80, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -45,6 +53,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainText:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -92,12 +104,16 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _LerpState: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
+    - _RollingSquareAdditiveStrength: 0.15
+    - _RollingSquareBitshiftFrequency: 0.02
+    - _RollingSquareScrollSpeed: 0.2
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -106,10 +122,17 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+    - _AltTint: {r: 0.41509432, g: 0.115521535, b: 0.115521535, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _BlendFIeldTiling: {r: 7, g: 7, b: 0, a: 0}
+    - _BlendFieldOffset: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _MainTint: {r: 0.044395152, g: 0, b: 0.18867922, a: 1}
+    - _Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _RollingSquareTiling: {r: 75, g: 50, b: 0, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+    - _Tiling: {r: 15, g: 15, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &432023800989625634
 MonoBehaviour:
