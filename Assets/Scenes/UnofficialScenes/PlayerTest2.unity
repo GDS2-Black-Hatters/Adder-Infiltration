@@ -1084,6 +1084,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mandatoryChance: 0
   <isComplete>k__BackingField: 0
+  ObjectiveCompleteSound:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
   _objectiveStringPrefix: Gather information
 --- !u!1 &1028835406
 GameObject:
@@ -1399,7 +1403,7 @@ Transform:
   - {fileID: 596818505}
   - {fileID: 493765375}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1564475004
 GameObject:
@@ -1450,6 +1454,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mandatoryChance: 0
   <isComplete>k__BackingField: 0
+  ObjectiveCompleteSound:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
   captureTime: 5
   prefixName: Secure vulnerability
 --- !u!23 &1564475008
@@ -1657,7 +1665,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6106655758076692800, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6106655758076692800, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2030,6 +2038,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mandatoryChance: 0
   <isComplete>k__BackingField: 0
+  ObjectiveCompleteSound:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
   _objectiveText: Hack into device
 --- !u!114 &1933370662
 MonoBehaviour:
@@ -2222,6 +2234,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mandatoryChance: 0
   <isComplete>k__BackingField: 0
+  ObjectiveCompleteSound:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
   _objectiveText: Hack into device
 --- !u!114 &2056310441
 MonoBehaviour:
@@ -2545,6 +2561,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12885508a6636d04bb3be65ab84a38fe, type: 3}
+--- !u!1001 &4761068190702649814
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5014774911300392420, guid: 7e215f7d8b352504d984a99553274fc5, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014774911300392420, guid: 7e215f7d8b352504d984a99553274fc5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014774911300392420, guid: 7e215f7d8b352504d984a99553274fc5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014774911300392420, guid: 7e215f7d8b352504d984a99553274fc5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014774911300392420, guid: 7e215f7d8b352504d984a99553274fc5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014774911300392420, guid: 7e215f7d8b352504d984a99553274fc5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014774911300392420, guid: 7e215f7d8b352504d984a99553274fc5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014774911300392420, guid: 7e215f7d8b352504d984a99553274fc5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014774911300392420, guid: 7e215f7d8b352504d984a99553274fc5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014774911300392420, guid: 7e215f7d8b352504d984a99553274fc5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014774911300392420, guid: 7e215f7d8b352504d984a99553274fc5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5680129411759312734, guid: 7e215f7d8b352504d984a99553274fc5, type: 3}
+      propertyPath: m_Name
+      value: bomber
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7e215f7d8b352504d984a99553274fc5, type: 3}
 --- !u!1001 &8327987173300766331
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2649,6 +2722,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mandatoryChance: 0
   <isComplete>k__BackingField: 0
+  ObjectiveCompleteSound:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
   captureTime: 3
   prefixName: Secure vulnerability
   sizeMultiplier: 1.2
