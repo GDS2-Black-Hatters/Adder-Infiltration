@@ -15,16 +15,31 @@ public class PlayerVirusAbilityController : MonoBehaviour
 
     private void abilityTriggerStart()
     {
+        if(activeAbility == null) return;
         activeAbility.ActivateAbility();
     }
 
     private void abilityPrimeStart()
     {
+        if(activeAbility == null) return;
         activeAbility.StartAbilityPrime();
     }
 
     private void abilityPrimeEnd()
     {
+        if(activeAbility == null) return;
         activeAbility.EndAbilityPrime();
+    }
+
+    public void changeAbility(AbilityBase newAbility)
+    {
+        if(activeAbility != null)
+        {
+            activeAbility.EndAbilityPrime();
+            Destroy(activeAbility.gameObject);
+        }
+
+        activeAbility = newAbility;
+        activeAbility.transform.SetParent(transform);
     }
 }

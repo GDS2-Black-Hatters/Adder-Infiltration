@@ -17,6 +17,7 @@ public class TrojanHorse : AbilityBase
 
         PlayerVirus pv = GameManager.LevelManager.player;
         pv.gameObject.layer = LayerMask.NameToLayer("Default");
+        GameManager.LevelManager.player.tag = "Untagged";
 
         pv.playerVisual.SetActive(false);
         trojinVisual.SetActive(true);
@@ -39,6 +40,7 @@ public class TrojanHorse : AbilityBase
     {
         yield return new WaitForSeconds(abilityDuration);
         GameManager.LevelManager.player.gameObject.layer = LayerMask.NameToLayer("Player");
+        GameManager.LevelManager.player.tag = "Player";
         GameManager.LevelManager.player.playerVisual.SetActive(true);
         trojinVisual.SetActive(false);
         isAbilityActive = false;
