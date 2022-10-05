@@ -885,10 +885,10 @@
     "m_Guid": {
         "m_GuidSerialized": "c6477610-6cd7-4ef1-8162-277bf400dcea"
     },
-    "m_Name": "AlphaFieldTexture",
+    "m_Name": "TileTexture",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "AlphaFieldTexture",
-    "m_DefaultReferenceName": "_AlphaFieldTexture",
+    "m_RefNameGeneratedByDisplayName": "TileTexture",
+    "m_DefaultReferenceName": "_TileTexture",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -1091,7 +1091,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Texture2DMaterialSlot",
     "m_ObjectId": "6c371e561d134f018fba0905f83c3e2c",
     "m_Id": 0,
-    "m_DisplayName": "AlphaFieldTexture",
+    "m_DisplayName": "TileTexture",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -1311,8 +1311,8 @@
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "x": 0.0,
-        "y": 0.0,
+        "x": 1.0,
+        "y": 1.0,
         "z": 0.0,
         "w": 0.0
     }
@@ -1516,6 +1516,31 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector4MaterialSlot",
+    "m_ObjectId": "a1d8072fad8842179b1d2852abfc7e4e",
+    "m_Id": 1,
+    "m_DisplayName": "Out_Vector4",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Out_Vector4",
+    "m_StageCapability": 2,
+    "m_Value": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.0
+    },
+    "m_DefaultValue": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.0
+    },
+    "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.DynamicVectorMaterialSlot",
     "m_ObjectId": "a263f579a9804a638d19e434e9c6b32e",
     "m_Id": 0,
@@ -1682,7 +1707,7 @@
     },
     "m_Slots": [
         {
-            "m_Id": "f1631a7712d94c4991a59b65e95a032e"
+            "m_Id": "a1d8072fad8842179b1d2852abfc7e4e"
         }
     ],
     "synonyms": [],
@@ -1898,31 +1923,6 @@
         "z": 0.0,
         "w": 0.0
     }
-}
-
-{
-    "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.Vector4MaterialSlot",
-    "m_ObjectId": "f1631a7712d94c4991a59b65e95a032e",
-    "m_Id": 1,
-    "m_DisplayName": "Out_Vector2",
-    "m_SlotType": 0,
-    "m_Hidden": false,
-    "m_ShaderOutputName": "Out_Vector2",
-    "m_StageCapability": 2,
-    "m_Value": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0,
-        "w": 0.0
-    },
-    "m_DefaultValue": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0,
-        "w": 0.0
-    },
-    "m_Labels": []
 }
 
 {
