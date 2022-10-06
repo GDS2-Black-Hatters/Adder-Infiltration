@@ -83,6 +83,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "83d35524-61b1-4a00-a7aa-8af1bdad120e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Interact",
                     "type": "Button",
                     "id": "81b495b9-371c-446a-a50d-ac0bfc2b826d",
@@ -92,10 +101,19 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Pause",
+                    "name": "Ability",
                     "type": "Button",
-                    "id": "83d35524-61b1-4a00-a7aa-8af1bdad120e",
+                    "id": "6c909cb1-4c43-4585-bab9-cdd3e0f0cfdf",
                     "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Scroll",
+                    "type": "PassThrough",
+                    "id": "9109ce93-f106-4b5a-b5c3-6a2395a66265",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -225,6 +243,39 @@
                 },
                 {
                     "name": "",
+                    "id": "14260ecb-b193-4768-aeba-3b79fa9b4034",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "942e3034-1c39-4b07-a111-57c36f0dfbd0",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Ability",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "27985312-ef03-4c9f-837d-cfccba7cc116",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Ability",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "48abc67d-d07e-4afc-9a3a-ab5d78b8770f",
                     "path": "<Keyboard>/e",
                     "interactions": "",
@@ -236,12 +287,23 @@
                 },
                 {
                     "name": "",
-                    "id": "14260ecb-b193-4768-aeba-3b79fa9b4034",
-                    "path": "<Keyboard>/escape",
+                    "id": "d868466c-a848-4e23-8711-96c7ce3e9872",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pause",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "86e1bd9f-ac8e-4138-9d34-6667cc5be821",
+                    "path": "<Mouse>/scroll/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Scroll",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

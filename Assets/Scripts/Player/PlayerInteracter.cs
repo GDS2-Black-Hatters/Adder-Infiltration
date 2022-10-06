@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
+using static InputManager;
+using static ActionInputSubscriber.CallbackContext;
 
 public class PlayerInteracter : MonoBehaviour
 {
@@ -17,6 +19,12 @@ public class PlayerInteracter : MonoBehaviour
     [SerializeField] private float lineShrinkSpeed = 0.05f;
     private Dictionary<Interactable, LineRenderer> interactLines = new();
     
+    private void Start()
+    {
+        GameManager.LevelManager.player.virusController.onInteractStart += InteractStart;
+        GameManager.LevelManager.player.virusController.onInteractEnd += InteractHalt;
+    }
+
     private void Update()
     {
         UpdateInteractableFocus();
@@ -111,34 +119,17 @@ public class PlayerInteracter : MonoBehaviour
         return bfInteractable;
     }
 
-    public void InteractStart(UnityEngine.InputSystem.InputAction.CallbackContext ctx)
+    public void InteractStart()
     {
         if (focusInteractable == null) return;
 
         focusInteractable.InteractStart();
     }
 
-    public void InteractHalt(UnityEngine.InputSystem.InputAction.CallbackContext ctx)
+    public void InteractHalt()
     {
         if (focusInteractable == null) return;
 
         focusInteractable.InteractHalt();
-    }
-
-
-    private void OnEnable()
-    {
-        GameManager.InputManager.GetAction(InputManager.Controls.Interact).performed += InteractStart;
-        GameManager.InputManager.GetAction(InputManager.Controls.Interact).canceled += InteractHalt;
-    }
-
-    private void OnDisable()
-    {
-        InputManager inputManager = GameManager.InputManager;
-        if (inputManager)
-        {
-            inputManager.GetAction(InputManager.Controls.Interact).performed -= InteractStart;
-            inputManager.GetAction(InputManager.Controls.Interact).canceled -= InteractHalt;
-        }
     }
 }

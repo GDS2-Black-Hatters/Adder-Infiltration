@@ -2,58 +2,39 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerInput))]
-public sealed class InputManager : MonoBehaviour, IManager
+public sealed class InputManager : BaseManager
 {
-    #region Enums
-    public enum ControlScheme
-    {
-        Hub,
-        MainGame
-    }
-
-    public enum Controls
-    {
-        Move, //Hub (Mouse Movement) || MainGame (WASD/Arrow Keys)
-        Click, //Hub
-        Look, //MainGame
-        Interact, //MainGame
-        Pause, //MainGame
-    }
+    #region Hub Controls
+    public static InputAction HubMove { get; private set; }
+    public static InputAction HubClick { get; private set; }
+    #endregion
+    #region Main Game Controls
+    public static InputAction MainGameMove { get; private set; }
+    public static InputAction MainGameLook { get; private set; }
+    public static InputAction MainGamePause { get; private set; }
+    public static InputAction MainGameInteract { get; private set; }
+    public static InputAction MainGameAbility { get; private set; }
+    public static InputAction MainGameScroll { get; private set; }
     #endregion
 
     private PlayerInput playerInput;
 
-    public void StartUp()
+    public override BaseManager StartUp()
     {
         playerInput = GetComponent<PlayerInput>();
-    }
 
-    /// <summary>
-    /// Change the control scheme.
-    /// </summary>
-    /// <param name="scheme">The control scheme type.</param>
-    public void ChangeControlMap(ControlScheme scheme)
-    {
-        playerInput.SwitchCurrentActionMap(DoStatic.EnumAsString(scheme));
-    }
+        playerInput.SwitchCurrentActionMap("Hub");
+        HubMove = playerInput.actions["Move"];
+        HubClick = playerInput.actions["Click"];
 
-    /// <summary>
-    /// Get the InputAction to read.
-    /// </summary>
-    /// <param name="control">The controls</param>
-    /// <returns>Reference of the InputAction in the current control scheme to read its data.</returns>
-    public InputAction GetAction(Controls control)
-    {
-        return playerInput.actions[DoStatic.EnumAsString(control)];
-    }
+        playerInput.SwitchCurrentActionMap("MainGame");
+        MainGameMove = playerInput.actions["Move"];
+        MainGameLook = playerInput.actions["Look"];
+        MainGamePause = playerInput.actions["Pause"];
+        MainGameInteract = playerInput.actions["Interact"];
+        MainGameAbility = playerInput.actions["Ability"];
+        MainGameScroll = playerInput.actions["Scroll"];
 
-    /// <summary>
-    /// Is the current scheme the same as the scheme given?
-    /// </summary>
-    /// <param name="scheme">The control scheme.</param>
-    /// <returns>True if they are the same scheme.</returns>
-    public bool IsCurrentActionMap(ControlScheme scheme)
-    {
-        return playerInput.currentActionMap.name.Equals(DoStatic.EnumAsString(scheme));
+        return this;
     }
 }

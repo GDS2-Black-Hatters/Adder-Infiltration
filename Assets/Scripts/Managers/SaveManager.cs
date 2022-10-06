@@ -3,7 +3,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
-public sealed class SaveManager : MonoBehaviour, IManager
+public sealed class SaveManager : BaseManager
 {
     /// <summary>
     /// These variables are saved to file.
@@ -24,102 +24,45 @@ public sealed class SaveManager : MonoBehaviour, IManager
         intelligenceData = 1001,
         processingPower = 1002,
         allUnlockables = 1003,
+
+        mouseSensitivity = 2001,
+        audioVolume = 2002,
     }
 
     private string saveFile;
     private readonly BinaryFormatter formatter = new(); //Converts data from and into a serialised format.
-    private Dictionary<VariableToSave, object> savedVars = new(); //The dictionary of where all the data is saved.
+    [SerializeField] private GameObject saveIcon;
 
-    public void StartUp()
+    public override BaseManager StartUp()
     {
-        saveFile = Application.persistentDataPath + "/AdderInfiltration.sav"; //Debug log the variable to find where it is stored.
+        saveFile = Application.persistentDataPath + "/AdderInfiltration.sav";
+        //print(Application.persistentDataPath); //Uncomment to find where it is stored.
         LoadFile(saveFile);
+        return this;
     }
 
-    /// <summary>
-    /// Scans for save files.
-    /// </summary>
-    /// <returns>Returns a array of save file names</returns>
-    public string[] ScanForSaveFiles()
-    {
-        List<string> saveFiles = new();
-        foreach (string file in Directory.GetFiles(saveFile))
-        {
-            if (file.EndsWith(".sav"))
-            {
-                saveFiles.Add(file.Replace(".sav", ""));
-            }
-        }
-        return saveFiles.ToArray();
-    }
-
-    #region Save Methods
     /// <summary>
     /// Saves the current state of the dictionary.
     /// </summary>
     public void SaveToFile()
     {
+        saveIcon.SetActive(true);
         FileStream file = File.Create(saveFile); //Overwrites the old file.
-        formatter.Serialize(file, savedVars);
+        formatter.Serialize(file, GameManager.VariableManager.GetAllVars());
         file.Close();
     }
 
-    /// <summary>
-    /// Saves the variable called through from other components.
-    /// Warning: If the key already exists, the value of it will be overwritten.
-    /// </summary>
-    /// <param name="variable">The variable name.</param>
-    /// <param name="obj">Any variable that can be serialised.</param>
-    public void SaveVariable(VariableToSave variable, object obj)
-    {
-        try
-        {
-            savedVars[variable] = obj;
-        }
-        catch
-        {
-            savedVars.Add(variable, obj);
-        }
-    }
-    #endregion
-
-    #region Load Methods
     private void LoadFile(string filename)
     {
         //Attempt to find it. Return a new
         if (!File.Exists(filename))
         {
+            GameManager.VariableManager.SetAllVars(new());
             return;
         }
 
-        savedVars.Clear();
         FileStream file = File.Open(filename, FileMode.Open);
-        savedVars = (Dictionary<VariableToSave, object>)formatter.Deserialize(file);
+        GameManager.VariableManager.SetAllVars((Dictionary<VariableToSave, object>)formatter.Deserialize(file));
         file.Close();
     }
-
-    //These classes is to just help differentiate the LoadVariable method overload.
-    public class RequireStruct<T> where T : struct { }
-    public class RequireClass<T> where T : class { }
-
-    /// <summary>
-    /// Grab a variable from the save file.
-    /// </summary>
-    /// <param name="variable">The wanted variable.</param>
-    /// <returns>The object if the key exists otherwise returns null.</returns>
-    public T LoadVariable<T>(VariableToSave variable, RequireClass<T> _ = null) where T : class
-    {
-        return savedVars.ContainsKey(variable) ? (T)savedVars[variable] : null;
-    }
-
-    /// <summary>
-    /// Grab a variable from the save file.
-    /// </summary>
-    /// <param name="variable">The the wanted variable.</param>
-    /// <returns>The object if the key exists otherwise returns default.</returns>
-    public T LoadVariable<T>(VariableToSave variable, RequireStruct<T> _ = null) where T : struct
-    {
-        return savedVars.ContainsKey(variable) ? (T)savedVars[variable] : default;
-    }
-    #endregion
 }

@@ -10,7 +10,7 @@ public class TimeTracker
     [field: SerializeField] public float timeScale { get; private set; } = -1; //Counts up if positive, counts down if negative. Defaults to countdown.
     [field: SerializeField] public bool autoLoop { get; private set; } = false;
     public event Action onFinish;
-
+    public float TimePercentage => tick / timer;
 
     /// <summary>
     /// A simple timer. Defaults as a countdown timer.

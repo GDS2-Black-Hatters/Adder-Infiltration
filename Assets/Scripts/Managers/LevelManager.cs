@@ -1,14 +1,13 @@
 #pragma warning disable IDE1006 // Naming Styles
 using System;
 using System.Collections;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public sealed class LevelManager : MonoBehaviour, IManager
+public sealed class LevelManager : BaseManager
 {
+    #region Levels
     private const int gameLevels = 100; //In case we somehow have over 100 different game scenes.
-
     //An enum of all the official scenes in the project.
     //Remember, all the states in the enum must be the same name as the actual scene.
     public enum Level
@@ -27,34 +26,38 @@ public sealed class LevelManager : MonoBehaviour, IManager
         Unknown, //This is for any unofficial levels.
     }
     public Level level { get; private set; }
+    #endregion
+
+    public static bool isGamePaused { get; private set; }
+    public System.Action<bool> onGamePauseStateChange;
+    public System.Action onGamePause;
+    public System.Action onGameResume;
 
     private (string transitionIn, string transitionOut) transitionType = ("FadeIn", "FadeOut");
     private (string feedbackIn, string feedbackOut) feedbackType = ("BoxSpinningIn", "BoxSpinningOut");
     private Animator transitionAnim;
     private bool isTransitioning = false;
 
-    [SerializeField] private GameObject inGameHUD;
-    private CaughtHUDBehaviour caughtHUD;
-
-    [field: SerializeField] public TextMeshProUGUI objectiveList { get; private set; }
-
     public BaseSceneController ActiveSceneController { get; private set; }
-    public Transform player { get; private set; }
+    public PlayerVirus player { get; private set; }
 
-    public void StartUp()
+    public override BaseManager StartUp()
     {
-        caughtHUD = inGameHUD.GetComponentInChildren<CaughtHUDBehaviour>();
-        
         transitionAnim = GetComponentInChildren<Animator>();
         transitionAnim.updateMode = AnimatorUpdateMode.UnscaledTime;
 
         GameManager.VariableManager.timeToLive.onFinish += GameOver;
         GameManager.VariableManager.playerHealth.onDeath += GameOver;
+        return this;
     }
 
+    /// <summary>
+    /// Toggles the state of the mouse.
+    /// </summary>
+    /// <param name="focus">True to hide the mouse and lock it in place.</param>
     public void OnApplicationFocus(bool focus)
     {
-        bool lockMouse = focus && (int)level >= gameLevels && !PauseMenuController.GameIsPaused;
+        bool lockMouse = focus && (int)level >= gameLevels && !isGamePaused;
         Cursor.visible = !lockMouse;
         Cursor.lockState = lockMouse ? CursorLockMode.Locked : CursorLockMode.None;
     }
@@ -62,18 +65,6 @@ public sealed class LevelManager : MonoBehaviour, IManager
     private void Start()
     {
         StartCoroutine(Transition(level, null, false));
-        PlayLevelMusic();
-    }
-
-    private void PlayLevelMusic()
-    {
-        GameManager.AudioManager.PlayMusic(level switch
-        {
-            Level.Unknown => "",
-            Level.Hub => "",
-            Level.Tutorial => "",
-            _ => ""
-        });
     }
 
     /// <summary>
@@ -133,24 +124,20 @@ public sealed class LevelManager : MonoBehaviour, IManager
             }
             notify?.Invoke();
             GameManager.SaveManager.SaveToFile();
-            PlayLevelMusic();
 
             yield return StartCoroutine(TransitionPlay(feedbackType.feedbackOut));
         }
         
+        SetIsGamePaused(false);
         OnApplicationFocus(true);
-        caughtHUD.HideHUD();
         GameManager.VariableManager.Restart();
         UpdateLevelIndex();
 
-        bool isNotLevel = (int)level < gameLevels;
-        inGameHUD.SetActive(!isNotLevel);
-        if (isNotLevel)
+        if ((int)level < gameLevels) //Camera Reset
         {
             Camera.main.transform.eulerAngles = Vector3.zero;
             Camera.main.transform.position = new(0, 10, -10);
         }
-
         yield return StartCoroutine(TransitionPlay(transitionType.transitionOut));
         transitionAnim.Play("Waiting");
         isTransitioning = false;
@@ -174,6 +161,25 @@ public sealed class LevelManager : MonoBehaviour, IManager
         GameManager.LevelManager.ChangeLevel(Level.Hub);
     }
 
+    public void SetIsGamePaused(bool isGamePaused)
+    {
+        if(LevelManager.isGamePaused == isGamePaused)
+        {
+            return;
+        }
+
+        LevelManager.isGamePaused = isGamePaused;
+        if(isGamePaused)
+        {
+            onGamePause?.Invoke();
+        }
+        else
+        {
+            onGameResume?.Invoke();
+        }
+        onGamePauseStateChange?.Invoke(isGamePaused);
+    }
+
     public void SetActiveSceneController(BaseSceneController sceneController)
     {
         if (ActiveSceneController != null)
@@ -181,10 +187,9 @@ public sealed class LevelManager : MonoBehaviour, IManager
             Debug.LogWarning("The previously active SceneController has not yet been destroyed, please ensure you are certain you want two SceneControllers active right now.");
         }
         ActiveSceneController = sceneController;
-        ActiveSceneController.onPlayerDetection += caughtHUD.FadeIn;
     }
 
-    public void SetPlayer(Transform player)
+    public void SetPlayer(PlayerVirus player)
     {
         this.player = player;
     }

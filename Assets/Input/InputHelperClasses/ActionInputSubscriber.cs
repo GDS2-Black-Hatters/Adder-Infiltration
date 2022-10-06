@@ -2,11 +2,10 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static InputManager;
 
 public sealed class ActionInputSubscriber : MonoBehaviour
 {
-    public enum CallBackContext
+    public enum CallbackContext
     {
         Started,
         Performed,
@@ -15,33 +14,30 @@ public sealed class ActionInputSubscriber : MonoBehaviour
 
     public class ActionDelegate
     {
-        private readonly ControlScheme controlScheme;
-        private readonly CallBackContext callBackContext;
+        private readonly CallbackContext callBackContext;
         private readonly InputAction inputAction;
         private readonly Action<InputAction.CallbackContext> inputDelegate;
 
-        public ActionDelegate(ControlScheme controlScheme, InputAction inputAction, CallBackContext callBackContext, Action<InputAction.CallbackContext> inputDelegate)
+        public ActionDelegate(InputAction inputAction, CallbackContext callBackContext, Action<InputAction.CallbackContext> inputDelegate)
         {
             this.inputAction = inputAction;
             this.callBackContext = callBackContext;
             this.inputDelegate = inputDelegate;
-            this.controlScheme = controlScheme;
         }
 
         public void SubscribeAction()
         {
-            GameManager.InputManager.ChangeControlMap(controlScheme);
             switch (callBackContext)
             {
-                case CallBackContext.Started:
+                case CallbackContext.Started:
                     inputAction.started += inputDelegate;
                     break;
 
-                case CallBackContext.Performed:
+                case CallbackContext.Performed:
                     inputAction.performed += inputDelegate;
                     break;
 
-                case CallBackContext.Canceled:
+                case CallbackContext.Canceled:
                     inputAction.canceled += inputDelegate;
                     break;
             }
@@ -49,18 +45,17 @@ public sealed class ActionInputSubscriber : MonoBehaviour
 
         public void UnsubscribeAction()
         {
-            //GameManager.InputManager.ChangeControlMap(controlScheme);
             switch (callBackContext)
             {
-                case CallBackContext.Started:
+                case CallbackContext.Started:
                     inputAction.started -= inputDelegate;
                     break;
 
-                case CallBackContext.Performed:
+                case CallbackContext.Performed:
                     inputAction.performed -= inputDelegate;
                     break;
 
-                case CallBackContext.Canceled:
+                case CallbackContext.Canceled:
                     inputAction.canceled -= inputDelegate;
                     break;
             }

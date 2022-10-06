@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(MeshFilter))]
@@ -91,8 +89,7 @@ public class DynamicArcConeMesh : MonoBehaviour
         mesh.triangles = triangles;
 
         gameObject.GetComponent<MeshFilter>().sharedMesh = mesh;
-        MeshCollider col; 
-        if(gameObject.TryGetComponent<MeshCollider>(out col))
+        if (gameObject.TryGetComponent(out MeshCollider col))
         {
             col.sharedMesh = mesh;
         }
@@ -102,9 +99,8 @@ public class DynamicArcConeMesh : MonoBehaviour
     {
         for (int i = 0; i < vertex.Length - 1; i++)
         {
-            RaycastHit hitResult;
             Vector3 direction = GetDirectionFromIndex(i);
-            vertex[i] = Physics.Raycast(transform.position, transform.rotation * direction, out hitResult, range, occlusionMask) ? transform.worldToLocalMatrix * (hitResult.point - transform.position) : direction * range;
+            vertex[i] = Physics.Raycast(transform.position, transform.rotation * direction, out RaycastHit hitResult, range, occlusionMask) ? transform.worldToLocalMatrix * (hitResult.point - transform.position) : direction * range;
         }
     }
 

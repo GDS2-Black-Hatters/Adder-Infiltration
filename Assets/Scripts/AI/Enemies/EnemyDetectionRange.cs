@@ -14,7 +14,7 @@ public class EnemyDetectionRange : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             GameManager.LevelManager.ActiveSceneController.enemyAdmin.IncreaseAlertness(0.5f);
             //GameManager.LevelManager.ActiveSceneController.StartCaughtMode();

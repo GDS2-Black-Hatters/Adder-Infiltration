@@ -2,9 +2,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static SaveManager.VariableToSave;
 
 [RequireComponent(typeof(Image))]
-public class StoreItemButton : BaseButton, IPointerEnterHandler, IPointerExitHandler
+public class StoreItemButton : BaseButton
 {
     private StoreButtonContainer container;
     [SerializeField] private TextMeshProUGUI label;
@@ -19,9 +20,9 @@ public class StoreItemButton : BaseButton, IPointerEnterHandler, IPointerExitHan
             if (!item.Item.IsUnlocked)
             {
                 VariableManager var = GameManager.VariableManager;
-                AppendDescription(ref itemRichDescription, var.Bytecoins, item.BytecoinPrice, "\nByteCoins:\t");
-                AppendDescription(ref itemRichDescription, var.IntelligenceData, item.IntelligenceDataPrice, "Intelligence Data:");
-                AppendDescription(ref itemRichDescription, var.ProcessingPower, item.ProcessingPowerPrice, "Processing Power:");
+                AppendDescription(ref itemRichDescription, var.GetVariable<int>(bytecoins), item.BytecoinPrice, "\nByteCoins:\t");
+                AppendDescription(ref itemRichDescription, var.GetVariable<int>(intelligenceData), item.IntelligenceDataPrice, "Intelligence Data:");
+                AppendDescription(ref itemRichDescription, var.GetVariable<int>(processingPower), item.ProcessingPowerPrice, "Processing Power:");
             }
             return itemRichDescription;
         }
@@ -43,7 +44,7 @@ public class StoreItemButton : BaseButton, IPointerEnterHandler, IPointerExitHan
     }
 
     #region mouse hover and etc.
-    public void OnPointerEnter(PointerEventData eventData)
+    public override void OnPointerEnter(PointerEventData eventData)
     {
         UpdateColour(onHover);
     }
@@ -57,7 +58,7 @@ public class StoreItemButton : BaseButton, IPointerEnterHandler, IPointerExitHan
         }
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+    public override void OnPointerExit(PointerEventData eventData)
     {
         UpdateColour(normal);
     }
@@ -97,9 +98,9 @@ public class StoreItemButton : BaseButton, IPointerEnterHandler, IPointerExitHan
     private bool HasSufficientMoney()
     {
         VariableManager var = GameManager.VariableManager;
-        bool sufficientMoney = var.Bytecoins >= item.BytecoinPrice;
-        sufficientMoney = sufficientMoney && var.IntelligenceData >= item.IntelligenceDataPrice;
-        sufficientMoney = sufficientMoney && var.ProcessingPower >= item.ProcessingPowerPrice;
+        bool sufficientMoney = var.GetVariable<int>(bytecoins) >= item.BytecoinPrice;
+        sufficientMoney = sufficientMoney && var.GetVariable<int>(intelligenceData) >= item.IntelligenceDataPrice;
+        sufficientMoney = sufficientMoney && var.GetVariable<int>(processingPower) >= item.ProcessingPowerPrice;
         return sufficientMoney;
     }
 

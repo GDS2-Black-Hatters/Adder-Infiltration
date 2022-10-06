@@ -10,18 +10,29 @@ public class CaptureTheFlagObjective : BaseObjective
     private string _objectiveTitle;
     public override string objectiveTitle { get { return _objectiveTitle; }}
 
+    public UnityEngine.Events.UnityEvent<float> onProgressUpdate;
+
     protected override void Start()
     {
         base.Start();
         timer = new(captureTime, 1);
-        UpdateName();
+        UpdateName(0);
     }
 
-    private void UpdateName()
+    private float UpdateTimer()
     {
-        float percentage = timer.Update(Time.deltaTime * (withinRange ? 1 : -1)) / timer.timer;
-        _objectiveTitle = $"{prefixName} ({percentage * 100:00.0}%)";
-        if (percentage == 1)
+        return timer.Update(Time.deltaTime * (withinRange ? 1 : -1)) / timer.timer;
+    }
+
+    private void UpdateProgress(float progress)
+    {
+        onProgressUpdate.Invoke(progress);
+    }
+
+    private void UpdateName(float progress)
+    {
+        _objectiveTitle = $"{prefixName} ({progress * 100:00.0}%)";
+        if (progress == 1)
         {
             ObjectiveCompleteSound.Post(gameObject);
             Destroy(this);
@@ -30,7 +41,9 @@ public class CaptureTheFlagObjective : BaseObjective
 
     void Update()
     {
-        UpdateName();
+        float progress = UpdateTimer();
+        UpdateProgress(progress);
+        UpdateName(progress);
     }
 
     private void OnTriggerEnter(Collider other)

@@ -13,8 +13,8 @@ public class PCGIsland : MonoBehaviour
 
     [SerializeField] private GameObject roadwayGroundPrefab;
 
-    [SerializeField] private PCGChunkData[] requiredChunks;
-    [SerializeField] private PCGChunkData[] availableChunks;
+    [SerializeField] private PCGChunkDataBase[] requiredChunks;
+    [SerializeField] private PCGChunkDataBase[] availableChunks;
 
     [SerializeField] private AINode aiNodePrefab;
 
@@ -90,7 +90,7 @@ public class PCGIsland : MonoBehaviour
     private class IslandChunk
     {
         public ChunkTransform chunkTransform;
-        public PCGChunkData chunkData;
+        public PCGChunkDataBase chunkData;
     }
 
     private void Start()
@@ -101,7 +101,7 @@ public class PCGIsland : MonoBehaviour
 
     public void GenerateIsland()
     {
-        GameObject ground = Instantiate(roadwayGroundPrefab, transform.position, Quaternion.identity, transform);
+        GameObject ground = Instantiate(roadwayGroundPrefab, transform.position, transform.rotation, transform);
         //Add 1.5 to generate boarder ground area for enemies patrol
         float calculatedMult = cellSizeUnitMultiplier * 0.1f;
         Vector3 scale = new Vector3(islandSize.x + 1.5f, 1, islandSize.y + 1.5f) * calculatedMult;
@@ -114,26 +114,47 @@ public class PCGIsland : MonoBehaviour
 
         //Grab all requiredChunks before generation and add them in first.
         List<ChunkTransform> filledChunks = new();
-        foreach (PCGChunkData requiredChunk in requiredChunks)
+        List<ChunkTransform> usableChunks = new();
+        foreach (PCGChunkDataBase requiredChunk in requiredChunks)
         {
-            ChunkTransform chunkTransform;
-            do
+            usableChunks.Clear();
+            foreach (ChunkTransform chunkTransform in chunkTransforms) //check through each transform to see if they are usable
             {
-                chunkTransform = chunkTransforms[Random.Range(0, chunkTransforms.Length)];
-            } while (filledChunks.Contains(chunkTransform)); //keep retrying until unfilled chunk found.
+                if(requiredChunk.CanGenerateInTransform(chunkTransform) && !filledChunks.Contains(chunkTransform))
+                {
+                    usableChunks.Add(chunkTransform);
+                }
+            }
 
-            filledChunks.Add(chunkTransform);
-            GenerateChunk(requiredChunk, chunkTransform);
+            if(usableChunks.Count <= 0) Debug.LogError("No valid usable chunk for a required chunk, generation parameter might be too strict.");
+
+            ChunkTransform useTransform = usableChunks[Random.Range(0, usableChunks.Count)]; //select a random usable one
+
+            filledChunks.Add(useTransform);
+            GenerateChunk(requiredChunk, useTransform);
         }
 
         //Fill in the rest of the chunks.
+        List<PCGChunkDataBase> usableChunkData = new();
         foreach (ChunkTransform chunkTransform in chunkTransforms)
         {
             if(filledChunks.Contains(chunkTransform))
             {
                 continue; //Skip if chunk is already filled.
             }
-            GenerateChunk(availableChunks[Random.Range(0, availableChunks.Length)], chunkTransform);
+
+            usableChunkData.Clear();
+            foreach(PCGChunkDataBase availableChunk in availableChunks) //filter out unusable data
+            {
+                if(availableChunk.CanGenerateInTransform(chunkTransform))
+                {
+                    usableChunkData.Add(availableChunk);
+                }
+            }
+
+            if(usableChunkData.Count <= 0) Debug.LogError("No usable chunkdata for a chunk, consider adding in chunks with no generation requirements.");
+
+            GenerateChunk(usableChunkData[Random.Range(0, usableChunkData.Count)], chunkTransform);
         }
 
         //Generate nodes for AI navigation.
@@ -142,7 +163,7 @@ public class PCGIsland : MonoBehaviour
         {
             if(!nodeDict.ContainsKey(coordV2Int))
             {
-                nodeDict.Add(coordV2Int, new(Instantiate<AINode>(aiNodePrefab, GridPosToWorldV3(coordV2Int), Quaternion.identity)));
+                nodeDict.Add(coordV2Int, new(Instantiate<AINode>(aiNodePrefab, transform.TransformPoint(GridPosToLocalV3(coordV2Int)), Quaternion.identity)));
             }
             return nodeDict[coordV2Int];
         } 
@@ -187,7 +208,6 @@ public class PCGIsland : MonoBehaviour
             nodeList.Add(nb.nodeSelf);
         }
 
-        //added in null check for temporary measure before the enemy handling gets removed from scene controller.
         GameManager.LevelManager.ActiveSceneController.enemyAdmin.NewAiNodes(nodeList.ToArray());
         //Debug.Log("Node Gen Time Cost: "+ (Time.realtimeSinceStartup - aiNodeGenStartTime));
 
@@ -198,10 +218,10 @@ public class PCGIsland : MonoBehaviour
         }
     }
 
-    private void GenerateChunk(PCGChunkData chunkData, ChunkTransform chunkTransform)
+    private void GenerateChunk(PCGChunkDataBase chunkData, ChunkTransform chunkTransform)
     {
             //create a copy of chunk data so we don't modify the scriptable object on disk
-            PCGChunkData chunkDataCopy = Instantiate(chunkData);
+            PCGChunkDataBase chunkDataCopy = Instantiate(chunkData);
 
             //Initilize and generate chunk
             chunkDataCopy.Initilize(chunkTransform);
@@ -209,9 +229,25 @@ public class PCGIsland : MonoBehaviour
             
             //move chunk to new position
             chunkObj.transform.localPosition = GridPosToWorldV3(chunkTransform.ChunkCenter);
+            chunkObj.transform.localRotation = Quaternion.identity;
     }
 
-    private bool VerifyChunkAvailability(PCGChunkData[] requiredChunks, ChunkTransform[] availableChunks)
+    private Dictionary<ChunkTransform, PCGChunkDataBase> AssignTransformsWithChunkData(ChunkTransform[] chunkTransforms)
+    {
+        Dictionary<ChunkTransform, PCGChunkDataBase> assignmentArray = new Dictionary<ChunkTransform, PCGChunkDataBase>();
+        foreach(ChunkTransform ct in chunkTransforms)
+        {
+            assignmentArray.Add(ct, null);
+        }
+
+
+
+        //return null for failed attempt;
+        return null;
+    }
+
+    /*
+    private bool VerifyChunkAvailability(PCGChunkDataBase[] requiredChunks, ChunkTransform[] availableChunks)
     {
         //Fail if there aren't enough chunks
         if(availableChunks.Length < requiredChunks.Length)
@@ -229,7 +265,7 @@ public class PCGIsland : MonoBehaviour
         }
 
         List<int> requiredChunkSizeCount = new();
-        foreach(PCGChunkData rc in requiredChunks)
+        foreach(PCGChunkDataBase rc in requiredChunks)
         {
             if(requiredChunkSizeCount.Count <= rc.minCellCountRequirement)
             {
@@ -248,10 +284,16 @@ public class PCGIsland : MonoBehaviour
 
         return true;
     }
+    */
 
     private Vector3 GridPosToWorldV3(float xCord, float yCord)
     {
         return transform.position + new Vector3(xCord - (islandSize.x - 1) * 0.5f, 0, yCord - (islandSize.y - 1) * 0.5f) * cellSizeUnitMultiplier;
+    }
+
+    private Vector3 GridPosToLocalV3(Vector2 gridCord)
+    {
+        return new Vector3(gridCord.x - (islandSize.x - 1) * 0.5f, 0, gridCord.y - (islandSize.y - 1) * 0.5f) * cellSizeUnitMultiplier;
     }
 
     private Vector3 GridPosToWorldV3(Vector2 gridCord)

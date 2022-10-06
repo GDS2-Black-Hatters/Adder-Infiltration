@@ -24,14 +24,16 @@ public class MatterShell : MonoBehaviour
     public Transform currentTarget{
         get{ return _currentTarget; }
         private set{
-            if(_currentTarget == value)
+            if(value == null ? targetWasNullLastFrame : _currentTarget == value)
             {
                 return;
             }
             _currentTarget = value;
+            targetWasNullLastFrame = (_currentTarget == null);
             OnTargetChange?.Invoke(_currentTarget);
         }
     }
+    private bool targetWasNullLastFrame = true; //check needs to be included otherwise when the target transform is destroyed, it would return null during the 'change' check and the new null value won't invoke onTargetChange
     public System.Action<Transform> OnTargetChange;
 
     private void Start()
@@ -72,7 +74,7 @@ public class MatterShell : MonoBehaviour
 
         Transform tempBestTarget = null;
 
-        //loop through every result and 
+        //loop through every result and make sure there is a clear line of sight between weapon and target
         for (int i = 0; i < currentEnemiesInRange; i++)
         {
             RaycastHit hitResult;

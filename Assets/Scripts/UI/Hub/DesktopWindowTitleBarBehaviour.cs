@@ -1,26 +1,22 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-using static ActionInputSubscriber.CallBackContext;
-using static InputManager.Controls;
-using static InputManager.ControlScheme;
+using static ActionInputSubscriber.CallbackContext;
+using static InputManager;
 
 public class DesktopWindowTitleBarBehaviour : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    private InputManager input;
     private bool isHovering;
     private bool isPressed = false;
     private Vector2 windowDistance;
 
     private void Start()
     {
-        input = GameManager.InputManager;
-
         gameObject.AddComponent<ActionInputSubscriber>().AddActions(new()
         {
-            new(Hub, input.GetAction(Click), Performed, OnHoverClick),
-            new(Hub, input.GetAction(Click), Canceled, OnHoverUnclick),
-            new(Hub, input.GetAction(Move), Performed, OnFocusMove),
+            new(HubClick, Performed, OnHoverClick),
+            new(HubClick, Canceled, OnHoverUnclick),
+            new(HubMove, Performed, OnFocusMove),
         });
     }
 
