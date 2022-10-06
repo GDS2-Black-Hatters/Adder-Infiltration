@@ -25,22 +25,23 @@ public class Bomber : Enemy
 
     protected override void Attack()
     {
-        Debug.Log("Start Suicide!!!!!!!!");
-        forwardPower = 0;
+        Debug.Log(gameObject+"Start Suicide!!!!!!!!");
+        forwardPower = 0; //Stand still while charging
         if(!charging)
         {
+            //Spawn charging particle
             Instantiate(explosionChargingParticle, transform.position, Quaternion.identity);
         }
         charging = true;
-        DoSuicideBombing(3);
+        DoSuicideBombing(3); 
     }
 
     protected virtual void Bombing()
     {
-        Debug.Log("ALLAHU AKBAR!");
+        Debug.Log(gameObject+"ALLAHU AKBAR!");
 
         //Within explosion range
-        if ((GameManager.LevelManager.player.position - transform.position).sqrMagnitude < explosionRange) 
+        if ((GameManager.LevelManager.player.position - transform.position).sqrMagnitude <= explosionRange) 
         {
             GameManager.VariableManager.playerHealth.ReduceHealth(explosionDamage);
             
