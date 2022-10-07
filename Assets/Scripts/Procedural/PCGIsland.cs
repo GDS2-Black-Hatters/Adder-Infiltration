@@ -152,7 +152,11 @@ public class PCGIsland : MonoBehaviour
                 }
             }
 
-            if(usableChunkData.Count <= 0) Debug.LogError("No usable chunkdata for a chunk, consider adding in chunks with no generation requirements.");
+            if (usableChunkData.Count <= 0)
+            {
+                Debug.LogError("No usable chunkdata for a chunk, consider adding in chunks with no generation requirements.");
+                continue;
+            }
 
             GenerateChunk(usableChunkData[Random.Range(0, usableChunkData.Count)], chunkTransform);
         }

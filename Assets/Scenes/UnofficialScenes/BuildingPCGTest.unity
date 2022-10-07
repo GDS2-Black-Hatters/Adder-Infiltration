@@ -256,6 +256,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ProceduralChunkGenerator (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2813403553686371382, guid: 9f38c177c472a3246b1302aeaf05404f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8299077402744756876, guid: 9f38c177c472a3246b1302aeaf05404f, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -463,6 +467,10 @@ PrefabInstance:
     - target: {fileID: 2813403553686371382, guid: 9f38c177c472a3246b1302aeaf05404f, type: 3}
       propertyPath: m_Name
       value: ProceduralChunkGenerator (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2813403553686371382, guid: 9f38c177c472a3246b1302aeaf05404f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8299077402744756876, guid: 9f38c177c472a3246b1302aeaf05404f, type: 3}
       propertyPath: m_RootOrder
@@ -692,7 +700,15 @@ PrefabInstance:
     - target: {fileID: 2770423791636749125, guid: 9f38c177c472a3246b1302aeaf05404f, type: 3}
       propertyPath: chunkData
       value: 
-      objectReference: {fileID: 11400000, guid: af828253da142d1468023feedb6fe867, type: 2}
+      objectReference: {fileID: 11400000, guid: df8d6919a9761c44e865f45e7774a69c, type: 2}
+    - target: {fileID: 2770423791636749125, guid: 9f38c177c472a3246b1302aeaf05404f, type: 3}
+      propertyPath: chunkSize.x
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770423791636749125, guid: 9f38c177c472a3246b1302aeaf05404f, type: 3}
+      propertyPath: chunkSize.y
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2813403553686371382, guid: 9f38c177c472a3246b1302aeaf05404f, type: 3}
       propertyPath: m_Name
       value: ProceduralChunkGenerator

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: CommsTowerChunk
   m_EditorClassIdentifier: 
   chunkBaseObjectPrefab: {fileID: 2089300250955244641, guid: 58f5b734fc4d192419f23f56cc00b592, type: 3}
-  _minCellCountRequirement: 0
   requiredBlocks:
   - {fileID: 11400000, guid: a1673d40eac79a246ae9f304e3b1f216, type: 2}
   availableFreeBlocks:
   - {fileID: 11400000, guid: 76d2d4201c2122448a944349e76bbd53, type: 2}
   - {fileID: 11400000, guid: 90312647a36ad084ea7c2ac8eef5a2c0, type: 2}
+  randomWalkableTileChance: 0.7

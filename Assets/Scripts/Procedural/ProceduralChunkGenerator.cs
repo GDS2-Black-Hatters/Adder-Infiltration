@@ -11,7 +11,7 @@ public class ProceduralChunkGenerator : MonoBehaviour
     void Start()
     {
         PCGChunkDataBase chunkDataCopy = Instantiate(chunkData);
-        ChunkTransform chunkTransform = new(Vector2Int.zero, chunkSize);
+        ChunkTransform chunkTransform = new(Vector2Int.zero, chunkSize - Vector2Int.one);
         
         if(!chunkDataCopy.CanGenerateInTransform(chunkTransform))
         {

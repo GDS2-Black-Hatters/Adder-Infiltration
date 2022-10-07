@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: GeneratorPlaza
   m_EditorClassIdentifier: 
   possibleCellPosition: 6
+  doesNotBlockPathing: 1
   _blockSize: {x: 1, y: 1}
   availablePlazaCorePrefab:
   - {fileID: 7521091924762042487, guid: edf45b1dd0bc7fd459029ae2c8d880eb, type: 3}
