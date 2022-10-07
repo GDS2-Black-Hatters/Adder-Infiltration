@@ -51,10 +51,7 @@ public class AbilityWheelBehaviour : MonoBehaviour
         //If there is no unlocked abilities, then just turn them off and do nothing else.
         if (availableAbilities.Count == 0)
         {
-            foreach (AbilityPivotBehaviour abilityPivot in pivotBehaviours)
-            {
-                abilityPivot.gameObject.SetActive(false);
-            }
+            gameObject.SetActive(false);
             return;
         }
         UpdateAbilityWheel();

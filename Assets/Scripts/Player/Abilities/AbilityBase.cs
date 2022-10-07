@@ -14,12 +14,17 @@ public abstract class AbilityBase : MonoBehaviour
     public event Action CooldownUpdate;
     public event Action CooldownFinish;
 
-    [SerializeField, Header("Ability Stats")]
+    [SerializeField, Header("Ability Stats (For levels)")]
     private Lerper cooldown = new();
 
     protected virtual void Start()
     {
         abilityUpgrade = (Upgradeable)GameManager.VariableManager.GetUnlockable(DoStatic.EnumToEnum<AllAbilities, AllUnlockables>(ability));
+        CooldownTimer.onFinish += () =>
+        {
+            CooldownFinish?.Invoke();
+            IsCoolingDown = false;
+        };
         CalculateAbilityStats();
     }
 
@@ -32,8 +37,7 @@ public abstract class AbilityBase : MonoBehaviour
             CooldownTimer.Update(Time.deltaTime);
             CooldownUpdate?.Invoke();
         } while (CooldownTimer.TimePercentage != 1);
-        CooldownFinish?.Invoke();
-        IsCoolingDown = false;
+        CooldownTimer.Reset();
     }
 
     protected virtual void CalculateAbilityStats()

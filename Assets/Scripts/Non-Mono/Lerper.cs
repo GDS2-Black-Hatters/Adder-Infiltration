@@ -1,6 +1,7 @@
 #pragma warning disable IDE1006 // Naming Styles
 using UnityEngine;
 
+[System.Serializable]
 public class Lerper
 {
     [SerializeField] private float start; //The start value
