@@ -1,30 +1,27 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static InputManager;
 using static ActionInputSubscriber.CallbackContext;
-using System.Collections;
+using static InputManager;
+using static VariableManager;
 
 public class AbilityWheelBehaviour : MonoBehaviour
 {
     [SerializeField] private GameObject abilityIconPrefab;
-    private List<AbilityPivotBehaviour> pivotBehaviours = new();
+    private readonly List<AbilityPivotBehaviour> pivotBehaviours = new();
+
+    private List<AbilityBase> availableAbilities = new();
+    private int selectedIndex = 0;
 
     [SerializeField] private int numberOfIconsShown = 3;
     [SerializeField] private float rotationTime = 0.1f;
     public static bool IsRotating { get; private set; } = false;
     private float rotationStep;
-    private AbilityPivotBehaviour currentAbility;
 
     private void Start()
     {
         numberOfIconsShown += 1 - numberOfIconsShown & 1; //& 1 checks for odd and return 1 if true. Much faster than mod.
-        //Add scrolling input delegate
-        gameObject.AddComponent<ActionInputSubscriber>().AddActions(new()
-        {
-            new(MainGameScroll, Performed, Scroll),
-            new(MainGameAbility, Performed, UseAbility),
-        });
 
         //Calculate constant rotation
         rotationStep = 120 / (numberOfIconsShown + 1);
@@ -35,11 +32,50 @@ public class AbilityWheelBehaviour : MonoBehaviour
             Transform child = Instantiate(abilityIconPrefab, transform).transform;
             pivotBehaviours.Add(child.GetComponent<AbilityPivotBehaviour>());
 
-            Vector3 rot = new()
+            child.eulerAngles = new()
             {
                 z = -60 + rotationStep * i,
             };
-            child.eulerAngles = rot;
+        }
+
+        //Get available abilities.
+        foreach (AllAbilities abilityType in DoStatic.EnumList<AllAbilities>())
+        {
+            Upgradeable upgrade = (Upgradeable)GameManager.VariableManager.GetUnlockable(DoStatic.EnumToEnum<AllAbilities, AllUnlockables>(abilityType));
+            if (upgrade.UnlockProgression != 0)
+            {
+                availableAbilities.Add(GameManager.VariableManager.GetAbility(abilityType));
+            }
+        }
+
+        //If there is no unlocked abilities, then just turn them off and do nothing else.
+        if (availableAbilities.Count == 0)
+        {
+            foreach (AbilityPivotBehaviour abilityPivot in pivotBehaviours)
+            {
+                abilityPivot.gameObject.SetActive(false);
+            }
+            return;
+        }
+        UpdateAbilityWheel();
+
+        //Add scrolling input delegate
+        gameObject.AddComponent<ActionInputSubscriber>().AddActions(new()
+        {
+            new(MainGameScroll, Performed, Scroll),
+            new(MainGameAbility, Performed, UseAbility),
+        });
+    }
+
+    private void UpdateAbilityWheel()
+    {
+        int midIndex = Mathf.RoundToInt(pivotBehaviours.Count * 0.5f);
+        pivotBehaviours[midIndex].UpdateAppearance(DoStatic.GetIndexValue(selectedIndex, ref availableAbilities));
+        for (int i = 0; i < midIndex; i++)
+        {
+            int next = i + 1;
+            pivotBehaviours[midIndex - next].UpdateAppearance(DoStatic.GetIndexValue(selectedIndex + next, ref availableAbilities));
+            pivotBehaviours[midIndex + next].UpdateAppearance(DoStatic.GetIndexValue(selectedIndex - next, ref availableAbilities));
         }
     }
 
@@ -52,29 +88,30 @@ public class AbilityWheelBehaviour : MonoBehaviour
 
     private void UseAbility(InputAction.CallbackContext callback)
     {
-        if (currentAbility)
-        {
-            currentAbility.ActivateAbility();
-        }
+        DoStatic.GetIndexValue(selectedIndex, ref availableAbilities).ActivateAbility();
     }
 
     private IEnumerator Scroll(bool scrollDown)
     {
         IsRotating = true;
+        Vector3 goalRot = new(0, 0, scrollDown ? rotationStep : -rotationStep);
         TimeTracker time = new(rotationTime, 1);
-        time.onFinish += () => { IsRotating = false; };
         time.onFinish += () =>
         {
+            IsRotating = false;
             transform.eulerAngles = new();
-            //TODO: Update all icons in wheel
+            selectedIndex += scrollDown ? 1 : -1;
+            UpdateAbilityWheel();
+            //TODO: Reset icon sizes (Optional)
         };
-        //TODO: Add delegate of resetting rotation but updating the icons once finished.
+
         do
         {
             yield return null;
             time.Update(Time.deltaTime);
-            //TODO: Update icon sizes.
-            //TODO: Update rotation.
-        } while (IsRotating);
+            transform.eulerAngles = Vector3.Lerp(Vector3.zero, goalRot, time.TimePercentage);
+            //TODO: Update icon sizes. (Optional)
+        } while (time.TimePercentage != 1);
+        time.Reset();
     }
 }

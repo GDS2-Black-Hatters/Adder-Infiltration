@@ -121,7 +121,7 @@ public sealed class LevelManager : BaseManager
 
             if (level != newLevel)
             {
-                yield return StartCoroutine(LoadProgress(SceneManager.LoadSceneAsync(DoStatic.EnumAsString(newLevel))));
+                yield return StartCoroutine(LoadProgress(SceneManager.LoadSceneAsync(DoStatic.EnumToString(newLevel))));
             }
             notify?.Invoke();
             GameManager.SaveManager.SaveToFile();

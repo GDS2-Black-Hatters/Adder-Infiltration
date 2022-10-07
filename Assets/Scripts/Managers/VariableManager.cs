@@ -8,8 +8,12 @@ using static SaveManager.VariableToSave;
 public sealed class VariableManager : BaseManager
 {
     //Game variables
+    [SerializeField] private GameObject abilities;
+    private readonly Dictionary<string, AbilityBase> allAbilities = new();
+
     [field: SerializeField, Header("Caught Timer")] public TimeTracker timeToLive { get; private set; } //The timer for when getting caught. Is in seconds.
     [field: SerializeField, Header("Player Health")] public Health playerHealth { get; private set; } = new(100);
+
     private Dictionary<VariableToSave, object> savedVars; //The dictionary of where all the data is saved.
     public event Action purchaseCallback;
     /// <summary>
@@ -21,14 +25,29 @@ public sealed class VariableManager : BaseManager
         Dash = 10,
         TrojanHorse = 11,
         EMP = 12,
+        Warp = 13,
 
         //One time unlocks
         PhishingMinigame = 101
     }
 
+    public enum AllAbilities
+    {
+        Dash = 0,
+        TrojanHorse = 1,
+        EMP = 2,
+        Warp = 3,
+    }
+
     public override BaseManager StartUp()
     {
         Restart();
+
+        foreach (AbilityBase ability in abilities.GetComponentsInChildren<AbilityBase>())
+        {
+            allAbilities.Add(ability.name, ability);
+        }
+
         return this;
     }
 
@@ -44,6 +63,11 @@ public sealed class VariableManager : BaseManager
     public Unlockable GetUnlockable(AllUnlockables abilityName)
     {
         return GetVariable<Dictionary<AllUnlockables, Unlockable>>(allUnlockables)[abilityName];
+    }
+
+    public AbilityBase GetAbility(AllAbilities abilities)
+    {
+        return allAbilities[DoStatic.EnumToString(abilities)];
     }
 
     public void Purchase(int bytecoinsAmount, int intelligenceDataAmount, int processingPowerAmount)
@@ -88,6 +112,7 @@ public sealed class VariableManager : BaseManager
                     { AllUnlockables.Dash, new Upgradeable(10) },
                     { AllUnlockables.TrojanHorse, new Upgradeable(10) },
                     { AllUnlockables.EMP, new Upgradeable(10) },
+                    { AllUnlockables.Warp, new Upgradeable(10) },
                     { AllUnlockables.PhishingMinigame, new() },
                 }
             },
@@ -112,6 +137,16 @@ public sealed class VariableManager : BaseManager
             if (!savedVars.ContainsKey(key))
             {
                 SetVariable(key, defaultValues[key]);
+            }
+        }
+
+        Dictionary<AllUnlockables, Unlockable> defaultDict = (Dictionary<AllUnlockables, Unlockable>)defaultValues[allUnlockables];
+        foreach (AllUnlockables unlockable in defaultDict.Keys)
+        {
+            Dictionary<AllUnlockables, Unlockable> dict = (Dictionary<AllUnlockables, Unlockable>)savedVars[allUnlockables];
+            if (!dict.ContainsKey(unlockable))
+            {
+                dict.Add(unlockable, defaultDict[unlockable]);
             }
         }
     }

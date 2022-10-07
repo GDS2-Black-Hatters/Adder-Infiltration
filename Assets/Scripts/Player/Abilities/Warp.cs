@@ -1,10 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Warp : AbilityBase
 {
-    [SerializeField] private GameObject warpPointMarker;
+    [SerializeField, Header("Warp")] private GameObject warpPointMarker;
     [SerializeField] private float warpMaxDistance = 30;
     [SerializeField] private LayerMask warpTargetMask;
     private const float warpRadius = 1.6f;
@@ -12,14 +11,15 @@ public class Warp : AbilityBase
     private Coroutine warpPointMarkCoroutine;
     private bool validWarpTargetPosition;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         warpPointMarker.SetActive(false);
     }
 
-    public override void ActivateAbility()
+    protected override void DoAbilityEffect()
     {
-        if(!validWarpTargetPosition)
+        if (!validWarpTargetPosition)
         {
             return;
         }
@@ -30,7 +30,7 @@ public class Warp : AbilityBase
 
     public override void EndAbilityPrime()
     {
-        if(warpPointMarkCoroutine != null)
+        if (warpPointMarkCoroutine != null)
         {
             StopCoroutine(warpPointMarkCoroutine);
         }
@@ -40,7 +40,7 @@ public class Warp : AbilityBase
 
     public override void StartAbilityPrime()
     {
-        if(warpPointMarkCoroutine != null)
+        if (warpPointMarkCoroutine != null)
         {
             StopCoroutine(warpPointMarkCoroutine);
         }
@@ -52,16 +52,15 @@ public class Warp : AbilityBase
 
     private IEnumerator updateWarpPointMark()
     {
-        RaycastHit castResult;
         Vector3 sphereCenter;
-        while(true)
+        while (true)
         {
-            if(Physics.SphereCast(Camera.main.transform.position, warpRadius, Camera.main.transform.forward, out castResult, warpMaxDistance, warpTargetMask))
+            if (Physics.SphereCast(Camera.main.transform.position, warpRadius, Camera.main.transform.forward, out RaycastHit castResult, warpMaxDistance, warpTargetMask))
             {
                 sphereCenter = castResult.point + warpRadius * castResult.normal;
             }
             else
-            {                
+            {
                 //sphereCenter = Camera.main.transform.position + Camera.main.transform.forward * warpMaxDistance;
                 validWarpTargetPosition = false;
                 warpPointMarker.SetActive(false);
@@ -69,7 +68,7 @@ public class Warp : AbilityBase
                 continue;
             }
 
-            if(validWarpTargetPosition = Physics.Raycast(sphereCenter, Vector3.down, out castResult, float.MaxValue, warpTargetMask))
+            if (validWarpTargetPosition = Physics.Raycast(sphereCenter, Vector3.down, out castResult, float.MaxValue, warpTargetMask))
             {
                 warpPointMarker.transform.position = castResult.point;
                 warpPointMarker.SetActive(true);

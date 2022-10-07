@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,29 +5,39 @@ public class AbilityPivotBehaviour : MonoBehaviour
 {
     [SerializeField] private Image frame;
     [SerializeField] private Image icon;
-    public bool IsCoolingDown { get; private set; } = false;
+    private AbilityBase current;
 
-    public void ActivateAbility()
+    public void UpdateAppearance(AbilityBase ability)
     {
-        if (!IsCoolingDown && !AbilityWheelBehaviour.IsRotating)
+        icon.sprite = ability.Logo;
+        if (current)
         {
-            //TODO: Call ability effect here.
-            StartCoroutine(Cooldown());
+            current.CooldownUpdate -= UpdateCooldown;
+            current.CooldownFinish -= FinishCooldown;
+        }
+        current = ability;
+        current.CooldownUpdate += UpdateCooldown;
+        current.CooldownFinish += FinishCooldown;
+
+        if (current.IsCoolingDown)
+        {
+            UpdateCooldown();
+        }
+        else
+        {
+            FinishCooldown();
         }
     }
 
-    private IEnumerator Cooldown()
+    private void UpdateCooldown()
     {
-        IsCoolingDown = true;
-        TimeTracker time = new(1, 1); //TODO: Hook up to ability's cooldown value.
-        time.onFinish += () => { IsCoolingDown = false; };
         icon.color = Color.gray;
-        do
-        {
-            yield return null;
-            time.Update(Time.deltaTime);
-            frame.fillAmount = time.TimePercentage;
-        } while (IsCoolingDown);
+        frame.fillAmount = current.CooldownTimer.TimePercentage;
+    }
+
+    private void FinishCooldown()
+    {
         icon.color = Color.white;
+        frame.fillAmount = 1;
     }
 }

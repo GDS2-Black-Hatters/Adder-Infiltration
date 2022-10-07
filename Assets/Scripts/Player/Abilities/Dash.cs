@@ -1,4 +1,4 @@
-public class EMP : AbilityBase
+public class Dash : AbilityBase
 {
     protected override void DoAbilityEffect()
     {

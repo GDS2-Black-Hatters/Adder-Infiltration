@@ -46,6 +46,6 @@ public sealed class InputManager : BaseManager
 
     public void SetControlScheme(ControlScheme scheme)
     {
-        playerInput.SwitchCurrentActionMap(DoStatic.EnumAsString(scheme));
+        playerInput.SwitchCurrentActionMap(DoStatic.EnumToString(scheme));
     }
 }

@@ -21,7 +21,7 @@ public class PlayerVirusController : MonoBehaviour
     private void Awake()
     {
         ais = gameObject.AddComponent<ActionInputSubscriber>();
-        ais.AddActions( new System.Collections.Generic.List<ActionInputSubscriber.ActionDelegate>{
+        ais.AddActions( new() {
             new(MainGameMove, Performed, moveInputChange),
             new(MainGameMove, Canceled, moveInputStop),
             new(MainGameLook, Performed, lookInputChange),
