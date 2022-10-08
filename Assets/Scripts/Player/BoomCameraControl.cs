@@ -1,7 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static LevelManager;
+using static InputManager;
+using static ActionInputSubscriber.CallbackContext;
 
 public class BoomCameraControl : MonoBehaviour
 {
@@ -34,19 +35,22 @@ public class BoomCameraControl : MonoBehaviour
     }
     [SerializeField] private Transform leftRightRotTransform;
 
+    private void Start()
+    {
+        GameManager.LevelManager.player.virusController.onLookInputUpdate += RotateCamera;
+    }
 
     private void Update()
     {
         Vector3 boomedPosition = transform.position;
         TranslateBoom(ref boomedPosition, transform.up, upDistance);
-        TranslateBoom(ref boomedPosition, -transform.forward, backDistance);
+        TranslateBoom(ref boomedPosition, -leftRightRotTransform.forward, backDistance);
         cameraBindTransform.position = boomedPosition;
     }
 
     private void TranslateBoom(ref Vector3 boomV3, Vector3 boomDirection, float boomDistance)
     {
-        RaycastHit boomResult;
-        if(Physics.SphereCast(boomV3, boomSphereRadius, boomDirection, out boomResult, boomDistance, sphereCastMask))
+        if (Physics.SphereCast(boomV3, boomSphereRadius, boomDirection, out RaycastHit boomResult, boomDistance, sphereCastMask))
         {
             boomV3 += (boomResult.distance - boomSphereRadius) * boomDirection;
         }
@@ -56,40 +60,15 @@ public class BoomCameraControl : MonoBehaviour
         }
     }
 
-    private void OnEnable()
+    private void RotateCamera(Vector2 lookDeltaV2)
     {
-        //Retrieve InputManager and register input events
-        InputManager inputManager = GameManager.InputManager;
-        inputManager.ChangeControlMap(InputManager.ControlScheme.MainGame);
-
-        inputManager.GetAction(InputManager.Controls.Look).performed += RotateCamera;
-    }
-
-    private void OnDisable()
-    {
-        InputManager inputManager = GameManager.InputManager;
-        if (!inputManager)
-        {
-            return;
-        }
-        inputManager.GetAction(InputManager.Controls.Look).performed -= RotateCamera;
-    }
-
-    private void RotateCamera(InputAction.CallbackContext LookDelta)
-    {
-        if (PauseMenuController.GameIsPaused) //Todo: Fix later!
-        {
-            return;
-        }
-
-        Vector2 lookDeltaV2 = LookDelta.ReadValue<Vector2>();
         RotateLeftRight(lookDeltaV2.x);
         LookUpDown(lookDeltaV2.y);
     }
 
     private void RotateLeftRight(float deltaAngle)
     {
-        leftRightRotTransform.Rotate(Vector3.up, deltaAngle);
+        leftRightRotTransform.Rotate(leftRightRotTransform.up, deltaAngle);
     }
 
     private void LookUpDown(float delta)

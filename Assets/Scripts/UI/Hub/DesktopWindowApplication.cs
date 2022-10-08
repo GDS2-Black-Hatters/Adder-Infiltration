@@ -3,9 +3,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-using static ActionInputSubscriber.CallBackContext;
-using static InputManager.Controls;
-using static InputManager.ControlScheme;
+using static ActionInputSubscriber.CallbackContext;
+using static InputManager;
 
 [RequireComponent(typeof(CanvasGroup))]
 public sealed class DesktopWindowApplication : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
@@ -39,7 +38,7 @@ public sealed class DesktopWindowApplication : MonoBehaviour, IPointerEnterHandl
 
         gameObject.AddComponent<ActionInputSubscriber>().AddActions(new()
         {
-            new(Hub, GameManager.InputManager.GetAction(Click), Performed, ClickToFocus),
+            new(HubClick, Performed, ClickToFocus),
         });
 
         outlines = focusOutline.GetComponentsInChildren<Outline>();

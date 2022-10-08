@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public sealed class PoolManager : MonoBehaviour, IManager
+public sealed class PoolManager : BaseManager
 {
     [System.Serializable]
     private class PrefabPool
@@ -43,7 +43,7 @@ public sealed class PoolManager : MonoBehaviour, IManager
     private GameObject poolManager;
     private readonly Dictionary<string, PrefabPool> pools = new();
 
-    public void StartUp()
+    public override BaseManager StartUp()
     {
         poolManager = new("PoolManager");
         poolManager.transform.parent = transform;
@@ -55,6 +55,8 @@ public sealed class PoolManager : MonoBehaviour, IManager
             pool.SetPool(obj);
             pools.Add(pool.poolName, pool);
         }
+
+        return this;
     }
 
     /// <summary>

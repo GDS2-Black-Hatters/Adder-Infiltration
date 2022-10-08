@@ -1,6 +1,7 @@
 #pragma warning disable IDE1006 // Naming Styles
 using UnityEngine;
 
+[System.Serializable]
 public class Lerper
 {
     [SerializeField] private float start; //The start value
@@ -31,13 +32,18 @@ public class Lerper
         {
             timer.Update(deltaTime);
             float clamp = Mathf.Clamp(timer.tick / timer.timer, 0, 1);
-            currentValue = clamp * (end - start) + start;
+            currentValue = ValueAtPercentage(clamp);
             if (clamp == 1)
             {
                 Reset();
             }
         }
         return currentValue;
+    }
+
+    public float ValueAtPercentage(float percentage)
+    {
+        return Mathf.Clamp(percentage, 0, 1) * (end - start) + start;
     }
 
     private void Reset()

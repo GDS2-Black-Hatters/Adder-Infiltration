@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PCGIslandData : PCGeneratableSO
 {
-    [SerializeField] private PCGChunkData[] requiredChunks;
-    [SerializeField] private PCGChunkData[] availableFreeUseChunks;
+    [SerializeField] private PCGChunkDataBase[] requiredChunks;
+    [SerializeField] private PCGChunkDataBase[] availableFreeUseChunks;
 
     public override GameObject Generate(Transform parentTransform, float cellUnitMultiplier)
     {

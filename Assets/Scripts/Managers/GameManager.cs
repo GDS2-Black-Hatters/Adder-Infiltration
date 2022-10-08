@@ -26,17 +26,15 @@ public sealed class GameManager : MonoBehaviour
         }
 
         Instance = this;
-        AudioManager = GetComponent<AudioManager>();
-        PoolManager = GetComponent<PoolManager>();
-        SaveManager = GetComponent<SaveManager>();
-        LevelManager = GetComponent<LevelManager>();
-        InputManager = GetComponent<InputManager>();
-        VariableManager = GetComponent<VariableManager>();
 
-        foreach (IManager manager in GetComponents<IManager>())
-        {
-            manager.StartUp();
-        }
+        //There may be a better way than this but this is theoretically faster than the previous version.
+        //Also we can now control the execution order.
+        VariableManager = (VariableManager)GetComponent<VariableManager>().StartUp();
+        SaveManager = (SaveManager)GetComponent<SaveManager>().StartUp();
+        AudioManager = (AudioManager)GetComponent<AudioManager>().StartUp();
+        PoolManager = (PoolManager)GetComponent<PoolManager>().StartUp();
+        LevelManager = (LevelManager)GetComponent<LevelManager>().StartUp();
+        InputManager = (InputManager)GetComponent<InputManager>().StartUp();
 
         DontDestroyOnLoad(gameObject);
     }
