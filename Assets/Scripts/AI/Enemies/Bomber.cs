@@ -41,7 +41,7 @@ public class Bomber : Enemy
         Debug.Log(gameObject+"ALLAHU AKBAR!");
 
         //Within explosion range
-        if ((GameManager.LevelManager.player.position - transform.position).sqrMagnitude <= explosionRange) 
+        if ((GameManager.LevelManager.player.transform.position - transform.position).sqrMagnitude <= explosionRange) 
         {
             GameManager.VariableManager.playerHealth.ReduceHealth(explosionDamage);
             

@@ -22,7 +22,7 @@ public class Slower : Enemy
     protected override void Attack()
     {
         attackCooldown.Update(Time.deltaTime);
-        if ((GameManager.LevelManager.player.position - transform.position).sqrMagnitude > closeRangeDistance)
+        if ((GameManager.LevelManager.player.transform.position - transform.position).sqrMagnitude > closeRangeDistance)
         {
             stateAction = Chase;
             fixedStateAction = FixedChase;
@@ -34,6 +34,6 @@ public class Slower : Enemy
         //slowerAnim.SetBool("isConstructing", true);
         Debug.Log(gameObject + "Is Constructing!!!");
         Instantiate(constructingParticle, transform.position, Quaternion.identity);
-        Instantiate(Obstacles, GameManager.LevelManager.player.position, Quaternion.identity);
+        Instantiate(Obstacles, GameManager.LevelManager.player.transform.position, Quaternion.identity);
     }
 }
