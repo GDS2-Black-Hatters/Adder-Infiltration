@@ -15,7 +15,7 @@ public class Hook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0) && gameObject.transform.position.y <= 4)
+        if ((Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space)) && gameObject.transform.position.y <= 4)
         {
             gameObject.transform.position = new Vector3(-5, gameObject.transform.position.y + moveSpeed * Time.deltaTime, 0);
         }

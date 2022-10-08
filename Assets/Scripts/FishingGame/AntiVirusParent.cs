@@ -6,6 +6,7 @@ using TMPro;
 public class AntiVirusParent : MonoBehaviour
 {
     private float spawnTimer = 0;
+    private float spawnNextAnti = 1;
 
     private Rigidbody antiVirus;
 
@@ -21,11 +22,12 @@ public class AntiVirusParent : MonoBehaviour
     void Update()
     {
         spawnTimer += Time.deltaTime;
-        if (spawnTimer >= 1)
+        if (spawnTimer >= spawnNextAnti)
         {
             Rigidbody antivirus;
             antivirus = Instantiate(antiVirus, new Vector3(15, Random.Range(3.5f, -3.5f), 0), transform.rotation);
-            antivirus.velocity = new Vector3(-10, 0, 0);
+            antivirus.velocity = new Vector3(Random.Range(-10f,-15f), 0, 0);
+            spawnNextAnti = Random.Range(0.75f, 1.25f);
             spawnTimer = 0;
         }
     }
