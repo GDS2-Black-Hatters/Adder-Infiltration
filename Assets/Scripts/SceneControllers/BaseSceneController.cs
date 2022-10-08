@@ -28,8 +28,8 @@ public class BaseSceneController : MonoBehaviour
 
     //Skybox Lerping.
     [Header("Skybox Parameters")]
-    [SerializeField] private Color startColor = Color.green;
-    [SerializeField] private Color endColor = Color.red;
+    //[SerializeField] private Color startColor = Color.green;
+    //[SerializeField] private Color endColor = Color.red;
     [SerializeField] private float lerpTime = 1f;
     private readonly Lerper lerper = new();
 
@@ -134,7 +134,8 @@ public class BaseSceneController : MonoBehaviour
         do
         {
             lerper.Update(Time.deltaTime);
-            RenderSettings.skybox.SetColor("_SkyTint", Color.Lerp(startColor, endColor, lerper.currentValue));
+            //RenderSettings.skybox.SetColor("_SkyTint", Color.Lerp(startColor, endColor, lerper.currentValue));
+            RenderSettings.skybox.SetFloat("_LerpState", lerper.currentValue);
             yield return null;
         } while (lerper.isLerping);
     }

@@ -35,4 +35,25 @@ public abstract class PCGChunkDataBase : PCGeneratableSO
 
         return root;
     }
+
+    protected int GetChunkModuleRotateMultiplier(Vector2Int cellCord, int defaultReturn = 0)
+    {
+        // 2221
+        // 3XX1
+        // 3XX1
+        // 3000
+        if(cellCord.y == chunkTransform.bottomRight.y && cellCord.x != chunkTransform.upperLeft.x)
+            return 0;
+
+        if(cellCord.x == chunkTransform.bottomRight.x && cellCord.y != chunkTransform.bottomRight.y)
+            return 1;
+        
+        if(cellCord.y == chunkTransform.upperLeft.y && cellCord.x != chunkTransform.bottomRight.x)
+            return 2;
+        
+        if(cellCord.x == chunkTransform.upperLeft.x && cellCord.y != chunkTransform.upperLeft.y)
+            return 3;
+        
+        return defaultReturn;
+    }
 }

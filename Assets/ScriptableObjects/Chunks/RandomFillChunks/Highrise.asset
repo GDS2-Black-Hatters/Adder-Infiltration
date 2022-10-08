@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Highrise
   m_EditorClassIdentifier: 
   chunkBaseObjectPrefab: {fileID: 2089300250955244641, guid: 58f5b734fc4d192419f23f56cc00b592, type: 3}
-  minCellCountRequirement: 0
   requiredBlocks: []
   availableFreeBlocks:
   - {fileID: 11400000, guid: 2e90a672ae33cb8478a81e5766c9490f, type: 2}
   - {fileID: 11400000, guid: 20c726fccbdc9f7408ae958e70725bfc, type: 2}
+  randomWalkableTileChance: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: OpenPark
   m_EditorClassIdentifier: 
   chunkBaseObjectPrefab: {fileID: 2089300250955244641, guid: 58f5b734fc4d192419f23f56cc00b592, type: 3}
-  minCellCountRequirement: 0
   requiredBlocks: []
   availableFreeBlocks:
   - {fileID: 11400000, guid: 76d2d4201c2122448a944349e76bbd53, type: 2}
+  randomWalkableTileChance: 1
