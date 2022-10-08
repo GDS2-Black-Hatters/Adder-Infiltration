@@ -35,6 +35,7 @@ public class Warp : AbilityBase
             StopCoroutine(warpPointMarkCoroutine);
         }
 
+        validWarpTargetPosition = false;
         warpPointMarker.SetActive(false);
     }
 

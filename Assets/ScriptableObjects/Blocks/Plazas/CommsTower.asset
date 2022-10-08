@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: CommsTower
   m_EditorClassIdentifier: 
   possibleCellPosition: -1
+  doesNotBlockPathing: 1
   _blockSize: {x: 1, y: 1}
   availablePlazaCorePrefab:
   - {fileID: 8264347854596036144, guid: d2fbec80fdba70e43bb2949a6d47d480, type: 3}

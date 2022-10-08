@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: f9bf763b24ad83f4cad0c233f3ae54d4, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 0d64c3e0941c8a2469e94186c9a408fc, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -227,9 +227,7 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 0c07393645dc8654c84effe69cbeadf7, type: 2}
-  startColor: {r: 0, g: 1, b: 0, a: 1}
-  endColor: {r: 0.7924528, g: 0, b: 0, a: 1}
-  lerpTime: 1
+  lerpTime: 3
   playerPrefab: {fileID: 8804111390498198749, guid: 69832c6d5cf7dbf488ce8eb1d64c8520, type: 3}
   mainIsland: {fileID: 825373982}
 --- !u!114 &24270770 stripped
