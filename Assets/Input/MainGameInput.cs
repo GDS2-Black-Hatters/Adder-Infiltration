@@ -330,6 +330,34 @@ public partial class @MainGameInput : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Phishing"",
+            ""id"": ""cea08e40-acfb-4600-84c6-d1da6d13f045"",
+            ""actions"": [
+                {
+                    ""name"": ""Phish"",
+                    ""type"": ""Button"",
+                    ""id"": ""2591bded-6e5f-47e9-a44a-6cb214045b4b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""5673fe63-21c3-4210-a8f1-f5ce14135637"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Phish"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -346,6 +374,9 @@ public partial class @MainGameInput : IInputActionCollection2, IDisposable
         m_MainGame_Interact = m_MainGame.FindAction("Interact", throwIfNotFound: true);
         m_MainGame_Ability = m_MainGame.FindAction("Ability", throwIfNotFound: true);
         m_MainGame_Scroll = m_MainGame.FindAction("Scroll", throwIfNotFound: true);
+        // Phishing
+        m_Phishing = asset.FindActionMap("Phishing", throwIfNotFound: true);
+        m_Phishing_Phish = m_Phishing.FindAction("Phish", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -515,6 +546,39 @@ public partial class @MainGameInput : IInputActionCollection2, IDisposable
         }
     }
     public MainGameActions @MainGame => new MainGameActions(this);
+
+    // Phishing
+    private readonly InputActionMap m_Phishing;
+    private IPhishingActions m_PhishingActionsCallbackInterface;
+    private readonly InputAction m_Phishing_Phish;
+    public struct PhishingActions
+    {
+        private @MainGameInput m_Wrapper;
+        public PhishingActions(@MainGameInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Phish => m_Wrapper.m_Phishing_Phish;
+        public InputActionMap Get() { return m_Wrapper.m_Phishing; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(PhishingActions set) { return set.Get(); }
+        public void SetCallbacks(IPhishingActions instance)
+        {
+            if (m_Wrapper.m_PhishingActionsCallbackInterface != null)
+            {
+                @Phish.started -= m_Wrapper.m_PhishingActionsCallbackInterface.OnPhish;
+                @Phish.performed -= m_Wrapper.m_PhishingActionsCallbackInterface.OnPhish;
+                @Phish.canceled -= m_Wrapper.m_PhishingActionsCallbackInterface.OnPhish;
+            }
+            m_Wrapper.m_PhishingActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Phish.started += instance.OnPhish;
+                @Phish.performed += instance.OnPhish;
+                @Phish.canceled += instance.OnPhish;
+            }
+        }
+    }
+    public PhishingActions @Phishing => new PhishingActions(this);
     public interface IHubActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -528,5 +592,9 @@ public partial class @MainGameInput : IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnAbility(InputAction.CallbackContext context);
         void OnScroll(InputAction.CallbackContext context);
+    }
+    public interface IPhishingActions
+    {
+        void OnPhish(InputAction.CallbackContext context);
     }
 }

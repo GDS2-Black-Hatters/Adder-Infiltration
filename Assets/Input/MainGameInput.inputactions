@@ -308,6 +308,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Phishing",
+            "id": "cea08e40-acfb-4600-84c6-d1da6d13f045",
+            "actions": [
+                {
+                    "name": "Phish",
+                    "type": "Button",
+                    "id": "2591bded-6e5f-47e9-a44a-6cb214045b4b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "5673fe63-21c3-4210-a8f1-f5ce14135637",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Phish",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
