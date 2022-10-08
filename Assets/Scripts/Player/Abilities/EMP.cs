@@ -1,3 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
 public class EMP : AbilityBase
 {
     private const float minSphereRadius = 1; //Do Not Put 0 otherwise things will not work
@@ -10,9 +14,9 @@ public class EMP : AbilityBase
     [SerializeField] private float chargeRadiusSpeed = 0.5f;
     [SerializeField] private float effectRadialSpeed = 1;
 
-    private List<GameObject> objectsInRange;
+    private readonly List<GameObject> objectsInRange;
 
-    public override void DoAbilityEffect()
+    protected override void DoAbilityEffect()
     {
         effectSphere.transform.localScale = Vector3.one * minSphereRadius;
         effectSphere.SetActive(true);
@@ -40,10 +44,10 @@ public class EMP : AbilityBase
         float newRadius = minSphereRadius;
         while (true)
         {
-            newRadius = Mathf.Clamp(chargeSphere.transform.localScale.x + chargeSphere.transform.localScale.x * radiusChangeSpeed * Time.deltaTime, minSphereRadius, maxRadius); 
+            newRadius = Mathf.Clamp(chargeSphere.transform.localScale.x + chargeSphere.transform.localScale.x * radiusChangeSpeed * Time.deltaTime, minSphereRadius, maxRadius);
             chargeSphere.transform.localScale = new Vector3(newRadius, newRadius, newRadius);
 
-            if(newRadius >= maxRadius || newRadius <= minSphereRadius)
+            if (newRadius >= maxRadius || newRadius <= minSphereRadius)
             {
                 chargeSphere.SetActive(increasing);
                 yield break;
@@ -55,9 +59,9 @@ public class EMP : AbilityBase
     private IEnumerator EffectTrigger(float targetRadius)
     {
         float newRadius = minSphereRadius;
-        while(effectSphere.transform.localScale.x < targetRadius)
+        while (effectSphere.transform.localScale.x < targetRadius)
         {
-            newRadius = Mathf.Clamp(effectSphere.transform.localScale.x + effectSphere.transform.localScale.x * effectRadialSpeed * Time.deltaTime, minSphereRadius, maxRadius); 
+            newRadius = Mathf.Clamp(effectSphere.transform.localScale.x + effectSphere.transform.localScale.x * effectRadialSpeed * Time.deltaTime, minSphereRadius, maxRadius);
             effectSphere.transform.localScale = new Vector3(newRadius, newRadius, newRadius);
 
             yield return null;
@@ -73,7 +77,7 @@ public class EMP : AbilityBase
 
     public void NewObjectInRange(Collider col)
     {
-        if(objectsInRange.Contains(col.gameObject))
+        if (objectsInRange.Contains(col.gameObject))
         {
             return;
         }
