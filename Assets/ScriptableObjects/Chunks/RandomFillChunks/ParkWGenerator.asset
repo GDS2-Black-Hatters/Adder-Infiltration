@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: ParkWGenerator
   m_EditorClassIdentifier: 
   chunkBaseObjectPrefab: {fileID: 2089300250955244641, guid: 58f5b734fc4d192419f23f56cc00b592, type: 3}
+  chunkBorderRoadSideObjects:
+  - {fileID: 7470306590450331213, guid: 33317d535428b9c4a9a93dfbfbf8cd04, type: 3}
+  outerBorderObjectSpawnChance: 0.65
   requiredBlocks:
   - {fileID: 11400000, guid: f96339b767683e345aebe81c8804fe70, type: 2}
   availableFreeBlocks:

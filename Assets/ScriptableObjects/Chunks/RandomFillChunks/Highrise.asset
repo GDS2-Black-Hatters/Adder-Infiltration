@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: Highrise
   m_EditorClassIdentifier: 
   chunkBaseObjectPrefab: {fileID: 2089300250955244641, guid: 58f5b734fc4d192419f23f56cc00b592, type: 3}
+  chunkBorderRoadSideObjects:
+  - {fileID: 8162434558488713350, guid: e9ac5802d9e0337488f2e2c9b7a863f5, type: 3}
+  outerBorderObjectSpawnChance: 0.7
   requiredBlocks: []
   availableFreeBlocks:
   - {fileID: 11400000, guid: 2e90a672ae33cb8478a81e5766c9490f, type: 2}

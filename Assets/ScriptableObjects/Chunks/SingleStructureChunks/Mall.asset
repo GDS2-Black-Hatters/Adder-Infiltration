@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: Mall
   m_EditorClassIdentifier: 
   chunkBaseObjectPrefab: {fileID: 2089300250955244641, guid: 58f5b734fc4d192419f23f56cc00b592, type: 3}
+  chunkBorderRoadSideObjects:
+  - {fileID: 8162434558488713350, guid: e9ac5802d9e0337488f2e2c9b7a863f5, type: 3}
+  - {fileID: 7470306590450331213, guid: 33317d535428b9c4a9a93dfbfbf8cd04, type: 3}
+  outerBorderObjectSpawnChance: 0.8
   structureModules:
   - {fileID: 1562697348485988140, guid: 0e149656848b8bd42b699bf38f77860f, type: 3}
   - {fileID: 526221706872540490, guid: 0ff27fbb6bd2ab44d87b5e014f8b66c4, type: 3}
