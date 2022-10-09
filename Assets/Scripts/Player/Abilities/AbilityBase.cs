@@ -9,11 +9,12 @@ public abstract class AbilityBase : MonoBehaviour
     [Serializable]
     protected class LevelValues
     {
-        [SerializeField] private Lerper levelValue;
+        [SerializeField] private float minLevelValue;
+        [SerializeField] private float maxLevelValue;
 
         public float GetCurrentValue(float percentage)
         {
-            return levelValue.ValueAtPercentage(percentage);
+            return Mathf.Lerp(minLevelValue, maxLevelValue, percentage);
         }
     }
 

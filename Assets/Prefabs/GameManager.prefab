@@ -516,9 +516,8 @@ MonoBehaviour:
   <DefaultUpgrade>k__BackingField:
     <MaxLevel>k__BackingField: 10
   cooldown:
-    levelValue:
-      start: 10
-      end: 1
+    minLevelValue: 10
+    maxLevelValue: 1
   <Name>k__BackingField: EMP
   description: Shock surrounding enemies temporarily stopping them in their tracks.
   Bytecoin:
@@ -1256,22 +1255,21 @@ MonoBehaviour:
   <DefaultUpgrade>k__BackingField:
     <MaxLevel>k__BackingField: 10
   cooldown:
-    levelValue:
-      start: 10
-      end: 1
+    minLevelValue: 10
+    maxLevelValue: 1
   <Name>k__BackingField: Warp
   description: (WIP) Through the power of bit shifting, warp and bypass gates.
   Bytecoin:
-    initialUnlockPrice: 100
-    startingPrice: 120
-    endingPrice: 200
+    initialUnlockPrice: 20
+    startingPrice: 40
+    endingPrice: 350
   IntelligenceData:
-    initialUnlockPrice: 100
-    startingPrice: 120
-    endingPrice: 200
+    initialUnlockPrice: 30
+    startingPrice: 60
+    endingPrice: 500
   ProcessingPower:
-    initialUnlockPrice: 100
-    startingPrice: 120
+    initialUnlockPrice: 10
+    startingPrice: 20
     endingPrice: 200
   warpPointMarker: {fileID: 4927351297914584842}
   warpMaxDistance: 30
@@ -1327,11 +1325,10 @@ MonoBehaviour:
   <DefaultUpgrade>k__BackingField:
     <MaxLevel>k__BackingField: 10
   cooldown:
-    levelValue:
-      start: 10
-      end: 1
+    minLevelValue: 10
+    maxLevelValue: 1
   <Name>k__BackingField: Dash
-  description: Become undetectable and invincible as you dash forward a short distance.
+  description: Become invincible as you dash forward a short distance.
   Bytecoin:
     initialUnlockPrice: 15
     startingPrice: 30
@@ -1344,6 +1341,7 @@ MonoBehaviour:
     initialUnlockPrice: 25
     startingPrice: 50
     endingPrice: 700
+  strength: 2500
 --- !u!1 &7545813000656512987
 GameObject:
   m_ObjectHideFlags: 0
@@ -1860,9 +1858,8 @@ MonoBehaviour:
   <DefaultUpgrade>k__BackingField:
     <MaxLevel>k__BackingField: 10
   cooldown:
-    levelValue:
-      start: 10
-      end: 1
+    minLevelValue: 20
+    maxLevelValue: 15
   <Name>k__BackingField: Trojan Horse
   description: Become undetectable to even the most eagle of eyes for a short duration.
     Though, once spotted will always be spotted.
@@ -1879,8 +1876,8 @@ MonoBehaviour:
     startingPrice: 10
     endingPrice: 100
   abilityDuration:
-    start: 0
-    end: 0
+    minLevelValue: 3
+    maxLevelValue: 10
   trojinVisual: {fileID: 8721501800282577067}
 --- !u!1 &8995494571720348317
 GameObject:
@@ -2022,9 +2019,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4971673717813868712}
     m_Modifications:
+    - target: {fileID: 1192917694697169804, guid: 44370a3d65f3eb14ea037812a59ed8e0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 4011231950180232756, guid: 44370a3d65f3eb14ea037812a59ed8e0, type: 3}
       propertyPath: m_Name
       value: BitChar
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011231950180232756, guid: 44370a3d65f3eb14ea037812a59ed8e0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5260280076170172213, guid: 44370a3d65f3eb14ea037812a59ed8e0, type: 3}
       propertyPath: m_RootOrder

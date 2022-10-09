@@ -37,7 +37,7 @@ public abstract class PurchaseableAbility : AbilityBase, IPurchaseable
 
             if (AbilityUpgrade.UnlockProgression != 1)
             {
-                IPurchaseable.AppendDescription(ref desc, bytecoins, GetBytecoinPrice, "\nByteCoins:\t");
+                IPurchaseable.AppendDescription(ref desc, bytecoins, GetBytecoinPrice, "ByteCoins:\t");
                 IPurchaseable.AppendDescription(ref desc, intelligenceData, GetIntelligenceDataPrice, "Intelligence Data:");
                 IPurchaseable.AppendDescription(ref desc, processingPower, GetProcessingPowerPrice, "Processing Power:");
             }
@@ -47,17 +47,19 @@ public abstract class PurchaseableAbility : AbilityBase, IPurchaseable
 
     protected virtual void UpgradeDescription(ref string desc)
     {
+        desc += "\n\n";
         CalculateNextUpgrade(ref desc, "Cooldown", cooldown, "s");
     }
 
     protected string CalculateNextUpgrade(ref string desc, string fieldName, LevelValues levelValues, string suffix = "")
     {
-        desc += $"\n\n{fieldName}: {levelValues.GetCurrentValue(AbilityUpgrade.UnlockProgression)}{suffix}";
+        desc += $"{fieldName}: {levelValues.GetCurrentValue(AbilityUpgrade.UnlockProgression)}{suffix}";
         float next = AbilityUpgrade.Level + 1;
         if (AbilityUpgrade.IsUnlocked && next <= AbilityUpgrade.MaxLevel)
         {
             desc += $" -> {levelValues.GetCurrentValue(next / AbilityUpgrade.MaxLevel)}{suffix}";
         }
+        desc += "\n";
         return desc;
     }
 

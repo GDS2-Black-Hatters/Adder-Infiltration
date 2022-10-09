@@ -7,7 +7,7 @@ public class Lerper
     [SerializeField] private float start; //The start value
     public float currentValue { get; protected set; } //The current value depending on the current time between start and end value.
     [SerializeField] private float end; //The destination value
-    private TimeTracker timer; //The timer
+    private TimeTracker timer = new(1, 1); //The timer
 
     public bool isLerping { get; protected set; } = false; //A flag used to check if this class is still lerping.
 
@@ -17,7 +17,7 @@ public class Lerper
         currentValue = start;
         end = endValue;
 
-        timer = new(time, 1);
+        timer.SetTimer(1);
         isLerping = startLerping;
     }
 
@@ -31,19 +31,14 @@ public class Lerper
         if (isLerping)
         {
             timer.Update(deltaTime);
-            float clamp = Mathf.Clamp(timer.tick / timer.timer, 0, 1);
-            currentValue = ValueAtPercentage(clamp);
-            if (clamp == 1)
+            float percentage = timer.tick / timer.timer;
+            currentValue = Mathf.Lerp(start, end, percentage);
+            if (percentage == 1)
             {
                 Reset();
             }
         }
         return currentValue;
-    }
-
-    public float ValueAtPercentage(float percentage)
-    {
-        return Mathf.Clamp(percentage, 0, 1) * (end - start) + start;
     }
 
     private void Reset()

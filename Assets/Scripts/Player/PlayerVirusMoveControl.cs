@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerVirusMoveControl : MonoBehaviour
@@ -32,9 +30,19 @@ public class PlayerVirusMoveControl : MonoBehaviour
 
     private void MoveFixedUpdate()
     {
+        Movement(movementDeltaV2, movementSpeed);
+    }
+
+    private void Movement(Vector2 movementDelta, float speed)
+    {
         Vector3 xAxis = cameraAnchor.right;
         Vector3 forward = Vector3.Cross(xAxis, Vector3.up);
-        Vector3 direction = (xAxis * movementDeltaV2.x) + (forward * movementDeltaV2.y);
-        rb.AddForce(movementSpeed * direction, ForceMode.Acceleration);
+        Vector3 direction = (xAxis * movementDelta.x) + (forward * movementDelta.y);
+        rb.AddForce(speed * direction, ForceMode.Acceleration);
+    }
+
+    public void Dash(float strength)
+    {
+        Movement(movementDeltaV2 == Vector2.zero ? Vector2.up : movementDeltaV2, strength);
     }
 }
