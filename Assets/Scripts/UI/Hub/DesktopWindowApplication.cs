@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -59,12 +60,12 @@ public sealed class DesktopWindowApplication : MonoBehaviour, IPointerEnterHandl
         fadeStartPos = transform.root.InverseTransformPoint(buttonPos);
     }
 
-    public void ToggleApplication()
+    public void ToggleApplication(UnityEvent transitionFinish)
     {
         Prioritise();
         if (!fade.isLerping)
         {
-            StartCoroutine(Fading());
+            StartCoroutine(Fading(transitionFinish));
         }
     }
 
@@ -111,7 +112,7 @@ public sealed class DesktopWindowApplication : MonoBehaviour, IPointerEnterHandl
         focusOutline.alpha = 1;
     }
 
-    private IEnumerator Fading()
+    private IEnumerator Fading(UnityEvent transitionFinish)
     {
         //Toggles fade in or out.
         float start = canvasGroup.alpha;
@@ -127,5 +128,6 @@ public sealed class DesktopWindowApplication : MonoBehaviour, IPointerEnterHandl
             rectTransform.localScale = Vector2.one * fade.currentValue;
             yield return null;
         } while (fade.isLerping);
+        transitionFinish?.Invoke();
     }
 }

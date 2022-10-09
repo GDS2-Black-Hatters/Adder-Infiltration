@@ -1,28 +1,24 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PhisingLoadAdditive : MonoBehaviour
+public class PhishingLoadAdditive : MonoBehaviour
 {
     private bool isActive = false; //Check if active
     private Scene activePhisingScene; //Reference to current Fishing Scene
-    public void LoadPhisingScene()
+
+    public void TogglePhishingScene()
     {
         //Check to avoid multiple Fishing Scenes when spamming
-        if(!isActive) 
+        if (!isActive)
         {
-        var parameters = new LoadSceneParameters(LoadSceneMode.Additive);
-        activePhisingScene = SceneManager.LoadScene("Fishing", parameters);
-        isActive = true;
+            isActive = true;
+            var parameters = new LoadSceneParameters(LoadSceneMode.Additive);
+            activePhisingScene = SceneManager.LoadScene("Fishing", parameters);
         }
-    }
-
-    public void ClosePhisingScene()
-    {   
-        if(isActive)
+        else
         {
             isActive = false;
             SceneManager.UnloadSceneAsync(activePhisingScene);
         }
-
     }
 }

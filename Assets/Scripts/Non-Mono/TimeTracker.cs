@@ -53,7 +53,7 @@ public class TimeTracker
         this.timer = timer;
         if (resetTick)
         {
-            Reset();
+            Reset(false, false);
         }
     }
 

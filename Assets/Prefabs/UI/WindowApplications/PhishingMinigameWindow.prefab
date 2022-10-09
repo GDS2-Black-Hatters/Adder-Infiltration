@@ -80,9 +80,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8103875754763180, guid: 73e0af7f5b80e4645b06c4e02e3d4ad1, type: 3}
+      propertyPath: clickEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8103875754763180, guid: 73e0af7f5b80e4645b06c4e02e3d4ad1, type: 3}
+      propertyPath: clickEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8103875754763180, guid: 73e0af7f5b80e4645b06c4e02e3d4ad1, type: 3}
+      propertyPath: clickEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4734132170081746034}
+    - target: {fileID: 8103875754763180, guid: 73e0af7f5b80e4645b06c4e02e3d4ad1, type: 3}
+      propertyPath: clickEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8103875754763180, guid: 73e0af7f5b80e4645b06c4e02e3d4ad1, type: 3}
+      propertyPath: clickEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TogglePhishingScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 8103875754763180, guid: 73e0af7f5b80e4645b06c4e02e3d4ad1, type: 3}
+      propertyPath: clickEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PhisingLoadAdditive, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8103875754763180, guid: 73e0af7f5b80e4645b06c4e02e3d4ad1, type: 3}
+      propertyPath: clickEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 196212160060734749, guid: 73e0af7f5b80e4645b06c4e02e3d4ad1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 196212160060734749, guid: 73e0af7f5b80e4645b06c4e02e3d4ad1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
