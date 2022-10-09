@@ -101,9 +101,9 @@ public sealed class VariableManager : BaseManager
     {
         Dictionary<VariableToSave, object> defaultValues = new()
         {
-            {bytecoins, 9999 },
-            {intelligenceData, 9999 },
-            {processingPower, 9999 },
+            {bytecoins, 100 }, //TODO: Set to 0 for next sprint.
+            {intelligenceData, 100 },
+            {processingPower, 100 },
             { allUnlockables, new Dictionary<AllUnlockables, Unlockable>()
                 {
                     { AllUnlockables.Dash, allAbilities[AllAbilities.Dash].DefaultUpgrade },

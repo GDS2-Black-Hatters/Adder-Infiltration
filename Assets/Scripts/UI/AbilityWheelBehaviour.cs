@@ -50,7 +50,7 @@ public class AbilityWheelBehaviour : MonoBehaviour
         //If there is no unlocked abilities, destroy this.
         if (availableAbilities.Count == 0)
         {
-            Destroy(this);
+            Destroy(gameObject);
             return;
         }
         UpdateAbilityWheel();

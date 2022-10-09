@@ -6,8 +6,8 @@ public class EMP : PurchaseableAbility
 {
     private const float minSphereRadius = 1; //Do Not Put 0 otherwise things will not work
 
-    [SerializeField] private GameObject chargeSphere;
-    [SerializeField] private GameObject effectSphere;
+    [SerializeField] private Transform chargeSphere;
+    [SerializeField] private Transform effectSphere;
 
     [Header("Settings")]
     [SerializeField] private float maxRadius = 20;
@@ -18,11 +18,11 @@ public class EMP : PurchaseableAbility
 
     protected override void DoAbilityEffect()
     {
-        effectSphere.transform.localScale = Vector3.one * minSphereRadius;
-        effectSphere.SetActive(true);
-        chargeSphere.SetActive(false);
-        StartCoroutine(EffectTrigger(chargeSphere.transform.localScale.x));
-        chargeSphere.transform.localScale = Vector3.one * minSphereRadius;
+        effectSphere.localScale = Vector3.one * minSphereRadius;
+        effectSphere.gameObject.SetActive(true);
+        chargeSphere.gameObject.SetActive(false);
+        StartCoroutine(EffectTrigger(chargeSphere.localScale.x));
+        chargeSphere.localScale = Vector3.one * minSphereRadius;
     }
 
     public override void EndAbilityPrime()
@@ -34,7 +34,7 @@ public class EMP : PurchaseableAbility
     public override void StartAbilityPrime()
     {
         StopAllCoroutines();
-        chargeSphere.SetActive(true);
+        chargeSphere.gameObject.SetActive(true);
         StartCoroutine(ChangeChargeSphereRadius(true));
     }
 
@@ -44,12 +44,13 @@ public class EMP : PurchaseableAbility
         float newRadius = minSphereRadius;
         while (true)
         {
-            newRadius = Mathf.Clamp(chargeSphere.transform.localScale.x + chargeSphere.transform.localScale.x * radiusChangeSpeed * Time.deltaTime, minSphereRadius, maxRadius);
-            chargeSphere.transform.localScale = new Vector3(newRadius, newRadius, newRadius);
+            chargeSphere.position = GameManager.LevelManager.player.transform.position;
+            chargeSphere.localScale = new Vector3(newRadius, newRadius, newRadius);
 
+            newRadius = Mathf.Clamp(chargeSphere.localScale.x + chargeSphere.localScale.x * radiusChangeSpeed * Time.deltaTime, minSphereRadius, maxRadius);
             if (newRadius >= maxRadius || newRadius <= minSphereRadius)
             {
-                chargeSphere.SetActive(increasing);
+                chargeSphere.gameObject.SetActive(increasing);
                 yield break;
             }
             yield return null;
@@ -59,15 +60,15 @@ public class EMP : PurchaseableAbility
     private IEnumerator EffectTrigger(float targetRadius)
     {
         float newRadius = minSphereRadius;
-        while (effectSphere.transform.localScale.x < targetRadius)
+        while (effectSphere.localScale.x < targetRadius)
         {
-            newRadius = Mathf.Clamp(effectSphere.transform.localScale.x + effectSphere.transform.localScale.x * effectRadialSpeed * Time.deltaTime, minSphereRadius, maxRadius);
-            effectSphere.transform.localScale = new Vector3(newRadius, newRadius, newRadius);
-
+            effectSphere.position = GameManager.LevelManager.player.transform.position;
+            effectSphere.localScale = new Vector3(newRadius, newRadius, newRadius);
             yield return null;
+            newRadius = Mathf.Clamp(effectSphere.localScale.x + effectSphere.localScale.x * effectRadialSpeed * Time.deltaTime, minSphereRadius, maxRadius);
         }
 
-        effectSphere.SetActive(false);
+        effectSphere.gameObject.SetActive(false);
     }
 
     public void ObjectEnterStunRange(Collider col)

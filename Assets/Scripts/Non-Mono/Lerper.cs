@@ -17,7 +17,7 @@ public class Lerper
         currentValue = start;
         end = endValue;
 
-        timer.SetTimer(1);
+        timer.SetTimer(time);
         isLerping = startLerping;
     }
 
