@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class Computer : MonoBehaviour
 {
-    GameObject computerParent;
+    [SerializeField] GameObject computerParent;
 
     GameObject laptop;
-    int laptopTexture;
-    public Texture whiteLaptop;
-    public Texture blackLaptop;
+    // int laptopTexture;
+    // public Texture whiteLaptop;
+    // public Texture blackLaptop;
 
+    private Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
-        computerParent = GameObject.Find("ComputerParent");
-        laptop = gameObject.transform.Find("LaptopModel").gameObject;
+        rb = gameObject.GetComponent<Rigidbody2D>();
+        //computerParent = GameObject.Find("ComputerParent");
+        //laptop = gameObject.transform.Find("LaptopModel").gameObject;
         /*
         laptopTexture = Random.Range(1, 2);
         if (laptopTexture == 1)
@@ -44,7 +46,7 @@ public class Computer : MonoBehaviour
 
         if (gameObject.transform.position.y >= 3.5f || gameObject.transform.position.y <= -3.5f)
         {
-            GetComponent<Rigidbody>().velocity = new Vector3(GetComponent<Rigidbody>().velocity.x, -GetComponent<Rigidbody>().velocity.y, GetComponent<Rigidbody>().velocity.z);
+            rb.velocity = new Vector2(rb.velocity.x, -rb.velocity.y);
         }
     }
 }
