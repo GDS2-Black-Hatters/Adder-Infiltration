@@ -18,11 +18,15 @@ public class EMP : PurchaseableAbility
 
     protected override void DoAbilityEffect()
     {
-        effectSphere.localScale = Vector3.one * minSphereRadius;
+        Vector3 size = Vector3.one * minSphereRadius;
+        effectSphere.localScale = size;
+        chargeSphere.localScale = size;
+
+        chargeSphere.gameObject.SetActive(true);
+        StartCoroutine(ChangeChargeSphereRadius(true));
+
         effectSphere.gameObject.SetActive(true);
-        chargeSphere.gameObject.SetActive(false);
         StartCoroutine(EffectTrigger(chargeSphere.localScale.x));
-        chargeSphere.localScale = Vector3.one * minSphereRadius;
     }
 
     public override void EndAbilityPrime()
