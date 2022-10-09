@@ -9,7 +9,7 @@ public sealed class VariableManager : BaseManager
 {
     //Game variables
     [SerializeField] private GameObject abilities;
-    private readonly Dictionary<string, AbilityBase> allAbilities = new();
+    public Dictionary<AllAbilities, AbilityBase> allAbilities { get; private set; } = new();
 
     [field: SerializeField, Header("Caught Timer")] public TimeTracker timeToLive { get; private set; } //The timer for when getting caught. Is in seconds.
     [field: SerializeField, Header("Player Health")] public Health playerHealth { get; private set; } = new(100);
@@ -42,12 +42,6 @@ public sealed class VariableManager : BaseManager
     public override BaseManager StartUp()
     {
         Restart();
-
-        foreach (AbilityBase ability in abilities.GetComponentsInChildren<AbilityBase>())
-        {
-            allAbilities.Add(ability.name, ability);
-        }
-
         return this;
     }
 
@@ -67,7 +61,7 @@ public sealed class VariableManager : BaseManager
 
     public AbilityBase GetAbility(AllAbilities abilities)
     {
-        return allAbilities[DoStatic.EnumToString(abilities)];
+        return allAbilities[abilities];
     }
 
     public void Purchase(int bytecoinsAmount, int intelligenceDataAmount, int processingPowerAmount)
@@ -76,7 +70,6 @@ public sealed class VariableManager : BaseManager
         SetVariable(intelligenceData, GetVariable<int>(intelligenceData) - intelligenceDataAmount);
         SetVariable(processingPower, GetVariable<int>(processingPower) - processingPowerAmount);
         purchaseCallback?.Invoke();
-        GameManager.SaveManager.SaveToFile();
     }
 
     public void RandomIncrement()
@@ -97,6 +90,10 @@ public sealed class VariableManager : BaseManager
     public void SetAllVars(Dictionary<VariableToSave, object> vars)
     {
         savedVars = vars;
+        foreach (AbilityBase ability in abilities.GetComponentsInChildren<AbilityBase>())
+        {
+            allAbilities.Add(ability.ability, ability);
+        }
         AddMissingDefaults();
     }
 
@@ -104,15 +101,15 @@ public sealed class VariableManager : BaseManager
     {
         Dictionary<VariableToSave, object> defaultValues = new()
         {
-            {bytecoins, 0 },
-            {intelligenceData, 0 },
-            {processingPower, 0 },
+            {bytecoins, 9999 },
+            {intelligenceData, 9999 },
+            {processingPower, 9999 },
             { allUnlockables, new Dictionary<AllUnlockables, Unlockable>()
                 {
-                    { AllUnlockables.Dash, new Upgradeable(10) },
-                    { AllUnlockables.TrojanHorse, new Upgradeable(10) },
-                    { AllUnlockables.EMP, new Upgradeable(10) },
-                    { AllUnlockables.Warp, new Upgradeable(10) },
+                    { AllUnlockables.Dash, allAbilities[AllAbilities.Dash].DefaultUpgrade },
+                    { AllUnlockables.TrojanHorse, allAbilities[AllAbilities.TrojanHorse].DefaultUpgrade },
+                    { AllUnlockables.EMP, allAbilities[AllAbilities.EMP].DefaultUpgrade },
+                    { AllUnlockables.Warp, allAbilities[AllAbilities.Warp].DefaultUpgrade },
                     { AllUnlockables.PhishingMinigame, new() },
                 }
             },

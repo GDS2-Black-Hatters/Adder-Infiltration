@@ -39,19 +39,18 @@ public class AbilityWheelBehaviour : MonoBehaviour
         }
 
         //Get available abilities.
-        foreach (AllAbilities abilityType in DoStatic.EnumList<AllAbilities>())
+        foreach (AbilityBase abilityBase in GameManager.VariableManager.allAbilities.Values)
         {
-            Upgradeable upgrade = (Upgradeable)GameManager.VariableManager.GetUnlockable(DoStatic.EnumToEnum<AllAbilities, AllUnlockables>(abilityType));
-            if (upgrade.UnlockProgression != 0)
+            if (abilityBase.AbilityUpgrade.IsUnlocked)
             {
-                availableAbilities.Add(GameManager.VariableManager.GetAbility(abilityType));
+                availableAbilities.Add(abilityBase);
             }
         }
 
-        //If there is no unlocked abilities, then just turn them off and do nothing else.
+        //If there is no unlocked abilities, destroy this.
         if (availableAbilities.Count == 0)
         {
-            gameObject.SetActive(false);
+            Destroy(this);
             return;
         }
         UpdateAbilityWheel();

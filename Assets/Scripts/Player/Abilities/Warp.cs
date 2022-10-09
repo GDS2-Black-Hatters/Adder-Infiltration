@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Warp : AbilityBase
+public class Warp : PurchaseableAbility
 {
     [SerializeField, Header("Warp")] private GameObject warpPointMarker;
     [SerializeField] private float warpMaxDistance = 30;
@@ -11,9 +11,8 @@ public class Warp : AbilityBase
     private Coroutine warpPointMarkCoroutine;
     private bool validWarpTargetPosition;
 
-    protected override void Start()
+    protected void Start()
     {
-        base.Start();
         warpPointMarker.SetActive(false);
     }
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EMP : AbilityBase
+public class EMP : PurchaseableAbility
 {
     private const float minSphereRadius = 1; //Do Not Put 0 otherwise things will not work
 

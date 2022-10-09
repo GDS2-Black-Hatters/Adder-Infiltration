@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class TrojanHorse : AbilityBase
+public class TrojanHorse : PurchaseableAbility
 {
     [SerializeField] private Lerper abilityDuration = new();
     [SerializeField] private GameObject trojinVisual;
@@ -38,7 +38,7 @@ public class TrojanHorse : AbilityBase
 
     private IEnumerator DelayDisableAbility()
     {
-        yield return new WaitForSeconds(abilityDuration.ValueAtPercentage(abilityUpgrade.UnlockProgression));
+        yield return new WaitForSeconds(cooldown.GetCurrentValue(AbilityUpgrade.UnlockProgression));
         GameManager.LevelManager.player.gameObject.layer = LayerMask.NameToLayer("Player");
         GameManager.LevelManager.player.tag = "Player";
         GameManager.LevelManager.player.playerVisual.SetActive(true);

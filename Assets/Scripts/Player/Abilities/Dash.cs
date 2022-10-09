@@ -1,4 +1,4 @@
-public class Dash : AbilityBase
+public class Dash : PurchaseableAbility
 {
     protected override void DoAbilityEffect()
     {

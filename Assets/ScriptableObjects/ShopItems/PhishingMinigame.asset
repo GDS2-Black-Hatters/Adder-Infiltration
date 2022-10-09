@@ -13,14 +13,8 @@ MonoBehaviour:
   m_Name: PhishingMinigame
   m_EditorClassIdentifier: 
   unlockable: 101
-  <ItemName>k__BackingField: Phishing Simulator 20XX
+  <Name>k__BackingField: Phishing Simulator 20XX
   description: A game all about the simulation of phishing people!
-  bytecoin:
-    startingPrice: 200
-    endingPrice: 500
-  intelligenceData:
-    startingPrice: 10
-    endingPrice: 500
-  processingPower:
-    startingPrice: 500
-    endingPrice: 500
+  <GetBytecoinPrice>k__BackingField: 200
+  <GetIntelligenceDataPrice>k__BackingField: 10
+  <GetProcessingPowerPrice>k__BackingField: 500
