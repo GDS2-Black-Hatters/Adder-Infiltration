@@ -10,6 +10,6 @@ public class RoadEnvObject : BaseEnvironmentObject
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawWireCube(transform.position, new(1, 0.1f, objectLength));
+        Gizmos.DrawWireCube(transform.position, transform.TransformVector(new(1, 0.1f, objectLength)));
     }
 }
