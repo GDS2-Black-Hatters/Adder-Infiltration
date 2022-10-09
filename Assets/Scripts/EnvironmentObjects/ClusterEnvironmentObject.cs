@@ -20,12 +20,12 @@ public class ClusterEnvironmentObject : BaseEnvironmentObject
         }
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.gray;
         foreach(Vector3 offset in childObjOffset)
         {
-            Gizmos.DrawWireSphere(transform.position + offset, 0.2f);
+            Gizmos.DrawWireSphere(transform.TransformPoint(offset), 0.2f);
         }
     }
 }

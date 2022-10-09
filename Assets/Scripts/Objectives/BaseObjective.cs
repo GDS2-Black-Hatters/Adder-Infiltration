@@ -10,6 +10,7 @@ public abstract class BaseObjective : MonoBehaviour
     public bool canBeMandatory { get; protected set; } = true;
 
     [SerializeField] protected AK.Wwise.Event ObjectiveCompleteSound;
+    [SerializeField] protected UnityEngine.Events.UnityEvent OnObjectiveComplete;
 
     protected virtual void Awake()
     {
@@ -29,6 +30,7 @@ public abstract class BaseObjective : MonoBehaviour
     protected virtual void OnDestroy()
     {
         isComplete = true;
+        OnObjectiveComplete.Invoke();
         GameManager.LevelManager.ActiveSceneController.UpdateObjectiveList();
     }
 }
