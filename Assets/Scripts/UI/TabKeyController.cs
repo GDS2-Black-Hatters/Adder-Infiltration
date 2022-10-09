@@ -21,7 +21,6 @@ public class TabKeyController : MonoBehaviour
     }
     private void Hold(InputAction.CallbackContext callbackContext)
     {
-        print("Hold TAB!");
         //Set enabled to both objective list and icons
         if(!isActive)
         {
@@ -35,7 +34,6 @@ public class TabKeyController : MonoBehaviour
 
     private void Release(InputAction.CallbackContext callbackContext)
     {
-        print("Release TAB!");
         //Set disabled to both objective list and icons
         if(isActive)
         {
