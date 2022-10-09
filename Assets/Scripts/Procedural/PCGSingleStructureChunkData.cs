@@ -134,6 +134,8 @@ public class PCGSingleStructureChunkData : PCGChunkDataBase
             }
         }
 
+        GenerateBorderObjects(root);
+
         return root.gameObject;
     }
 

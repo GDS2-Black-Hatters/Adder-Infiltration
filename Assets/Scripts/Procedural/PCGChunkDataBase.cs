@@ -5,10 +5,15 @@ using UnityEngine;
 public abstract class PCGChunkDataBase : PCGeneratableSO
 {
     private const float chunkBoarderWidth = 0.5f;
+    private const float chunkBoarderObjOffset = 0.05f;
 
     protected ChunkTransform chunkTransform;
 
     [SerializeField] private GameObject chunkBaseObjectPrefab;
+
+    //[SerializeField] private BaseEnvironmentObject chunkBorderInnerObjects;
+    [SerializeField] private RoadEnvObject[] chunkBorderRoadSideObjects;
+    [SerializeField, Range(0,1)] private float outerBorderObjectSpawnChance;
 
     protected float cellUnitMultiplier;
 
@@ -19,6 +24,55 @@ public abstract class PCGChunkDataBase : PCGeneratableSO
 
     public abstract bool CanGenerateInTransform(ChunkTransform chunkTransform);
 
+    protected void GenerateBorderObjects(Transform parentTransform)
+    {
+        //X sides
+        for(int x = chunkTransform.upperLeft.x; x <= chunkTransform.bottomRight.x; x++)
+        {
+            //Upper Edge
+            if(chunkBorderRoadSideObjects.Length > 0 && DoStatic.RandomBool(outerBorderObjectSpawnChance))
+            {
+                RoadEnvObject newOuterObj = Instantiate(chunkBorderRoadSideObjects[Random.Range(0, chunkBorderRoadSideObjects.Length)], Vector3.zero, Quaternion.identity);
+                float randomOffset = Random.Range(-(cellUnitMultiplier - newOuterObj.objectLength) * 0.5f, (cellUnitMultiplier - newOuterObj.objectLength) * 0.5f)/cellUnitMultiplier;
+                newOuterObj.transform.localPosition = relativeCellPosition(x + randomOffset, chunkTransform.upperLeft.y - (0.5f + chunkBoarderWidth * 0.5f + chunkBoarderObjOffset));
+                newOuterObj.transform.Rotate(newOuterObj.transform.up, 90);
+                newOuterObj.transform.SetParent(parentTransform);
+            }
+            //Lower Edge
+            if(chunkBorderRoadSideObjects.Length > 0 && DoStatic.RandomBool(outerBorderObjectSpawnChance))
+            {
+                RoadEnvObject newOuterObj = Instantiate(chunkBorderRoadSideObjects[Random.Range(0, chunkBorderRoadSideObjects.Length)], Vector3.zero, Quaternion.identity);
+                float randomOffset = Random.Range(-(cellUnitMultiplier - newOuterObj.objectLength) * 0.5f, (cellUnitMultiplier - newOuterObj.objectLength) * 0.5f)/cellUnitMultiplier;
+                newOuterObj.transform.localPosition = relativeCellPosition(x + randomOffset, chunkTransform.bottomRight.y + (0.5f + chunkBoarderWidth * 0.5f + chunkBoarderObjOffset));
+                newOuterObj.transform.Rotate(newOuterObj.transform.up, 270);
+                newOuterObj.transform.SetParent(parentTransform);
+            }
+        }
+
+        //Y sides
+        for(int y = chunkTransform.upperLeft.y; y <= chunkTransform.bottomRight.y; y++)
+        {
+            //Left Edge
+            if(chunkBorderRoadSideObjects.Length > 0 && DoStatic.RandomBool(outerBorderObjectSpawnChance))
+            {
+                RoadEnvObject newOuterObj = Instantiate(chunkBorderRoadSideObjects[Random.Range(0, chunkBorderRoadSideObjects.Length)], Vector3.zero, Quaternion.identity);
+                float randomOffset = Random.Range(-(cellUnitMultiplier - newOuterObj.objectLength) * 0.5f, (cellUnitMultiplier - newOuterObj.objectLength) * 0.5f)/cellUnitMultiplier;
+                newOuterObj.transform.localPosition = relativeCellPosition(chunkTransform.upperLeft.x - (0.5f + chunkBoarderWidth * 0.5f + chunkBoarderObjOffset), y + randomOffset);
+                newOuterObj.transform.Rotate(newOuterObj.transform.up, 180);
+                newOuterObj.transform.SetParent(parentTransform);
+            }
+            //Right Edge
+            if(chunkBorderRoadSideObjects.Length > 0 && DoStatic.RandomBool(outerBorderObjectSpawnChance))
+            {
+                RoadEnvObject newOuterObj = Instantiate(chunkBorderRoadSideObjects[Random.Range(0, chunkBorderRoadSideObjects.Length)], Vector3.zero, Quaternion.identity);
+                float randomOffset = Random.Range(-(cellUnitMultiplier - newOuterObj.objectLength) * 0.5f, (cellUnitMultiplier - newOuterObj.objectLength) * 0.5f)/cellUnitMultiplier;
+                newOuterObj.transform.localPosition = relativeCellPosition(chunkTransform.bottomRight.x + (0.5f + chunkBoarderWidth * 0.5f + chunkBoarderObjOffset), y + randomOffset);
+                newOuterObj.transform.Rotate(newOuterObj.transform.up, 0f);
+                newOuterObj.transform.SetParent(parentTransform);
+            }
+        }
+    }
+
     protected Vector3 relativeCellPosition(float posX, float posY)
     {
         return new Vector3((posX - chunkTransform.ChunkCenter.x) * cellUnitMultiplier, 0, (posY - chunkTransform.ChunkCenter.y) * cellUnitMultiplier);
@@ -26,7 +80,7 @@ public abstract class PCGChunkDataBase : PCGeneratableSO
 
     protected Transform InstantiateRootAndGround(Transform parentTransform)
     {
-        Transform root = new GameObject("chunk").transform;
+        Transform root = new GameObject(name).transform;
         root.SetParent(parentTransform);
         root.localPosition = Vector3.zero;
 

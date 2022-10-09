@@ -192,6 +192,8 @@ public class PCGRandomCellChunkData : PCGChunkDataBase
             }
         }
 
+        GenerateBorderObjects(root);
+
         return root.gameObject;
     }
 
