@@ -87,6 +87,7 @@ public abstract class StoreItemButton : BaseButton
     {
         GameManager.VariableManager.Purchase(purchaseable.GetBytecoinPrice, purchaseable.GetIntelligenceDataPrice, purchaseable.GetProcessingPowerPrice);
         purchaseable.UpdatePurchase();
+        GameManager.VariableManager.InvokePurchase();
         GameManager.SaveManager.SaveToFile();
         UpdateValues();
     }

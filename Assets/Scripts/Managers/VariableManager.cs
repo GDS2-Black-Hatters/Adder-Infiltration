@@ -69,6 +69,10 @@ public sealed class VariableManager : BaseManager
         SetVariable(bytecoins, GetVariable<int>(bytecoins) - bytecoinsAmount);
         SetVariable(intelligenceData, GetVariable<int>(intelligenceData) - intelligenceDataAmount);
         SetVariable(processingPower, GetVariable<int>(processingPower) - processingPowerAmount);
+    }
+
+    public void InvokePurchase()
+    {
         purchaseCallback?.Invoke();
     }
 
