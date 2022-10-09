@@ -8,6 +8,16 @@ public class BossPhaseController : MonoBehaviour
     private GameObject[] walls, floors;
     [SerializeField]
     private GameObject lastWall;
+    [SerializeField]
+    private int phase = 1;
+
+    private void Start()
+    {
+        foreach(GameObject f in floors)
+                f.SetActive(false);
+        foreach(GameObject w in walls)
+                w.SetActive(false);
+    }
 
 // Phase 2 = when all objectives done once
 // 3 = twice
@@ -15,6 +25,7 @@ public class BossPhaseController : MonoBehaviour
     
     public void activatePhase(int phaseNumber)
     {
+        phase = phaseNumber;
         if(phaseNumber == 2)
         {
             foreach(GameObject w in walls)
@@ -30,7 +41,7 @@ public class BossPhaseController : MonoBehaviour
             lastWall.SetActive(false);
             foreach(GameObject f in floors)
                 f.SetActive(false);
-                foreach(GameObject w in walls)
+            foreach(GameObject w in walls)
                 w.SetActive(false);
         }
     }

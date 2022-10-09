@@ -1,42 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Hook : MonoBehaviour
 {
+    [field: SerializeField] public MinigameController MinigameController { get; private set; }
+    [SerializeField] private float moveSpeed = 5;
+    private Rigidbody2D rb;
+    public Computer victim { get; private set; }
 
-    float moveSpeed = 5;
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        if ((Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space)) && gameObject.transform.position.y <= 4)
-        {
-            gameObject.transform.position = new Vector3(-5, gameObject.transform.position.y + moveSpeed * Time.deltaTime, 0);
-        }
-        else if (gameObject.transform.position.y >= -4)
-        {
-            gameObject.transform.position = new Vector3(-5, gameObject.transform.position.y - moveSpeed * Time.deltaTime, 0);
-        }
+        float movement = Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space) ? moveSpeed : -moveSpeed;
+        rb.velocity = new(0, movement);
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void SetVictim(Computer newVictim)
     {
-        if (other.tag == "Computer" && transform.childCount < 1)
-        {
-            other.transform.parent = gameObject.transform;
-            other.transform.position = transform.position;
-            other.attachedRigidbody.velocity = new Vector3(0, 0, 0);
-        }
-
-        if (other.tag == "Antivirus")
-        {
-            GameObject.Find("ComputerParent").GetComponent<ComputerParent>().DecreaseScore();
-        }
+        victim = newVictim;
     }
 }

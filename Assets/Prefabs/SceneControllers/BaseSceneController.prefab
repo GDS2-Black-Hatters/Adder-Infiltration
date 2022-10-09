@@ -233,6 +233,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8856367659753646624}
   - component: {fileID: 5116271480917008656}
+  - component: {fileID: 3931256153065283907}
   m_Layer: 5
   m_Name: Objectives
   m_TagString: Untagged
@@ -269,6 +270,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1539857450589740146}
   m_CullTransparentMesh: 1
+--- !u!114 &3931256153065283907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539857450589740146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 696f99cf9e631664f8dc3cc0682b5975, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectiveList: {fileID: 4129028611965018630}
+  Icons: {fileID: 0}
 --- !u!1 &1967120375712429799
 GameObject:
   m_ObjectHideFlags: 0

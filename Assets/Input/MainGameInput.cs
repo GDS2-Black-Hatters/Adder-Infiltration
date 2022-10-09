@@ -139,6 +139,15 @@ public partial class @MainGameInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Tab"",
+                    ""type"": ""Button"",
+                    ""id"": ""3af48af4-a86d-49fb-bad4-579c172addbe"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -328,6 +337,17 @@ public partial class @MainGameInput : IInputActionCollection2, IDisposable
                     ""action"": ""Scroll"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cfba519d-76a2-4b73-903d-b3d654dc4a36"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Tab"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -374,6 +394,7 @@ public partial class @MainGameInput : IInputActionCollection2, IDisposable
         m_MainGame_Interact = m_MainGame.FindAction("Interact", throwIfNotFound: true);
         m_MainGame_Ability = m_MainGame.FindAction("Ability", throwIfNotFound: true);
         m_MainGame_Scroll = m_MainGame.FindAction("Scroll", throwIfNotFound: true);
+        m_MainGame_Tab = m_MainGame.FindAction("Tab", throwIfNotFound: true);
         // Phishing
         m_Phishing = asset.FindActionMap("Phishing", throwIfNotFound: true);
         m_Phishing_Phish = m_Phishing.FindAction("Phish", throwIfNotFound: true);
@@ -483,6 +504,7 @@ public partial class @MainGameInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_MainGame_Interact;
     private readonly InputAction m_MainGame_Ability;
     private readonly InputAction m_MainGame_Scroll;
+    private readonly InputAction m_MainGame_Tab;
     public struct MainGameActions
     {
         private @MainGameInput m_Wrapper;
@@ -493,6 +515,7 @@ public partial class @MainGameInput : IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_MainGame_Interact;
         public InputAction @Ability => m_Wrapper.m_MainGame_Ability;
         public InputAction @Scroll => m_Wrapper.m_MainGame_Scroll;
+        public InputAction @Tab => m_Wrapper.m_MainGame_Tab;
         public InputActionMap Get() { return m_Wrapper.m_MainGame; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -520,6 +543,9 @@ public partial class @MainGameInput : IInputActionCollection2, IDisposable
                 @Scroll.started -= m_Wrapper.m_MainGameActionsCallbackInterface.OnScroll;
                 @Scroll.performed -= m_Wrapper.m_MainGameActionsCallbackInterface.OnScroll;
                 @Scroll.canceled -= m_Wrapper.m_MainGameActionsCallbackInterface.OnScroll;
+                @Tab.started -= m_Wrapper.m_MainGameActionsCallbackInterface.OnTab;
+                @Tab.performed -= m_Wrapper.m_MainGameActionsCallbackInterface.OnTab;
+                @Tab.canceled -= m_Wrapper.m_MainGameActionsCallbackInterface.OnTab;
             }
             m_Wrapper.m_MainGameActionsCallbackInterface = instance;
             if (instance != null)
@@ -542,6 +568,9 @@ public partial class @MainGameInput : IInputActionCollection2, IDisposable
                 @Scroll.started += instance.OnScroll;
                 @Scroll.performed += instance.OnScroll;
                 @Scroll.canceled += instance.OnScroll;
+                @Tab.started += instance.OnTab;
+                @Tab.performed += instance.OnTab;
+                @Tab.canceled += instance.OnTab;
             }
         }
     }
@@ -592,6 +621,7 @@ public partial class @MainGameInput : IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnAbility(InputAction.CallbackContext context);
         void OnScroll(InputAction.CallbackContext context);
+        void OnTab(InputAction.CallbackContext context);
     }
     public interface IPhishingActions
     {
