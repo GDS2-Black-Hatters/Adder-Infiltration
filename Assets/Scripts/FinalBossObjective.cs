@@ -33,7 +33,7 @@ public class FinalBossObjective : MonoBehaviour
         if(progress >= 800)
             complete = true;
 
-        progressText.text = System.Math.Round(progress/800 * 100) + "%";
+        //progressText.text = System.Math.Round(progress/800 * 100) + "%";
     }
 
     public void ResetProgress()
