@@ -5,11 +5,14 @@ using UnityEngine;
 public class BossPhaseController : MonoBehaviour
 {
     [SerializeField]
-    private GameObject[] walls, floors;
+    private GameObject[] walls, floors, objectiveObjects;
     [SerializeField]
     private GameObject lastWall;
     [SerializeField]
     private int phase = 1;
+
+    [SerializeField]
+    private FinalBossObjective[] objectives;
 
     private void Start()
     {
@@ -17,6 +20,24 @@ public class BossPhaseController : MonoBehaviour
                 f.SetActive(false);
         foreach(GameObject w in walls)
                 w.SetActive(false);
+    }
+
+    private void Update()
+    {
+        int i = 0;
+        foreach(FinalBossObjective o in objectives)
+        {
+            if(o.complete)
+                i++;
+        }
+        if(i == 4)
+        {
+            activatePhase(phase+1);
+            foreach(FinalBossObjective o in objectives)
+            {
+                o.ResetProgress();
+            }
+        }
     }
 
 // Phase 2 = when all objectives done once
@@ -43,6 +64,8 @@ public class BossPhaseController : MonoBehaviour
                 f.SetActive(false);
             foreach(GameObject w in walls)
                 w.SetActive(false);
+            foreach(GameObject o in objectiveObjects)
+                o.SetActive(false);
         }
     }
 
