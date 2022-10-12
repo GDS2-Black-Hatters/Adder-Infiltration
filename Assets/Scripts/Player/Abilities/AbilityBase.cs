@@ -19,7 +19,7 @@ public abstract class AbilityBase : MonoBehaviour
     }
 
     [field: SerializeField, Header("Base Ability")] public AllAbilities ability { get; protected set; }
-    [field: SerializeField] public Sprite Logo { get; private set; }
+    [field: SerializeField] public Sprite Icon { get; private set; }
 
     public Upgradeable AbilityUpgrade { get; protected set; }
     [field: SerializeField] public Upgradeable DefaultUpgrade { get; protected set; } = new(10);

@@ -15,7 +15,7 @@ public class Hook : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-        float movement = Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space) ? moveSpeed : -moveSpeed;
+        float movement = Input.GetKey(KeyCode.Space) ? moveSpeed : -moveSpeed;
         rb.velocity = new(0, movement);
     }
 

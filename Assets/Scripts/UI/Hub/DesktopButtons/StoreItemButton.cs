@@ -20,6 +20,7 @@ public abstract class StoreItemButton : BaseButton
         label = GetComponentInChildren<TextMeshProUGUI>();
         ButtonDeselected();
         purchaseable = GetPurchaseable();
+        transform.GetChild(0).GetComponent<Image>().sprite = purchaseable.Icon;
     }
 
     protected virtual void Start()

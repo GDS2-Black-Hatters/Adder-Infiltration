@@ -28,7 +28,15 @@ public sealed class VariableManager : BaseManager
         Warp = 13,
 
         //One time unlocks
-        PhishingMinigame = 101
+        PhishingMinigame = 101,
+
+        SnakeMouse = 201,
+        MouseMouse = 202,
+        USBMouse = 203,
+        PirateMouse = 204,
+        SpiderMouse = 205,
+        BinaryMouse = 206,
+        PhishyMouse = 207,
     }
 
     public enum AllAbilities
@@ -115,6 +123,13 @@ public sealed class VariableManager : BaseManager
                     { AllUnlockables.EMP, allAbilities[AllAbilities.EMP].DefaultUpgrade },
                     { AllUnlockables.Warp, allAbilities[AllAbilities.Warp].DefaultUpgrade },
                     { AllUnlockables.PhishingMinigame, new() },
+                    { AllUnlockables.SnakeMouse, new() },
+                    { AllUnlockables.MouseMouse, new() },
+                    { AllUnlockables.USBMouse, new() },
+                    { AllUnlockables.PirateMouse, new() },
+                    { AllUnlockables.SpiderMouse, new() },
+                    { AllUnlockables.BinaryMouse, new() },
+                    { AllUnlockables.PhishyMouse, new() },
                 }
             },
             {mouseSensitivity, 0.09f },

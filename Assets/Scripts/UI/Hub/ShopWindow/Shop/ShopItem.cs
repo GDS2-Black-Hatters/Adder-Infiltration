@@ -7,6 +7,7 @@ public class ShopItem : ScriptableObject, IPurchaseable
 {
     [SerializeField] private AllUnlockables unlockable;
     public Unlockable Item => GameManager.VariableManager.GetUnlockable(unlockable);
+    [field: SerializeField] public Sprite Icon { get; private set; }
 
     [field: SerializeField, Header("Text and Labels")] public string Name { get; private set; }
     [field: SerializeField, TextArea(5, 5)] private string description;
