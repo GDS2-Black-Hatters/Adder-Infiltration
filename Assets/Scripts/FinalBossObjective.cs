@@ -8,6 +8,17 @@ public class FinalBossObjective : MonoBehaviour
     private bool playerIn = false;
     public bool complete = false;
 
+    public Transform finalBossTf, laserOriginPosition;
+
+    private LineRenderer lr;
+    private void Awake()
+    {
+        lr = GetComponent<LineRenderer>();
+        lr.SetPosition(0, laserOriginPosition.transform.position);
+        lr.SetPosition(1, finalBossTf.transform.position);
+        lr.enabled = false;
+    }
+
     [SerializeField]
     private float progress = 0;
 
@@ -33,7 +44,10 @@ public class FinalBossObjective : MonoBehaviour
         if(progress >= 800)
             complete = true;
 
-        //progressText.text = System.Math.Round(progress/800 * 100) + "%";
+        progressText.text = System.Math.Round(progress/800 * 100) + "%";
+
+        lr.enabled = complete;
+
     }
 
     public void ResetProgress()
