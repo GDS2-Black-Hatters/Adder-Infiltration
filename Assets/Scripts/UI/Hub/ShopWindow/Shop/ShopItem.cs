@@ -1,39 +1,46 @@
-using System;
 using UnityEngine;
+using static SaveManager.VariableToSave;
+using static VariableManager;
 
 [CreateAssetMenu(fileName = "NewItem", menuName = "ScriptableObject/Shop Item/Item")]
-public class ShopItem : ScriptableObject
+public class ShopItem : ScriptableObject, IPurchaseable
 {
-    [SerializeField] private VariableManager.AllUnlockables unlockable = VariableManager.AllUnlockables.Dash;
+    [SerializeField] private AllUnlockables unlockable;
     public Unlockable Item => GameManager.VariableManager.GetUnlockable(unlockable);
 
-    [Serializable]
-    protected class Price
-    {
-        [Min(0)] public int startingPrice = 0;
-        [Min(0)] public int endingPrice = 100; //For items with multiple upgrades.
-    }
+    [field: SerializeField, Header("Text and Labels")] public string Name { get; private set; }
+    [field: SerializeField, TextArea(5, 5)] private string description;
 
-    [field: SerializeField, Header("Text and Labels")] public string ItemName { get; private set; }
-    [TextArea(5, 5)] public string description;
+    [field: SerializeField, Header("Price")] public int GetBytecoinPrice { get; private set; }
+    [field: SerializeField] public int GetIntelligenceDataPrice { get; private set; }
+    [field: SerializeField] public int GetProcessingPowerPrice { get; private set; }
+
     public virtual string Label
     {
         get
         {
             string purchased = Item.IsUnlocked ? "Purchased" : "";
-            return $"{ItemName}\n<size=80%>{purchased}</size>";
+            return $"{Name}\n<size=80%>{purchased}</size>";
         }
     }
-    public virtual string Description => description;
 
-    [Header("Price")]
-    [SerializeField] protected Price bytecoin;
-    [SerializeField] protected Price intelligenceData;
-    [SerializeField] protected Price processingPower;
-    public int BytecoinPrice => GetPrice(bytecoin);
-    public int IntelligenceDataPrice => GetPrice(intelligenceData);
-    public int ProcessingPowerPrice => GetPrice(processingPower);
-    protected virtual int GetPrice(Price price) { return price.startingPrice; }
+    public string RichDescription
+    {
+        get
+        {
+            string itemRichDesc = $"<align=center><size=16><b>{Name}</b></size></align>\n\n{description}";
+            if (!Item.IsUnlocked)
+            {
+                IPurchaseable.AppendDescription(ref itemRichDesc, bytecoins, GetBytecoinPrice, "\nByteCoins:\t");
+                IPurchaseable.AppendDescription(ref itemRichDesc, intelligenceData, GetIntelligenceDataPrice, "Intelligence Data:");
+                IPurchaseable.AppendDescription(ref itemRichDesc, processingPower, GetProcessingPowerPrice, "Processing Power:");
+            }
+            return itemRichDesc;
+        }
+    }
 
-    public void Purchase() { Item.Unlock(); }
+    public void UpdatePurchase()
+    {
+        Item.Unlock();
+    }
 }

@@ -29,7 +29,7 @@ public class StoreButtonContainer : MonoBehaviour
 
     private void UpdateValues()
     {
-        itemInfo.UpdateInformation(selectedItem.ItemRichDescription);
+        itemInfo.UpdateInformation(selectedItem.RichDescription);
         purchaseButton.interactable = selectedItem.CanPurchase;
     }
 }

@@ -32,7 +32,7 @@ public class PlayerVirusController : MonoBehaviour
         });
     }
 
-    public void SetInputEnable(bool disabled)
+    private void SetInputEnable(bool disabled)
     {
         ais.enabled = !disabled;
     }

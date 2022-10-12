@@ -216,7 +216,7 @@ public class PCGIsland : MonoBehaviour
         //Debug.Log("Node Gen Time Cost: "+ (Time.realtimeSinceStartup - aiNodeGenStartTime));
 
         //SpawnEnemies
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 300; i++)
         {
             GameManager.LevelManager.ActiveSceneController.enemyAdmin.SpawnNewEnemy();        
         }

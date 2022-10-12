@@ -17,7 +17,7 @@ public class HPTracker : CaughtVariableTracker
     private void UpdateHP()
     {
         float percent = GameManager.VariableManager.playerHealth.healthPercentage;
-        ui.fillAmount = fillAmountLerper.ValueAtPercentage(percent);
+        ui.fillAmount = Mathf.Lerp(0, 0.25f, percent);
         ui.color = Color.Lerp(empty, full, DoStatic.RoundToNearestFloat(percent, 0.25f));
     }
 

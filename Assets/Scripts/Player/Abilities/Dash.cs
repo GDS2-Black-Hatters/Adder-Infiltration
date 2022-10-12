@@ -1,14 +1,11 @@
-public class Dash : AbilityBase
+using UnityEngine;
+
+public class Dash : PurchaseableAbility
 {
+    [SerializeField, Header("Dash Settings")] private float strength = 300f;
+
     protected override void DoAbilityEffect()
     {
-    }
-
-    public override void EndAbilityPrime()
-    {
-    }
-
-    public override void StartAbilityPrime()
-    {
+        GameManager.LevelManager.player.Dash(strength);
     }
 }

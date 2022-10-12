@@ -3,11 +3,10 @@ using System;
 [Serializable]
 public class Unlockable
 {
-    protected bool isUnlocked = false;
-    public virtual bool IsUnlocked => isUnlocked;
+    public bool IsUnlocked { get; private set; } = false;
 
     public virtual void Unlock()
     {
-        isUnlocked = true;
+        IsUnlocked = true;
     }
 }

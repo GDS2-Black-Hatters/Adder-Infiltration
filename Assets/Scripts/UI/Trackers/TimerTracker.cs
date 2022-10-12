@@ -30,7 +30,7 @@ public class TimerTracker : CaughtVariableTracker
         {
             tick = tracker.Update(Time.deltaTime);
             float percentage = tick / tracker.timer;
-            ui.fillAmount = lerper.ValueAtPercentage(1 - percentage);
+            ui.fillAmount = Mathf.Lerp(1, 0.5f, 1 - percentage);
             ui.color = Color.Lerp(low, full, percentage);
 
             int minutes = (int)(tick / 60);

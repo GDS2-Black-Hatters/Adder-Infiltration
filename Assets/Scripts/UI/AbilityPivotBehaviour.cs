@@ -10,11 +10,7 @@ public class AbilityPivotBehaviour : MonoBehaviour
     public void UpdateAppearance(AbilityBase ability)
     {
         icon.sprite = ability.Logo;
-        if (current)
-        {
-            current.CooldownUpdate -= UpdateCooldown;
-            current.CooldownFinish -= FinishCooldown;
-        }
+        OnDisable();
         current = ability;
         current.CooldownUpdate += UpdateCooldown;
         current.CooldownFinish += FinishCooldown;
@@ -39,5 +35,14 @@ public class AbilityPivotBehaviour : MonoBehaviour
     {
         icon.color = Color.white;
         frame.fillAmount = 1;
+    }
+
+    private void OnDisable()
+    {
+        if (current)
+        {
+            current.CooldownUpdate -= UpdateCooldown;
+            current.CooldownFinish -= FinishCooldown;
+        }
     }
 }

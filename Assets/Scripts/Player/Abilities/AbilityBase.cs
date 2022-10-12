@@ -1,25 +1,40 @@
-using System;
+﻿using System;
 using System.Collections;
 using UnityEngine;
 using static VariableManager;
 
+[Serializable]
 public abstract class AbilityBase : MonoBehaviour
 {
-    [SerializeField, Header("Ability Base")] private AllAbilities ability;
+    [Serializable]
+    protected class LevelValues
+    {
+        [SerializeField] private float minLevelValue;
+        [SerializeField] private float maxLevelValue;
+
+        public float GetCurrentValue(float percentage)
+        {
+            return Mathf.Lerp(minLevelValue, maxLevelValue, percentage);
+        }
+    }
+
+    [field: SerializeField, Header("Base Ability")] public AllAbilities ability { get; protected set; }
     [field: SerializeField] public Sprite Logo { get; private set; }
-    protected Upgradeable abilityUpgrade;
-    public TimeTracker CooldownTimer { get; private set; } = new(1, 1);
+
+    public Upgradeable AbilityUpgrade { get; protected set; }
+    [field: SerializeField] public Upgradeable DefaultUpgrade { get; protected set; } = new(10);
+
+    [SerializeField] protected LevelValues cooldown;
+
     public bool IsCoolingDown { get; private set; } = false;
 
     public event Action CooldownUpdate;
     public event Action CooldownFinish;
+    public TimeTracker CooldownTimer { get; private set; } = new(1, 1);
 
-    [SerializeField, Header("Ability Stats (For levels)")]
-    private Lerper cooldown = new();
-
-    protected virtual void Start()
+    protected virtual void Awake()
     {
-        abilityUpgrade = (Upgradeable)GameManager.VariableManager.GetUnlockable(DoStatic.EnumToEnum<AllAbilities, AllUnlockables>(ability));
+        AbilityUpgrade = (Upgradeable)GameManager.VariableManager.GetUnlockable(DoStatic.EnumToEnum<AllAbilities, AllUnlockables>(ability));
         CooldownTimer.onFinish += () =>
         {
             CooldownFinish?.Invoke();
@@ -40,13 +55,6 @@ public abstract class AbilityBase : MonoBehaviour
         CooldownTimer.Reset();
     }
 
-    protected virtual void CalculateAbilityStats()
-    {
-        CooldownTimer.SetTimer(cooldown.ValueAtPercentage(abilityUpgrade.UnlockProgression));
-    }
-
-    protected abstract void DoAbilityEffect();
-
     public void ActivateAbility()
     {
         if (!IsCoolingDown)
@@ -55,6 +63,13 @@ public abstract class AbilityBase : MonoBehaviour
             DoAbilityEffect();
         }
     }
-    public abstract void StartAbilityPrime();
-    public abstract void EndAbilityPrime();
+
+    protected virtual void CalculateAbilityStats()
+    {
+        CooldownTimer.SetTimer(cooldown.GetCurrentValue(AbilityUpgrade.UnlockProgression));
+    }
+
+    protected abstract void DoAbilityEffect();
+    public virtual void EndAbilityPrime() { }
+    public virtual void StartAbilityPrime() { }
 }

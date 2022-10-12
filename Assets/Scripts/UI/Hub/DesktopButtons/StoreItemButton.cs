@@ -5,45 +5,34 @@ using UnityEngine.UI;
 using static SaveManager.VariableToSave;
 
 [RequireComponent(typeof(Image))]
-public class StoreItemButton : BaseButton
+public abstract class StoreItemButton : BaseButton
 {
-    private StoreButtonContainer container;
-    [SerializeField] private TextMeshProUGUI label;
-    [SerializeField] private ShopItem item;
-
-    public bool CanPurchase => !item.Item.IsUnlocked && HasSufficientMoney();
-    public string ItemRichDescription
-    {
-        get
-        {
-            string itemRichDescription = $"<align=center><size=16><b>{item.ItemName}</b></size></align>\n\n{item.Description}";
-            if (!item.Item.IsUnlocked)
-            {
-                VariableManager var = GameManager.VariableManager;
-                AppendDescription(ref itemRichDescription, var.GetVariable<int>(bytecoins), item.BytecoinPrice, "\nByteCoins:\t");
-                AppendDescription(ref itemRichDescription, var.GetVariable<int>(intelligenceData), item.IntelligenceDataPrice, "Intelligence Data:");
-                AppendDescription(ref itemRichDescription, var.GetVariable<int>(processingPower), item.ProcessingPowerPrice, "Processing Power:");
-            }
-            return itemRichDescription;
-        }
-    }
-
-    [Header("Mouse events")]
-    [SerializeField] private Color normal = Color.black;
-    [SerializeField] private Color onHover = Color.gray;
-    [SerializeField] private Color selected = Color.white;
+    protected StoreButtonContainer container;
+    protected TextMeshProUGUI label;
     private Image image;
+    protected IPurchaseable purchaseable;
 
     protected override void Awake()
     {
         base.Awake();
         image = GetComponent<Image>();
         container = GetComponentInParent<StoreButtonContainer>();
+        label = GetComponentInChildren<TextMeshProUGUI>();
         ButtonDeselected();
+        purchaseable = GetPurchaseable();
+    }
+
+    protected virtual void Start()
+    {
         UpdateValues();
     }
 
     #region mouse hover and etc.
+    [Header("Mouse events")]
+    [SerializeField] private Color normal = new(0.1254902f, 0.1333333f, 0.145098f);
+    [SerializeField] private Color onHover = new(0.254902f, 0.254902f, 0.254902f);
+    [SerializeField] private Color selected = new(0.345098f, 0.3960784f, 0.9490196f);
+
     public override void OnPointerEnter(PointerEventData eventData)
     {
         UpdateColour(onHover);
@@ -77,37 +66,29 @@ public class StoreItemButton : BaseButton
     }
     #endregion
 
-    public void UpdateValues()
-    {
-        label.text = item.Label;
-    }
-
-    private void AppendDescription(ref string rich, int currentAmount, int cost, string variableName)
-    {
-        string prefix = "";
-        string suffix = $"{cost}";
-        if (currentAmount < cost)
-        {
-            prefix = $"<color=\"red\">";
-            suffix += $"</color>";
-        }
-
-        rich += $"\n{prefix}{variableName}\t\t{suffix}";
-    }
-
-    private bool HasSufficientMoney()
+    protected abstract IPurchaseable GetPurchaseable();
+    public string RichDescription => purchaseable.RichDescription;
+    public abstract bool CanPurchase { get; }
+    protected bool HasSufficientMoney()
     {
         VariableManager var = GameManager.VariableManager;
-        bool sufficientMoney = var.GetVariable<int>(bytecoins) >= item.BytecoinPrice;
-        sufficientMoney = sufficientMoney && var.GetVariable<int>(intelligenceData) >= item.IntelligenceDataPrice;
-        sufficientMoney = sufficientMoney && var.GetVariable<int>(processingPower) >= item.ProcessingPowerPrice;
+        bool sufficientMoney = var.GetVariable<int>(bytecoins) >= purchaseable.GetBytecoinPrice;
+        sufficientMoney = sufficientMoney && var.GetVariable<int>(intelligenceData) >= purchaseable.GetIntelligenceDataPrice;
+        sufficientMoney = sufficientMoney && var.GetVariable<int>(processingPower) >= purchaseable.GetProcessingPowerPrice;
         return sufficientMoney;
+    }
+
+    public void UpdateValues()
+    {
+        label.text = purchaseable.Label;
     }
 
     public void Purchase()
     {
-        item.Item.Unlock();
-        GameManager.VariableManager.Purchase(item.BytecoinPrice, item.IntelligenceDataPrice, item.ProcessingPowerPrice);
+        GameManager.VariableManager.Purchase(purchaseable.GetBytecoinPrice, purchaseable.GetIntelligenceDataPrice, purchaseable.GetProcessingPowerPrice);
+        purchaseable.UpdatePurchase();
+        GameManager.VariableManager.InvokePurchase();
+        GameManager.SaveManager.SaveToFile();
         UpdateValues();
     }
 }

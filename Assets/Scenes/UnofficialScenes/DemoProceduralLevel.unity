@@ -134,6 +134,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: ProceduralSceneController
       objectReference: {fileID: 0}
+    - target: {fileID: 4526123236416099533, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
+      propertyPath: absoluteMaxEnemyCount
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526123236416099533, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
+      propertyPath: availableEnemyPrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526123236416099533, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
+      propertyPath: availableEnemyPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 4761068189828559370, guid: 7e215f7d8b352504d984a99553274fc5, type: 3}
+    - target: {fileID: 4526123236416099533, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
+      propertyPath: availableEnemyPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 6872166872513632782, guid: 0f97aacb1c6f2244bac57bfa558b7de4, type: 3}
     - target: {fileID: 6106655758076692800, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -272,6 +288,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   themes:
   - {fileID: 11400000, guid: f8b8844da62e83f498a8919a101418a9, type: 2}
+  - {fileID: 11400000, guid: 8871b9ac4ba92b3449f8ff0799ca004d, type: 2}
+  - {fileID: 11400000, guid: ec5ee1658a22dc84988ef729196b4006, type: 2}
+  - {fileID: 11400000, guid: 13a3b601422c25442bfdc2355dc02396, type: 2}
+  - {fileID: 11400000, guid: 876bed5baf3d4eb48840b44e25d10202, type: 2}
   changeTheme: 0
 --- !u!4 &532190983
 Transform:
@@ -325,12 +345,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 869f5d643730d8b4689c159a97cdd846, type: 2}
   - {fileID: 11400000, guid: 0c7a5720be8df4c479834f13c3f8497c, type: 2}
   - {fileID: 11400000, guid: 0c7a5720be8df4c479834f13c3f8497c, type: 2}
-  - {fileID: 11400000, guid: 0c7a5720be8df4c479834f13c3f8497c, type: 2}
+  - {fileID: 11400000, guid: 8e593a35394837e4d8b8bb052557d129, type: 2}
   availableChunks:
-  - {fileID: 11400000, guid: a06256e318864bf4c9f04627e7622151, type: 2}
   - {fileID: 11400000, guid: a06256e318864bf4c9f04627e7622151, type: 2}
   - {fileID: 11400000, guid: bb8bc7c5694055c47ac9b2bdeee754de, type: 2}
   - {fileID: 11400000, guid: df8d6919a9761c44e865f45e7774a69c, type: 2}
+  - {fileID: 11400000, guid: af828253da142d1468023feedb6fe867, type: 2}
   aiNodePrefab: {fileID: 1002651925752980835, guid: b8330dc458e8daa45ab23f5a1045c669, type: 3}
   generateOnStart: 0
 --- !u!4 &825373983
