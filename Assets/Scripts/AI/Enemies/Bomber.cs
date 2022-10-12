@@ -26,7 +26,7 @@ public class Bomber : Enemy
 
     protected override void Attack()
     {
-        Debug.Log(gameObject+"Start Suicide!!!!!!!!");
+        //Debug.Log(gameObject+"Start Suicide!!!!!!!!");
         forwardPower = 0; //Stand still while charging
         if(!charging)
         {
@@ -40,7 +40,7 @@ public class Bomber : Enemy
 
     protected virtual void Bombing()
     {
-        Debug.Log(gameObject+"ALLAHU AKBAR!");
+        //Debug.Log(gameObject+"ALLAHU AKBAR!");
 
         //Within explosion range
         if ((GameManager.LevelManager.player.transform.position - transform.position).sqrMagnitude <= explosionRange) 

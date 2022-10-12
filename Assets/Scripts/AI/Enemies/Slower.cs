@@ -3,7 +3,7 @@ using UnityEngine;
 public class Slower : Enemy
 {
     [Header("Slower Params"), SerializeField] private GameObject Obstacles;
-    //[SerializeField] private Animator slowerAnim;
+    [SerializeField] private Animator slowerAnim;
     [SerializeField] private ParticleSystem constructingParticle;
     [SerializeField] protected TimeTracker attackCooldown = new(5, -1, true); //Intervals before next attack.
     protected override void Awake()
@@ -24,6 +24,7 @@ public class Slower : Enemy
         attackCooldown.Update(Time.deltaTime);
         if ((GameManager.LevelManager.player.transform.position - transform.position).sqrMagnitude > closeRangeDistance)
         {
+            slowerAnim.SetBool("isAttacking", false);
             stateAction = Chase;
             fixedStateAction = FixedChase;
         }
@@ -31,8 +32,7 @@ public class Slower : Enemy
 
     private void Construct()
     {
-        //slowerAnim.SetBool("isConstructing", true);
-        Debug.Log(gameObject + "Is Constructing!!!");
+        slowerAnim.SetBool("isAttacking", true);
         Instantiate(constructingParticle, transform.position, Quaternion.identity);
         Instantiate(Obstacles, GameManager.LevelManager.player.transform.position, Quaternion.identity);
     }

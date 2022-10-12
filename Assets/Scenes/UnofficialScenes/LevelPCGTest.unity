@@ -510,6 +510,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: BaseSceneController
       objectReference: {fileID: 0}
+    - target: {fileID: 4526123236416099533, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
+      propertyPath: availableEnemyPrefabs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526123236416099533, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
+      propertyPath: availableEnemyPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 1762367355547013725, guid: 4410d520a97a9014297faee48626ad7a, type: 3}
     - target: {fileID: 6106655758076692800, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -631,7 +639,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1619160103}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef71154daebe7c84f9c09845cfb2798e, type: 3}
   m_Name: 
