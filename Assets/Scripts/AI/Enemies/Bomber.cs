@@ -9,6 +9,7 @@ public class Bomber : Enemy
 
     [SerializeField] private float explosionDamage = 10;
 
+    [SerializeField] private Animator bomberAnim;
     [SerializeField] private ParticleSystem explosionParticle;
     [SerializeField] private ParticleSystem explosionChargingParticle;
     private bool charging = false;
@@ -33,6 +34,7 @@ public class Bomber : Enemy
             Instantiate(explosionChargingParticle, transform.position, Quaternion.identity);
         }
         charging = true;
+        bomberAnim.SetBool("isAttacking", true);
         DoSuicideBombing(3); 
     }
 
