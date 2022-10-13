@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa458db36fcdc50419bcd7a367265d06, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c4b2f322a3dd5d46bb5682e6852838a, type: 3}
   m_Name: TrojanHorse
   m_EditorClassIdentifier: 
   <AbilityID>k__BackingField: 1
@@ -19,3 +19,6 @@ MonoBehaviour:
   <Cooldown>k__BackingField:
     minLevelValue: 20
     maxLevelValue: 15
+  <AbilityDuration>k__BackingField:
+    minLevelValue: 3
+    maxLevelValue: 10
