@@ -17,7 +17,7 @@ public class TrojanHorse : AbilityBase
 
     protected override void DoAbilityEffect()
     {
-        PlayerVirus pv = GameManager.LevelManager.player;
+        PlayerVirus pv = GameManager.LevelManager.ActiveSceneController.player;
         pv.gameObject.layer = LayerMask.NameToLayer("Default");
         pv.tag = "Untagged";
 
@@ -28,15 +28,15 @@ public class TrojanHorse : AbilityBase
 
     private IEnumerator DelayDisableAbility()
     {
+        PlayerVirus pv = GameManager.LevelManager.ActiveSceneController.player;
         TimeTracker time = new(trojanHorse.AbilityDuration.GetCurrentValue(AbilityUpgrade.UnlockProgression), 1);
         do
         {
             yield return null;
             time.Update(Time.deltaTime);
-            trojinVisual.transform.position = GameManager.LevelManager.player.transform.position;
+            trojinVisual.transform.position = pv.transform.position;
         } while (time.TimePercentage != 1);
 
-        PlayerVirus pv = GameManager.LevelManager.player;
         pv.gameObject.layer = LayerMask.NameToLayer("Player");
         pv.tag = "Player";
         pv.playerVisual.SetActive(true);

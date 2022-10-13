@@ -56,6 +56,4 @@ public abstract class AbilityBase : MonoBehaviour
     }
 
     protected abstract void DoAbilityEffect();
-    public virtual void EndAbilityPrime() { }
-    public virtual void StartAbilityPrime() { }
 }

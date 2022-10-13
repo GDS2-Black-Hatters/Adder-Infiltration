@@ -30,26 +30,13 @@ public class EMP : AbilityBase
         StartCoroutine(EffectTrigger(chargeSphere.localScale.x));
     }
 
-    public override void EndAbilityPrime()
-    {
-        StopAllCoroutines();
-        StartCoroutine(ChangeChargeSphereRadius(false));
-    }
-
-    public override void StartAbilityPrime()
-    {
-        StopAllCoroutines();
-        chargeSphere.gameObject.SetActive(true);
-        StartCoroutine(ChangeChargeSphereRadius(true));
-    }
-
     private IEnumerator ChangeChargeSphereRadius(bool increasing)
     {
         float radiusChangeSpeed = chargeRadiusSpeed * (increasing ? 1 : -1);
         float newRadius = minSphereRadius;
         while (true)
         {
-            chargeSphere.position = GameManager.LevelManager.player.transform.position;
+            chargeSphere.position = GameManager.LevelManager.ActiveSceneController.player.transform.position;
             chargeSphere.localScale = new Vector3(newRadius, newRadius, newRadius);
 
             newRadius = Mathf.Clamp(chargeSphere.localScale.x + chargeSphere.localScale.x * radiusChangeSpeed * Time.deltaTime, minSphereRadius, maxRadius);
@@ -67,7 +54,7 @@ public class EMP : AbilityBase
         float newRadius = minSphereRadius;
         while (effectSphere.localScale.x < targetRadius)
         {
-            effectSphere.position = GameManager.LevelManager.player.transform.position;
+            effectSphere.position = GameManager.LevelManager.ActiveSceneController.player.transform.position;
             effectSphere.localScale = new(newRadius, newRadius, newRadius);
             yield return null;
             newRadius = Mathf.Clamp(effectSphere.localScale.x + effectSphere.localScale.x * effectRadialSpeed * Time.deltaTime, minSphereRadius, maxRadius);

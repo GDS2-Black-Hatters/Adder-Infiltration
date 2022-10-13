@@ -11,9 +11,6 @@ public sealed class VariableManager : BaseManager
     [SerializeField] private AbilityList allAbilities;
     private readonly Dictionary<AllAbilities, Ability> abilityDictionary = new();
 
-    [field: SerializeField, Header("Caught Timer")] public TimeTracker timeToLive { get; private set; } //The timer for when getting caught. Is in seconds.
-    [field: SerializeField, Header("Player Health")] public Health playerHealth { get; private set; } = new(100);
-
     private Dictionary<VariableToSave, object> savedVars; //The dictionary of where all the data is saved.
     public event Action purchaseCallback;
     /// <summary>
@@ -49,8 +46,6 @@ public sealed class VariableManager : BaseManager
 
     public override BaseManager StartUp()
     {
-        Restart();
-
         foreach (Ability ability in allAbilities.Abilities)
         {
             abilityDictionary.Add(ability.AbilityID, ability);
@@ -64,8 +59,7 @@ public sealed class VariableManager : BaseManager
     /// </summary>
     public void Restart()
     {
-        timeToLive.Reset(false, false);
-        playerHealth.Reset();
+        //TODO: REMOVE THIS.
     }
 
     public Unlockable GetUnlockable(AllUnlockables abilityName)

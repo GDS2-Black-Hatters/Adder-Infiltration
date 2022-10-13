@@ -40,15 +40,11 @@ public sealed class LevelManager : BaseManager
     private bool isTransitioning = false;
 
     public BaseSceneController ActiveSceneController { get; private set; }
-    public PlayerVirus player { get; private set; }
 
     public override BaseManager StartUp()
     {
         transitionAnim = GetComponentInChildren<Animator>();
         transitionAnim.updateMode = AnimatorUpdateMode.UnscaledTime;
-
-        GameManager.VariableManager.timeToLive.onFinish += GameOver;
-        GameManager.VariableManager.playerHealth.onDeath += GameOver;
         return this;
     }
 
@@ -160,11 +156,6 @@ public sealed class LevelManager : BaseManager
         OnApplicationFocus(true);
     }
 
-    private void GameOver()
-    {
-        GameManager.LevelManager.ChangeLevel(Level.Hub);
-    }
-
     public void SetIsGamePaused(bool isGamePaused)
     {
         if (LevelManager.isGamePaused == isGamePaused)
@@ -191,10 +182,5 @@ public sealed class LevelManager : BaseManager
             Debug.LogWarning("The previously active SceneController has not yet been destroyed, please ensure you are certain you want two SceneControllers active right now.");
         }
         ActiveSceneController = sceneController;
-    }
-
-    public void SetPlayer(PlayerVirus player)
-    {
-        this.player = player;
     }
 }

@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using static LevelManager.Level;
 
 public class BaseSceneController : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class BaseSceneController : MonoBehaviour
     private bool hasAMandatoryObjective = false;
 
     [SerializeField] private CaughtHUDBehaviour caughtHUD;
+    [field: SerializeField] public Health playerHealth { get; private set; } = new(20);
+    public PlayerVirus player { get; private set; }
     [field: SerializeField] public TextMeshProUGUI objectiveList { get; private set; }
 
     //For children.
@@ -40,6 +43,11 @@ public class BaseSceneController : MonoBehaviour
     {
         GameManager.LevelManager.SetActiveSceneController(this);
 
+        playerHealth.onDeath += () =>
+        {
+            GameManager.LevelManager.ChangeLevel(Hub);
+        };
+
         //Create and assign a copy so we don't change the asset original values
         RenderSettings.skybox = new(RenderSettings.skybox);
     }
@@ -56,10 +64,15 @@ public class BaseSceneController : MonoBehaviour
 
         //Fall Off Check
         LevelManager levelManager = GameManager.LevelManager;
-        if (levelManager.player.transform.position.y < -15f)
+        if (levelManager.ActiveSceneController.player.transform.position.y < -15f)
         {
-            levelManager.ChangeLevel(LevelManager.Level.Hub);
+            levelManager.ChangeLevel(Hub);
         }
+    }
+
+    public void SetPlayer(PlayerVirus player)
+    {
+        this.player = player;
     }
 
     public void AddSpawnPoint(Transform transform)
@@ -69,7 +82,7 @@ public class BaseSceneController : MonoBehaviour
 
     public void SetSpawnPoint()
     {
-        GameManager.LevelManager.player.transform.position = playerSpawnPoints[UnityEngine.Random.Range(0, playerSpawnPoints.Count)].position;
+        GameManager.LevelManager.ActiveSceneController.player.transform.position = playerSpawnPoints[UnityEngine.Random.Range(0, playerSpawnPoints.Count)].position;
     }
 
     public void StartCaughtMode()

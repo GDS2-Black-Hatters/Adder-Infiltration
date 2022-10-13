@@ -10,19 +10,19 @@ public class HPTracker : CaughtVariableTracker
     protected override void Start()
     {
         base.Start();
-        GameManager.VariableManager.playerHealth.onHurt += UpdateHP;
+        GameManager.LevelManager.ActiveSceneController.playerHealth.onHurt += UpdateHP;
         fillAmountLerper.SetValues(0, 0.25f, 1);
     }
 
     private void UpdateHP()
     {
-        float percent = GameManager.VariableManager.playerHealth.healthPercentage;
+        float percent = GameManager.LevelManager.ActiveSceneController.playerHealth.healthPercentage;
         ui.fillAmount = Mathf.Lerp(0, 0.25f, percent);
         ui.color = Color.Lerp(empty, full, DoStatic.RoundToNearestFloat(percent, 0.25f));
     }
 
     private void OnDisable()
     {
-        GameManager.VariableManager.playerHealth.onHurt -= UpdateHP;
+        GameManager.LevelManager.ActiveSceneController.playerHealth.onHurt -= UpdateHP;
     }
 }

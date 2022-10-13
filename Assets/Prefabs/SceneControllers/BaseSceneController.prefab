@@ -1723,6 +1723,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b3e5759bc421544ca6db73d1b68cd36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TimeToLive:
+    <timer>k__BackingField: 120
+    <timeScale>k__BackingField: -1
+    <autoLoop>k__BackingField: 0
   full: {r: 0, g: 1, b: 0, a: 1}
   low: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &6410896592051759174

@@ -26,31 +26,8 @@ public class Warp : AbilityBase
             return;
         }
 
-        GameManager.LevelManager.player.transform.position = warpPointMarker.transform.position + Vector3.up * GameManager.LevelManager.player.transform.position.y;
-        EndAbilityPrime();
-    }
-
-    public override void EndAbilityPrime()
-    {
-        if (warpPointMarkCoroutine != null)
-        {
-            StopCoroutine(warpPointMarkCoroutine);
-        }
-
-        validWarpTargetPosition = false;
-        warpPointMarker.SetActive(false);
-    }
-
-    public override void StartAbilityPrime()
-    {
-        if (warpPointMarkCoroutine != null)
-        {
-            StopCoroutine(warpPointMarkCoroutine);
-        }
-
-        warpPointMarker.SetActive(true);
-
-        warpPointMarkCoroutine = StartCoroutine(updateWarpPointMark());
+        BaseSceneController sceneController = GameManager.LevelManager.ActiveSceneController;
+        sceneController.player.transform.position = warpPointMarker.transform.position + Vector3.up * sceneController.player.transform.position.y;
     }
 
     private IEnumerator updateWarpPointMark()
