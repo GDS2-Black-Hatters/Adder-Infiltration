@@ -511,6 +511,10 @@ PrefabInstance:
       value: BaseSceneController
       objectReference: {fileID: 0}
     - target: {fileID: 4526123236416099533, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
+      propertyPath: absoluteMaxEnemyCount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526123236416099533, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
       propertyPath: availableEnemyPrefabs.Array.size
       value: 1
       objectReference: {fileID: 0}

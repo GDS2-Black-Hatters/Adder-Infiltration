@@ -8,7 +8,7 @@ using UnityEngine;
 public abstract class Enemy : MonoBehaviour
 {
     [HideInInspector] public bool canAttack = false;
-    private int raycastMask;
+    protected int raycastMask;
     protected Rigidbody rb;
 
     [Header("Stats"), SerializeField] protected float movementSpeed = 10;
