@@ -13,7 +13,7 @@ public class AINode : MonoBehaviour
     public AINode GetNextNodeToPlayer()
     {
         BaseSceneController sceneController = GameManager.LevelManager.ActiveSceneController;
-        AINode playerNode = sceneController.enemyAdmin.GetClosestNode(sceneController.player.transform);
+        AINode playerNode = sceneController.enemyAdmin.GetClosestNode(sceneController.Player.transform);
 
         AINode nextNode = null;
         float shortestDist = int.MaxValue;

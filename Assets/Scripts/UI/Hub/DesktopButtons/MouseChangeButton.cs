@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class MouseChangeButton : BaseItemButton
@@ -13,6 +14,6 @@ public class MouseChangeButton : BaseItemButton
     protected override void OnClick()
     {
         base.OnClick();
-        Cursor.SetCursor(mouse.Frames[0], Vector2.zero, CursorMode.Auto);
+        GameManager.InputManager.UpdateMouse(mouse);
     }
 }

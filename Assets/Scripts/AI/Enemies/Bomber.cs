@@ -42,7 +42,7 @@ public class Bomber : Enemy
 
         //Within explosion range
         BaseSceneController sceneController = GameManager.LevelManager.ActiveSceneController;
-        if ((sceneController.player.transform.position - transform.position).sqrMagnitude <= explosionRange) 
+        if ((sceneController.Player.transform.position - transform.position).sqrMagnitude <= explosionRange) 
         {
             sceneController.playerHealth.ReduceHealth(explosionDamage);
             

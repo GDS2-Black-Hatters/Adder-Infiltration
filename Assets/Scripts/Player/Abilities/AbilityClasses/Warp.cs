@@ -27,7 +27,7 @@ public class Warp : AbilityBase
         }
 
         BaseSceneController sceneController = GameManager.LevelManager.ActiveSceneController;
-        sceneController.player.transform.position = warpPointMarker.transform.position + Vector3.up * sceneController.player.transform.position.y;
+        sceneController.Player.transform.position = warpPointMarker.transform.position + Vector3.up * sceneController.Player.transform.position.y;
     }
 
     private IEnumerator updateWarpPointMark()

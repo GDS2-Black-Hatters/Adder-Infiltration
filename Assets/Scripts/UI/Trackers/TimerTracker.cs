@@ -29,7 +29,7 @@ public class TimerTracker : CaughtVariableTracker
 
     private IEnumerator TimeTick()
     {
-        TimeToLive.Reset(false, false);
+        TimeToLive.Reset(false);
         float tick;
         Lerper lerper = new();
         lerper.SetValues(1, 0.5f, 1);
@@ -45,6 +45,5 @@ public class TimerTracker : CaughtVariableTracker
             text.text = minutes > 0 ? $"{minutes:0}:{seconds:00}" : $"{seconds:#0.00}s";
             yield return null;
         } while (TimeToLive.TimePercentage != 0);
-        TimeToLive.Reset();
     }
 }

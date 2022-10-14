@@ -37,7 +37,7 @@ public class BoomCameraControl : MonoBehaviour
 
     private void Start()
     {
-        GameManager.LevelManager.ActiveSceneController.player.virusController.onLookInputUpdate += RotateCamera;
+        GameManager.LevelManager.ActiveSceneController.Player.virusController.onLookInputUpdate += RotateCamera;
     }
 
     private void Update()

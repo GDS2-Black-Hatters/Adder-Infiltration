@@ -15,7 +15,7 @@ public class PlayerVirusMoveControl : MonoBehaviour
 
     private void Start()
     {
-        GameManager.LevelManager.ActiveSceneController.player.virusController.onMovementInputUpdate += UpdateMovementInput;
+        GameManager.LevelManager.ActiveSceneController.Player.virusController.onMovementInputUpdate += UpdateMovementInput;
     }
 
     private void UpdateMovementInput(Vector2 newDelta)

@@ -4,7 +4,7 @@ public class SpawnerEnvironmentObject : BaseEnvironmentObject
 {
     [SerializeField] private GameObject objectToSpawn;
     [SerializeField] private Vector3 spawnPointOffset;
-    [SerializeField] private TimeTracker spawnTimer = new(5, -1, true);
+    [SerializeField] private TimeTracker spawnTimer = new(5);
     [SerializeField] private Animator animCtr;
 
     private void Start()
@@ -31,6 +31,7 @@ public class SpawnerEnvironmentObject : BaseEnvironmentObject
             objectToSpawn, transform.position + spawnPointOffset, Quaternion.identity,
             GameManager.LevelManager.ActiveSceneController.enemyAdmin.transform
         );
+        spawnTimer.Reset();
     }
 
     private void OnDrawGizmos()

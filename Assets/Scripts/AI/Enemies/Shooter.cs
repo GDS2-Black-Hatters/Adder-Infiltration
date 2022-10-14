@@ -7,7 +7,7 @@ public class Shooter : Enemy
 {
     [Header("Shooter Params"), SerializeField] private Transform bulletPoint; //Where the bullet will spawn.
     [SerializeField] private float bulletSpeed = 10; //The speed of the bullet.
-    [SerializeField] protected TimeTracker attackCooldown = new(1, -1, true); //Intervals before next attack.
+    [SerializeField] protected TimeTracker attackCooldown = new(1); //Intervals before next attack.
     [SerializeField] protected AK.Wwise.Event DroneAmb;
     [SerializeField] protected AK.Wwise.Event ShootSound;
 
@@ -30,7 +30,7 @@ public class Shooter : Enemy
     protected override void Attack()
     {
         attackCooldown.Update(Time.deltaTime);
-        if ((GameManager.LevelManager.ActiveSceneController.player.transform.position - transform.position).sqrMagnitude > closeRangeDistance)
+        if ((GameManager.LevelManager.ActiveSceneController.Player.transform.position - transform.position).sqrMagnitude > closeRangeDistance)
         {
             stateAction = Chase;
             fixedStateAction = FixedChase;
@@ -45,10 +45,11 @@ public class Shooter : Enemy
         Bullet bull = bullet.GetComponent<Bullet>();
         bull.SetOwner(transform);
 
-        Transform player = GameManager.LevelManager.ActiveSceneController.player.transform;
+        Transform player = GameManager.LevelManager.ActiveSceneController.Player.transform;
         bullet.transform.LookAt(player);
         bullet.velocity = (player.position - bullet.transform.position).normalized * bulletSpeed;
 
         ShootSound.Post(gameObject);
+        attackCooldown.Reset();
     }
 }

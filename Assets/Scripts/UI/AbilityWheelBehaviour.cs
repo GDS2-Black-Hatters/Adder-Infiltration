@@ -112,10 +112,9 @@ public class AbilityWheelBehaviour : MonoBehaviour
         do
         {
             yield return null;
-            time.Update(Time.deltaTime);
             transform.eulerAngles = Vector3.Lerp(Vector3.zero, goalRot, time.TimePercentage);
+            time.Update(Time.deltaTime);
             //TODO: Update icon sizes. (Optional)
-        } while (time.TimePercentage != 1);
-        time.Reset();
+        } while (IsRotating);
     }
 }

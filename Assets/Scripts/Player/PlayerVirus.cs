@@ -8,7 +8,6 @@ public class PlayerVirus : MonoBehaviour
 
     private void Awake()
     {
-        GameManager.LevelManager.ActiveSceneController.SetPlayer(this);
         movement = GetComponent<PlayerVirusMoveControl>();
     }
 

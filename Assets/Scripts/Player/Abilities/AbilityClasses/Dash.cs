@@ -9,6 +9,6 @@ public class Dash : AbilityBase
 
     protected override void DoAbilityEffect()
     {
-        GameManager.LevelManager.ActiveSceneController.player.Dash(strength);
+        GameManager.LevelManager.ActiveSceneController.Player.Dash(strength);
     }
 }

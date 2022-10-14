@@ -1,7 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using static InputManager;
-using static ActionInputSubscriber.CallbackContext;
 
 public class PlayerInteracter : MonoBehaviour
 {
@@ -21,7 +19,7 @@ public class PlayerInteracter : MonoBehaviour
     
     private void Start()
     {
-        PlayerVirusController virusController = GameManager.LevelManager.ActiveSceneController.player.virusController;
+        PlayerVirusController virusController = GameManager.LevelManager.ActiveSceneController.Player.virusController;
         virusController.onInteractStart += InteractStart;
         virusController.onInteractEnd += InteractHalt;
     }

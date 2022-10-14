@@ -35,9 +35,9 @@ public abstract class AbilityBase : MonoBehaviour
         do
         {
             yield return null;
-            CooldownTimer.Update(Time.deltaTime);
             CooldownUpdate?.Invoke();
-        } while (CooldownTimer.TimePercentage != 1);
+            CooldownTimer.Update(Time.deltaTime);
+        } while (IsCoolingDown);
         CooldownTimer.Reset();
     }
 

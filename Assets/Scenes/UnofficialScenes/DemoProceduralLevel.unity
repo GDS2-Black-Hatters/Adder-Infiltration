@@ -238,13 +238,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <enemyAdmin>k__BackingField: {fileID: 24270770}
   caughtHUD: {fileID: 24270768}
+  <playerHealth>k__BackingField:
+    health:
+      <originalValue>k__BackingField: 20
+      value: 20
+  <Player>k__BackingField: {fileID: 1494854978}
   <objectiveList>k__BackingField: {fileID: 24270767}
   playerDetectionMusicEvent:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 0c07393645dc8654c84effe69cbeadf7, type: 2}
   lerpTime: 3
-  playerPrefab: {fileID: 8804111390498198749, guid: 69832c6d5cf7dbf488ce8eb1d64c8520, type: 3}
   mainIsland: {fileID: 825373982}
 --- !u!114 &24270770 stripped
 MonoBehaviour:
@@ -530,6 +534,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &1494854978 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6809075488103811737, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
+  m_PrefabInstance: {fileID: 24270765}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dc2701e2cafa9642be2f6c2388c1dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1698050133
 GameObject:
   m_ObjectHideFlags: 0
