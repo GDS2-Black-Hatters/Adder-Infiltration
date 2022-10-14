@@ -8,7 +8,7 @@ public class ProceduralBuildingGenerator : MonoBehaviour
 
     void Start()
     {
-        buildingData.Generate(transform, 0);
+        buildingData.Generate(transform);
         Destroy(this);
     }
 }

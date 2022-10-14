@@ -12,7 +12,7 @@ public class PCGPlazaData : PCGBlockScriptable
     [SerializeField] private BaseEnvironmentObject[] availableEnvObjPrefab;
     [SerializeField] private Vector3[] envObjPositionOffset;
 
-    public override GameObject Generate(Transform rootParent, float cellUnitMultiplier)
+    public override GameObject Generate(Transform rootParent)
     {
         Transform root = new GameObject("Plaza").transform;
         root.SetParent(rootParent);
@@ -27,7 +27,7 @@ public class PCGPlazaData : PCGBlockScriptable
 
         foreach(Vector3 offset in envObjPositionOffset)
         {
-            BaseEnvironmentObject newEnvObj = Instantiate(availableEnvObjPrefab[Random.Range(0, availableEnvObjPrefab.Length)], root.position + offset * cellUnitMultiplier/2, Quaternion.identity);
+            BaseEnvironmentObject newEnvObj = Instantiate(availableEnvObjPrefab[Random.Range(0, availableEnvObjPrefab.Length)], root.position + offset * GlobalConst.chunkCellSizeUnitMultiplier/2, Quaternion.identity);
             newEnvObj.Initilize();
             newEnvObj.transform.SetParent(root);
         }

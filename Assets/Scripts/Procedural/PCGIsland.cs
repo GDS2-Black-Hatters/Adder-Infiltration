@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Obsolete]
 public class PCGIsland : MonoBehaviour
 {
-    private const float cellSizeUnitMultiplier = 25;
     private const float chunkBoarderWidth = 0.5f;
 
     [SerializeField] private Vector2Int islandSize;
@@ -103,7 +103,7 @@ public class PCGIsland : MonoBehaviour
     {
         GameObject ground = Instantiate(roadwayGroundPrefab, transform.position, transform.rotation, transform);
         //Add 1.5 to generate boarder ground area for enemies patrol
-        float calculatedMult = cellSizeUnitMultiplier * 0.1f;
+        float calculatedMult = GlobalConst.chunkCellSizeUnitMultiplier * 0.1f;
         Vector3 scale = new Vector3(islandSize.x + 1.5f, 1, islandSize.y + 1.5f) * calculatedMult;
         scale.y = 1;
         ground.transform.localScale = scale;
@@ -229,13 +229,14 @@ public class PCGIsland : MonoBehaviour
 
             //Initilize and generate chunk
             chunkDataCopy.Initilize(chunkTransform);
-            GameObject chunkObj = chunkDataCopy.Generate(transform, cellSizeUnitMultiplier);
+            GameObject chunkObj = chunkDataCopy.Generate(transform);
             
             //move chunk to new position
             chunkObj.transform.localPosition = GridPosToWorldV3(chunkTransform.ChunkCenter);
             chunkObj.transform.localRotation = Quaternion.identity;
     }
 
+    /*
     private Dictionary<ChunkTransform, PCGChunkDataBase> AssignTransformsWithChunkData(ChunkTransform[] chunkTransforms)
     {
         Dictionary<ChunkTransform, PCGChunkDataBase> assignmentArray = new Dictionary<ChunkTransform, PCGChunkDataBase>();
@@ -250,7 +251,6 @@ public class PCGIsland : MonoBehaviour
         return null;
     }
 
-    /*
     private bool VerifyChunkAvailability(PCGChunkDataBase[] requiredChunks, ChunkTransform[] availableChunks)
     {
         //Fail if there aren't enough chunks
@@ -292,16 +292,16 @@ public class PCGIsland : MonoBehaviour
 
     private Vector3 GridPosToWorldV3(float xCord, float yCord)
     {
-        return transform.position + new Vector3(xCord - (islandSize.x - 1) * 0.5f, 0, yCord - (islandSize.y - 1) * 0.5f) * cellSizeUnitMultiplier;
+        return transform.position + new Vector3(xCord - (islandSize.x - 1) * 0.5f, 0, yCord - (islandSize.y - 1) * 0.5f) * GlobalConst.chunkCellSizeUnitMultiplier;
     }
 
     private Vector3 GridPosToLocalV3(Vector2 gridCord)
     {
-        return new Vector3(gridCord.x - (islandSize.x - 1) * 0.5f, 0, gridCord.y - (islandSize.y - 1) * 0.5f) * cellSizeUnitMultiplier;
+        return new Vector3(gridCord.x - (islandSize.x - 1) * 0.5f, 0, gridCord.y - (islandSize.y - 1) * 0.5f) * GlobalConst.chunkCellSizeUnitMultiplier;
     }
 
     private Vector3 GridPosToWorldV3(Vector2 gridCord)
     {
-        return transform.position + new Vector3(gridCord.x - (islandSize.x - 1) * 0.5f, 0, gridCord.y - (islandSize.y - 1) * 0.5f) * cellSizeUnitMultiplier;
+        return transform.position + new Vector3(gridCord.x - (islandSize.x - 1) * 0.5f, 0, gridCord.y - (islandSize.y - 1) * 0.5f) * GlobalConst.chunkCellSizeUnitMultiplier;
     }
 }

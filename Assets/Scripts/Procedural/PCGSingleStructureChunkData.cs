@@ -33,10 +33,8 @@ public class PCGSingleStructureChunkData : PCGChunkDataBase
         }
     }
 
-    public override GameObject Generate(Transform parentTransform, float cellUnitMultiplier)
+    public override GameObject Generate(Transform parentTransform)
     {
-        this.cellUnitMultiplier = cellUnitMultiplier;
-
         Transform root = InstantiateRootAndGround(parentTransform);
 
         //Assign the modules into lists

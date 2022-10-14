@@ -123,67 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &330344381
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 330344383}
-  - component: {fileID: 330344382}
-  m_Layer: 6
-  m_Name: Island
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &330344382
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330344381}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5204cd611de48149b37a28e0064cb28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  islandSize: {x: 15, y: 18}
-  maxChunkSizeLowerBound: 12
-  expectedChunkSizeVariation: 6
-  roadwayGroundPrefab: {fileID: 265249028506440539, guid: f3e977a499559f14aa4394f64b7f19d5, type: 3}
-  requiredChunks:
-  - {fileID: 11400000, guid: 869f5d643730d8b4689c159a97cdd846, type: 2}
-  - {fileID: 11400000, guid: 0c7a5720be8df4c479834f13c3f8497c, type: 2}
-  - {fileID: 11400000, guid: 0c7a5720be8df4c479834f13c3f8497c, type: 2}
-  - {fileID: 11400000, guid: 8e593a35394837e4d8b8bb052557d129, type: 2}
-  - {fileID: 11400000, guid: af828253da142d1468023feedb6fe867, type: 2}
-  availableChunks:
-  - {fileID: 11400000, guid: a06256e318864bf4c9f04627e7622151, type: 2}
-  - {fileID: 11400000, guid: df8d6919a9761c44e865f45e7774a69c, type: 2}
-  - {fileID: 11400000, guid: bb8bc7c5694055c47ac9b2bdeee754de, type: 2}
-  - {fileID: 11400000, guid: af828253da142d1468023feedb6fe867, type: 2}
-  aiNodePrefab: {fileID: 1002651925752980835, guid: b8330dc458e8daa45ab23f5a1045c669, type: 3}
-  generateOnStart: 1
---- !u!4 &330344383
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330344381}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &399022235
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,6 +376,54 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &816082882
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 816082884}
+  - component: {fileID: 816082883}
+  m_Layer: 0
+  m_Name: IslandGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &816082883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816082882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34838669592731a4d8f63b0db0163790, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  islandData: {fileID: 11400000, guid: 33728bd5f76ed664d9e877b4de93a33f, type: 2}
+  islandSize: {x: 20, y: 20}
+  maxChunkSizeLowerBound: 9
+  expectedChunkSizeVariation: 10
+--- !u!4 &816082884
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816082882}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1016965324
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -454,7 +441,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7761759052319665118, guid: 12885508a6636d04bb3be65ab84a38fe, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7761759052319665118, guid: 12885508a6636d04bb3be65ab84a38fe, type: 3}
       propertyPath: m_LocalPosition.x
@@ -512,7 +499,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6106655758076692800, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6106655758076692800, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
       propertyPath: m_LocalPosition.x
@@ -605,7 +592,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1619160103
 GameObject:
@@ -686,7 +673,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1628750451
 GameObject:
@@ -733,5 +720,5 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

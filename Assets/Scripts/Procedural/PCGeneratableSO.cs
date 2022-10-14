@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class PCGeneratableSO : ScriptableObject
 {
-    public abstract GameObject Generate(Transform parentTransform, float cellUnitMultiplier);
+    public abstract GameObject Generate(Transform parentTransform);
 }

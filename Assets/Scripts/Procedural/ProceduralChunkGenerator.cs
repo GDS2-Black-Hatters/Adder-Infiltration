@@ -6,7 +6,6 @@ public class ProceduralChunkGenerator : MonoBehaviour
 {
     [SerializeField] private PCGChunkDataBase chunkData;
     [SerializeField] private Vector2Int chunkSize;
-    private const float cellSizeMultiplier = 25;
 
     void Start()
     {
@@ -24,7 +23,7 @@ public class ProceduralChunkGenerator : MonoBehaviour
         Transform chunkBase = new GameObject("ChunkBase").transform;
         chunkBase.SetParent(transform);
 
-        chunkDataCopy.Generate(chunkBase, cellSizeMultiplier);
+        chunkDataCopy.Generate(chunkBase);
         
         chunkBase.localPosition = Vector3.zero;
         chunkBase.localRotation = Quaternion.identity;

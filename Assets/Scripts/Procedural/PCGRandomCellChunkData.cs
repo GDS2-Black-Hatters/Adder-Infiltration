@@ -10,10 +10,8 @@ public class PCGRandomCellChunkData : PCGChunkDataBase
 
     [SerializeField] private float randomWalkableTileChance = 0.3f;
 
-    public override GameObject Generate(Transform parentTransform, float cellUnitMultiplier)
+    public override GameObject Generate(Transform parentTransform)
     {
-        this.cellUnitMultiplier = cellUnitMultiplier;
-
         Transform root = InstantiateRootAndGround(parentTransform);
 
         bool[,] tileWalkable = new bool[chunkTransform.ChunkWidth, chunkTransform.ChunkHeight];
@@ -211,7 +209,7 @@ public class PCGRandomCellChunkData : PCGChunkDataBase
 
     private GameObject PopulateCell(PCGBlockScriptable fillContentBlock, Vector2 fillCellCord, int rotationMultiplier, Transform chunkBaseTransform)
     {
-        GameObject newStructure = fillContentBlock.Generate(chunkBaseTransform, cellUnitMultiplier);
+        GameObject newStructure = fillContentBlock.Generate(chunkBaseTransform);
         newStructure.transform.position = relativeCellPosition(fillCellCord.x, fillCellCord.y);
         newStructure.transform.Rotate(Vector3.up, rotationMultiplier * 90);
         newStructure.transform.SetParent(chunkBaseTransform);

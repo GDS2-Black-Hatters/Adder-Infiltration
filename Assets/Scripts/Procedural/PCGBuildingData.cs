@@ -21,7 +21,7 @@ public class PCGBuildingData : PCGBlockScriptable
     [SerializeField] private PCGBuildingModule[] MidModules;
     [SerializeField] private PCGBuildingModule[] CapModules;
 
-    public override GameObject Generate(Transform rootParent, float cellUnitMultiplier)
+    public override GameObject Generate(Transform rootParent)
     {
         Transform root = new GameObject("BuildingRoot").transform;
         root.SetParent(rootParent);
