@@ -1,53 +1,57 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShopButtonContainer : MonoBehaviour
+public class ShopButtonContainer : BaseButtonContainer
 {
-    public ShopItemButton selectedItem { get; private set; }
+    private ShopItemButton ShopItem => (ShopItemButton)SelectedItem;
     [SerializeField] private ItemDescription itemInfo;
     [SerializeField] private Button purchaseButton;
-    [SerializeField] private GameObject BaseItem;
-    [SerializeField] private List<BaseShopItem> items;
+    [SerializeField] private ShopItemList itemList;
+    [SerializeField] private Scrollbar rightSideScrollBar;
 
     private void Awake()
     {
         purchaseButton.interactable = false;
         purchaseButton.onClick.AddListener(() =>
         {
-            selectedItem.Purchase();
+            ShopItem.Purchase();
             UpdateValues();
         });
 
-        foreach (BaseShopItem item in items)
+        foreach (BaseShopItem item in itemList.GetItems())
         {
             GameObject go = Instantiate(BaseItem, transform);
             switch (item)
             {
                 case ShopItem shopItem:
-                    go.AddComponent<PurchaseItemButton>().StartUp(item);
+                    go.AddComponent<PurchaseItemButton>().StartUp(this, item);
                     break;
 
                 case AbilityItem abilityItem:
-                    go.AddComponent<PurchaseAbilityButton>().StartUp(item);
+                    go.AddComponent<PurchaseAbilityButton>().StartUp(this, item);
                     break;
             }
         }
     }
 
-    public void UpdateSelectedButton(ShopItemButton storeButton)
+    public override void UpdateSelectedButton(BaseItemButton storeButton = null)
     {
-        if (selectedItem != null)
-        {
-            selectedItem.ButtonDeselected();
-        }
-        selectedItem = storeButton;
+        rightSideScrollBar.value = 1;
+        base.UpdateSelectedButton(storeButton);
         UpdateValues();
     }
 
     private void UpdateValues()
     {
-        itemInfo.UpdateInformation(selectedItem.RichDescription);
-        purchaseButton.interactable = selectedItem.CanPurchase;
+        if (SelectedItem)
+        {
+            itemInfo.UpdateInformation(ShopItem.RichDescription);
+            purchaseButton.interactable = ShopItem.CanPurchase;
+        }
+        else
+        {
+            itemInfo.UpdateInformation(null);
+            purchaseButton.interactable = false;
+        }
     }
 }

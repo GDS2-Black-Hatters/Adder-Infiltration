@@ -127,7 +127,6 @@ public sealed class LevelManager : BaseManager
 
         SetIsGamePaused(false);
         OnApplicationFocus(true);
-        GameManager.VariableManager.Restart();
         UpdateLevelIndex();
 
         bool isNotInGame = (int)level < gameLevels;

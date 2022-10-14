@@ -36,7 +36,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
@@ -219,21 +219,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e121e400ee6da0a45aa5b18dc12f37ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <BaseItem>k__BackingField: {fileID: 7005876751082412806, guid: 1675f159728b9cc4fbd4c110e5eb0e0e, type: 3}
   itemInfo: {fileID: 4878593238504127206}
   purchaseButton: {fileID: 5676688725925226965}
-  BaseItem: {fileID: 7005876751082412806, guid: 1675f159728b9cc4fbd4c110e5eb0e0e, type: 3}
-  items:
-  - {fileID: 11400000, guid: 47258c4d46624f2409b32911e7ebff26, type: 2}
-  - {fileID: 11400000, guid: 02beb254cebd64248a40a5159ba98fc7, type: 2}
-  - {fileID: 11400000, guid: 9646a8ece600272439f334961aeaba00, type: 2}
-  - {fileID: 11400000, guid: 1784ed6de10f5534f88cca88078f9704, type: 2}
-  - {fileID: 11400000, guid: 72746d06d67dd5140acd645e8e88715f, type: 2}
-  - {fileID: 11400000, guid: 93f67312763faec43a2ae14c58c2b630, type: 2}
-  - {fileID: 11400000, guid: 1f47e9955fc93274fb223cafdfb53085, type: 2}
-  - {fileID: 11400000, guid: 4fc36e18c1ecf1b4ab5f66a2350b3724, type: 2}
-  - {fileID: 11400000, guid: a0adf373893353f42ac16dc1fc151a6f, type: 2}
-  - {fileID: 11400000, guid: 558d9dfe79944b84eb8896b0bf0376f9, type: 2}
-  - {fileID: 11400000, guid: 21ba02ae72380774ebec9307e50cd4dc, type: 2}
+  itemList: {fileID: 11400000, guid: e4b7362a3d235e041bc416f6ec00a295, type: 2}
+  rightSideScrollBar: {fileID: 3120394589259869470}
 --- !u!1 &1495649858632396263
 GameObject:
   m_ObjectHideFlags: 0
@@ -469,7 +459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -499,11 +489,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Content: {fileID: 4767476127676534229}
-  m_Horizontal: 1
+  m_Horizontal: 0
   m_Vertical: 1
   m_MovementType: 2
   m_Elasticity: 0.1
-  m_Inertia: 1
+  m_Inertia: 0
   m_DecelerationRate: 0.135
   m_ScrollSensitivity: 10
   m_Viewport: {fileID: 399081325824111322}
@@ -956,7 +946,7 @@ MonoBehaviour:
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 3138410926739752773}
   m_HorizontalScrollbarVisibility: 2
-  m_VerticalScrollbarVisibility: 1
+  m_VerticalScrollbarVisibility: 2
   m_HorizontalScrollbarSpacing: -3
   m_VerticalScrollbarSpacing: -3
   m_OnValueChanged:
@@ -1128,7 +1118,7 @@ GameObject:
   - component: {fileID: 3464088134497663462}
   - component: {fileID: 5420373064912603785}
   - component: {fileID: 3120394589259869470}
-  - component: {fileID: 4636192875393388490}
+  - component: {fileID: 4441019957852035736}
   m_Layer: 5
   m_Name: Scrollbar Vertical
   m_TagString: Untagged
@@ -1178,7 +1168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1244,7 +1234,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &4636192875393388490
+--- !u!114 &4441019957852035736
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1560,7 +1550,7 @@ GameObject:
   - component: {fileID: 469374633357442292}
   - component: {fileID: 7890153771701464555}
   - component: {fileID: 3138410926739752773}
-  - component: {fileID: 4954672225088400279}
+  - component: {fileID: 3575525735913673682}
   m_Layer: 5
   m_Name: Scrollbar Vertical
   m_TagString: Untagged
@@ -1610,7 +1600,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1670,13 +1660,13 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7155153587613522113}
   m_HandleRect: {fileID: 2859540913608497821}
   m_Direction: 2
-  m_Value: 1.0000002
-  m_Size: 0.32
+  m_Value: 1
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &4954672225088400279
+--- !u!114 &3575525735913673682
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

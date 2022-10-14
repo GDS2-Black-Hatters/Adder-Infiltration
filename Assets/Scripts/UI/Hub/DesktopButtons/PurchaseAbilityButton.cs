@@ -2,10 +2,10 @@
 {
     private AbilityItem ability;
 
-    public override void StartUp(BaseShopItem item)
+    public override void StartUp(BaseButtonContainer container, BaseItem item)
     {
+        base.StartUp(container, item);
         ability = (AbilityItem)item;
-        base.StartUp(item);
     }
 
     public override bool CanPurchase => ability.AbilityUpgrade.UnlockProgression != 1 && HasSufficientMoney();

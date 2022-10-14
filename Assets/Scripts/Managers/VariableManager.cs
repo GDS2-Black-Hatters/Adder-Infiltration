@@ -54,14 +54,6 @@ public sealed class VariableManager : BaseManager
         return this;
     }
 
-    /// <summary>
-    /// When the level has changed, call this level.
-    /// </summary>
-    public void Restart()
-    {
-        //TODO: REMOVE THIS.
-    }
-
     public Unlockable GetUnlockable(AllUnlockables abilityName)
     {
         return GetVariable<Dictionary<AllUnlockables, Unlockable>>(allUnlockables)[abilityName];

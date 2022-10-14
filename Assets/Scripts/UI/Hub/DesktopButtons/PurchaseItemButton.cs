@@ -2,10 +2,10 @@
 {
     private ShopItem shopItem;
 
-    public override void StartUp(BaseShopItem item)
+    public override void StartUp(BaseButtonContainer container, BaseItem item)
     {
         shopItem = (ShopItem)item;
-        base.StartUp(item);
+        base.StartUp(container, item);
     }
 
     public override bool CanPurchase => !shopItem.Unlock.IsUnlocked && HasSufficientMoney();
