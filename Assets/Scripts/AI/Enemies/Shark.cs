@@ -42,5 +42,8 @@ public class Shark : Enemy
                 }
             }
         }
-    }   
+    }
+    protected override void OnPlayerDetection()
+    {
+    }
 }

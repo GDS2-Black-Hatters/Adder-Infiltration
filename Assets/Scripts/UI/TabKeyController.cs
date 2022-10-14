@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using static ActionInputSubscriber.CallbackContext;
 using static InputManager;
@@ -8,7 +7,7 @@ public class TabKeyController : MonoBehaviour
 {
     bool isActive = false;
     [SerializeField] private GameObject objectiveList;
-
+    [SerializeField] private GameObject transparentBG;
     //TODO: Get Icons reference for Tab Key functionality
     //[SerializeField] private GameObject Icons;
     void Awake()
@@ -26,7 +25,7 @@ public class TabKeyController : MonoBehaviour
         {
             isActive = true;
             objectiveList.SetActive(isActive);
-
+            transparentBG.SetActive(isActive);
             //Enable Icons when Release Tab
             //Icons.SetActive(isActive);
         }
@@ -39,7 +38,7 @@ public class TabKeyController : MonoBehaviour
         {
             isActive = false;
             objectiveList.SetActive(isActive);
-
+            transparentBG.SetActive(isActive);
             //Disable Icons when Release Tab
             //Icons.SetActive(isActive);
         }
