@@ -10,6 +10,11 @@ public class PlayerVirusMoveControl : MonoBehaviour
     private Rigidbody rb;
     private Vector2 movementDeltaV2;
 
+    public void UpdateSpeed(float newSpeed)
+    {
+        movementSpeed = newSpeed;
+    }
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();

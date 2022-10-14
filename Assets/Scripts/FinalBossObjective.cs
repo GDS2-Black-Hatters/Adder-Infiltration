@@ -15,7 +15,7 @@ public class FinalBossObjective : MonoBehaviour
     {
         lr = GetComponent<LineRenderer>();
         lr.SetPosition(0, laserOriginPosition.transform.position);
-        lr.SetPosition(1, finalBossTf.transform.position);
+        
         lr.enabled = false;
     }
 
@@ -39,6 +39,8 @@ public class FinalBossObjective : MonoBehaviour
 
     private void Update()
     {
+        lr.SetPosition(1, finalBossTf.transform.position);
+        
         if(playerIn && progress < 800)
             progress++;
         if(progress >= 800)

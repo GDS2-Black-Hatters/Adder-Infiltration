@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class FinalBossLaser : MonoBehaviour
 {
@@ -10,23 +11,51 @@ public class FinalBossLaser : MonoBehaviour
     public LineRenderer laserLineR, warningLaser;
     public bool shootingBossLaser = false;
     public Material warningLaserMat1,  warningLaserMat2,  warningLaserMat3;
+    public NavMeshAgent nma;
+    public float speed1 = 2f, speed2 = 4f, currentSpeed = 0f;
+    private float speedMultiplier = 1f;
+
+    private GameObject player;
+    public Transform resetLocation, bossTransform;
+
 
     // Start is called before the first frame update
     void Awake()
     {
+        speedMultiplier = 0f;
+        player = GameObject.Find("PlayerVirus");
         laserLineR = GetComponent<LineRenderer>();
     }
 
     void AboutToShootLaser()
     {
+        speedMultiplier = 0.5f;
         warningLaser.material = warningLaserMat2;
         // Play sound of a laser about to fire
         Debug.Log("Laser about to fire");
         Invoke("ShootLaser",5f);
     }
 
+    public void ResetPosition()
+    {
+        bossTransform.position = resetLocation.position;
+    }
+
+    public void NextPhaseSpeed(int n)
+    {
+        
+        if(n == 1)
+        {
+            speedMultiplier = 1f;
+            currentSpeed = speed1;
+        }
+        if(n == 2)
+            currentSpeed = speed2;
+    }
+
     void ShootLaser()
     {
+        speedMultiplier = 0f;
         shootingBossLaser = true;
         warningLaser.material = warningLaserMat3;
         // Play sound of a laser firing
@@ -36,6 +65,7 @@ public class FinalBossLaser : MonoBehaviour
 
     void NotShootingLaserButWillSoon()
     {
+        speedMultiplier = 1f;
         shootingBossLaser = false;
         warningLaser.material = warningLaserMat1;
         Debug.Log("Laser stopped firing");
@@ -68,6 +98,9 @@ public class FinalBossLaser : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        nma.destination = player.transform.position;
+        nma.speed = currentSpeed * speedMultiplier;
+
         laserLineR.SetPosition(0, laserOrigin.transform.position);
         warningLaser.SetPosition(0, laserOrigin.transform.position);
 
