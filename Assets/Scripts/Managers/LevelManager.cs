@@ -8,6 +8,7 @@ using static InputManager.ControlScheme;
 public sealed class LevelManager : BaseManager
 {
     #region Levels
+    private const string loadSceneName = "LoadingScene";
     private const int gameLevels = 100; //In case we somehow have over 100 different game scenes.
     //An enum of all the official scenes in the project.
     //Remember, all the states in the enum must be the same name as the actual scene.
