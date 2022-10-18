@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ObstacleParent : MonoBehaviour
@@ -10,6 +11,9 @@ public class ObstacleParent : MonoBehaviour
     float maxTimer;
     float fullTimer = 5;
     float timer;
+    float distanceRan;
+
+    [SerializeField] private TextMeshProUGUI scoreboard;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +27,15 @@ public class ObstacleParent : MonoBehaviour
     void Update()
     {
         timer -= Time.deltaTime;
+        distanceRan += Time.deltaTime * 10 / CalculateTimer();
+        if (distanceRan <= 1000)
+        {
+            scoreboard.text = "Distance Ran: " + (int)distanceRan + "m";
+        }
+        else
+        {
+            scoreboard.text = "Distance Ran: " + (distanceRan / 1000).ToString("F2") + "km";
+        }
 
         if (timer <= 0)
         {
