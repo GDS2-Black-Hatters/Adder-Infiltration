@@ -10,6 +10,7 @@ public sealed class LevelManager : BaseManager
     #region Levels
     private const string loadSceneName = "LoadingScene";
     private const int gameLevels = 100; //In case we somehow have over 100 different game scenes.
+    private const int longLoadLevels = 200; //For levels that have longer load times we throw in the fancy load screen.
     //An enum of all the official scenes in the project.
     //Remember, all the states in the enum must be the same name as the actual scene.
     public enum Level
@@ -21,6 +22,9 @@ public sealed class LevelManager : BaseManager
         Tutorial = gameLevels,
         Tutorial2,
         Tutorial3,
+
+        //Anything below this will be given the long load scene and will require a release call to get out of the loading scene
+        StandardProceduralLevel = longLoadLevels,
 
         //For Demo Purpose
         DemoProceduralLevel,
@@ -34,6 +38,10 @@ public sealed class LevelManager : BaseManager
     public Action<bool> onGamePauseStateChange;
     public Action onGamePause;
     public Action onGameResume;
+
+    private Scene fancyLoadingScene;
+    public bool loadingSceneReleased { get; private set; }
+    public Action onLoadSceneTransitionOut;
 
     private (string transitionIn, string transitionOut) transitionType = ("FadeIn", "FadeOut");
     private (string feedbackIn, string feedbackOut) feedbackType = ("BoxSpinningIn", "BoxSpinningOut");
@@ -122,7 +130,16 @@ public sealed class LevelManager : BaseManager
 
             if (level != newLevel)
             {
-                yield return StartCoroutine(LoadProgress(SceneManager.LoadSceneAsync(DoStatic.EnumToString(newLevel))));
+                //if the level requires a long load time, yield return the loading scene first, then start loading the actual scene async in the background.
+                if((int)newLevel >= longLoadLevels)
+                {
+                    yield return StartCoroutine(LoadProgress(SceneManager.LoadSceneAsync(loadSceneName)));
+                    SceneManager.LoadSceneAsync(DoStatic.EnumToString(newLevel), LoadSceneMode.Additive);
+                }
+                else
+                {
+                    yield return StartCoroutine(LoadProgress(SceneManager.LoadSceneAsync(DoStatic.EnumToString(newLevel))));                
+                }
             }
             notify?.Invoke();
             GameManager.SaveManager.SaveToFile();
@@ -192,6 +209,12 @@ public sealed class LevelManager : BaseManager
             Debug.LogWarning("The previously active SceneController has not yet been destroyed, please ensure you are certain you want two SceneControllers active right now.");
         }
         ActiveSceneController = sceneController;
+    }
+
+    public void ReleaseLoadScene()
+    {
+        loadingSceneReleased = true;
+        onLoadSceneTransitionOut?.Invoke();
     }
 
     public void SetPlayer(PlayerVirus player)
