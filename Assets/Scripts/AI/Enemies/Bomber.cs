@@ -9,6 +9,7 @@ public class Bomber : Enemy
 
     [SerializeField] private float explosionDamage = 10;
 
+    [SerializeField] private Animator bomberAnim;
     [SerializeField] private ParticleSystem explosionParticle;
     [SerializeField] private ParticleSystem explosionChargingParticle;
     private bool charging = false;
@@ -25,7 +26,7 @@ public class Bomber : Enemy
 
     protected override void Attack()
     {
-        Debug.Log(gameObject+"Start Suicide!!!!!!!!");
+        //Debug.Log(gameObject+"Start Suicide!!!!!!!!");
         forwardPower = 0; //Stand still while charging
         if(!charging)
         {
@@ -33,12 +34,13 @@ public class Bomber : Enemy
             Instantiate(explosionChargingParticle, transform.position, Quaternion.identity);
         }
         charging = true;
+        bomberAnim.SetBool("isAttacking", true);
         DoSuicideBombing(3); 
     }
 
     protected virtual void Bombing()
     {
-        Debug.Log(gameObject+"ALLAHU AKBAR!");
+        //Debug.Log(gameObject+"ALLAHU AKBAR!");
 
         //Within explosion range
         BaseSceneController sceneController = GameManager.LevelManager.ActiveSceneController;
