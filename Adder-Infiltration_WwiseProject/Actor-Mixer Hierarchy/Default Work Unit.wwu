@@ -152,11 +152,22 @@
 				</RandomSequenceContainer>
 				<RandomSequenceContainer Name="EnemyDroneAmbient" ID="{387FB7F5-72C4-4623-98F6-F80DF12DE11C}" ShortID="954201789">
 					<PropertyList>
-						<Property Name="3DSpatialization" Type="int16" Value="1"/>
+						<Property Name="3DSpatialization" Type="int16" Value="2"/>
 						<Property Name="GlobalOrPerObject" Type="int16" Value="0"/>
+						<Property Name="Lowpass" Type="int16">
+							<ValueList>
+								<Value>20</Value>
+							</ValueList>
+						</Property>
 						<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 						<Property Name="PlayMechanismResetPlaylistEachPlay" Type="bool" Value="False"/>
 						<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+						<Property Name="SpeakerPanning" Type="int16" Value="1"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-8</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Attenuation">
@@ -253,6 +264,16 @@
 						<Sound Name="EnemyAmbient" ID="{67D5E2B2-C761-4864-A287-0F854035C886}" ShortID="85314537">
 							<PropertyList>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>21</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -276,6 +297,9 @@
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
+					<PositioningInfo>
+						<Panner Name="" ID="{8121E7D4-C68E-4A84-A487-2887C0877579}"/>
+					</PositioningInfo>
 					<Playlist>
 						<ItemRef Name="EnemyAmbient" ID="{67D5E2B2-C761-4864-A287-0F854035C886}"/>
 					</Playlist>
