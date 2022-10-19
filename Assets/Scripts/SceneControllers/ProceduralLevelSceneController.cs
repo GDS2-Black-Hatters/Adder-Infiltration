@@ -5,6 +5,8 @@ public class ProceduralLevelSceneController : BaseSceneController
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private PCGIsland mainIsland;
 
+    [SerializeField] private AK.Wwise.Event StartLevelMusicEvent;
+
     protected override void Start()
     {
         UnityEngine.SceneManagement.SceneManager.SetActiveScene(gameObject.scene);
@@ -23,5 +25,6 @@ public class ProceduralLevelSceneController : BaseSceneController
     private void TempDestroyRig()
     {
         Destroy(loadEffectRig.gameObject);
+        StartLevelMusicEvent.Post(gameObject);
     }
 }

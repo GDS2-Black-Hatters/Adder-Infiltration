@@ -196,6 +196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6251455402617695958, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
+    - {fileID: 4633536489564849401, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
 --- !u!1 &24270766 stripped
 GameObject:
@@ -247,6 +248,10 @@ MonoBehaviour:
   loadEffectRig: {fileID: 1890612601}
   playerPrefab: {fileID: 8804111390498198749, guid: 69832c6d5cf7dbf488ce8eb1d64c8520, type: 3}
   mainIsland: {fileID: 825373982}
+  StartLevelMusicEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 0ef755c8dca1d634e93e8f53634ae9c7, type: 2}
 --- !u!114 &24270770 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4526123236416099533, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
