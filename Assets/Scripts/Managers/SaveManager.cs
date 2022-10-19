@@ -44,9 +44,9 @@ public sealed class SaveManager : BaseManager
     /// <summary>
     /// Saves the current state of the dictionary.
     /// </summary>
-    public void SaveToFile()
+    public void SaveToFile(bool showFeedback = true)
     {
-        saveIcon.SetActive(true);
+        saveIcon.SetActive(showFeedback);
         FileStream file = File.Create(saveFile); //Overwrites the old file.
         formatter.Serialize(file, GameManager.VariableManager.GetAllVars());
         file.Close();

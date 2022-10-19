@@ -41,9 +41,10 @@ public class Bomber : Enemy
         Debug.Log(gameObject+"ALLAHU AKBAR!");
 
         //Within explosion range
-        if ((GameManager.LevelManager.player.transform.position - transform.position).sqrMagnitude <= explosionRange) 
+        BaseSceneController sceneController = GameManager.LevelManager.ActiveSceneController;
+        if ((sceneController.Player.transform.position - transform.position).sqrMagnitude <= explosionRange) 
         {
-            GameManager.VariableManager.playerHealth.ReduceHealth(explosionDamage);
+            sceneController.playerHealth.ReduceHealth(explosionDamage);
             
             //Add explosion particle fx
             Instantiate(explosionParticle, transform.position, Quaternion.identity);

@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using static LevelManager.Level;
 
 public class BaseSceneController : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class BaseSceneController : MonoBehaviour
     private bool hasAMandatoryObjective = false;
 
     [SerializeField] private CaughtHUDBehaviour caughtHUD;
+    [field: SerializeField] public Health playerHealth { get; private set; } = new(20);
+    [field: SerializeField] public PlayerVirus Player { get; private set; }
     [field: SerializeField] public TextMeshProUGUI objectiveList { get; private set; }
 
     //For children.
@@ -41,6 +44,11 @@ public class BaseSceneController : MonoBehaviour
     protected virtual void Awake()
     {
         GameManager.LevelManager.SetActiveSceneController(this);
+
+        playerHealth.onDeath += () =>
+        {
+            GameManager.LevelManager.ChangeLevel(Hub);
+        };
     }
 
     protected virtual void Start()
@@ -66,9 +74,9 @@ public class BaseSceneController : MonoBehaviour
 
         //Fall Off Check
         LevelManager levelManager = GameManager.LevelManager;
-        if (levelManager.player.transform.position.y < -15f)
+        if (levelManager.ActiveSceneController.Player.transform.position.y < -15f)
         {
-            levelManager.ChangeLevel(LevelManager.Level.Hub);
+            levelManager.ChangeLevel(Hub);
         }
     }
 
@@ -79,7 +87,7 @@ public class BaseSceneController : MonoBehaviour
 
     public void SetSpawnPoint()
     {
-        GameManager.LevelManager.player.transform.position = playerSpawnPoints[UnityEngine.Random.Range(0, playerSpawnPoints.Count)].position;
+        GameManager.LevelManager.ActiveSceneController.Player.transform.position = playerSpawnPoints[UnityEngine.Random.Range(0, playerSpawnPoints.Count)].position;
     }
 
     public void StartCaughtMode()

@@ -4,6 +4,7 @@ public class ProceduralLevelSceneController : BaseSceneController
 {
     [SerializeField] private GameObject playerPrefab;
 
+
     [SerializeField] private AK.Wwise.Event StartLevelMusicEvent;
 
     [SerializeField] private int enemySpawnCount = 100;
@@ -11,6 +12,7 @@ public class ProceduralLevelSceneController : BaseSceneController
     public void OnWorldGenComplete()
     {
         Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
+
         SetSpawnPoint();
 
         enemyAdmin.SpawnEnemies(enemySpawnCount);

@@ -117,7 +117,7 @@ public abstract class Enemy : MonoBehaviour
     protected virtual void Chase() {}
     protected virtual void FixedChase()
     {
-        Transform player = GameManager.LevelManager.player.transform;
+        Transform player = GameManager.LevelManager.ActiveSceneController.Player.transform;
         Vector3 dir = player.position - transform.position;
         bool hit = Physics.Raycast(transform.position, dir, out RaycastHit hitInfo, int.MaxValue, raycastMask);
         if (hit && hitInfo.transform == player) //If the enemy can see the player, book it to them.

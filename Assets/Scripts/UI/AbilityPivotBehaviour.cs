@@ -9,7 +9,7 @@ public class AbilityPivotBehaviour : MonoBehaviour
 
     public void UpdateAppearance(AbilityBase ability)
     {
-        icon.sprite = ability.Logo;
+        icon.sprite = ability.Ability.Icon;
         OnDisable();
         current = ability;
         current.CooldownUpdate += UpdateCooldown;
