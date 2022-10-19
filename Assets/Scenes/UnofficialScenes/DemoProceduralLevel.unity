@@ -247,11 +247,11 @@ MonoBehaviour:
   lerpTime: 3
   loadEffectRig: {fileID: 1890612601}
   playerPrefab: {fileID: 8804111390498198749, guid: 69832c6d5cf7dbf488ce8eb1d64c8520, type: 3}
-  mainIsland: {fileID: 825373982}
   StartLevelMusicEvent:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 0ef755c8dca1d634e93e8f53634ae9c7, type: 2}
+  enemySpawnCount: 100
 --- !u!114 &24270770 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4526123236416099533, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
@@ -324,6 +324,7 @@ GameObject:
   m_Component:
   - component: {fileID: 825373983}
   - component: {fileID: 825373982}
+  - component: {fileID: 825373984}
   m_Layer: 0
   m_Name: Island
   m_TagString: Untagged
@@ -338,7 +339,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 825373981}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5204cd611de48149b37a28e0064cb28, type: 3}
   m_Name: 
@@ -374,6 +375,40 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &825373984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825373981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34838669592731a4d8f63b0db0163790, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generateOnStart: 1
+  testGenerate: 0
+  selfDestruct: 1
+  OnGenerationComplete:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 24270769}
+        m_TargetAssemblyTypeName: ProceduralLevelSceneController, Assembly-CSharp
+        m_MethodName: OnWorldGenComplete
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  islandData: {fileID: 11400000, guid: 33728bd5f76ed664d9e877b4de93a33f, type: 2}
+  islandSize: {x: 30, y: 30}
+  maxChunkSizeLowerBound: 9
+  expectedChunkSizeVariation: 10
 --- !u!1 &1064600373
 GameObject:
   m_ObjectHideFlags: 0
@@ -602,31 +637,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 650575319531917999, guid: b30f8f4dd1b35e547b545f860681f6fc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -48.67198
       objectReference: {fileID: 0}
     - target: {fileID: 650575319531917999, guid: b30f8f4dd1b35e547b545f860681f6fc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 47.713478
       objectReference: {fileID: 0}
     - target: {fileID: 650575319531917999, guid: b30f8f4dd1b35e547b545f860681f6fc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -54.075275
       objectReference: {fileID: 0}
     - target: {fileID: 650575319531917999, guid: b30f8f4dd1b35e547b545f860681f6fc, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: -0.9077846
       objectReference: {fileID: 0}
     - target: {fileID: 650575319531917999, guid: b30f8f4dd1b35e547b545f860681f6fc, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.24799794
       objectReference: {fileID: 0}
     - target: {fileID: 650575319531917999, guid: b30f8f4dd1b35e547b545f860681f6fc, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.32653326
       objectReference: {fileID: 0}
     - target: {fileID: 650575319531917999, guid: b30f8f4dd1b35e547b545f860681f6fc, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.088318825
       objectReference: {fileID: 0}
     - target: {fileID: 650575319531917999, guid: b30f8f4dd1b35e547b545f860681f6fc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -639,6 +674,34 @@ PrefabInstance:
     - target: {fileID: 650575319531917999, guid: b30f8f4dd1b35e547b545f860681f6fc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 929432857599896498, guid: b30f8f4dd1b35e547b545f860681f6fc, type: 3}
+      propertyPath: OnApproachComplete.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 929432857599896498, guid: b30f8f4dd1b35e547b545f860681f6fc, type: 3}
+      propertyPath: OnApproachComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 929432857599896498, guid: b30f8f4dd1b35e547b545f860681f6fc, type: 3}
+      propertyPath: OnApproachComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 24270769}
+    - target: {fileID: 929432857599896498, guid: b30f8f4dd1b35e547b545f860681f6fc, type: 3}
+      propertyPath: OnApproachComplete.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 929432857599896498, guid: b30f8f4dd1b35e547b545f860681f6fc, type: 3}
+      propertyPath: OnApproachComplete.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CameraApproachComplete
+      objectReference: {fileID: 0}
+    - target: {fileID: 929432857599896498, guid: b30f8f4dd1b35e547b545f860681f6fc, type: 3}
+      propertyPath: OnApproachComplete.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ProceduralLevelSceneController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 929432857599896498, guid: b30f8f4dd1b35e547b545f860681f6fc, type: 3}
+      propertyPath: OnApproachComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b30f8f4dd1b35e547b545f860681f6fc, type: 3}
