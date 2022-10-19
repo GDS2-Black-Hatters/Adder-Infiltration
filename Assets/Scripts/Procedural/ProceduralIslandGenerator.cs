@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProceduralIslandGenerator : MonoBehaviour
+public class ProceduralIslandGenerator : PCGenerator
 {
     [SerializeField] private PCGIslandData islandData;
 
@@ -10,14 +10,12 @@ public class ProceduralIslandGenerator : MonoBehaviour
     [SerializeField] private int maxChunkSizeLowerBound = 9;
     [SerializeField] private int expectedChunkSizeVariation = 10;
 
-
-    void Start()
+    protected override IEnumerator Generate()
     {
+        GenerationIncomplete();
         PCGIslandData islandDataCopy = Instantiate(islandData);
         islandDataCopy.Initilize(islandSize, maxChunkSizeLowerBound, expectedChunkSizeVariation);
 
-        islandDataCopy.Generate(transform);
-
-        Destroy(this);
+        yield return StartCoroutine(islandDataCopy.Generate(transform, new GameObject(), this, GenerationIncomplete));
     }
 }

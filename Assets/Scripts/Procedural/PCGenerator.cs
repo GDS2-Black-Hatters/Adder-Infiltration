@@ -2,27 +2,51 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PCGenerator : MonoBehaviour
+public abstract class PCGenerator : MonoBehaviour
 {
-    [SerializeField] private PCGeneratableSO[] PossibleGeneratable;
-
     [SerializeField] private bool generateOnStart;
     [SerializeField] private bool testGenerate;
+    [SerializeField] private bool selfDestruct = false;
 
-    private void Start()
+    public UnityEngine.Events.UnityEvent OnGenerationComplete;
+    private bool generating = false;
+    private bool stillGenerating = true;
+
+    protected abstract IEnumerator Generate();
+
+    protected void Start()
     {
         if(generateOnStart)
         {
-            PossibleGeneratable[Random.Range(0, PossibleGeneratable.Length)].Generate(transform);
+            generating = true;
+            StartCoroutine(Generate());
         }
     }
-    private void OnValidate()
+    protected void OnValidate()
     {
         if(testGenerate)
         {
             testGenerate = false;
-            PossibleGeneratable[Random.Range(0, PossibleGeneratable.Length)].Generate(transform);
+            generating = true;
+            StartCoroutine(Generate());
         }
     }
+    protected void GenerationIncomplete()
+    {
+        stillGenerating = true;
+    }
 
+    protected void LateUpdate()
+    {
+        if(!generating) return;
+
+        if(!stillGenerating)
+        {
+            //Debug.Log("Generation Complete");
+            OnGenerationComplete.Invoke();
+            generating = false;
+            if(selfDestruct) Destroy(this);
+        }
+        stillGenerating = false;
+    }
 }

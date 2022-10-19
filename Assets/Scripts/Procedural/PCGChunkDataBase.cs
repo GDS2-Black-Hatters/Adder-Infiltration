@@ -76,16 +76,17 @@ public abstract class PCGChunkDataBase : PCGeneratableSO
         return new Vector3((posX - chunkTransform.ChunkCenter.x) * GlobalConst.chunkCellSizeUnitMultiplier, 0, (posY - chunkTransform.ChunkCenter.y) * GlobalConst.chunkCellSizeUnitMultiplier);
     }
 
-    protected Transform InstantiateRootAndGround(Transform parentTransform)
+    protected void InstantiateRootAndGround(Transform parentTransform, ref GameObject rootGO)
     {
-        Transform root = new GameObject(name).transform;
+        rootGO.name = name;
+        rootGO.isStatic = true;
+        Transform root = rootGO.transform;
         root.SetParent(parentTransform);
         root.localPosition = Vector3.zero;
 
         GameObject chunkBase = Instantiate(chunkBaseObjectPrefab, Vector3.zero, Quaternion.identity, root);
         chunkBase.transform.localScale = Vector3.Scale(chunkBase.transform.localScale, new Vector3(chunkTransform.ChunkWidth + chunkBoarderWidth, 1, chunkTransform.ChunkHeight + chunkBoarderWidth));
-
-        return root;
+        chunkBase.isStatic = true;
     }
 
     protected int GetChunkModuleRotateMultiplier(Vector2Int cellCord, int defaultReturn = 0)

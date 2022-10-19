@@ -81,6 +81,14 @@ public class EnemyAdmin : MonoBehaviour
         return closest;
     }
 
+    public void SpawnEnemies(int count)
+    {
+        for(int i = 0; i < count; i++)
+        {
+            SpawnNewEnemy();
+        }
+    }
+
     public void SpawnNewEnemy()
     {
         AINode startingNode = allAiNodes[Random.Range(0, allAiNodes.Length)];

@@ -10,9 +10,10 @@ public class PCGRandomCellChunkData : PCGChunkDataBase
 
     [SerializeField] private float randomWalkableTileChance = 0.3f;
 
-    public override GameObject Generate(Transform parentTransform)
+    public override IEnumerator Generate(Transform parentTransform, GameObject rootGameObject, MonoBehaviour generator, System.Action incompleteCall)
     {
-        Transform root = InstantiateRootAndGround(parentTransform);
+        InstantiateRootAndGround(parentTransform, ref rootGameObject);
+        Transform root = rootGameObject.transform;
 
         bool[,] tileWalkable = new bool[chunkTransform.ChunkWidth, chunkTransform.ChunkHeight];
 
@@ -159,7 +160,7 @@ public class PCGRandomCellChunkData : PCGChunkDataBase
                 attempt++;
                 continue; //ignore attempt and retry if cell is already filled, or if the walkable comparison fails.
             }
-            PopulateCell(requiredBlockList[0], fillCellV2I, GetChunkModuleRotateMultiplier(fillCellV2I), root);
+            PopulateCell(requiredBlockList[0], fillCellV2I, GetChunkModuleRotateMultiplier(fillCellV2I), root, generator, incompleteCall);
             requiredBlockList.RemoveAt(0);
             attempt = 0;
             cellFillCheck.Add(fillCellV2I);
@@ -186,13 +187,13 @@ public class PCGRandomCellChunkData : PCGChunkDataBase
                     Debug.LogError("No usable block in chunk (" + name + ") with condition: Walkable:" + tileWalkable[i - chunkTransform.upperLeft.x,j - chunkTransform.upperLeft.y]);
                     continue;
                 }
-                PopulateCell(usableBlock[Random.Range(0, usableBlock.Count)], new(i,j), GetChunkModuleRotateMultiplier(new(i,j)), root);
+                PopulateCell(usableBlock[Random.Range(0, usableBlock.Count)], new(i,j), GetChunkModuleRotateMultiplier(new(i,j)), root, generator, incompleteCall);
             }
         }
 
         GenerateBorderObjects(root);
 
-        return root.gameObject;
+        yield break;
     }
 
     private bool tileIsReachable(Vector2Int tileCord, bool[,] tileWalkableStateArray)
@@ -207,9 +208,10 @@ public class PCGRandomCellChunkData : PCGChunkDataBase
         return (tileWalkableStateArray[tileCord.x - 1, tileCord.y] || tileWalkableStateArray[tileCord.x + 1, tileCord.y] || tileWalkableStateArray[tileCord.x, tileCord.y - 1] || tileWalkableStateArray[tileCord.x, tileCord.y + 1]);
     }
 
-    private GameObject PopulateCell(PCGBlockScriptable fillContentBlock, Vector2 fillCellCord, int rotationMultiplier, Transform chunkBaseTransform)
+    private GameObject PopulateCell(PCGBlockScriptable fillContentBlock, Vector2 fillCellCord, int rotationMultiplier, Transform chunkBaseTransform, MonoBehaviour generator, System.Action incompleteCall)
     {
-        GameObject newStructure = fillContentBlock.Generate(chunkBaseTransform);
+        GameObject newStructure = new GameObject();
+        generator.StartCoroutine(fillContentBlock.Generate(chunkBaseTransform, newStructure, generator, incompleteCall));
         newStructure.transform.position = relativeCellPosition(fillCellCord.x, fillCellCord.y);
         newStructure.transform.Rotate(Vector3.up, rotationMultiplier * 90);
         newStructure.transform.SetParent(chunkBaseTransform);

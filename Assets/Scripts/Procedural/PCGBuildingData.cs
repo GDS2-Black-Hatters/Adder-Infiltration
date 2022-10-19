@@ -21,9 +21,10 @@ public class PCGBuildingData : PCGBlockScriptable
     [SerializeField] private PCGBuildingModule[] MidModules;
     [SerializeField] private PCGBuildingModule[] CapModules;
 
-    public override GameObject Generate(Transform rootParent)
+    public override IEnumerator Generate(Transform rootParent, GameObject rootGameObject, MonoBehaviour generator, System.Action incompleteCall)
     {
-        Transform root = new GameObject("BuildingRoot").transform;
+        rootGameObject.name = "BuildingRoot";
+        Transform root = rootGameObject.transform;
         root.SetParent(rootParent);
         root.localPosition = Vector3.zero;
 
@@ -53,6 +54,6 @@ public class PCGBuildingData : PCGBlockScriptable
         module.transform.rotation = Quaternion.Euler(0, ((Steps - 1) * ConstantExtraRotation) + (Random.Range(0, 4) * (Random90DegreeRot ? 90 : 0)), 0);
         attachPointPosition = module.attatchPoint + module.transform.position;
 
-        return root.gameObject;
+        yield break;
     }
 }

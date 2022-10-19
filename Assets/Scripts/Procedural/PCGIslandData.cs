@@ -24,10 +24,15 @@ public class PCGIslandData : PCGeneratableSO
         this.expectedChunkSizeVariation = expectedChunkSizeVariation;
     }
 
-    public override GameObject Generate(Transform parentTransform)
+    public override IEnumerator Generate(Transform parentTransform, GameObject rootObject, MonoBehaviour generator, System.Action incompleteCall)
     {
-        //Create root
-        Transform root = new GameObject(name).transform;
+        System.Diagnostics.Stopwatch stopwatch = new System.Diagnostics.Stopwatch();
+        stopwatch.Reset();
+        stopwatch.Start();
+
+        rootObject.name = name;
+        Transform root = rootObject.transform;
+        rootObject.isStatic = true;
 
         //Instantiate ground
         GameObject ground = Instantiate(roadwayGroundPrefab, root.position, root.rotation, root);
@@ -39,6 +44,14 @@ public class PCGIslandData : PCGeneratableSO
 
         //Generate chunks via binary partition
         ChunkTransform[] chunkTransforms = BinaryArrayPartition.GetPartitionedChunks(islandSize.x, islandSize.y, () => { return Mathf.FloorToInt(AdvanceRandom.ExponentialRandom(maxChunkSizeLowerBound, expectedChunkSizeVariation)); });
+
+        //Frame TimeCheck
+        if(stopwatch.ElapsedMilliseconds > GlobalConst.maxGenerationFrameLengthMilisec)
+        {
+            incompleteCall.Invoke();
+            yield return null;
+            stopwatch.Restart();
+        }
 
         //Grab all requiredChunks before generation and add them in first.
         List<ChunkTransform> filledChunks = new();
@@ -59,7 +72,15 @@ public class PCGIslandData : PCGeneratableSO
             ChunkTransform useTransform = usableChunks[Random.Range(0, usableChunks.Count)]; //select a random usable one
 
             filledChunks.Add(useTransform);
-            GenerateChunk(requiredChunk, useTransform, root);
+            generator.StartCoroutine(GenerateChunk(requiredChunk, useTransform, root, generator, incompleteCall));
+
+            //Frame TimeCheck
+            if(stopwatch.ElapsedMilliseconds > GlobalConst.maxGenerationFrameLengthMilisec)
+            {
+                incompleteCall.Invoke();
+                yield return null;
+                stopwatch.Restart();
+            }
         }
 
         //Fill in the rest of the chunks.
@@ -86,7 +107,15 @@ public class PCGIslandData : PCGeneratableSO
                 continue;
             }
 
-            GenerateChunk(usableChunkData[Random.Range(0, usableChunkData.Count)], chunkTransform, root);
+            generator.StartCoroutine(GenerateChunk(usableChunkData[Random.Range(0, usableChunkData.Count)], chunkTransform, root, generator, incompleteCall));
+
+            //Frame TimeCheck
+            if(stopwatch.ElapsedMilliseconds > GlobalConst.maxGenerationFrameLengthMilisec)
+            {
+                incompleteCall.Invoke();
+                yield return null;
+                stopwatch.Restart();
+            }
         }
 
 #region AINodeGen
@@ -132,6 +161,14 @@ public class PCGIslandData : PCGeneratableSO
             chunkNodes[2].updateNeighbour(NodeNeighbour.Direction.left, chunkNodes[3]);
             chunkNodes[3].updateNeighbour(NodeNeighbour.Direction.right, chunkNodes[2]);
             chunkNodes[3].updateNeighbour(NodeNeighbour.Direction.up, chunkNodes[0]);
+        
+            //Frame TimeCheck
+            if(stopwatch.ElapsedMilliseconds > GlobalConst.maxGenerationFrameLengthMilisec)
+            {
+                incompleteCall.Invoke();
+                yield return null;
+                stopwatch.Restart();
+            }
         }
 
         //Convert the node network to a simpler form
@@ -145,27 +182,40 @@ public class PCGIslandData : PCGeneratableSO
             nb.nodeSelf.AddNeighbour(nb.nodeRight?.nodeSelf);            
         
             nodeList.Add(nb.nodeSelf);
+        
+            //Frame TimeCheck
+            if(stopwatch.ElapsedMilliseconds > GlobalConst.maxGenerationFrameLengthMilisec)
+            {
+                incompleteCall.Invoke();
+                yield return null;
+                stopwatch.Restart();
+            }
         }
+
+        GameManager.LevelManager.ActiveSceneController?.enemyAdmin?.NewAiNodes(nodeList.ToArray());
 #endregion
 
         root.SetParent(parentTransform);
         root.localPosition = Vector3.zero;
         root.localRotation = Quaternion.identity;
-        return root.gameObject;
+        
+        yield break;
     }
 
-    private void GenerateChunk(PCGChunkDataBase chunkData, ChunkTransform chunkTransform, Transform rootTransform)
+    private IEnumerator GenerateChunk(PCGChunkDataBase chunkData, ChunkTransform chunkTransform, Transform rootTransform, MonoBehaviour generator, System.Action incompleteCall)
     {
-            //create a copy of chunk data so we don't modify the scriptable object on disk
-            PCGChunkDataBase chunkDataCopy = Instantiate(chunkData);
+        //create a copy of chunk data so we don't modify the scriptable object on disk
+        PCGChunkDataBase chunkDataCopy = Instantiate(chunkData);
 
-            //Initilize and generate chunk
-            chunkDataCopy.Initilize(chunkTransform);
-            GameObject chunkObj = chunkDataCopy.Generate(rootTransform);
-            
-            //move chunk to new position
-            chunkObj.transform.localPosition = GridPosToV3(chunkTransform.ChunkCenter);
-            chunkObj.transform.localRotation = Quaternion.identity;
+        //Initilize and generate chunk
+        chunkDataCopy.Initilize(chunkTransform);
+        GameObject chunkObj = new GameObject();
+        incompleteCall.Invoke();
+        yield return generator.StartCoroutine(chunkDataCopy.Generate(rootTransform, chunkObj, generator, incompleteCall));
+        
+        //move chunk to new position
+        chunkObj.transform.localPosition = GridPosToV3(chunkTransform.ChunkCenter);
+        chunkObj.transform.localRotation = Quaternion.identity;
     }
 
     private Vector3 GridPosToV3(Vector2 gridCord)

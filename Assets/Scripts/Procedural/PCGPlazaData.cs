@@ -12,9 +12,10 @@ public class PCGPlazaData : PCGBlockScriptable
     [SerializeField] private BaseEnvironmentObject[] availableEnvObjPrefab;
     [SerializeField] private Vector3[] envObjPositionOffset;
 
-    public override GameObject Generate(Transform rootParent)
+    public override IEnumerator Generate(Transform rootParent, GameObject rootGameObject, MonoBehaviour generator, System.Action incompleteCall)
     {
-        Transform root = new GameObject("Plaza").transform;
+        rootGameObject.name = "Plaza";
+        Transform root = rootGameObject.transform;
         root.SetParent(rootParent);
         root.localPosition = Vector3.zero;
 
@@ -23,7 +24,7 @@ public class PCGPlazaData : PCGBlockScriptable
         plazaCoreEnvObj.transform.SetParent(root);
         plazaCoreEnvObj.transform.localPosition = Vector3.zero;
 
-        if(availableEnvObjPrefab.Length <= 0) return root.gameObject; //return if no env obj is available for populating surrounding
+        if(availableEnvObjPrefab.Length <= 0) yield break; //return if no env obj is available for populating surrounding
 
         foreach(Vector3 offset in envObjPositionOffset)
         {
@@ -32,6 +33,6 @@ public class PCGPlazaData : PCGBlockScriptable
             newEnvObj.transform.SetParent(root);
         }
 
-        return root.gameObject;
+        yield break;
     }
 }
