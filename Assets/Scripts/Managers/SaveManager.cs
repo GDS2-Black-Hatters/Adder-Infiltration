@@ -25,6 +25,7 @@ public sealed class SaveManager : BaseManager
         processingPower = 1002,
         allUnlockables = 1003,
 
+        mouseSprite = 2000,
         mouseSensitivity = 2001,
         audioVolume = 2002,
     }
@@ -35,7 +36,7 @@ public sealed class SaveManager : BaseManager
 
     public override BaseManager StartUp()
     {
-        saveFile = Application.persistentDataPath + "/AdderInfiltrationSprint4.sav";
+        saveFile = Application.persistentDataPath + "/AdderInfiltrationSprint5.sav";
         //print(Application.persistentDataPath); //Uncomment to find where it is stored.
         LoadFile(saveFile);
         return this;

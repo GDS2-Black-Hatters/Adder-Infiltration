@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using static SaveManager;
 using static SaveManager.VariableToSave;
+using static VariableManager.AllUnlockables;
 
 public sealed class VariableManager : BaseManager
 {
     //Game variables
     [SerializeField] private AbilityList allAbilities;
+    [field: SerializeField] public MouseList MouseList { get; private set; }
     private readonly Dictionary<AllAbilities, Ability> abilityDictionary = new();
 
     private Dictionary<VariableToSave, object> savedVars; //The dictionary of where all the data is saved.
@@ -27,6 +29,7 @@ public sealed class VariableManager : BaseManager
         //One time unlocks
         PhishingMinigame = 101,
 
+        DefaultMouse = 200,
         SnakeMouse = 201,
         MouseMouse = 202,
         USBMouse = 203,
@@ -110,16 +113,18 @@ public sealed class VariableManager : BaseManager
                     { AllUnlockables.TrojanHorse, GetAbility(AllAbilities.TrojanHorse).DefaultUpgrade },
                     { AllUnlockables.EMP, GetAbility(AllAbilities.EMP).DefaultUpgrade },
                     { AllUnlockables.Warp, GetAbility(AllAbilities.Warp).DefaultUpgrade },
-                    { AllUnlockables.PhishingMinigame, new() },
-                    { AllUnlockables.SnakeMouse, new() },
-                    { AllUnlockables.MouseMouse, new() },
-                    { AllUnlockables.USBMouse, new() },
-                    { AllUnlockables.PirateMouse, new() },
-                    { AllUnlockables.SpiderMouse, new() },
-                    { AllUnlockables.BinaryMouse, new() },
-                    { AllUnlockables.PhishyMouse, new() },
+                    { DefaultMouse, new(true) },
+                    { PhishingMinigame, new() },
+                    { SnakeMouse, new() },
+                    { MouseMouse, new() },
+                    { USBMouse, new() },
+                    { PirateMouse, new() },
+                    { SpiderMouse, new() },
+                    { BinaryMouse, new() },
+                    { PhishyMouse, new() },
                 }
             },
+            {mouseSprite, DefaultMouse },
             {mouseSensitivity, 0.09f },
             {audioVolume, 75f }
         };
@@ -145,9 +150,9 @@ public sealed class VariableManager : BaseManager
         }
 
         Dictionary<AllUnlockables, Unlockable> defaultDict = (Dictionary<AllUnlockables, Unlockable>)defaultValues[allUnlockables];
+        Dictionary<AllUnlockables, Unlockable> dict = (Dictionary<AllUnlockables, Unlockable>)savedVars[allUnlockables];
         foreach (AllUnlockables unlockable in defaultDict.Keys)
         {
-            Dictionary<AllUnlockables, Unlockable> dict = (Dictionary<AllUnlockables, Unlockable>)savedVars[allUnlockables];
             if (!dict.ContainsKey(unlockable))
             {
                 dict.Add(unlockable, defaultDict[unlockable]);

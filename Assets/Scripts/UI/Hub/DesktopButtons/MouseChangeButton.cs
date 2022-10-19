@@ -1,5 +1,4 @@
-using System.Collections;
-using UnityEngine;
+using static SaveManager.VariableToSave;
 
 public class MouseChangeButton : BaseItemButton
 {
@@ -9,11 +8,25 @@ public class MouseChangeButton : BaseItemButton
     {
         base.StartUp(container, item);
         mouse = (Mouse)item;
+        if (IsMouse())
+        {
+            base.OnClick();
+        }
     }
 
     protected override void OnClick()
     {
-        base.OnClick();
-        GameManager.InputManager.UpdateMouse(mouse);
+        if (!IsMouse())
+        {
+            base.OnClick();
+            GameManager.InputManager.UpdateMouse(mouse);
+            GameManager.VariableManager.SetVariable(mouseSprite, mouse.Unlockable);
+            GameManager.SaveManager.SaveToFile(false);
+        }
+    }
+
+    private bool IsMouse()
+    {
+        return GameManager.VariableManager.GetVariable<VariableManager.AllUnlockables>(mouseSprite) == mouse.Unlockable;
     }
 }
