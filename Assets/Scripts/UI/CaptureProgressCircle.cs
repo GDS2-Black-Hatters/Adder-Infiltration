@@ -9,7 +9,7 @@ public class CaptureProgressCircle : MonoBehaviour
 
     private MaterialPropertyBlock[] mpbs;
 
-    public void Start()
+    public void Awake()
     {
         mpbs= new MaterialPropertyBlock[FillSprites.Length];
         for(int i = 0; i < FillSprites.Length; i++)
