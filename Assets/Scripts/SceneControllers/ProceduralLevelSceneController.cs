@@ -7,8 +7,6 @@ public class ProceduralLevelSceneController : BaseSceneController
 
     protected override void Start()
     {
-        UnityEngine.SceneManagement.SceneManager.SetActiveScene(gameObject.scene);
-
         base.Start();
 
         mainIsland.GenerateIsland();

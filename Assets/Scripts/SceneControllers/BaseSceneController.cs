@@ -41,13 +41,16 @@ public class BaseSceneController : MonoBehaviour
     protected virtual void Awake()
     {
         GameManager.LevelManager.SetActiveSceneController(this);
-
-        //Create and assign a copy so we don't change the asset original values
-        RenderSettings.skybox = new(RenderSettings.skybox);
     }
 
     protected virtual void Start()
     {
+        //Ensure we take over the 'active scene' status from the loading scene
+        UnityEngine.SceneManagement.SceneManager.SetActiveScene(gameObject.scene);
+
+        //Create and assign a copy so we don't change the asset original values
+        RenderSettings.skybox = new(RenderSettings.skybox);
+
         enemyAdmin.onFullAlert += StartCaughtMode;
         enemyAdmin.onFullAlert += caughtHUD.FadeIn;
     }
