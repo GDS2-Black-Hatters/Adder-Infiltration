@@ -14,12 +14,12 @@ public class Shark : Enemy
         base.Start();
     }
 
-        protected override void FixedPatrol()
+    protected override void FixedPatrol()
     {
         base.FixedPatrol();
         susIcon.SetActive(false);
         //Basically FixedChase() but in doing it in Patrol
-        Transform player = GameManager.LevelManager.player.transform;
+        Transform player = GameManager.LevelManager.ActiveSceneController.Player.transform;
         Vector3 dir = player.position - transform.position;
         bool hit = Physics.Raycast(transform.position, dir, out RaycastHit hitInfo, int.MaxValue, this.raycastMask);
         if (hit && hitInfo.transform == player) 
