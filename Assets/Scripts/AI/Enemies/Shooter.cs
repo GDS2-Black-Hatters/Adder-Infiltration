@@ -16,9 +16,6 @@ public class Shooter : Enemy
         base.Awake();
         attackCooldown.Reset();
         attackCooldown.onFinish += Shoot;
-
-        rb = GetComponent<Rigidbody>();
-
     }
 
     protected override void Start()
@@ -27,13 +24,19 @@ public class Shooter : Enemy
         DroneAmb.Post(gameObject);
     }
 
-    protected override void Attack()
+    protected override void AttackState()
+    {
+        StateAction = Attack;
+        FixedStateAction = null;
+    }
+
+    protected void Attack()
     {
         attackCooldown.Update(Time.deltaTime);
-        if ((GameManager.LevelManager.ActiveSceneController.Player.transform.position - transform.position).sqrMagnitude > closeRangeDistance)
+        if (!CanAttack)
         {
-            stateAction = Chase;
-            fixedStateAction = FixedChase;
+            StateAction = null;
+            FixedStateAction = FixedChase;
         }
     }
 

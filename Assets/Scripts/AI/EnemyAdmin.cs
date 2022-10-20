@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using AK.Wwise;
 
 public class EnemyAdmin : MonoBehaviour
 {
@@ -21,8 +19,8 @@ public class EnemyAdmin : MonoBehaviour
     [SerializeField] private float fullAlertColorLerpTime = 2;
     private float fullAlertColorLerp = 0;
 
-    public event System.Action onFullAlert;
-    private bool fullAlertTriggered = false;
+    public event System.Action OnFullAlert;
+    public bool FullAlertTriggered { get; private set; } = false;
 
     private void Awake()
     {
@@ -32,8 +30,8 @@ public class EnemyAdmin : MonoBehaviour
     private void Update()
     {
         //if alertness is basically 1, lerp into full alert color, otherwise evaluate the gradient
-        fullAlertColorLerp = Mathf.Clamp( fullAlertColorLerp + Time.deltaTime * (Mathf.Approximately(alertness, 1) ? 1 : -1), 0, fullAlertColorLerpTime);
-        Shader.SetGlobalColor("_StatusEmissionColor", Color.Lerp( worldAlertLightColor.Evaluate(alertness), fullAlertColor, fullAlertColorLerp / fullAlertColorLerpTime));
+        fullAlertColorLerp = Mathf.Clamp(fullAlertColorLerp + Time.deltaTime * (Mathf.Approximately(alertness, 1) ? 1 : -1), 0, fullAlertColorLerpTime);
+        Shader.SetGlobalColor("_StatusEmissionColor", Color.Lerp(worldAlertLightColor.Evaluate(alertness), fullAlertColor, fullAlertColorLerp / fullAlertColorLerpTime));
     }
 
     public void IncreaseAlertness(float delta)
@@ -46,16 +44,19 @@ public class EnemyAdmin : MonoBehaviour
         float increasedAmount = 0;
         do
         {
-            if(fullAlertTriggered) yield break; //To prevent double full alert trigger.
+            if (FullAlertTriggered)
+            {
+                break; //To prevent double full alert trigger.
+            }
 
-            float change = Mathf.Min( Time.deltaTime / increasePeriod * delta, delta - increasedAmount);
+            float change = Mathf.Min(Time.deltaTime / increasePeriod * delta, delta - increasedAmount);
             alertness += change;
             increasedAmount += change;
 
-            if(alertness >= 1)
+            if (alertness >= 1)
             {
-                onFullAlert?.Invoke();
-                fullAlertTriggered = true;
+                OnFullAlert?.Invoke();
+                FullAlertTriggered = true;
             }
 
             yield return null;
@@ -85,7 +86,7 @@ public class EnemyAdmin : MonoBehaviour
 
     public void SpawnEnemies(int count)
     {
-        for(int i = 0; i < count; i++)
+        for (int i = 0; i < count; i++)
         {
             SpawnNewEnemy();
         }
@@ -96,9 +97,8 @@ public class EnemyAdmin : MonoBehaviour
         AINode startingNode;
         do //do a radius check so we don't spawn a damn shark right next to the player
         {
-            startingNode = allAiNodes[Random.Range(0, allAiNodes.Length)];        
+            startingNode = allAiNodes[Random.Range(0, allAiNodes.Length)];
         } while (Vector3.Distance(GameManager.LevelManager.ActiveSceneController.Player.transform.position, startingNode.transform.position) < playerSpawnEnemyFreeBufferRadius);
-
-        Enemy newEnemy = Instantiate(availableEnemyPrefabs[Random.Range(0, availableEnemyPrefabs.Length)], startingNode.transform.position + Vector3.up, Quaternion.identity);
+        Instantiate(availableEnemyPrefabs[Random.Range(0, availableEnemyPrefabs.Length)], startingNode.transform.position + Vector3.up, Quaternion.identity);
     }
 }

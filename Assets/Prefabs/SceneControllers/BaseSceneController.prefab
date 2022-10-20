@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aeaaedced0c9e04d8d5e3e2901d0efa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trojinVisual: {fileID: 466287838064459492}
+  trojanVisual: {fileID: 466287838064459492}
 --- !u!1 &579575314666127893
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,6 +267,7 @@ MonoBehaviour:
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 0c07393645dc8654c84effe69cbeadf7, type: 2}
   lerpTime: 3
+  loadEffectRig: {fileID: 0}
 --- !u!114 &5664779750734164890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1051,9 +1052,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chargeSphere: {fileID: 2503031580225048273}
   effectSphere: {fileID: 8462161571489849162}
-  maxRadius: 20
-  chargeRadiusSpeed: 0.5
-  effectRadialSpeed: 1
 --- !u!1 &3765688121642360316
 GameObject:
   m_ObjectHideFlags: 0
@@ -2296,7 +2294,11 @@ MonoBehaviour:
   aiNodes: {fileID: 7085887599088677415}
   availableEnemyPrefabs:
   - {fileID: 1762367355547013725, guid: 4410d520a97a9014297faee48626ad7a, type: 3}
+  - {fileID: 8597306783325833217, guid: 75402ffbc4cac8947932a36c9f4174e8, type: 3}
+  - {fileID: 4589612904722105650, guid: c8f63d59dd5c9214fbdc1bd8bb31e25d, type: 3}
+  - {fileID: 3418742059756176989, guid: f16c411abaea4c04b87d0ab4753f64d3, type: 3}
   absoluteMaxEnemyCount: 10
+  playerSpawnEnemyFreeBufferRadius: 200
   alertness: 0
   worldAlertLightColor:
     serializedVersion: 2

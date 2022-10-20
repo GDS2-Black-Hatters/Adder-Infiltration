@@ -6,27 +6,28 @@ public class Slower : Enemy
     [SerializeField] private Animator slowerAnim;
     [SerializeField] private ParticleSystem constructingParticle;
     [SerializeField] protected TimeTracker attackCooldown = new(5); //Intervals before next attack.
+
     protected override void Awake()
     {
         base.Awake();
         attackCooldown.Reset();
         attackCooldown.onFinish += Construct;
-
-        rb = GetComponent<Rigidbody>();
     }
-    protected override void Start()
+
+    protected override void AttackState()
     {
-        base.Start();
+        StateAction = Attack;
+        FixedStateAction = null;
     }
 
-    protected override void Attack()
+    protected void Attack()
     {
         attackCooldown.Update(Time.deltaTime);
-        if ((GameManager.LevelManager.ActiveSceneController.Player.transform.position - transform.position).sqrMagnitude > closeRangeDistance)
+        if (!CanAttack)
         {
             slowerAnim.SetBool("isAttacking", false);
-            stateAction = Chase;
-            fixedStateAction = FixedChase;
+            StateAction = null;
+            FixedStateAction = FixedChase;
         }
     }
 

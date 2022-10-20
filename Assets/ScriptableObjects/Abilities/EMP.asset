@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa458db36fcdc50419bcd7a367265d06, type: 3}
+  m_Script: {fileID: 11500000, guid: b6d308b54d023724d97a490c5cdbe203, type: 3}
   m_Name: EMP
   m_EditorClassIdentifier: 
   <AbilityID>k__BackingField: 2
@@ -17,5 +17,14 @@ MonoBehaviour:
   <DefaultUpgrade>k__BackingField:
     <MaxLevel>k__BackingField: 10
   <Cooldown>k__BackingField:
+    minLevelValue: 30
+    maxLevelValue: 15
+  <EffectRange>k__BackingField:
     minLevelValue: 10
-    maxLevelValue: 1
+    maxLevelValue: 25
+  <ChargeUpTime>k__BackingField:
+    minLevelValue: 1
+    maxLevelValue: 0
+  <StunDuration>k__BackingField:
+    minLevelValue: 3
+    maxLevelValue: 10

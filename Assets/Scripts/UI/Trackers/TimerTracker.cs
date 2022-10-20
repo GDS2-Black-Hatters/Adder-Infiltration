@@ -19,7 +19,7 @@ public class TimerTracker : CaughtVariableTracker
         };
 
         text = GetComponentInChildren<TextMeshProUGUI>();
-        GameManager.LevelManager.ActiveSceneController.enemyAdmin.onFullAlert += StartTimer;
+        GameManager.LevelManager.ActiveSceneController.enemyAdmin.OnFullAlert += StartTimer;
     }
 
     private void StartTimer()

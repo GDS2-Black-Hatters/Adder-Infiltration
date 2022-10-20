@@ -4,7 +4,7 @@ using static VariableManager;
 
 public class TrojanHorse : AbilityBase
 {    
-    [SerializeField] private GameObject trojinVisual;
+    [SerializeField] private GameObject trojanVisual;
     private TrojanHorseAbility trojanHorse;
     public override Ability Ability => trojanHorse;
     public override AllAbilities AbilityID { get; protected set; } = AllAbilities.TrojanHorse;
@@ -22,12 +22,14 @@ public class TrojanHorse : AbilityBase
         pv.tag = "Untagged";
 
         pv.playerVisual.SetActive(false);
-        trojinVisual.SetActive(true);
+        trojanVisual.SetActive(true);
         StartCoroutine(DelayDisableAbility());
     }
 
     private IEnumerator DelayDisableAbility()
     {
+        bool isRunning = true;
+
         PlayerVirus pv = GameManager.LevelManager.ActiveSceneController.Player;
         TimeTracker time = new(trojanHorse.AbilityDuration.GetCurrentValue(AbilityUpgrade.UnlockProgression), 1);
         time.onFinish += () =>
@@ -35,16 +37,14 @@ public class TrojanHorse : AbilityBase
             pv.gameObject.layer = LayerMask.NameToLayer("Player");
             pv.tag = "Player";
             pv.playerVisual.SetActive(true);
-            trojinVisual.SetActive(false);
+            trojanVisual.SetActive(false);
+            isRunning = false;
         };
-
-        bool isRunning = true;
         do
         {
             yield return null;
             time.Update(Time.deltaTime);
-            trojinVisual.transform.position = pv.transform.position;
+            trojanVisual.transform.position = pv.transform.position;
         } while (isRunning);
-
     }
 }

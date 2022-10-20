@@ -59,8 +59,8 @@ public class BaseSceneController : MonoBehaviour
         //Create and assign a copy so we don't change the asset original values
         RenderSettings.skybox = new(RenderSettings.skybox);
 
-        enemyAdmin.onFullAlert += StartCaughtMode;
-        enemyAdmin.onFullAlert += caughtHUD.FadeIn;
+        enemyAdmin.OnFullAlert += StartCaughtMode;
+        enemyAdmin.OnFullAlert += caughtHUD.FadeIn;
     }
 
     public virtual void EngageScene()

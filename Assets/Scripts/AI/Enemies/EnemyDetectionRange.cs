@@ -17,7 +17,14 @@ public class EnemyDetectionRange : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             GameManager.LevelManager.ActiveSceneController.enemyAdmin.IncreaseAlertness(0.5f);
-            //GameManager.LevelManager.ActiveSceneController.StartCaughtMode();
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            GameManager.LevelManager.ActiveSceneController.enemyAdmin.IncreaseAlertness(Time.deltaTime);
         }
     }
 }

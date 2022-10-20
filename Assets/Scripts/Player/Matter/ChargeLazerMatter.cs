@@ -26,7 +26,7 @@ public class ChargeLazerMatter : WeaponMatter
             lazer.InitilizeLazer(target.position - transform.position);
 
             //do damage
-            target.GetComponent<Enemy>().TakeDamage(damage);
+            target.GetComponentInParent<Enemy>().TakeDamage(damage);
         }
     }
 }

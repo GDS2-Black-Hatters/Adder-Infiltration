@@ -92,6 +92,7 @@ public class AbilityWheelBehaviour : MonoBehaviour
 
     private void UseAbility(InputAction.CallbackContext callback)
     {
+        if (LevelManager.isGamePaused) { return; }
         DoStatic.GetIndexValue(selectedIndex, ref availableAbilities).ActivateAbility();
     }
 
