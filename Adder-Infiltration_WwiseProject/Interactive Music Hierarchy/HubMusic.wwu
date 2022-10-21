@@ -15,7 +15,7 @@
 					<ChildrenList>
 						<MusicSegment Name="TEST_MENU" ID="{630A83BF-4E63-4937-9B6D-AF02271847D1}" ShortID="186801071">
 							<PropertyList>
-								<Property Name="EndPosition" Type="Real64" Value="33280"/>
+								<Property Name="EndPosition" Type="Real64" Value="45041.6666666667"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -26,23 +26,23 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<MusicTrack Name="TEST_MENU" ID="{354F4402-91D6-44CA-A4F5-82B6ED7D8F95}" ShortID="361887541">
+								<MusicTrack Name="MENU" ID="{FDA49C24-D090-4C9E-96D2-C3ACC87F66F2}" ShortID="104793790">
 									<ReferenceList>
 										<Reference Name="OutputBus">
 											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="TEST_MENU" ID="{2E52FC9D-AF15-4311-92E2-EC971C867215}">
+										<AudioFileSource Name="MENU" ID="{0953EA04-E898-4551-AD31-C38635A9978C}">
 											<Language>SFX</Language>
-											<AudioFile>TEST_MENU.wav</AudioFile>
+											<AudioFile>MENU.wav</AudioFile>
 											<MediaIDList>
-												<MediaID ID="49092427"/>
+												<MediaID ID="283607353"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<TransitionList>
-										<MusicTransition Name="Root" ID="{4C200798-102D-4C96-A378-2F588E17931A}">
+										<MusicTransition Name="Root" ID="{B45F63FF-4512-4032-9F7A-AB5D527B6FBD}">
 											<PropertyList>
 												<Property Name="IsFolder" Type="bool" Value="True"/>
 											</PropertyList>
@@ -53,18 +53,18 @@
 										<ObjectList Name="Sequences">
 											<Reference>
 												<Local>
-													<MusicTrackSequence Name="" ID="{E5547377-F7B8-455F-B6C7-11CA050BEAAA}">
+													<MusicTrackSequence Name="" ID="{745BD991-DF1B-4E9B-A0BF-ECA88F21C9CB}">
 														<ObjectLists>
 															<ObjectList Name="Clips">
 																<Reference>
 																	<Local>
-																		<MusicClip Name="TEST_MENU" ID="{674619E1-594F-4BB8-ABA9-46A71665A5E7}">
+																		<MusicClip Name="MENU" ID="{9625B6AC-DC15-4E78-A164-24E86D1729E2}">
 																			<PropertyList>
-																				<Property Name="EndTrimOffset" Type="Real64" Value="33280"/>
+																				<Property Name="EndTrimOffset" Type="Real64" Value="45041.6666666667"/>
 																				<Property Name="FadeInMode" Type="int16" Value="0"/>
 																				<Property Name="FadeOutMode" Type="int16" Value="0"/>
 																			</PropertyList>
-																			<AudioSourceRef Name="TEST_MENU" ID="{2E52FC9D-AF15-4311-92E2-EC971C867215}"/>
+																			<AudioSourceRef Name="MENU" ID="{0953EA04-E898-4551-AD31-C38635A9978C}"/>
 																		</MusicClip>
 																	</Local>
 																</Reference>

@@ -34,13 +34,13 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="4096625075" Type="User" Language="SFX" Hash="{B7EB1561-2B7C-AEDB-5269-2BEC531D9416}">
+		<SoundBank Id="4096625075" Type="User" Language="SFX" Hash="{15A8079C-2A0E-8D5E-2471-AC6A20A79794}">
 			<ShortName>MainLevelSoundBank</ShortName>
 			<Path>MainLevelSoundBank.bnk</Path>
 			<Media>
-				<File Id="49092427" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>TEST_MENU.wav</ShortName>
-					<CachePath>SFX/TEST_MENU_D79FB2B7.wem</CachePath>
+				<File Id="283607353" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>MENU.wav</ShortName>
+					<CachePath>SFX/MENU_D79FB2B7.wem</CachePath>
 				</File>
 				<File Id="294137384" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Laser1.wav</ShortName>
@@ -87,7 +87,7 @@
 				</Event>
 				<Event Id="2461714704" Name="HubMusicStart_Event" DurationType="Infinite">
 					<MediaRefs>
-						<MediaRef Id="49092427"/>
+						<MediaRef Id="283607353"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="3822340686" Name="LazerFire_Event" DurationType="OneShot" DurationMin="0.38889584" DurationMax="0.710375">
@@ -140,5 +140,5 @@
 			</StateGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{ACEB8E77-F341-BC55-79E6-0A4EC6D64BDF}</FileHash>
+	<FileHash>{DE478B8D-EACA-2DAD-EBA9-3251AF4023ED}</FileHash>
 </SoundBanksInfo>
