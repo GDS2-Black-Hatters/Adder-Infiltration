@@ -4,11 +4,7 @@ using UnityEngine;
 public class Bomber : Enemy
 {
     [Header("Bomber Params"), SerializeField] private float sprintSpeed; //Sprint speed when bombing
-    [SerializeField] private float explosionRange = 5;
-    [SerializeField] private float explosionDamage = 10;
-
     [SerializeField] private Animator bomberAnim;
-    [SerializeField] private ParticleSystem explosionParticle;
     [SerializeField] private ParticleSystem explosionChargingParticle;
 
     protected override void DetectionState()
@@ -17,18 +13,30 @@ public class Bomber : Enemy
         base.DetectionState();
     }
 
+    protected override void StunStart()
+    {
+        base.StunStart();
+        bomberAnim.enabled = false;
+    }
+
+    protected override void StunEnd()
+    {
+        base.StunEnd();
+        bomberAnim.enabled = true;
+    }
+
     protected override void AttackState()
     {
         FixedStateAction = null;
         bomberAnim.SetBool("isAttacking", true);
-        Instantiate(explosionChargingParticle, transform);
+        explosionChargingParticle.gameObject.SetActive(true);
         StartCoroutine(SuicideBombing(3));
     }
     
     IEnumerator SuicideBombing(float delayTime)
     {
         yield return new WaitForSeconds(delayTime);
-        //TODO: Instantiate Explosion prefab
+        GameManager.PoolManager.GetObjectFromPool<Transform>("ExplosionParticlePool").position = transform.position;
         Destroy(gameObject);
     }
 }

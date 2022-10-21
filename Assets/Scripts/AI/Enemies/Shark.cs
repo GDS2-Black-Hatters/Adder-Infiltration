@@ -2,8 +2,17 @@ using UnityEngine;
 
 public class Shark : Enemy
 {
+    private float startSpeed;
     [Header("Shark Params"), SerializeField] private float alwaysChaseSpeed;
+    [SerializeField] private float distanceDetection = 15;
     [SerializeField] private GameObject susIcon;
+    private bool wasChasing = false;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        startSpeed = forwardPower;
+    }
 
     protected override void NormalState()
     {
@@ -15,23 +24,37 @@ public class Shark : Enemy
         gameObject.SetActive(false);
     }
 
+    private void OnDisable()
+    {
+        Destroy(gameObject);
+    }
+
     protected override void AttackState() {}
 
     protected void SharkPatrol()
     {
-        FixedPatrol();
-        susIcon.SetActive(false);
         //Basically FixedChase() but in doing it in Patrol
         Transform player = GameManager.LevelManager.ActiveSceneController.Player.transform;
         Vector3 dir = player.position - transform.position;
-        bool hit = Physics.Raycast(transform.position, dir, out RaycastHit hitInfo, int.MaxValue, raycastMask);
-        if (hit && hitInfo.transform == player) 
+        bool hit = Physics.Raycast(transform.position, dir, out RaycastHit hitInfo, distanceDetection, raycastMask);
+        bool isPlayer = hit && hitInfo.transform == player;
+
+        susIcon.SetActive(isPlayer);
+        if (isPlayer) 
         {
-            PIDTurnTowards(player);
+            wasChasing = true;
             forwardPower = alwaysChaseSpeed;
+            PIDTurnTowards(player);
             PIDMoveTowards(player);
-            susIcon.SetActive(true);
             GameManager.LevelManager.ActiveSceneController.enemyAdmin.IncreaseAlertness(CanAttack ? 1 : 0);
+            return;
         }
+        forwardPower = startSpeed;
+        if (wasChasing)
+        {
+            wasChasing = false;
+            nodeTarget = GameManager.LevelManager.ActiveSceneController.enemyAdmin.GetClosestNode(transform);
+        }
+        FixedPatrol();
     }
 }

@@ -180,6 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dd52f4ee56355846947e5a96ad04019, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  alertIncrease: 0.5
 --- !u!1 &8811767923514835489
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,7 +418,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.96
-  m_Center: {x: 0.000000059604645, y: 0.18459809, z: 0.18629959}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &2314893627763673948
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -503,23 +504,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7268229092622374425, guid: e067b651c87cee148946ec729831b7d6, type: 3}
   m_PrefabInstance: {fileID: 1679591888163542311}
   m_PrefabAsset: {fileID: 0}
---- !u!54 &7886914505029951396
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8327987172627383102}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0.75
-  m_AngularDrag: 5
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 80
-  m_CollisionDetection: 0
---- !u!114 &-794970467898608534
+--- !u!114 &1189911455773662777
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -538,7 +523,7 @@ MonoBehaviour:
     m_Bits: 64
   bobbleMaxAmplitude: 1
   bobbleFrequency: 0.3
---- !u!114 &1762367355547013725
+--- !u!114 &3392426892668883516
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -567,7 +552,7 @@ MonoBehaviour:
     integrationStored: 0
     velocity: 0
     derivativeInitialized: 0
-  forwardPower: 10
+  forwardPower: 50
   rotationPIDController:
     proportionalGain: 1
     integralGain: 0

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,11 +7,14 @@ using UnityEngine;
 /// Basic abstract class of the enemy script behaviour.
 /// </summary>
 [RequireComponent(typeof(Rigidbody))]
-public abstract partial class Enemy : MonoBehaviour
+public abstract class Enemy : MonoBehaviour
 {
     [HideInInspector] public bool CanAttack { get; protected set; } = false;
     protected int raycastMask;
     protected Rigidbody rb;
+    protected EnemyAttackRange attackRange;
+    protected EnemyDetectionRange detectionRange;
+    private bool isStunned = false;
 
     [Header("Stats"), SerializeField] protected Health health;
 
@@ -24,7 +28,7 @@ public abstract partial class Enemy : MonoBehaviour
     private List<AINode> customPatrolPath;
     private int customIndex = 0;
 
-    private AINode nodeTarget;
+    protected AINode nodeTarget;
     [SerializeField] private float nodeLeniency = 0.5f;
 
     protected Action StateAction; //You should only be assigning not subscribing.
@@ -35,13 +39,15 @@ public abstract partial class Enemy : MonoBehaviour
         health.Reset();
         health.onDeath += Death;
         raycastMask = 1 << LayerMask.NameToLayer("Player") | 1 << LayerMask.NameToLayer("Terrain");
+        rb = GetComponent<Rigidbody>();
+        attackRange = GetComponentInChildren<EnemyAttackRange>();
+        detectionRange = GetComponentInChildren<EnemyDetectionRange>();
     }
 
     protected virtual void Start()
     {
         BaseSceneController controller = GameManager.LevelManager.ActiveSceneController;
         controller.enemyAdmin.OnFullAlert += DetectionState;
-        rb = GetComponent<Rigidbody>();
         GetComponentInChildren<EnemyAttackRange>().AddTrigger((attack) => { CanAttack = attack; });
 
         if (!controller.enemyAdmin.FullAlertTriggered)
@@ -57,11 +63,25 @@ public abstract partial class Enemy : MonoBehaviour
 
     protected void Update()
     {
+        if (isStunned)
+        {
+            StunUpdate();
+            return;
+        }
         StateAction?.Invoke();
+        if (transform.position.y < -15f)
+        {
+            Destroy(gameObject);
+        }
     }
 
     protected void FixedUpdate()
     {
+        if (isStunned)
+        {
+            FixedStunUpdate();
+            return;
+        }
         FixedStateAction?.Invoke();
     }
 
@@ -73,6 +93,22 @@ public abstract partial class Enemy : MonoBehaviour
     protected virtual void DetectionState()
     {
         FixedStateAction = FixedChase;
+    }
+
+    protected virtual void StunUpdate() { }
+    protected virtual void FixedStunUpdate() { }
+    
+    protected virtual void StunStart()
+    {
+        attackRange.gameObject.SetActive(false);
+        detectionRange.gameObject.SetActive(false);
+    }
+
+    protected virtual void StunEnd()
+    {
+        MovementStart();
+        attackRange.gameObject.SetActive(true);
+        detectionRange.gameObject.SetActive(true);
     }
 
     protected abstract void AttackState();
@@ -87,10 +123,36 @@ public abstract partial class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public void StartStun(float seconds)
+    {
+        StartCoroutine(Stun(seconds));
+    }
+
+    private IEnumerator Stun(float duration)
+    {
+        if (!isStunned)
+        {
+            StunStart();
+            isStunned = true;
+            TimeTracker time = new(duration, 1);
+            time.onFinish += () =>
+            {
+                StunEnd();
+                isStunned = false;
+            };
+
+            do
+            {
+                yield return null;
+                time.Update(Time.deltaTime);
+            } while (isStunned);
+        }
+    }
+
     #region Basic Movement
     private void MovementStart()
     {
-        nodeTarget = customPatrolPath.Count == 0 ? GameManager.LevelManager.ActiveSceneController.enemyAdmin.GetClosestNode(transform) : customPatrolPath[0];
+        nodeTarget = customPatrolPath.Count == 0 ? GameManager.LevelManager.ActiveSceneController.enemyAdmin.GetClosestNode(transform) : customPatrolPath[customIndex];
     }
 
     protected void PIDMoveTowards(Transform target)

@@ -14,21 +14,31 @@ public class Slower : Enemy
         attackCooldown.onFinish += Construct;
     }
 
-    protected override void AttackState()
+    protected override void StunStart()
     {
-        StateAction = Attack;
-        FixedStateAction = null;
+        base.StunStart();
+        slowerAnim.enabled = false;
     }
 
-    protected void Attack()
+    protected override void StunEnd()
     {
-        attackCooldown.Update(Time.deltaTime);
-        if (!CanAttack)
+        base.StunEnd();
+        slowerAnim.enabled = true;
+    }
+
+    protected override void AttackState()
+    {
+        StateAction = () =>
         {
-            slowerAnim.SetBool("isAttacking", false);
-            StateAction = null;
-            FixedStateAction = FixedChase;
-        }
+            attackCooldown.Update(Time.deltaTime);
+            if (!CanAttack)
+            {
+                slowerAnim.SetBool("isAttacking", false);
+                StateAction = null;
+                FixedStateAction = FixedChase;
+            }
+        };
+        FixedStateAction = null;
     }
 
     private void Construct()

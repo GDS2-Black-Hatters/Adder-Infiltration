@@ -24,6 +24,11 @@ public class EMP : AbilityBase
         StartCoroutine(EmpEffect());
     }
 
+    public float GetStunDuration()
+    {
+        return emp.StunDuration.GetCurrentValue(AbilityUpgrade.UnlockProgression);
+    }
+
     private IEnumerator EmpEffect()
     {
         IEnumerator Explosion(float duration, Transform sphere, float maxAngle)

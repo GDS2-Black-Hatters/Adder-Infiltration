@@ -7,6 +7,8 @@ using UnityEngine;
 /// </summary>
 public class EnemyDetectionRange : MonoBehaviour
 {
+    [SerializeField] private float alertIncrease = 0.5f;
+
     private void Update()
     {
         gameObject.SetActive(GameManager.LevelManager.ActiveSceneController.sceneMode == BaseSceneController.SceneState.Stealth);
@@ -16,7 +18,7 @@ public class EnemyDetectionRange : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            GameManager.LevelManager.ActiveSceneController.enemyAdmin.IncreaseAlertness(0.5f);
+            GameManager.LevelManager.ActiveSceneController.enemyAdmin.IncreaseAlertness(alertIncrease);
         }
     }
 

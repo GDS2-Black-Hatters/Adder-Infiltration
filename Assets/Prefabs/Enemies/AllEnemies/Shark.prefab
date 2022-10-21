@@ -5066,7 +5066,7 @@ MonoBehaviour:
     integrationStored: 0
     velocity: 0
     derivativeInitialized: 0
-  forwardPower: 10
+  forwardPower: 75
   rotationPIDController:
     proportionalGain: 1
     integralGain: 0
@@ -5083,7 +5083,8 @@ MonoBehaviour:
   torqueForce: 40
   customPatrolPath: []
   nodeLeniency: 50
-  alwaysChaseSpeed: 7
+  alwaysChaseSpeed: 100
+  distanceDetection: 30
   susIcon: {fileID: 7540769030495942230}
 --- !u!4 &9024953055978480755 stripped
 Transform:
@@ -5107,7 +5108,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 805ea064eb5c1dc45a0e85718a9cffb2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 805ea064eb5c1dc45a0e85718a9cffb2, type: 3}
       propertyPath: m_LocalPosition.z

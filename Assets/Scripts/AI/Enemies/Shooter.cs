@@ -3,6 +3,7 @@ using UnityEngine;
 /// <summary>
 /// Basic Shooter AI, inherits from Enemy.
 /// </summary>
+[RequireComponent(typeof(HoverAtHeight))]
 public class Shooter : Enemy
 {
     [Header("Shooter Params"), SerializeField] private Transform bulletPoint; //Where the bullet will spawn.
@@ -10,18 +11,32 @@ public class Shooter : Enemy
     [SerializeField] protected TimeTracker attackCooldown = new(1); //Intervals before next attack.
     [SerializeField] protected AK.Wwise.Event DroneAmb;
     [SerializeField] protected AK.Wwise.Event ShootSound;
+    private HoverAtHeight hoverAt;
 
     protected override void Awake()
     {
         base.Awake();
         attackCooldown.Reset();
         attackCooldown.onFinish += Shoot;
+        hoverAt = GetComponent<HoverAtHeight>();
     }
 
     protected override void Start()
     {
         base.Start();
         DroneAmb.Post(gameObject);
+    }
+
+    protected override void StunStart()
+    {
+        base.StunStart();
+        hoverAt.enabled = false;
+    }
+
+    protected override void StunEnd()
+    {
+        base.StunEnd();
+        hoverAt.enabled = true;
     }
 
     protected override void AttackState()

@@ -30,7 +30,7 @@ public class Bullet : MonoBehaviour
             return;
         }
 
-        if(other.TryGetComponent<Enemy>(out Enemy enemy))
+        if(other.TryGetComponent(out Enemy enemy))
         {
             enemy.TakeDamage(damage);
         }

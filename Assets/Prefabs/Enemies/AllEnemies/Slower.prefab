@@ -95,7 +95,8 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4465324166270719627, guid: e067b651c87cee148946ec729831b7d6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e067b651c87cee148946ec729831b7d6, type: 3}
 --- !u!1 &2630824260249248200 stripped
 GameObject:
@@ -114,7 +115,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 3.9349658, z: 1.5889744}
-  m_Center: {x: 0, y: 1.9283546, z: -0.018776596}
+  m_Center: {x: 0, y: 2.06, z: 0.16}
 --- !u!4 &4784986740004748388 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8531204363660690901, guid: e067b651c87cee148946ec729831b7d6, type: 3}
@@ -125,23 +126,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7268229092622374425, guid: e067b651c87cee148946ec729831b7d6, type: 3}
   m_PrefabInstance: {fileID: 3747941834407410097}
   m_PrefabAsset: {fileID: 0}
---- !u!54 &9112568750893596995
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5827291662153904040}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0.75
-  m_AngularDrag: 5
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 80
-  m_CollisionDetection: 0
---- !u!114 &4589612904722105650
+--- !u!114 &1726963724672306838
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -170,7 +155,7 @@ MonoBehaviour:
     integrationStored: 0
     velocity: 0
     derivativeInitialized: 0
-  forwardPower: 10
+  forwardPower: 50
   rotationPIDController:
     proportionalGain: 1
     integralGain: 0

@@ -11,9 +11,7 @@ GameObject:
   - component: {fileID: 2503031580225048273}
   - component: {fileID: 3410513077749635190}
   - component: {fileID: 5981532388470726707}
-  - component: {fileID: 2641860949593693}
   - component: {fileID: 7626464694903229194}
-  - component: {fileID: 8941809385930889531}
   m_Layer: 0
   m_Name: EffectChargeRadius
   m_TagString: Untagged
@@ -86,19 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &2641860949593693
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 151061537900230584}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7626464694903229194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,48 +98,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: {x: 0, y: 10, z: 0}
   space: 0
---- !u!114 &8941809385930889531
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 151061537900230584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 835929cbb7ec9764e8115a62a29080e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onTriggerEnter:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: EMP, Assembly-CSharp
-        m_MethodName: NewObjectInRange
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onTriggerExit:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: EMP, Assembly-CSharp
-        m_MethodName: ObjectExitRange
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &386361717159237126
 GameObject:
   m_ObjectHideFlags: 0
@@ -609,8 +552,8 @@ GameObject:
   - component: {fileID: 3846007365313707473}
   - component: {fileID: 6192460647454423197}
   - component: {fileID: 1302989170382238617}
-  - component: {fileID: 7144097004522302838}
-  m_Layer: 0
+  - component: {fileID: 8111585930356767390}
+  m_Layer: 3
   m_Name: EffectFireRadius
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -700,7 +643,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7144097004522302838
+--- !u!114 &8111585930356767390
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -709,27 +652,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2092347848027508856}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 835929cbb7ec9764e8115a62a29080e2, type: 3}
+  m_Script: {fileID: 11500000, guid: b7ea85f4db2dd374595b51c446718302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onTriggerEnter:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: EMP, Assembly-CSharp
-        m_MethodName: ObjectEnterStunRange
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onTriggerExit:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &2968972707498196905
 GameObject:
   m_ObjectHideFlags: 0
@@ -741,7 +666,7 @@ GameObject:
   - component: {fileID: 1776867733716246716}
   - component: {fileID: 1675523875948339808}
   - component: {fileID: 2557473510558444296}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ArcCircle (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1821,7 +1746,7 @@ GameObject:
   - component: {fileID: 2959909145840446886}
   - component: {fileID: 1007795551533396631}
   - component: {fileID: 6617929833092417567}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ArcCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1968,7 +1893,7 @@ GameObject:
   - component: {fileID: 4044698636587106065}
   - component: {fileID: 7897550588202957944}
   - component: {fileID: 623962151187979062}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ArcCircle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2293,9 +2218,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aiNodes: {fileID: 7085887599088677415}
   availableEnemyPrefabs:
-  - {fileID: 1762367355547013725, guid: 4410d520a97a9014297faee48626ad7a, type: 3}
-  - {fileID: 8597306783325833217, guid: 75402ffbc4cac8947932a36c9f4174e8, type: 3}
-  - {fileID: 4589612904722105650, guid: c8f63d59dd5c9214fbdc1bd8bb31e25d, type: 3}
+  - {fileID: 3392426892668883516, guid: 4410d520a97a9014297faee48626ad7a, type: 3}
+  - {fileID: 414556041736552074, guid: 75402ffbc4cac8947932a36c9f4174e8, type: 3}
+  - {fileID: 1726963724672306838, guid: c8f63d59dd5c9214fbdc1bd8bb31e25d, type: 3}
   - {fileID: 3418742059756176989, guid: f16c411abaea4c04b87d0ab4753f64d3, type: 3}
   absoluteMaxEnemyCount: 10
   playerSpawnEnemyFreeBufferRadius: 200
@@ -2342,7 +2267,7 @@ GameObject:
   - component: {fileID: 628214592928573267}
   - component: {fileID: 9001448957747896045}
   - component: {fileID: 1166659779418792009}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ArcCircle (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2646,7 +2571,7 @@ GameObject:
   - component: {fileID: 3568846682191271223}
   - component: {fileID: 5094217385743796317}
   - component: {fileID: 6654011141649896304}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ArcCircle (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
