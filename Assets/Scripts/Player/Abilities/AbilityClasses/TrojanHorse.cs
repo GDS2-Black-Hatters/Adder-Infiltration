@@ -5,13 +5,13 @@ using static VariableManager;
 public class TrojanHorse : AbilityBase
 {    
     [SerializeField] private GameObject trojanVisual;
-    private TrojanHorseAbility trojanHorse;
+    private DurationAbility trojanHorse;
     public override Ability Ability => trojanHorse;
     public override AllAbilities AbilityID { get; protected set; } = AllAbilities.TrojanHorse;
 
     protected override void Awake()
     {
-        trojanHorse = (TrojanHorseAbility)base.Ability;
+        trojanHorse = (DurationAbility)base.Ability;
         base.Awake();
     }
 

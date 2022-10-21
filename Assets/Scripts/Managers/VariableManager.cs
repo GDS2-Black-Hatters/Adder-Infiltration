@@ -9,7 +9,7 @@ using static VariableManager.AllUnlockables;
 public sealed class VariableManager : BaseManager
 {
     //Game variables
-    [SerializeField] private AbilityList allAbilities;
+    [field: SerializeField] public AbilityList allAbilities { get; private set; }
     [field: SerializeField] public MouseList MouseList { get; private set; }
     private readonly Dictionary<AllAbilities, Ability> abilityDictionary = new();
 
@@ -24,7 +24,7 @@ public sealed class VariableManager : BaseManager
         Dash = 10,
         TrojanHorse = 11,
         EMP = 12,
-        Warp = 13,
+        Scan = 13,
 
         //One time unlocks
         PhishingMinigame = 101,
@@ -44,7 +44,7 @@ public sealed class VariableManager : BaseManager
         Dash = 0,
         TrojanHorse = 1,
         EMP = 2,
-        Warp = 3,
+        Scan = 3,
     }
 
     public override BaseManager StartUp()
@@ -112,7 +112,7 @@ public sealed class VariableManager : BaseManager
                     { AllUnlockables.Dash, GetAbility(AllAbilities.Dash).DefaultUpgrade },
                     { AllUnlockables.TrojanHorse, GetAbility(AllAbilities.TrojanHorse).DefaultUpgrade },
                     { AllUnlockables.EMP, GetAbility(AllAbilities.EMP).DefaultUpgrade },
-                    { AllUnlockables.Warp, GetAbility(AllAbilities.Warp).DefaultUpgrade },
+                    { AllUnlockables.Scan, GetAbility(AllAbilities.Scan).DefaultUpgrade },
                     { DefaultMouse, new(true) },
                     { PhishingMinigame, new() },
                     { SnakeMouse, new() },

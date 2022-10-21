@@ -8,9 +8,9 @@ public class AbilityItem : BaseShopItem
     [Serializable]
     protected class Price
     {
-        [Min(1)] public int initialUnlockPrice = 100;
-        [Min(2)] public int startingPrice = 120;
-        [Min(3)] public int endingPrice = 200; //For items with multiple upgrades.
+        [Min(0)] public int initialUnlockPrice = 100;
+        [Min(1)] public int startingPrice = 120;
+        [Min(2)] public int endingPrice = 200; //For items with multiple upgrades.
 
         public int GetPrice(Upgradeable upgrade)
         {

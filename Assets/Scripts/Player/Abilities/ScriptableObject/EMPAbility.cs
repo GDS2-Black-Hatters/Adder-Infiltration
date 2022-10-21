@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewEMP", menuName = "ScriptableObject/Ability/Ability Specific/EMP")]
+[CreateAssetMenu(fileName = "NewEMPAbility", menuName = "ScriptableObject/Ability/Ability Specific/EMP")]
 public class EMPAbility : Ability
 {
     [field: SerializeField] public LevelValues EffectRange { get; private set; }

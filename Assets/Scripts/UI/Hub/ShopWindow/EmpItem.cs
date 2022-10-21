@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewTrojanHorseItem", menuName = "ScriptableObject/Shop Item/Ability Specific Item/Trojan Horse Item")]
+[CreateAssetMenu(fileName = "NewEmpItem", menuName = "ScriptableObject/Shop Item/Ability Specific Item/EMP Item")]
 public class EmpItem : AbilityItem
 {
     [NonSerialized] private EMPAbility empAbility;

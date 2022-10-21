@@ -46,12 +46,12 @@ public class AbilityWheelBehaviour : MonoBehaviour
         }
 
         //Get available abilities.
-        foreach (AllAbilities abilities in DoStatic.EnumList<AllAbilities>())
+        foreach (Ability ability in GameManager.VariableManager.allAbilities.Abilities)
         {
-            Unlockable unlock = GameManager.VariableManager.GetUnlockable(DoStatic.EnumToEnum<AllAbilities, AllUnlockables>(abilities));
+            Unlockable unlock = GameManager.VariableManager.GetUnlockable(DoStatic.EnumToEnum<AllAbilities, AllUnlockables>(ability.AbilityID));
             if (unlock.IsUnlocked)
             {
-                availableAbilities.Add(abilityDictionary[abilities]);
+                availableAbilities.Add(abilityDictionary[ability.AbilityID]);
             }
         }
 
@@ -74,12 +74,12 @@ public class AbilityWheelBehaviour : MonoBehaviour
     private void UpdateAbilityWheel()
     {
         int midIndex = Mathf.RoundToInt(pivotBehaviours.Count * 0.5f);
-        pivotBehaviours[midIndex].UpdateAppearance(DoStatic.GetIndexValue(selectedIndex, ref availableAbilities));
+        pivotBehaviours[midIndex].UpdateAppearance(DoStatic.GetElement(selectedIndex, ref availableAbilities));
         for (int i = 0; i < midIndex; i++)
         {
             int next = i + 1;
-            pivotBehaviours[midIndex - next].UpdateAppearance(DoStatic.GetIndexValue(selectedIndex + next, ref availableAbilities));
-            pivotBehaviours[midIndex + next].UpdateAppearance(DoStatic.GetIndexValue(selectedIndex - next, ref availableAbilities));
+            pivotBehaviours[midIndex - next].UpdateAppearance(DoStatic.GetElement(selectedIndex + next, ref availableAbilities));
+            pivotBehaviours[midIndex + next].UpdateAppearance(DoStatic.GetElement(selectedIndex - next, ref availableAbilities));
         }
     }
 
@@ -93,7 +93,7 @@ public class AbilityWheelBehaviour : MonoBehaviour
     private void UseAbility(InputAction.CallbackContext callback)
     {
         if (LevelManager.isGamePaused) { return; }
-        DoStatic.GetIndexValue(selectedIndex, ref availableAbilities).ActivateAbility();
+        DoStatic.GetElement(selectedIndex, ref availableAbilities).ActivateAbility();
     }
 
     private IEnumerator Scroll(bool scrollDown)

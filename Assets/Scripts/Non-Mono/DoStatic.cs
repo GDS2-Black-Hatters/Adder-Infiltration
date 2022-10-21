@@ -23,7 +23,7 @@ public class DoStatic
     /// <param name="index">The index to grab the value</param>
     /// <param name="list">The reference of the list</param>
     /// <returns>The value in the list.</returns>
-    public static T GetIndexValue<T>(int index, ref List<T> list)
+    public static T GetElement<T>(int index, ref List<T> list)
     {
         int modIndex = index % list.Count;
         return list[modIndex < 0 ? ^-modIndex : modIndex];
@@ -104,7 +104,8 @@ public class DoStatic
     }
 
     /// <summary>
-    /// Get a list of all the enum values.
+    /// Get an array of all the enum values.
+    /// The order in the array is in ascending order of value.
     /// </summary>
     /// <typeparam name="T">Any enumerator type</typeparam>
     /// <returns>An array of all the enums values.</returns>

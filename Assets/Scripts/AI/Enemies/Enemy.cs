@@ -189,7 +189,7 @@ public abstract class Enemy : MonoBehaviour
         PIDMoveTowards(nodeTarget.transform);
         if ((nodeTarget.transform.position - transform.position).sqrMagnitude < nodeLeniency)
         {
-            nodeTarget = customPatrolPath.Count < 2 ? nodeTarget.GetRandomNeighbour() : DoStatic.GetIndexValue(++customIndex, ref customPatrolPath);
+            nodeTarget = customPatrolPath.Count < 2 ? nodeTarget.GetRandomNeighbour() : DoStatic.GetElement(++customIndex, ref customPatrolPath);
         }
     }
 
