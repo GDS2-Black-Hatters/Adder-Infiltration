@@ -46,8 +46,7 @@ public class Explosion : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Health playerHealth = GameManager.LevelManager.ActiveSceneController.playerHealth;
-            playerHealth.ReduceHealth(playerHealth.health.originalValue * 0.5f);
+            GameManager.LevelManager.ActiveSceneController.Player.DamagePercentage(0.5f);
             sphereCollider.enabled = false;
         }
     }

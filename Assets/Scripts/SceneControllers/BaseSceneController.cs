@@ -25,7 +25,6 @@ public class BaseSceneController : MonoBehaviour
     private readonly List<CanvasGroup> iconCanvases = new();
 
     [SerializeField] private CaughtHUDBehaviour caughtHUD;
-    [field: SerializeField] public Health playerHealth { get; private set; } = new(20);
     [field: SerializeField] public PlayerVirus Player { get; private set; }
     [field: SerializeField] public TextMeshProUGUI objectiveList { get; private set; }
 
@@ -46,11 +45,6 @@ public class BaseSceneController : MonoBehaviour
     protected virtual void Awake()
     {
         GameManager.LevelManager.SetActiveSceneController(this);
-
-        playerHealth.onDeath += () =>
-        {
-            GameManager.LevelManager.ChangeLevel(Hub);
-        };
 
         VolumeProfile volumeProfile = GetComponent<Volume>().profile;
         if (!volumeProfile.TryGet(out colorAdjustments))
@@ -165,6 +159,7 @@ public class BaseSceneController : MonoBehaviour
         } while (lerper.isLerping);
     }
 
+    #region Scan Ability
     public void StartScan()
     {
         StartCoroutine(LerpObjectiveIcons());
@@ -222,4 +217,5 @@ public class BaseSceneController : MonoBehaviour
             }
         }));
     }
+    #endregion
 }

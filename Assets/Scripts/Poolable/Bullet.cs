@@ -38,7 +38,7 @@ public class Bullet : MonoBehaviour
         bool isPlayer = other.CompareTag("Player");
         if (isPlayer || other.gameObject.TryGetComponent(out MeshRenderer _))
         {
-            GameManager.LevelManager.ActiveSceneController.playerHealth.ReduceHealth(isPlayer ? damage : 0);
+            GameManager.LevelManager.ActiveSceneController.Player.Damage(isPlayer ? damage : 0);
             lifeTime.Reset(true);
         }
     }

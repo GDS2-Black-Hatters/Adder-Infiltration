@@ -6,6 +6,6 @@ public class Heal : AbilityBase
 
     protected override void DoAbilityEffect()
     {
-        print("Alright!");
+        GameManager.LevelManager.ActiveSceneController.Player.Heal(0.5f);
     }
 }

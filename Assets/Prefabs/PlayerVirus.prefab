@@ -1590,8 +1590,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dc2701e2cafa9642be2f6c2388c1dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <virusController>k__BackingField: {fileID: 4169504594784333909}
-  <playerVisual>k__BackingField: {fileID: 2090489319407991691}
+  <VirusController>k__BackingField: {fileID: 4169504594784333909}
+  <PlayerVisual>k__BackingField: {fileID: 2090489319407991691}
+  <HP>k__BackingField:
+    health:
+      <originalValue>k__BackingField: 20
+      value: 20
 --- !u!114 &4169504594784333909
 MonoBehaviour:
   m_ObjectHideFlags: 0
