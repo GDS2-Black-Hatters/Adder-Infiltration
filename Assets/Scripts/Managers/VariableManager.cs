@@ -25,6 +25,7 @@ public sealed class VariableManager : BaseManager
         TrojanHorse = 11,
         EMP = 12,
         Scan = 13,
+        Protect = 14,
 
         //One time unlocks
         PhishingMinigame = 101,
@@ -45,6 +46,7 @@ public sealed class VariableManager : BaseManager
         TrojanHorse = 1,
         EMP = 2,
         Scan = 3,
+        Protect = 4,
     }
 
     public override BaseManager StartUp()
@@ -113,6 +115,7 @@ public sealed class VariableManager : BaseManager
                     { AllUnlockables.TrojanHorse, GetAbility(AllAbilities.TrojanHorse).DefaultUpgrade },
                     { AllUnlockables.EMP, GetAbility(AllAbilities.EMP).DefaultUpgrade },
                     { AllUnlockables.Scan, GetAbility(AllAbilities.Scan).DefaultUpgrade },
+                    { AllUnlockables.Protect, GetAbility(AllAbilities.Protect).DefaultUpgrade },
                     { DefaultMouse, new(true) },
                     { PhishingMinigame, new() },
                     { SnakeMouse, new() },
