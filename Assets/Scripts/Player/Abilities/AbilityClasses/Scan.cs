@@ -1,4 +1,3 @@
-using UnityEngine;
 using static VariableManager;
 
 public class Scan : AbilityBase
@@ -7,8 +6,6 @@ public class Scan : AbilityBase
 
     protected override void DoAbilityEffect()
     {
-        Time.timeScale = 0.5f;
+        GameManager.LevelManager.ActiveSceneController.StartScan();
     }
-
-
 }

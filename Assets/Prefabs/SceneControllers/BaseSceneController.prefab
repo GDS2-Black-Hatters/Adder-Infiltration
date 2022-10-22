@@ -156,6 +156,8 @@ GameObject:
   - component: {fileID: 6251455402617695958}
   - component: {fileID: 5664779750734164890}
   - component: {fileID: 4633536489564849401}
+  - component: {fileID: 5116837346402567496}
+  - component: {fileID: 2043523212453226065}
   m_Layer: 0
   m_Name: BaseSceneController
   m_TagString: Untagged
@@ -262,6 +264,42 @@ MonoBehaviour:
   eventIdInternal: 0
   valueGuidInternal: 
   m_callbackDataInternal: {fileID: 0}
+--- !u!114 &5116837346402567496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579575314666127893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 12a4b460022304e40827e3f69a54d4aa, type: 2}
+--- !u!114 &2043523212453226065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579575314666127893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f7d53a72ccf28a4fac144f92855e36a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  themes:
+  - {fileID: 11400000, guid: f8b8844da62e83f498a8919a101418a9, type: 2}
+  - {fileID: 11400000, guid: 8871b9ac4ba92b3449f8ff0799ca004d, type: 2}
+  - {fileID: 11400000, guid: ec5ee1658a22dc84988ef729196b4006, type: 2}
+  - {fileID: 11400000, guid: 13a3b601422c25442bfdc2355dc02396, type: 2}
+  - {fileID: 11400000, guid: 876bed5baf3d4eb48840b44e25d10202, type: 2}
+  changeTheme: 0
 --- !u!1 &703163617004475337
 GameObject:
   m_ObjectHideFlags: 0
@@ -2166,11 +2204,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dfc6a19303f6e74d97dadd4314601f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  warpPointMarker: {fileID: 3765688121642360316}
-  warpMaxDistance: 30
-  warpTargetMask:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!1 &7337668522329781803
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,13 +8,13 @@ public class Explosion : MonoBehaviour
     [SerializeField] private float radiusMaxSize;
     [Min(0.0001f),SerializeField] private float radiusExplosionOutTime = 0.5f;
 
+    private void Awake()
+    {
+        sphereCollider = GetComponent<SphereCollider>();
+    }
+
     private void OnEnable()
     {
-        if (!sphereCollider)
-        {
-            sphereCollider = GetComponent<SphereCollider>();
-        }
-
         sphereCollider.enabled = true;
         StartCoroutine(ExplosionEffect());
     }
