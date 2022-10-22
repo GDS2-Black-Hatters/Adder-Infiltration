@@ -26,6 +26,7 @@ public sealed class VariableManager : BaseManager
         EMP = 12,
         Scan = 13,
         Protect = 14,
+        Heal = 15,
 
         //One time unlocks
         PhishingMinigame = 101,
@@ -47,6 +48,7 @@ public sealed class VariableManager : BaseManager
         EMP = 2,
         Scan = 3,
         Protect = 4,
+        Heal = 5,
     }
 
     public override BaseManager StartUp()
@@ -116,6 +118,7 @@ public sealed class VariableManager : BaseManager
                     { AllUnlockables.EMP, GetAbility(AllAbilities.EMP).DefaultUpgrade },
                     { AllUnlockables.Scan, GetAbility(AllAbilities.Scan).DefaultUpgrade },
                     { AllUnlockables.Protect, GetAbility(AllAbilities.Protect).DefaultUpgrade },
+                    { AllUnlockables.Heal, GetAbility(AllAbilities.Heal).DefaultUpgrade },
                     { DefaultMouse, new(true) },
                     { PhishingMinigame, new() },
                     { SnakeMouse, new() },
