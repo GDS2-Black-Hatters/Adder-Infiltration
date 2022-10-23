@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using static SaveManager;
 using static SaveManager.VariableToSave;
 using static VariableManager.AllUnlockables;
@@ -11,6 +12,7 @@ public sealed class VariableManager : BaseManager
     //Game variables
     [field: SerializeField] public AbilityList allAbilities { get; private set; }
     [field: SerializeField] public MouseList MouseList { get; private set; }
+    [field: SerializeField] public BackgroundList BackgroundList { get; private set; }
     private readonly Dictionary<AllAbilities, Ability> abilityDictionary = new();
 
     private Dictionary<VariableToSave, object> savedVars; //The dictionary of where all the data is saved.
@@ -39,8 +41,16 @@ public sealed class VariableManager : BaseManager
         SpiderMouse = 205,
         BinaryMouse = 206,
         PhishyMouse = 207,
+
+        DefaultBackground = 300,
+        PaleCity = 301,
+        LittleRedTitle = 302,
+        LittleRedCottage = 303,
+        MoonParadise = 304,
+        Gaster = 305,
     }
 
+    //Kinda regret adding this...
     public enum AllAbilities
     {
         Dash = 0,
@@ -60,6 +70,21 @@ public sealed class VariableManager : BaseManager
 
         return this;
     }
+
+#if UNITY_EDITOR
+    [SerializeField] private bool MaxMoney = false;
+    private void Update()
+    {
+        if (MaxMoney)
+        {
+            MaxMoney = false;
+            SetVariable(bytecoins, 9999);
+            SetVariable(intelligenceData, 9999);
+            SetVariable(processingPower, 9999);
+            GameManager.SaveManager.SaveToFile(true);
+        }
+    }
+#endif
 
     public Unlockable GetUnlockable(AllUnlockables abilityName)
     {
@@ -108,9 +133,9 @@ public sealed class VariableManager : BaseManager
     {
         Dictionary<VariableToSave, object> defaultValues = new()
         {
-            {bytecoins, 100 }, //TODO: Set to 0 for next sprint.
-            {intelligenceData, 100 },
-            {processingPower, 100 },
+            { bytecoins, 100 }, //TODO: Set to 0 for next sprint.
+            { intelligenceData, 100 },
+            { processingPower, 100 },
             { allUnlockables, new Dictionary<AllUnlockables, Unlockable>()
                 {
                     { AllUnlockables.Dash, GetAbility(AllAbilities.Dash).DefaultUpgrade },
@@ -119,6 +144,7 @@ public sealed class VariableManager : BaseManager
                     { AllUnlockables.Scan, GetAbility(AllAbilities.Scan).DefaultUpgrade },
                     { AllUnlockables.Protect, GetAbility(AllAbilities.Protect).DefaultUpgrade },
                     { AllUnlockables.Heal, GetAbility(AllAbilities.Heal).DefaultUpgrade },
+
                     { DefaultMouse, new(true) },
                     { PhishingMinigame, new() },
                     { SnakeMouse, new() },
@@ -128,11 +154,19 @@ public sealed class VariableManager : BaseManager
                     { SpiderMouse, new() },
                     { BinaryMouse, new() },
                     { PhishyMouse, new() },
+
+                    { DefaultBackground, new(true) },
+                    { PaleCity, new() },
+                    { LittleRedTitle, new() },
+                    { LittleRedCottage, new() },
+                    { MoonParadise, new() },
+                    { Gaster, new() },
                 }
             },
-            {mouseSprite, DefaultMouse },
-            {mouseSensitivity, 0.09f },
-            {audioVolume, 75f }
+            { mouseSprite, DefaultMouse },
+            { mouseSensitivity, 0.09f },
+            { audioVolume, 75f },
+            { currentDesktopBackground, DefaultBackground },
         };
 
         #region Ensure Default Integrity

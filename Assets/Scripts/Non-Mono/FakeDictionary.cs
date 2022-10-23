@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,6 +16,7 @@ public class FakeDictionary<key, value>
         public value value;
     }
     [SerializeField] private Item[] items;
+    [NonSerialized] private Dictionary<key, value> dictionary;
 
     /// <summary>
     /// Be sure to call this on Awake/Start.
@@ -23,15 +25,18 @@ public class FakeDictionary<key, value>
     /// <returns>The dictionary from the inspector. A warning will be produced if the key exists during runtime.</returns>
     public Dictionary<key, value> ToDictionary()
     {
-        Dictionary<key, value> dictionary = new();
-        foreach (Item item in items)
+        if (dictionary == null)
         {
-            if (dictionary.ContainsKey(item.key))
+            dictionary = new();
+            foreach (Item item in items)
             {
-                Debug.LogError(item.key + " already exists in the dictionary!");
-                continue;
+                if (dictionary.ContainsKey(item.key))
+                {
+                    Debug.LogError(item.key + " already exists in the dictionary!");
+                    continue;
+                }
+                dictionary.Add(item.key, item.value);
             }
-            dictionary.Add(item.key, item.value);
         }
         return dictionary;
     }

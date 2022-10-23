@@ -15,7 +15,8 @@ public sealed class SaveManager : BaseManager
     /// <br/>
     /// <br/> If the need to change an enum's unique number to another
     /// <br/> number or remove an enum you must delete all save files as
-    /// <br/> they will become "corrupt".
+    /// <br/> they will become "corrupt" and all references in them
+    /// <br/> in the project will be affected.
     /// </summary>
     public enum VariableToSave
     {
@@ -28,6 +29,7 @@ public sealed class SaveManager : BaseManager
         mouseSprite = 2000,
         mouseSensitivity = 2001,
         audioVolume = 2002,
+        currentDesktopBackground = 2003,
     }
 
     private string saveFile;
