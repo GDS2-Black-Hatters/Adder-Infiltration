@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class ObstacleParent : MonoBehaviour
+public class RunManager: MonoBehaviour
 {
     Rigidbody obstacle;
-    
 
+    float startTimer = 0.2f;
     float maxTimer;
     float fullTimer = 5;
     float timer;
     float distanceRan;
-
+    [SerializeField] private GameObject runner;
+    [SerializeField] private TextMeshProUGUI gameOver;
     [SerializeField] private TextMeshProUGUI scoreboard;
 
     // Start is called before the first frame update
@@ -46,6 +47,18 @@ public class ObstacleParent : MonoBehaviour
             }
             timer = maxTimer;
         }
+        // this is needed because for the first two frames the runner isnt visible
+        if (startTimer >= 0)
+        {
+            startTimer -= Time.deltaTime;
+        }
+        // if the runner isnt rendered (behind the camera) the game ends
+        if (runner.GetComponent<Renderer>().isVisible == false && startTimer <= 0)
+        {
+            gameOver.text = "GAME OVER";
+            EndGame();
+        }
+
         // purely for testing dw about it
         if (Input.GetKeyDown(KeyCode.K))
         {
@@ -71,5 +84,10 @@ public class ObstacleParent : MonoBehaviour
         obstacleRb.GetComponent<Transform>().position = new Vector3(obstacleRb.GetComponent<Transform>().position.x, (obstacleRb.GetComponent<Transform>().localScale.y / 2) + 1, obstacleRb.GetComponent<Transform>().position.z);
         // increases obstacle speed with time
         obstacleRb.velocity = new Vector3(0, 0, -10 / CalculateTimer());
+    }
+
+    void EndGame()
+    {
+        //idk make it do something :)
     }
 }
