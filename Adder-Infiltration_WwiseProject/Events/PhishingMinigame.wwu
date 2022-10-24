@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{4652079B-5B36-4587-B911-95D18A2418C6}" SchemaVersion="110" RootDocumentID="{B4FFE95C-DAAE-4AA1-A0C0-DACE565E10A2}" ParentDocumentID="{B4FFE95C-DAAE-4AA1-A0C0-DACE565E10A2}">
+	<Events>
+		<WorkUnit Name="PhishingMinigame" ID="{4652079B-5B36-4587-B911-95D18A2418C6}" OwnerID="{B4FFE95C-DAAE-4AA1-A0C0-DACE565E10A2}" PersistMode="Nested">
+			<ChildrenList>
+				<Event Name="TargetHooked" ID="{1E028048-2BB1-4460-87AA-11DBCEE0B594}">
+					<ChildrenList>
+						<Action Name="" ID="{EACD11AE-E400-49E1-B870-4DDF31CED90C}" ShortID="357792870">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Hooked" ID="{02B7DD15-F914-466F-B4F4-6139BEE7250A}" WorkUnitID="{85244E81-3C64-47F9-9532-A9D12EA6C182}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="TargetStashed" ID="{B42373E0-9907-49BD-92DE-3B0186F8AB4F}">
+					<ChildrenList>
+						<Action Name="" ID="{3488D35B-0816-4EE6-8718-C3D6ED702189}" ShortID="960711105">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Stashed" ID="{EB47DA0C-9F18-47EE-A611-596696C211A0}" WorkUnitID="{85244E81-3C64-47F9-9532-A9D12EA6C182}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Music" ID="{10AD45C0-FE70-4A3C-A6E1-A52BAD3AF14D}">
+					<ChildrenList>
+						<Action Name="" ID="{FB8B7E95-A6D3-4D0C-BD61-428A1CB9CEA7}" ShortID="371168222">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Fishing Minigame" ID="{0EE67943-EE6A-4269-BC1A-34BBC8F8E9A9}" WorkUnitID="{85244E81-3C64-47F9-9532-A9D12EA6C182}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

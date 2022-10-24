@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{85244E81-3C64-47F9-9532-A9D12EA6C182}" SchemaVersion="110" RootDocumentID="{6F752B17-8FF8-4D77-AA57-B6921623A50B}" ParentDocumentID="{6F752B17-8FF8-4D77-AA57-B6921623A50B}">
+	<AudioObjects>
+		<WorkUnit Name="PhishingMinigame" ID="{85244E81-3C64-47F9-9532-A9D12EA6C182}" OwnerID="{6F752B17-8FF8-4D77-AA57-B6921623A50B}" PersistMode="Nested">
+			<ChildrenList>
+				<Sound Name="Fishing Minigame" ID="{0EE67943-EE6A-4269-BC1A-34BBC8F8E9A9}" ShortID="775639761">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Fishing Minigame" ID="{78AC2602-85E3-44C8-9069-15D1DE70BE88}">
+							<Language>SFX</Language>
+							<AudioFile>Fishing Minigame.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="496570130"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Fishing Minigame" ID="{78AC2602-85E3-44C8-9069-15D1DE70BE88}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="Hooked" ID="{02B7DD15-F914-466F-B4F4-6139BEE7250A}" ShortID="426664070">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="644245__fractionalist__steel-spring-bear-trap" ID="{4AD2254D-7E0B-489E-B0E6-63D64585C2AD}">
+							<PropertyList>
+								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+								<Property Name="TrimBegin" Type="Real64" Value="0.764980340760158"/>
+								<Property Name="TrimEnd" Type="Real64" Value="2.39056356487549"/>
+							</PropertyList>
+							<Language>SFX</Language>
+							<AudioFile>644245__fractionalist__steel-spring-bear-trap.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="682131157"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="644245__fractionalist__steel-spring-bear-trap" ID="{4AD2254D-7E0B-489E-B0E6-63D64585C2AD}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="Stashed" ID="{EB47DA0C-9F18-47EE-A611-596696C211A0}" ShortID="901249928">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="538554__sjonas88__success" ID="{BAA4A385-7840-47EB-973B-644E5F60CC12}">
+							<PropertyList>
+								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+								<Property Name="TrimBegin" Type="Real64" Value="0.296199213630406"/>
+								<Property Name="TrimEnd" Type="Real64" Value="0.959370904325032"/>
+							</PropertyList>
+							<Language>SFX</Language>
+							<AudioFile>538554__sjonas88__success.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="1073533375"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="538554__sjonas88__success" ID="{BAA4A385-7840-47EB-973B-644E5F60CC12}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

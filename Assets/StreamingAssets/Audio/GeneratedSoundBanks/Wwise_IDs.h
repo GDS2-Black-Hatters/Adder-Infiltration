@@ -17,6 +17,7 @@ namespace AK
         static const AkUniqueID HUBMUSICSTART_EVENT = 2461714704U;
         static const AkUniqueID LAZERFIRE_EVENT = 3822340686U;
         static const AkUniqueID LEVELSTART_EVENT = 1666178350U;
+        static const AkUniqueID MUSIC = 3991942870U;
         static const AkUniqueID OBJECTIVECOMPLETE_EVENT = 551763010U;
         static const AkUniqueID PLAYERDISCOVERED_EVENT = 2538572501U;
     } // namespace EVENTS
