@@ -46,7 +46,7 @@ public class ObstacleParent : MonoBehaviour
             }
             timer = maxTimer;
         }
-
+        // purely for testing dw about it
         if (Input.GetKeyDown(KeyCode.K))
         {
             SpawnObstacle();
@@ -63,10 +63,13 @@ public class ObstacleParent : MonoBehaviour
         Rigidbody obstacleRb;
         Vector3 spawnPoint = new Vector3((Random.Range(-9, 9)), Random.Range(0, 3), gameObject.transform.position.z);
         obstacleRb = Instantiate(obstacle, spawnPoint, gameObject.transform.rotation);
-
+        // the original object was having some collision issues so collision is disabled by default
         obstacleRb.GetComponent<Collider>().isTrigger = false;
+        //makes the box a random size on x and y axis within range.
         obstacleRb.GetComponent<Transform>().localScale = new Vector3(Random.Range(2, 5), Random.Range(2, 5), 1);
+        // ensures that the boxes glide just above the floor and can collide with the runner no problem.
         obstacleRb.GetComponent<Transform>().position = new Vector3(obstacleRb.GetComponent<Transform>().position.x, (obstacleRb.GetComponent<Transform>().localScale.y / 2) + 1, obstacleRb.GetComponent<Transform>().position.z);
+        // increases obstacle speed with time
         obstacleRb.velocity = new Vector3(0, 0, -10 / CalculateTimer());
     }
 }

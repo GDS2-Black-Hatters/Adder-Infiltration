@@ -14,6 +14,7 @@ public class Obstacle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // destroys the obstacle once its behind the camera
         if (gameObject.transform.position.z <= -20)
         {
             Destroy(gameObject);
