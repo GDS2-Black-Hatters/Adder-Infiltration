@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class MinigameController : MonoBehaviour
 {
-    private TimeTracker computerSpawnTimer = new(2, -1, true);
-    private TimeTracker antivirusSpawnTimer = new(1, -1, true);
+    private TimeTracker computerSpawnTimer = new(2);
+    private TimeTracker antivirusSpawnTimer = new(1);
 
     private int score = 0;
     [SerializeField] private Computer computer;
@@ -21,12 +21,14 @@ public class MinigameController : MonoBehaviour
             Vector3 pos = Vector3.zero;
             pos.y = Random.Range(-2.5f, 2.5f);
             go.transform.localPosition = pos;
+            computerSpawnTimer.Reset();
         };
 
         antivirusSpawnTimer.onFinish += () =>
         {
             antivirusSpawnTimer.SetTimer(Random.Range(0.75f, 1.25f));
             Instantiate(antiVirus, new(15, Random.Range(3.5f, -3.5f), 0), transform.rotation);
+            antivirusSpawnTimer.Reset();
         };
     }
 

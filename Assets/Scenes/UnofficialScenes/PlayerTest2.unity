@@ -841,6 +841,7 @@ Transform:
   - {fileID: 907419203}
   - {fileID: 1539529285}
   - {fileID: 472524166}
+  - {fileID: 712837459}
   m_Father: {fileID: 1512423016}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -883,6 +884,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7751953367977611952, guid: afc3a09e94fc26641ba19ac0750b4866, type: 3}
   m_PrefabInstance: {fileID: 1362681797}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &712837459 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 684659846052057584, guid: 48a7f85141a052a4697ae66be341d010, type: 3}
+  m_PrefabInstance: {fileID: 684659845610412195}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &744916969
 GameObject:
@@ -1209,6 +1215,9 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 0}
+  OnObjectiveComplete:
+    m_PersistentCalls:
+      m_Calls: []
   _objectiveStringPrefix: Gather information
 --- !u!1 &1028835406
 GameObject:
@@ -1646,6 +1655,9 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 0}
+  OnObjectiveComplete:
+    m_PersistentCalls:
+      m_Calls: []
   captureTime: 5
   prefixName: Secure vulnerability
   onProgressUpdate:
@@ -2244,6 +2256,9 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 0}
+  OnObjectiveComplete:
+    m_PersistentCalls:
+      m_Calls: []
   _objectiveText: Hack into device
 --- !u!114 &1933370662
 MonoBehaviour:
@@ -2440,6 +2455,9 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 0}
+  OnObjectiveComplete:
+    m_PersistentCalls:
+      m_Calls: []
   _objectiveText: Hack into device
 --- !u!114 &2056310441
 MonoBehaviour:
@@ -2763,6 +2781,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12885508a6636d04bb3be65ab84a38fe, type: 3}
+--- !u!1001 &684659845610412195
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 493765375}
+    m_Modifications:
+    - target: {fileID: 684659846052057584, guid: 48a7f85141a052a4697ae66be341d010, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 684659846052057584, guid: 48a7f85141a052a4697ae66be341d010, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 684659846052057584, guid: 48a7f85141a052a4697ae66be341d010, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 684659846052057584, guid: 48a7f85141a052a4697ae66be341d010, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 56
+      objectReference: {fileID: 0}
+    - target: {fileID: 684659846052057584, guid: 48a7f85141a052a4697ae66be341d010, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 684659846052057584, guid: 48a7f85141a052a4697ae66be341d010, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 684659846052057584, guid: 48a7f85141a052a4697ae66be341d010, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 684659846052057584, guid: 48a7f85141a052a4697ae66be341d010, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 684659846052057584, guid: 48a7f85141a052a4697ae66be341d010, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 684659846052057584, guid: 48a7f85141a052a4697ae66be341d010, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 684659846052057584, guid: 48a7f85141a052a4697ae66be341d010, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 684659846052057585, guid: 48a7f85141a052a4697ae66be341d010, type: 3}
+      propertyPath: m_Name
+      value: Shark
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 48a7f85141a052a4697ae66be341d010, type: 3}
 --- !u!1001 &8327987173300766331
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2871,6 +2946,9 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 0}
+  OnObjectiveComplete:
+    m_PersistentCalls:
+      m_Calls: []
   captureTime: 3
   prefixName: Secure vulnerability
   onProgressUpdate:

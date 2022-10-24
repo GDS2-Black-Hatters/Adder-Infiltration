@@ -33,11 +33,10 @@ public class PCGSingleStructureChunkData : PCGChunkDataBase
         }
     }
 
-    public override GameObject Generate(Transform parentTransform, float cellUnitMultiplier)
+    public override IEnumerator Generate(Transform parentTransform, GameObject rootGameObject, MonoBehaviour generator, System.Action incompleteCall)
     {
-        this.cellUnitMultiplier = cellUnitMultiplier;
-
-        Transform root = InstantiateRootAndGround(parentTransform);
+        InstantiateRootAndGround(parentTransform, ref rootGameObject);
+        Transform root = rootGameObject.transform;
 
         //Assign the modules into lists
         List<PCGStructureModule> cornerModules = new List<PCGStructureModule>();
@@ -136,7 +135,7 @@ public class PCGSingleStructureChunkData : PCGChunkDataBase
 
         GenerateBorderObjects(root);
 
-        return root.gameObject;
+        yield break;
     }
 
     private GameObject PopulateCell(PCGStructureModule fillContentBlock, Vector2 fillCellCord, int rotationMultiplier, Transform chunkBaseTransform)

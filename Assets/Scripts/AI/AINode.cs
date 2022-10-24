@@ -12,8 +12,8 @@ public class AINode : MonoBehaviour
 
     public AINode GetNextNodeToPlayer()
     {
-        LevelManager levelManager = GameManager.LevelManager;
-        AINode playerNode = levelManager.ActiveSceneController.enemyAdmin.GetClosestNode(levelManager.player.transform);
+        BaseSceneController sceneController = GameManager.LevelManager.ActiveSceneController;
+        AINode playerNode = sceneController.enemyAdmin.GetClosestNode(sceneController.Player.transform);
 
         AINode nextNode = null;
         float shortestDist = int.MaxValue;
@@ -32,12 +32,12 @@ public class AINode : MonoBehaviour
 
     public void AddNeighbour(AINode neighbour)
     {
-        List<AINode> newNeighbourList = new(this.neighbours);
+        List<AINode> newNeighbourList = new(neighbours);
         if(neighbour != null && !newNeighbourList.Contains(neighbour))
         {
             newNeighbourList.Add(neighbour);
         }
-        this.neighbours = newNeighbourList.ToArray();
+        neighbours = newNeighbourList.ToArray();
     }
 
     private void OnDrawGizmos()

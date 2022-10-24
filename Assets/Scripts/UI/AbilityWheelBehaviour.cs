@@ -8,6 +8,7 @@ using static VariableManager;
 
 public class AbilityWheelBehaviour : MonoBehaviour
 {
+    [SerializeField] private GameObject allAbilities;
     [SerializeField] private GameObject abilityIconPrefab;
     private readonly List<AbilityPivotBehaviour> pivotBehaviours = new();
 
@@ -38,12 +39,19 @@ public class AbilityWheelBehaviour : MonoBehaviour
             };
         }
 
-        //Get available abilities.
-        foreach (AbilityBase abilityBase in GameManager.VariableManager.allAbilities.Values)
+        Dictionary<AllAbilities, AbilityBase> abilityDictionary = new();
+        foreach (AbilityBase ability in allAbilities.GetComponentsInChildren<AbilityBase>())
         {
-            if (abilityBase.AbilityUpgrade.IsUnlocked)
+            abilityDictionary.Add(ability.AbilityID, ability);
+        }
+
+        //Get available abilities.
+        foreach (AllAbilities abilities in DoStatic.EnumList<AllAbilities>())
+        {
+            Unlockable unlock = GameManager.VariableManager.GetUnlockable(DoStatic.EnumToEnum<AllAbilities, AllUnlockables>(abilities));
+            if (unlock.IsUnlocked)
             {
-                availableAbilities.Add(abilityBase);
+                availableAbilities.Add(abilityDictionary[abilities]);
             }
         }
 
@@ -104,10 +112,9 @@ public class AbilityWheelBehaviour : MonoBehaviour
         do
         {
             yield return null;
-            time.Update(Time.deltaTime);
             transform.eulerAngles = Vector3.Lerp(Vector3.zero, goalRot, time.TimePercentage);
+            time.Update(Time.deltaTime);
             //TODO: Update icon sizes. (Optional)
-        } while (time.TimePercentage != 1);
-        time.Reset();
+        } while (IsRotating);
     }
 }

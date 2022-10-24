@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProceduralBuildingGenerator : MonoBehaviour
+public class ProceduralBuildingGenerator : PCGenerator
 {
     [SerializeField] private PCGBuildingData buildingData;
 
-    void Start()
+    protected override IEnumerator Generate()
     {
-        buildingData.Generate(transform, 0);
-        Destroy(this);
+        buildingData.Generate(transform, new GameObject(), this, GenerationIncomplete);
+        yield break;
     }
 }
