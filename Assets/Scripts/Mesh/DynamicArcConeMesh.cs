@@ -118,4 +118,14 @@ public class DynamicArcConeMesh : MonoBehaviour
         
         return new Vector3(Mathf.Sin(angleXRad), Mathf.Sin(angleYRad), Mathf.Cos(angleXRad) * Mathf.Cos(angleYRad));
     }
+
+    private void OnBecameVisible()
+    {
+        enabled = true;
+    }
+
+    private void OnBecameInvisible()
+    {
+        enabled = false;
+    }
 }

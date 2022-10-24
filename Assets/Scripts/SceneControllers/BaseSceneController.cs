@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using static LevelManager.Level;
 
 public class BaseSceneController : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class BaseSceneController : MonoBehaviour
     private bool hasAMandatoryObjective = false;
 
     [SerializeField] private CaughtHUDBehaviour caughtHUD;
+    [field: SerializeField] public Health playerHealth { get; private set; } = new(20);
+    [field: SerializeField] public PlayerVirus Player { get; private set; }
     [field: SerializeField] public TextMeshProUGUI objectiveList { get; private set; }
 
     //For children.
@@ -36,18 +39,33 @@ public class BaseSceneController : MonoBehaviour
     //MatterShell
     private MatterShell matterShell;
 
+    [SerializeField] protected WireframeLoadEffectRig loadEffectRig;
+
     protected virtual void Awake()
     {
         GameManager.LevelManager.SetActiveSceneController(this);
 
-        //Create and assign a copy so we don't change the asset original values
-        RenderSettings.skybox = new(RenderSettings.skybox);
+        playerHealth.onDeath += () =>
+        {
+            GameManager.LevelManager.ChangeLevel(Hub);
+        };
     }
 
     protected virtual void Start()
     {
+        //Ensure we take over the 'active scene' status from the loading scene
+        UnityEngine.SceneManagement.SceneManager.SetActiveScene(gameObject.scene);
+
+        //Create and assign a copy so we don't change the asset original values
+        RenderSettings.skybox = new(RenderSettings.skybox);
+
         enemyAdmin.onFullAlert += StartCaughtMode;
         enemyAdmin.onFullAlert += caughtHUD.FadeIn;
+    }
+
+    public virtual void EngageScene()
+    {
+        loadEffectRig.StartRig();
     }
 
     protected virtual void Update()
@@ -56,9 +74,9 @@ public class BaseSceneController : MonoBehaviour
 
         //Fall Off Check
         LevelManager levelManager = GameManager.LevelManager;
-        if (levelManager.player.transform.position.y < -15f)
+        if (levelManager.ActiveSceneController.Player.transform.position.y < -15f)
         {
-            levelManager.ChangeLevel(LevelManager.Level.Hub);
+            levelManager.ChangeLevel(Hub);
         }
     }
 
@@ -69,7 +87,7 @@ public class BaseSceneController : MonoBehaviour
 
     public void SetSpawnPoint()
     {
-        GameManager.LevelManager.player.transform.position = playerSpawnPoints[UnityEngine.Random.Range(0, playerSpawnPoints.Count)].position;
+        GameManager.LevelManager.ActiveSceneController.Player.transform.position = playerSpawnPoints[UnityEngine.Random.Range(0, playerSpawnPoints.Count)].position;
     }
 
     public void StartCaughtMode()

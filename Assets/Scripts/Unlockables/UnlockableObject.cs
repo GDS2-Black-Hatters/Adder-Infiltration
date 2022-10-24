@@ -4,8 +4,17 @@ public class UnlockableObject : MonoBehaviour
 {
     [SerializeField] private VariableManager.AllUnlockables unlockable;
     private Unlockable unlock;
+    [SerializeField] private bool autoStart = false;
 
     void Start()
+    {
+        if (autoStart)
+        {
+            StartUp(unlockable);
+        }
+    }
+
+    public void StartUp(VariableManager.AllUnlockables unlockable)
     {
         unlock = GameManager.VariableManager.GetUnlockable(unlockable);
         if (!unlock.IsUnlocked)

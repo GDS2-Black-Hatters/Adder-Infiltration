@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -56,5 +57,32 @@ public sealed class InputManager : BaseManager
     public void SetControlScheme(ControlScheme scheme)
     {
         playerInput.SwitchCurrentActionMap(DoStatic.EnumToString(scheme));
+    }
+
+    public void UpdateMouse(Mouse mouse)
+    {
+        StopAllCoroutines();
+        Cursor.SetCursor(mouse.Frames[0], Vector2.zero, CursorMode.Auto);
+        if (mouse.Frames.Length > 1)
+        {
+            StartCoroutine(Animate(mouse));
+        }
+    }
+
+    private IEnumerator Animate(Mouse mouse)
+    {
+        TimeTracker tracker = new(1 / mouse.FPS);
+        int index = 0;
+        tracker.onFinish += () =>
+        {
+            index = (index + 1) % mouse.Frames.Length;
+            Cursor.SetCursor(mouse.Frames[index], Vector2.zero, CursorMode.Auto);
+            tracker.Reset();
+        };
+        while (true)
+        {
+            yield return null;
+            tracker.Update(Time.unscaledDeltaTime);
+        }
     }
 }
