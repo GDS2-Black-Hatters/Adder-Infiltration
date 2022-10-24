@@ -34,35 +34,10 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-		<SoundBank Id="4096625075" Type="User" Language="SFX" Hash="{15A8079C-2A0E-8D5E-2471-AC6A20A79794}">
+		<SoundBank Id="4096625075" Type="User" Language="SFX" Hash="{A7315396-BC55-702E-4CD9-CB056F2D2B89}">
 			<ShortName>MainLevelSoundBank</ShortName>
 			<Path>MainLevelSoundBank.bnk</Path>
 			<Media>
-				<File Id="283607353" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>MENU.wav</ShortName>
-					<CachePath>SFX/MENU_D79FB2B7.wem</CachePath>
-				</File>
-=======
-		<SoundBank Id="4096625075" Type="User" Language="SFX" Hash="{054B2F2E-A261-55C1-2CF0-EDDB6E2C3A48}">
-			<ShortName>MainLevelSoundBank</ShortName>
-			<Path>MainLevelSoundBank.bnk</Path>
-			<Media>
->>>>>>> Stashed changes
-=======
-		<SoundBank Id="4096625075" Type="User" Language="SFX" Hash="{054B2F2E-A261-55C1-2CF0-EDDB6E2C3A48}">
-			<ShortName>MainLevelSoundBank</ShortName>
-			<Path>MainLevelSoundBank.bnk</Path>
-			<Media>
->>>>>>> Stashed changes
-=======
-		<SoundBank Id="4096625075" Type="User" Language="SFX" Hash="{054B2F2E-A261-55C1-2CF0-EDDB6E2C3A48}">
-			<ShortName>MainLevelSoundBank</ShortName>
-			<Path>MainLevelSoundBank.bnk</Path>
-			<Media>
->>>>>>> Stashed changes
 				<File Id="294137384" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Laser1.wav</ShortName>
 					<CachePath>SFX/Laser1_10C4C929.wem</CachePath>
@@ -124,19 +99,7 @@
 				</Event>
 				<Event Id="2461714704" Name="HubMusicStart_Event" DurationType="Infinite">
 					<MediaRefs>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-						<MediaRef Id="283607353"/>
-=======
 						<MediaRef Id="847613361"/>
->>>>>>> Stashed changes
-=======
-						<MediaRef Id="847613361"/>
->>>>>>> Stashed changes
-=======
-						<MediaRef Id="847613361"/>
->>>>>>> Stashed changes
 					</MediaRefs>
 				</Event>
 				<Event Id="3822340686" Name="LazerFire_Event" DurationType="OneShot" DurationMin="0.38889584" DurationMax="0.710375">
@@ -182,14 +145,6 @@
 						<ActionSetStateEntry GroupId="3924600286" Id="2206681103" Name="Discovered"/>
 					</ActionSetState>
 				</Event>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 				<Event Id="2827905996" Name="TargetHooked" DurationType="OneShot" DurationMin="1.6255832" DurationMax="1.6255832">
 					<MediaRefs>
 						<MediaRef Id="682131157"/>
@@ -200,13 +155,6 @@
 						<MediaRef Id="1073533375"/>
 					</MediaRefs>
 				</Event>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 			</Events>
 			<StateGroups>
 				<StateGroup Id="3924600286" Name="PlayerDetectionState">
@@ -219,17 +167,5 @@
 			</StateGroups>
 		</SoundBank>
 	</SoundBanks>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-	<FileHash>{DE478B8D-EACA-2DAD-EBA9-3251AF4023ED}</FileHash>
-=======
-	<FileHash>{6C2EF128-BF68-0300-8301-92222D97A21D}</FileHash>
->>>>>>> Stashed changes
-=======
-	<FileHash>{6C2EF128-BF68-0300-8301-92222D97A21D}</FileHash>
->>>>>>> Stashed changes
-=======
-	<FileHash>{6C2EF128-BF68-0300-8301-92222D97A21D}</FileHash>
->>>>>>> Stashed changes
+	<FileHash>{9EF2BE5F-CB8E-D3B1-EE54-F88007C12ED8}</FileHash>
 </SoundBanksInfo>

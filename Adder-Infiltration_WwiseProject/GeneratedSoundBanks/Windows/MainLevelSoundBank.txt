@@ -2,8 +2,10 @@ Event	ID	Name			Wwise Object Path	Notes
 	551763010	ObjectiveComplete_Event			\Default Work Unit\ObjectiveComplete_Event	
 	1504246845	EnemyDroneAmb			\Default Work Unit\EnemyDroneAmb	
 	1666178350	LevelStart_Event			\Default Work Unit\LevelStart_Event	
+	2045263066	TargetStashed			\Minigame\PhishingMinigame\TargetStashed	
 	2461714704	HubMusicStart_Event			\Default Work Unit\HubMusicStart_Event	
 	2538572501	PlayerDiscovered_Event			\Default Work Unit\PlayerDiscovered_Event	
+	2827905996	TargetHooked			\Minigame\PhishingMinigame\TargetHooked	
 	3822340686	LazerFire_Event			\Default Work Unit\LazerFire_Event	
 	3991942870	Music			\Minigame\PhishingMinigame\Music	
 
@@ -16,19 +18,6 @@ State	ID	Name	State Group			Notes
 	2909291642	Stealth	PlayerDetectionState			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-	283607353	MENU	C:\Users\oscar\OneDrive\Documents\GitHub\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\MENU_D79FB2B7.wem		\Interactive Music Hierarchy\HubMusic\HubMusicLoop\TEST_MENU\MENU		8648096
-	294137384	Laser1	C:\Users\oscar\OneDrive\Documents\GitHub\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Laser1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\RandomLazerSounds\Laser1		136488
-	368855487	Adder Infiltration Stealth v2 (Transition)	C:\Users\oscar\OneDrive\Documents\GitHub\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Adder Infiltration Stealth v2 (Transition)_D79FB2B7.wem		\Interactive Music Hierarchy\MainLevelMusic\MainLevelMusicSwitch\Combat\Adder Infiltration Stealth v2 (Transition)\Adder Infiltration Stealth v2 (Transition)		3072096
-	698227113	Laser3	C:\Users\oscar\OneDrive\Documents\GitHub\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Laser3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\RandomLazerSounds\Laser3		79564
-	803960293	Adder Infiltration Stealth v2 (Stealth)	C:\Users\oscar\OneDrive\Documents\GitHub\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Adder Infiltration Stealth v2 (Stealth)_D79FB2B7.wem		\Interactive Music Hierarchy\MainLevelMusic\MainLevelMusicSwitch\Stealth\Adder Infiltration Stealth v2 (Stealth)\Adder Infiltration Stealth v2 (Stealth)		5461428
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 	294137384	Laser1	C:\Users\oscar\OneDrive\Documents\GitHub\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Laser1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\RandomLazerSounds\Laser1		136488
 	368855487	Adder Infiltration Stealth v2 (Transition)	C:\Users\oscar\OneDrive\Documents\GitHub\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Adder Infiltration Stealth v2 (Transition)_D79FB2B7.wem		\Interactive Music Hierarchy\MainLevelMusic\MainLevelMusicSwitch\Combat\Adder Infiltration Stealth v2 (Transition)\Adder Infiltration Stealth v2 (Transition)		3072096
 	496570130	Fishing Minigame	C:\Users\oscar\OneDrive\Documents\GitHub\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Fishing Minigame_10C4C929.wem		\Actor-Mixer Hierarchy\Minigames\PhishingMinigame\Fishing Minigame		2822500
@@ -36,28 +25,10 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	698227113	Laser3	C:\Users\oscar\OneDrive\Documents\GitHub\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Laser3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\RandomLazerSounds\Laser3		79564
 	803960293	Adder Infiltration Stealth v2 (Stealth)	C:\Users\oscar\OneDrive\Documents\GitHub\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Adder Infiltration Stealth v2 (Stealth)_D79FB2B7.wem		\Interactive Music Hierarchy\MainLevelMusic\MainLevelMusicSwitch\Stealth\Adder Infiltration Stealth v2 (Stealth)\Adder Infiltration Stealth v2 (Stealth)		5461428
 	847613361	MENU	C:\Users\oscar\OneDrive\Documents\GitHub\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\MENU_D79FB2B7.wem		\Interactive Music Hierarchy\HubMusic\HubMusicLoop\Menu\MENU		8648096
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 	908927036	Laser2	C:\Users\oscar\OneDrive\Documents\GitHub\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Laser2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\RandomLazerSounds\Laser2		74764
 	916228964	Adder Infiltration Stealth v2 (Combat)	C:\Users\oscar\OneDrive\Documents\GitHub\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Adder Infiltration Stealth v2 (Combat)_D79FB2B7.wem		\Interactive Music Hierarchy\MainLevelMusic\MainLevelMusicSwitch\Combat\Adder Infiltration Stealth v2 (Combat)\Adder Infiltration Stealth v2 (Combat)		5461432
 	938660290	Laser4	C:\Users\oscar\OneDrive\Documents\GitHub\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Laser4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\RandomLazerSounds\Laser4		119564
 	984440277	EnemyAmbient	C:\Users\oscar\OneDrive\Documents\GitHub\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\EnemyAmbient_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\EnemyDroneAmbient\EnemyAmbient		965916
 	1032776037	Pickup-capture point	C:\Users\oscar\OneDrive\Documents\GitHub\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Pickup-capture point_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\ObjectiveCompleteSound\Pickup-capture point		160096
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
 	1073533375	Stashed	C:\Users\oscar\OneDrive\Documents\GitHub\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\538554__sjonas88__success_8353D695.wem		\Actor-Mixer Hierarchy\Minigames\PhishingMinigame\Stashed		117080
->>>>>>> Stashed changes
-=======
-	1073533375	Stashed	C:\Users\oscar\OneDrive\Documents\GitHub\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\538554__sjonas88__success_8353D695.wem		\Actor-Mixer Hierarchy\Minigames\PhishingMinigame\Stashed		117080
->>>>>>> Stashed changes
-=======
-	1073533375	Stashed	C:\Users\oscar\OneDrive\Documents\GitHub\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\538554__sjonas88__success_8353D695.wem		\Actor-Mixer Hierarchy\Minigames\PhishingMinigame\Stashed		117080
->>>>>>> Stashed changes
 

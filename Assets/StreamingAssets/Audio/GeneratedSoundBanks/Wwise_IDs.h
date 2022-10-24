@@ -20,6 +20,8 @@ namespace AK
         static const AkUniqueID MUSIC = 3991942870U;
         static const AkUniqueID OBJECTIVECOMPLETE_EVENT = 551763010U;
         static const AkUniqueID PLAYERDISCOVERED_EVENT = 2538572501U;
+        static const AkUniqueID TARGETHOOKED = 2827905996U;
+        static const AkUniqueID TARGETSTASHED = 2045263066U;
     } // namespace EVENTS
 
     namespace STATES

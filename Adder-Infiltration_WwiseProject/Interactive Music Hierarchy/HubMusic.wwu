@@ -15,25 +15,9 @@
 					<ChildrenList>
 						<MusicSegment Name="Menu" ID="{DE560C13-97F0-4E74-AFEA-84434E5E7D91}" ShortID="1830563">
 							<PropertyList>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-								<Property Name="EndPosition" Type="Real64" Value="45041.6666666667"/>
-=======
 								<Property Name="EndPosition" Type="Real64" Value="48541.6666666667"/>
 								<Property Name="OverrideClockSettings" Type="bool" Value="True"/>
 								<Property Name="Tempo" Type="Real64" Value="80"/>
->>>>>>> Stashed changes
-=======
-								<Property Name="EndPosition" Type="Real64" Value="48541.6666666667"/>
-								<Property Name="OverrideClockSettings" Type="bool" Value="True"/>
-								<Property Name="Tempo" Type="Real64" Value="80"/>
->>>>>>> Stashed changes
-=======
-								<Property Name="EndPosition" Type="Real64" Value="48541.6666666667"/>
-								<Property Name="OverrideClockSettings" Type="bool" Value="True"/>
-								<Property Name="Tempo" Type="Real64" Value="80"/>
->>>>>>> Stashed changes
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -44,49 +28,23 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-								<MusicTrack Name="MENU" ID="{FDA49C24-D090-4C9E-96D2-C3ACC87F66F2}" ShortID="104793790">
-=======
 								<MusicTrack Name="MENU" ID="{129F207E-297E-4500-90E5-3CB55AC3FF67}" ShortID="86711304">
->>>>>>> Stashed changes
-=======
-								<MusicTrack Name="MENU" ID="{129F207E-297E-4500-90E5-3CB55AC3FF67}" ShortID="86711304">
->>>>>>> Stashed changes
-=======
-								<MusicTrack Name="MENU" ID="{129F207E-297E-4500-90E5-3CB55AC3FF67}" ShortID="86711304">
->>>>>>> Stashed changes
 									<ReferenceList>
 										<Reference Name="OutputBus">
 											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-										<AudioFileSource Name="MENU" ID="{0953EA04-E898-4551-AD31-C38635A9978C}">
-											<Language>SFX</Language>
-											<AudioFile>MENU.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="283607353"/>
-=======
 										<AudioFileSource Name="MENU" ID="{E9814D9D-132E-46D4-8737-8ED67CD15AD7}">
 											<Language>SFX</Language>
 											<AudioFile>MENU.wav</AudioFile>
 											<MediaIDList>
 												<MediaID ID="847613361"/>
->>>>>>> Stashed changes
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<TransitionList>
-<<<<<<< Updated upstream
-										<MusicTransition Name="Root" ID="{B45F63FF-4512-4032-9F7A-AB5D527B6FBD}">
-=======
 										<MusicTransition Name="Root" ID="{639EE218-75A1-4137-B627-E40611652632}">
->>>>>>> Stashed changes
 											<PropertyList>
 												<Property Name="IsFolder" Type="bool" Value="True"/>
 											</PropertyList>
@@ -97,30 +55,18 @@
 										<ObjectList Name="Sequences">
 											<Reference>
 												<Local>
-<<<<<<< Updated upstream
-													<MusicTrackSequence Name="" ID="{745BD991-DF1B-4E9B-A0BF-ECA88F21C9CB}">
-=======
 													<MusicTrackSequence Name="" ID="{4DD9CA51-2F8D-4380-97AF-B5BE5BC7348D}">
->>>>>>> Stashed changes
 														<ObjectLists>
 															<ObjectList Name="Clips">
 																<Reference>
 																	<Local>
-<<<<<<< Updated upstream
-																		<MusicClip Name="MENU" ID="{9625B6AC-DC15-4E78-A164-24E86D1729E2}">
-																			<PropertyList>
-=======
 																		<MusicClip Name="MENU" ID="{98E02E02-2CB9-4978-A6A7-3EA183CA551A}">
 																			<PropertyList>
 																				<Property Name="BeginTrimOffset" Type="Real64" Value="3.69482222595252E-12"/>
->>>>>>> Stashed changes
 																				<Property Name="EndTrimOffset" Type="Real64" Value="45041.6666666667"/>
 																				<Property Name="FadeInMode" Type="int16" Value="0"/>
 																				<Property Name="FadeOutMode" Type="int16" Value="0"/>
 																			</PropertyList>
-<<<<<<< Updated upstream
-																			<AudioSourceRef Name="MENU" ID="{0953EA04-E898-4551-AD31-C38635A9978C}"/>
-=======
 																			<AudioSourceRef Name="MENU" ID="{E9814D9D-132E-46D4-8737-8ED67CD15AD7}"/>
 																			<PropertyCurveList>
 																				<PropertyCurve PropertyName="Highpass">
@@ -181,7 +127,6 @@
 																					</Curve>
 																				</PropertyCurve>
 																			</PropertyCurveList>
->>>>>>> Stashed changes
 																		</MusicClip>
 																	</Local>
 																</Reference>
@@ -203,421 +148,6 @@
 									</Reference>
 									<Reference>
 										<Local>
-											<MusicCue Name="Exit Cue" ID="{14935BB6-C114-47BE-BA8B-D2EF56F6056D}">
-												<PropertyList>
-													<Property Name="CueType" Type="int16" Value="1"/>
-													<Property Name="TimeMs" Type="Real64" Value="42000"/>
-												</PropertyList>
-											</MusicCue>
-										</Local>
-									</Reference>
-								</ObjectList>
-							</ObjectLists>
-						</MusicSegment>
-						<MusicSegment Name="Menu loop" ID="{457C393F-7462-4701-9117-791EE495EAB2}" ShortID="229187109">
-							<PropertyList>
-								<Property Name="EndPosition" Type="Real64" Value="45041.6666666667"/>
-								<Property Name="OverrideClockSettings" Type="bool" Value="True"/>
-								<Property Name="Tempo" Type="Real64" Value="80"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<MusicTrack Name="Loop" ID="{9FE9AE08-0F84-4B30-9B53-2537F65D6216}" ShortID="579282717">
-									<ReferenceList>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="MENU" ID="{750F6FDF-B61E-4671-92D0-D6ECED0E7873}">
-											<Language>SFX</Language>
-											<AudioFile>MENU.wav</AudioFile>
-											<MediaIDList>
-=======
-										<AudioFileSource Name="MENU" ID="{E9814D9D-132E-46D4-8737-8ED67CD15AD7}">
-											<Language>SFX</Language>
-											<AudioFile>MENU.wav</AudioFile>
-											<MediaIDList>
->>>>>>> Stashed changes
-												<MediaID ID="847613361"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<TransitionList>
-<<<<<<< Updated upstream
-										<MusicTransition Name="Root" ID="{2B8D372D-A312-4655-A99F-724F2CD31585}">
-=======
-										<MusicTransition Name="Root" ID="{639EE218-75A1-4137-B627-E40611652632}">
->>>>>>> Stashed changes
-											<PropertyList>
-												<Property Name="IsFolder" Type="bool" Value="True"/>
-											</PropertyList>
-											<TransitionInfo/>
-										</MusicTransition>
-									</TransitionList>
-									<ObjectLists>
-										<ObjectList Name="Sequences">
-											<Reference>
-												<Local>
-<<<<<<< Updated upstream
-													<MusicTrackSequence Name="" ID="{0D8BBC5C-80D6-4546-BBA4-D1DA4D31BC71}">
-=======
-													<MusicTrackSequence Name="" ID="{4DD9CA51-2F8D-4380-97AF-B5BE5BC7348D}">
->>>>>>> Stashed changes
-														<ObjectLists>
-															<ObjectList Name="Clips">
-																<Reference>
-																	<Local>
-<<<<<<< Updated upstream
-																		<MusicClip Name="MENU" ID="{35D313A3-0E6D-41C2-9655-258F0171D0DF}">
-																			<PropertyList>
-																				<Property Name="BeginTrimOffset" Type="Real64" Value="5500.00000000001"/>
-=======
-																		<MusicClip Name="MENU" ID="{98E02E02-2CB9-4978-A6A7-3EA183CA551A}">
-																			<PropertyList>
-																				<Property Name="BeginTrimOffset" Type="Real64" Value="3.69482222595252E-12"/>
->>>>>>> Stashed changes
-																				<Property Name="EndTrimOffset" Type="Real64" Value="45041.6666666667"/>
-																				<Property Name="FadeInMode" Type="int16" Value="0"/>
-																				<Property Name="FadeOutMode" Type="int16" Value="0"/>
-																				<Property Name="PlayAt" Type="Real64" Value="-4451.47796988289"/>
-																			</PropertyList>
-<<<<<<< Updated upstream
-																			<AudioSourceRef Name="MENU" ID="{750F6FDF-B61E-4671-92D0-D6ECED0E7873}"/>
-																			<PropertyCurveList>
-																				<PropertyCurve PropertyName="Highpass">
-																					<Curve Name="" ID="{37E97540-CE14-42E9-9C74-0429687C013B}">
-=======
-																			<AudioSourceRef Name="MENU" ID="{E9814D9D-132E-46D4-8737-8ED67CD15AD7}"/>
-																			<PropertyCurveList>
-																				<PropertyCurve PropertyName="Highpass">
-																					<Curve Name="" ID="{97689346-CE7A-406F-8517-30003E06C70C}">
->>>>>>> Stashed changes
-																						<PropertyList>
-																							<Property Name="Flags" Type="int32" Value="1"/>
-																						</PropertyList>
-																						<PointList>
-																							<Point>
-<<<<<<< Updated upstream
-																								<XPos>5.5</XPos>
-=======
-																								<XPos>0</XPos>
->>>>>>> Stashed changes
-																								<YPos>0</YPos>
-																								<Flags>5</Flags>
-																							</Point>
-																							<Point>
-																								<XPos>45.0416666666667</XPos>
-																								<YPos>0</YPos>
-																								<Flags>37</Flags>
-																							</Point>
-																						</PointList>
-																					</Curve>
-																				</PropertyCurve>
-																				<PropertyCurve PropertyName="Lowpass">
-<<<<<<< Updated upstream
-																					<Curve Name="" ID="{176A606D-4ECC-4BEB-B08E-0A82347BE9B9}">
-=======
-																					<Curve Name="" ID="{9B810E3E-861F-4436-8684-ED56A20D39D2}">
->>>>>>> Stashed changes
-																						<PropertyList>
-																							<Property Name="Flags" Type="int32" Value="1"/>
-																						</PropertyList>
-																						<PointList>
-																							<Point>
-<<<<<<< Updated upstream
-																								<XPos>5.5</XPos>
-=======
-																								<XPos>0</XPos>
->>>>>>> Stashed changes
-																								<YPos>0</YPos>
-																								<Flags>5</Flags>
-																							</Point>
-																							<Point>
-																								<XPos>45.0416666666667</XPos>
-																								<YPos>0</YPos>
-																								<Flags>37</Flags>
-																							</Point>
-																						</PointList>
-																					</Curve>
-																				</PropertyCurve>
-																				<PropertyCurve PropertyName="Volume">
-<<<<<<< Updated upstream
-																					<Curve Name="" ID="{999F23E2-EB86-4641-9E89-35120BDDD21B}">
-=======
-																					<Curve Name="" ID="{7123AE08-3119-4F7D-927F-CC56BB84E352}">
->>>>>>> Stashed changes
-																						<PropertyList>
-																							<Property Name="Flags" Type="int32" Value="3"/>
-																						</PropertyList>
-																						<PointList>
-																							<Point>
-<<<<<<< Updated upstream
-																								<XPos>5.5</XPos>
-=======
-																								<XPos>0</XPos>
->>>>>>> Stashed changes
-																								<YPos>0</YPos>
-																								<Flags>5</Flags>
-																							</Point>
-																							<Point>
-																								<XPos>45.0416666666667</XPos>
-																								<YPos>0</YPos>
-																								<Flags>37</Flags>
-																							</Point>
-																						</PointList>
-																					</Curve>
-																				</PropertyCurve>
-																			</PropertyCurveList>
-																		</MusicClip>
-																	</Local>
-																</Reference>
-															</ObjectList>
-														</ObjectLists>
-													</MusicTrackSequence>
-												</Local>
-											</Reference>
-										</ObjectList>
-									</ObjectLists>
-								</MusicTrack>
-							</ChildrenList>
-							<ObjectLists>
-								<ObjectList Name="Cues">
-									<Reference>
-										<Local>
-<<<<<<< Updated upstream
-											<MusicCue Name="Entry Cue" ID="{F9020DFC-AB78-4A0D-AFA1-A59FACF08160}">
-												<PropertyList>
-													<Property Name="TimeMs" Type="Real64" Value="1048.52203011712"/>
-												</PropertyList>
-											</MusicCue>
-=======
-											<MusicCue Name="Entry Cue" ID="{15B3E657-FD30-4993-8C48-A8B99825FA9B}"/>
->>>>>>> Stashed changes
-										</Local>
-									</Reference>
-									<Reference>
-										<Local>
-<<<<<<< Updated upstream
-											<MusicCue Name="Exit Cue" ID="{22D4C71F-3B6F-47C6-9698-25A45E94FA4B}">
-												<PropertyList>
-													<Property Name="CueType" Type="int16" Value="1"/>
-=======
-											<MusicCue Name="Exit Cue" ID="{14935BB6-C114-47BE-BA8B-D2EF56F6056D}">
-												<PropertyList>
-													<Property Name="CueType" Type="int16" Value="1"/>
-													<Property Name="TimeMs" Type="Real64" Value="42000"/>
-												</PropertyList>
-											</MusicCue>
-										</Local>
-									</Reference>
-								</ObjectList>
-							</ObjectLists>
-						</MusicSegment>
-						<MusicSegment Name="Menu loop" ID="{457C393F-7462-4701-9117-791EE495EAB2}" ShortID="229187109">
-							<PropertyList>
-								<Property Name="EndPosition" Type="Real64" Value="45041.6666666667"/>
-								<Property Name="OverrideClockSettings" Type="bool" Value="True"/>
-								<Property Name="Tempo" Type="Real64" Value="80"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<MusicTrack Name="Loop" ID="{9FE9AE08-0F84-4B30-9B53-2537F65D6216}" ShortID="579282717">
-									<ReferenceList>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="MENU" ID="{750F6FDF-B61E-4671-92D0-D6ECED0E7873}">
-											<Language>SFX</Language>
-											<AudioFile>MENU.wav</AudioFile>
-											<MediaIDList>
-=======
-										<AudioFileSource Name="MENU" ID="{E9814D9D-132E-46D4-8737-8ED67CD15AD7}">
-											<Language>SFX</Language>
-											<AudioFile>MENU.wav</AudioFile>
-											<MediaIDList>
->>>>>>> Stashed changes
-												<MediaID ID="847613361"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<TransitionList>
-<<<<<<< Updated upstream
-										<MusicTransition Name="Root" ID="{2B8D372D-A312-4655-A99F-724F2CD31585}">
-=======
-										<MusicTransition Name="Root" ID="{639EE218-75A1-4137-B627-E40611652632}">
->>>>>>> Stashed changes
-											<PropertyList>
-												<Property Name="IsFolder" Type="bool" Value="True"/>
-											</PropertyList>
-											<TransitionInfo/>
-										</MusicTransition>
-									</TransitionList>
-									<ObjectLists>
-										<ObjectList Name="Sequences">
-											<Reference>
-												<Local>
-<<<<<<< Updated upstream
-													<MusicTrackSequence Name="" ID="{0D8BBC5C-80D6-4546-BBA4-D1DA4D31BC71}">
-=======
-													<MusicTrackSequence Name="" ID="{4DD9CA51-2F8D-4380-97AF-B5BE5BC7348D}">
->>>>>>> Stashed changes
-														<ObjectLists>
-															<ObjectList Name="Clips">
-																<Reference>
-																	<Local>
-<<<<<<< Updated upstream
-																		<MusicClip Name="MENU" ID="{35D313A3-0E6D-41C2-9655-258F0171D0DF}">
-																			<PropertyList>
-																				<Property Name="BeginTrimOffset" Type="Real64" Value="5500.00000000001"/>
-=======
-																		<MusicClip Name="MENU" ID="{98E02E02-2CB9-4978-A6A7-3EA183CA551A}">
-																			<PropertyList>
-																				<Property Name="BeginTrimOffset" Type="Real64" Value="3.69482222595252E-12"/>
->>>>>>> Stashed changes
-																				<Property Name="EndTrimOffset" Type="Real64" Value="45041.6666666667"/>
-																				<Property Name="FadeInMode" Type="int16" Value="0"/>
-																				<Property Name="FadeOutMode" Type="int16" Value="0"/>
-																				<Property Name="PlayAt" Type="Real64" Value="-4451.47796988289"/>
-																			</PropertyList>
-<<<<<<< Updated upstream
-																			<AudioSourceRef Name="MENU" ID="{750F6FDF-B61E-4671-92D0-D6ECED0E7873}"/>
-																			<PropertyCurveList>
-																				<PropertyCurve PropertyName="Highpass">
-																					<Curve Name="" ID="{37E97540-CE14-42E9-9C74-0429687C013B}">
-=======
-																			<AudioSourceRef Name="MENU" ID="{E9814D9D-132E-46D4-8737-8ED67CD15AD7}"/>
-																			<PropertyCurveList>
-																				<PropertyCurve PropertyName="Highpass">
-																					<Curve Name="" ID="{97689346-CE7A-406F-8517-30003E06C70C}">
->>>>>>> Stashed changes
-																						<PropertyList>
-																							<Property Name="Flags" Type="int32" Value="1"/>
-																						</PropertyList>
-																						<PointList>
-																							<Point>
-<<<<<<< Updated upstream
-																								<XPos>5.5</XPos>
-=======
-																								<XPos>0</XPos>
->>>>>>> Stashed changes
-																								<YPos>0</YPos>
-																								<Flags>5</Flags>
-																							</Point>
-																							<Point>
-																								<XPos>45.0416666666667</XPos>
-																								<YPos>0</YPos>
-																								<Flags>37</Flags>
-																							</Point>
-																						</PointList>
-																					</Curve>
-																				</PropertyCurve>
-																				<PropertyCurve PropertyName="Lowpass">
-<<<<<<< Updated upstream
-																					<Curve Name="" ID="{176A606D-4ECC-4BEB-B08E-0A82347BE9B9}">
-=======
-																					<Curve Name="" ID="{9B810E3E-861F-4436-8684-ED56A20D39D2}">
->>>>>>> Stashed changes
-																						<PropertyList>
-																							<Property Name="Flags" Type="int32" Value="1"/>
-																						</PropertyList>
-																						<PointList>
-																							<Point>
-<<<<<<< Updated upstream
-																								<XPos>5.5</XPos>
-=======
-																								<XPos>0</XPos>
->>>>>>> Stashed changes
-																								<YPos>0</YPos>
-																								<Flags>5</Flags>
-																							</Point>
-																							<Point>
-																								<XPos>45.0416666666667</XPos>
-																								<YPos>0</YPos>
-																								<Flags>37</Flags>
-																							</Point>
-																						</PointList>
-																					</Curve>
-																				</PropertyCurve>
-																				<PropertyCurve PropertyName="Volume">
-<<<<<<< Updated upstream
-																					<Curve Name="" ID="{999F23E2-EB86-4641-9E89-35120BDDD21B}">
-=======
-																					<Curve Name="" ID="{7123AE08-3119-4F7D-927F-CC56BB84E352}">
->>>>>>> Stashed changes
-																						<PropertyList>
-																							<Property Name="Flags" Type="int32" Value="3"/>
-																						</PropertyList>
-																						<PointList>
-																							<Point>
-<<<<<<< Updated upstream
-																								<XPos>5.5</XPos>
-=======
-																								<XPos>0</XPos>
->>>>>>> Stashed changes
-																								<YPos>0</YPos>
-																								<Flags>5</Flags>
-																							</Point>
-																							<Point>
-																								<XPos>45.0416666666667</XPos>
-																								<YPos>0</YPos>
-																								<Flags>37</Flags>
-																							</Point>
-																						</PointList>
-																					</Curve>
-																				</PropertyCurve>
-																			</PropertyCurveList>
-																		</MusicClip>
-																	</Local>
-																</Reference>
-															</ObjectList>
-														</ObjectLists>
-													</MusicTrackSequence>
-												</Local>
-											</Reference>
-										</ObjectList>
-									</ObjectLists>
-								</MusicTrack>
-							</ChildrenList>
-							<ObjectLists>
-								<ObjectList Name="Cues">
-									<Reference>
-										<Local>
-<<<<<<< Updated upstream
-											<MusicCue Name="Entry Cue" ID="{F9020DFC-AB78-4A0D-AFA1-A59FACF08160}">
-												<PropertyList>
-													<Property Name="TimeMs" Type="Real64" Value="1048.52203011712"/>
-												</PropertyList>
-											</MusicCue>
-=======
-											<MusicCue Name="Entry Cue" ID="{15B3E657-FD30-4993-8C48-A8B99825FA9B}"/>
->>>>>>> Stashed changes
-										</Local>
-									</Reference>
-									<Reference>
-										<Local>
-<<<<<<< Updated upstream
-											<MusicCue Name="Exit Cue" ID="{22D4C71F-3B6F-47C6-9698-25A45E94FA4B}">
-												<PropertyList>
-													<Property Name="CueType" Type="int16" Value="1"/>
->>>>>>> Stashed changes
-=======
 											<MusicCue Name="Exit Cue" ID="{14935BB6-C114-47BE-BA8B-D2EF56F6056D}">
 												<PropertyList>
 													<Property Name="CueType" Type="int16" Value="1"/>
@@ -682,7 +212,7 @@
 																				<Property Name="EndTrimOffset" Type="Real64" Value="45041.6666666667"/>
 																				<Property Name="FadeInMode" Type="int16" Value="0"/>
 																				<Property Name="FadeOutMode" Type="int16" Value="0"/>
-																				<Property Name="PlayAt" Type="Real64" Value="-4451.47796988289"/>
+																				<Property Name="PlayAt" Type="Real64" Value="-5500.00000000001"/>
 																			</PropertyList>
 																			<AudioSourceRef Name="MENU" ID="{750F6FDF-B61E-4671-92D0-D6ECED0E7873}"/>
 																			<PropertyCurveList>
@@ -760,11 +290,7 @@
 								<ObjectList Name="Cues">
 									<Reference>
 										<Local>
-											<MusicCue Name="Entry Cue" ID="{F9020DFC-AB78-4A0D-AFA1-A59FACF08160}">
-												<PropertyList>
-													<Property Name="TimeMs" Type="Real64" Value="1048.52203011712"/>
-												</PropertyList>
-											</MusicCue>
+											<MusicCue Name="Entry Cue" ID="{F9020DFC-AB78-4A0D-AFA1-A59FACF08160}"/>
 										</Local>
 									</Reference>
 									<Reference>
@@ -772,8 +298,7 @@
 											<MusicCue Name="Exit Cue" ID="{22D4C71F-3B6F-47C6-9698-25A45E94FA4B}">
 												<PropertyList>
 													<Property Name="CueType" Type="int16" Value="1"/>
->>>>>>> Stashed changes
-													<Property Name="TimeMs" Type="Real64" Value="37048.5220301171"/>
+													<Property Name="TimeMs" Type="Real64" Value="36000"/>
 												</PropertyList>
 											</MusicCue>
 										</Local>
