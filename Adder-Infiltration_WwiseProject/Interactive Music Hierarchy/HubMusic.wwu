@@ -212,7 +212,11 @@
 																				<Property Name="EndTrimOffset" Type="Real64" Value="45041.6666666667"/>
 																				<Property Name="FadeInMode" Type="int16" Value="0"/>
 																				<Property Name="FadeOutMode" Type="int16" Value="0"/>
+<<<<<<< Updated upstream
 																				<Property Name="PlayAt" Type="Real64" Value="-5500.00000000001"/>
+=======
+																				<Property Name="PlayAt" Type="Real64" Value="-4451.47796988289"/>
+>>>>>>> Stashed changes
 																			</PropertyList>
 																			<AudioSourceRef Name="MENU" ID="{750F6FDF-B61E-4671-92D0-D6ECED0E7873}"/>
 																			<PropertyCurveList>
@@ -290,7 +294,15 @@
 								<ObjectList Name="Cues">
 									<Reference>
 										<Local>
+<<<<<<< Updated upstream
 											<MusicCue Name="Entry Cue" ID="{F9020DFC-AB78-4A0D-AFA1-A59FACF08160}"/>
+=======
+											<MusicCue Name="Entry Cue" ID="{F9020DFC-AB78-4A0D-AFA1-A59FACF08160}">
+												<PropertyList>
+													<Property Name="TimeMs" Type="Real64" Value="1048.52203011712"/>
+												</PropertyList>
+											</MusicCue>
+>>>>>>> Stashed changes
 										</Local>
 									</Reference>
 									<Reference>
@@ -298,7 +310,11 @@
 											<MusicCue Name="Exit Cue" ID="{22D4C71F-3B6F-47C6-9698-25A45E94FA4B}">
 												<PropertyList>
 													<Property Name="CueType" Type="int16" Value="1"/>
+<<<<<<< Updated upstream
 													<Property Name="TimeMs" Type="Real64" Value="36000"/>
+=======
+													<Property Name="TimeMs" Type="Real64" Value="37048.5220301171"/>
+>>>>>>> Stashed changes
 												</PropertyList>
 											</MusicCue>
 										</Local>
