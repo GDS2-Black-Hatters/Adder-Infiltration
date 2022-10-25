@@ -22,7 +22,7 @@ public class ProceduralChunkGenerator : PCGenerator
         Transform chunkBase = new GameObject("ChunkBase").transform;
         chunkBase.SetParent(transform);
 
-        chunkDataCopy.Generate(chunkBase, new GameObject(), this, GenerationIncomplete);
+        yield return StartCoroutine(chunkDataCopy.Generate(chunkBase, new GameObject(), this, GenerationIncomplete));
         
         chunkBase.localPosition = Vector3.zero;
         chunkBase.localRotation = Quaternion.identity;
