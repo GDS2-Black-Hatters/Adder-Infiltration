@@ -8,7 +8,7 @@ public class TimeTracker
     [field: SerializeField] public float timer { get; private set; } //The time limit
     public float tick { get; private set; } //The current time left
     [field: SerializeField] public float timeScale { get; private set; } = -1; //Counts up if positive, counts down if negative. Defaults to countdown.
-    [field: SerializeField] public bool autoLoop { get; private set; } = false;
+    private bool isTicking = true;
     public event Action onFinish;
     public float TimePercentage => tick / timer;
 
@@ -18,11 +18,10 @@ public class TimeTracker
     /// <param name="timer">Set the timer where the tick will start at or go to</param>
     /// <param name="timeScale">Dictates the speed of the timer and it counts up (+) or down (-).</param>
     /// <param name="autoLoop">The timer loops? Defaults to false.</param>
-    public TimeTracker(float timer, float timeScale = -1, bool autoLoop = false)
+    public TimeTracker(float timer, float timeScale = -1)
     {
         SetTimeScale(timeScale);
         SetTimer(timer);
-        SetAutoLoop(autoLoop);
     }
 
     /// <summary>
@@ -35,15 +34,6 @@ public class TimeTracker
     }
 
     /// <summary>
-    /// Make the timer auto loop?
-    /// </summary>
-    /// <param name="autoLoop">True to loop.</param>
-    public void SetAutoLoop(bool autoLoop)
-    {
-        this.autoLoop = autoLoop;
-    }
-
-    /// <summary>
     /// Change the timer.
     /// </summary>
     /// <param name="timer">Timer value</param>
@@ -53,7 +43,7 @@ public class TimeTracker
         this.timer = timer;
         if (resetTick)
         {
-            Reset(false, false);
+            Reset();
         }
     }
 
@@ -63,13 +53,10 @@ public class TimeTracker
     /// </summary>
     /// <param name="setToFinish">If true, set tick to the ending value.</param>
     /// <param name="autoInvoke">Auto invoke any subscribed delegates?</param>
-    public void Reset(bool setToFinish = false, bool autoInvoke = true)
+    public void Reset(bool setToFinish = false)
     {
         tick = setToFinish ? (timeScale > 0 ? timer : 0) : (timeScale > 0 ? 0 : timer);
-        if (autoInvoke)
-        {
-            onFinish?.Invoke();
-        }
+        isTicking = true;
     }
 
     /// <summary>
@@ -82,10 +69,14 @@ public class TimeTracker
         float delta = timeScale * deltaTime;
         float realTick = tick + delta;
         tick = Mathf.Clamp(realTick, 0, timer);
-        if (autoLoop && (tick == 0 || tick == timer))
+        if (isTicking && (timeScale < 0 && tick == 0 || timeScale > 0 && tick == timer))
         {
-            Reset();
-            return Update(realTick > timer ? realTick - timer : -realTick);
+            isTicking = false;
+            onFinish?.Invoke();
+            if (isTicking)
+            {
+                return Update(realTick > timer ? realTick - timer : -realTick);
+            }
         }
         return tick;
     }

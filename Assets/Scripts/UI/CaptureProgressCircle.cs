@@ -7,11 +7,24 @@ public class CaptureProgressCircle : MonoBehaviour
     [SerializeField] private SpriteRenderer[] BaseSprites;
     [SerializeField] private SpriteRenderer[] FillSprites;
 
+    private MaterialPropertyBlock[] mpbs;
+
+    public void Awake()
+    {
+        mpbs= new MaterialPropertyBlock[FillSprites.Length];
+        for(int i = 0; i < FillSprites.Length; i++)
+        {
+            mpbs[i] = new();
+            FillSprites[i].GetPropertyBlock(mpbs[i]);
+        }
+    }
+
     public void UpdateProgress(float progress)
     {
-        foreach (SpriteRenderer spRend in FillSprites)
+        for(int i = 0; i < FillSprites.Length; i++)
         {
-            spRend.material.SetFloat("_FillAmount", progress);
+            mpbs[i].SetFloat("_FillAmount", progress);
+            FillSprites[i].SetPropertyBlock(mpbs[i]);
         }
     }
 }

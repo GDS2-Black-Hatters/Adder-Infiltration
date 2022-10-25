@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbe18cee2759ed84a80ccdc289236ee9, type: 3}
+  m_Name: TestIsland
+  m_EditorClassIdentifier: 
+  roadwayGroundPrefab: {fileID: 265249028506440539, guid: f3e977a499559f14aa4394f64b7f19d5, type: 3}
+  aiNodePrefab: {fileID: 1002651925752980835, guid: b8330dc458e8daa45ab23f5a1045c669, type: 3}
+  requiredChunks:
+  - {fileID: 11400000, guid: 869f5d643730d8b4689c159a97cdd846, type: 2}
+  - {fileID: 11400000, guid: 8e593a35394837e4d8b8bb052557d129, type: 2}
+  availableFreeUseChunks:
+  - {fileID: 11400000, guid: bb8bc7c5694055c47ac9b2bdeee754de, type: 2}
+  - {fileID: 11400000, guid: af828253da142d1468023feedb6fe867, type: 2}
+  - {fileID: 11400000, guid: a06256e318864bf4c9f04627e7622151, type: 2}

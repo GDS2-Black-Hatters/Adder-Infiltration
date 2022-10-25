@@ -5,7 +5,7 @@ public class Slower : Enemy
     [Header("Slower Params"), SerializeField] private GameObject Obstacles;
     [SerializeField] private Animator slowerAnim;
     [SerializeField] private ParticleSystem constructingParticle;
-    [SerializeField] protected TimeTracker attackCooldown = new(5, -1, true); //Intervals before next attack.
+    [SerializeField] protected TimeTracker attackCooldown = new(5); //Intervals before next attack.
     protected override void Awake()
     {
         base.Awake();
@@ -22,7 +22,7 @@ public class Slower : Enemy
     protected override void Attack()
     {
         attackCooldown.Update(Time.deltaTime);
-        if ((GameManager.LevelManager.player.transform.position - transform.position).sqrMagnitude > closeRangeDistance)
+        if ((GameManager.LevelManager.ActiveSceneController.Player.transform.position - transform.position).sqrMagnitude > closeRangeDistance)
         {
             slowerAnim.SetBool("isAttacking", false);
             stateAction = Chase;
@@ -34,6 +34,7 @@ public class Slower : Enemy
     {
         slowerAnim.SetBool("isAttacking", true);
         Instantiate(constructingParticle, transform.position, Quaternion.identity);
-        Instantiate(Obstacles, GameManager.LevelManager.player.transform.position, Quaternion.identity);
+        Instantiate(Obstacles, GameManager.LevelManager.ActiveSceneController.Player.transform.position, Quaternion.identity);
+        attackCooldown.Reset();
     }
 }

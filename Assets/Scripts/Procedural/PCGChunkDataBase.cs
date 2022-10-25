@@ -15,8 +15,6 @@ public abstract class PCGChunkDataBase : PCGeneratableSO
     [SerializeField] private RoadEnvObject[] chunkBorderRoadSideObjects;
     [SerializeField, Range(0,1)] private float outerBorderObjectSpawnChance;
 
-    protected float cellUnitMultiplier;
-
     public void Initilize(ChunkTransform chunkTransform)
     {
         this.chunkTransform = chunkTransform;
@@ -33,7 +31,7 @@ public abstract class PCGChunkDataBase : PCGeneratableSO
             if(chunkBorderRoadSideObjects.Length > 0 && DoStatic.RandomBool(outerBorderObjectSpawnChance))
             {
                 RoadEnvObject newOuterObj = Instantiate(chunkBorderRoadSideObjects[Random.Range(0, chunkBorderRoadSideObjects.Length)], Vector3.zero, Quaternion.identity);
-                float randomOffset = Random.Range(-(cellUnitMultiplier - newOuterObj.objectLength) * 0.5f, (cellUnitMultiplier - newOuterObj.objectLength) * 0.5f)/cellUnitMultiplier;
+                float randomOffset = Random.Range(-(GlobalConst.chunkCellSizeUnitMultiplier - newOuterObj.objectLength) * 0.5f, (GlobalConst.chunkCellSizeUnitMultiplier - newOuterObj.objectLength) * 0.5f)/GlobalConst.chunkCellSizeUnitMultiplier;
                 newOuterObj.transform.localPosition = relativeCellPosition(x + randomOffset, chunkTransform.upperLeft.y - (0.5f + chunkBoarderWidth * 0.5f + chunkBoarderObjOffset));
                 newOuterObj.transform.Rotate(newOuterObj.transform.up, 90);
                 newOuterObj.transform.SetParent(parentTransform);
@@ -42,7 +40,7 @@ public abstract class PCGChunkDataBase : PCGeneratableSO
             if(chunkBorderRoadSideObjects.Length > 0 && DoStatic.RandomBool(outerBorderObjectSpawnChance))
             {
                 RoadEnvObject newOuterObj = Instantiate(chunkBorderRoadSideObjects[Random.Range(0, chunkBorderRoadSideObjects.Length)], Vector3.zero, Quaternion.identity);
-                float randomOffset = Random.Range(-(cellUnitMultiplier - newOuterObj.objectLength) * 0.5f, (cellUnitMultiplier - newOuterObj.objectLength) * 0.5f)/cellUnitMultiplier;
+                float randomOffset = Random.Range(-(GlobalConst.chunkCellSizeUnitMultiplier - newOuterObj.objectLength) * 0.5f, (GlobalConst.chunkCellSizeUnitMultiplier - newOuterObj.objectLength) * 0.5f)/GlobalConst.chunkCellSizeUnitMultiplier;
                 newOuterObj.transform.localPosition = relativeCellPosition(x + randomOffset, chunkTransform.bottomRight.y + (0.5f + chunkBoarderWidth * 0.5f + chunkBoarderObjOffset));
                 newOuterObj.transform.Rotate(newOuterObj.transform.up, 270);
                 newOuterObj.transform.SetParent(parentTransform);
@@ -56,7 +54,7 @@ public abstract class PCGChunkDataBase : PCGeneratableSO
             if(chunkBorderRoadSideObjects.Length > 0 && DoStatic.RandomBool(outerBorderObjectSpawnChance))
             {
                 RoadEnvObject newOuterObj = Instantiate(chunkBorderRoadSideObjects[Random.Range(0, chunkBorderRoadSideObjects.Length)], Vector3.zero, Quaternion.identity);
-                float randomOffset = Random.Range(-(cellUnitMultiplier - newOuterObj.objectLength) * 0.5f, (cellUnitMultiplier - newOuterObj.objectLength) * 0.5f)/cellUnitMultiplier;
+                float randomOffset = Random.Range(-(GlobalConst.chunkCellSizeUnitMultiplier - newOuterObj.objectLength) * 0.5f, (GlobalConst.chunkCellSizeUnitMultiplier - newOuterObj.objectLength) * 0.5f)/GlobalConst.chunkCellSizeUnitMultiplier;
                 newOuterObj.transform.localPosition = relativeCellPosition(chunkTransform.upperLeft.x - (0.5f + chunkBoarderWidth * 0.5f + chunkBoarderObjOffset), y + randomOffset);
                 newOuterObj.transform.Rotate(newOuterObj.transform.up, 180);
                 newOuterObj.transform.SetParent(parentTransform);
@@ -65,7 +63,7 @@ public abstract class PCGChunkDataBase : PCGeneratableSO
             if(chunkBorderRoadSideObjects.Length > 0 && DoStatic.RandomBool(outerBorderObjectSpawnChance))
             {
                 RoadEnvObject newOuterObj = Instantiate(chunkBorderRoadSideObjects[Random.Range(0, chunkBorderRoadSideObjects.Length)], Vector3.zero, Quaternion.identity);
-                float randomOffset = Random.Range(-(cellUnitMultiplier - newOuterObj.objectLength) * 0.5f, (cellUnitMultiplier - newOuterObj.objectLength) * 0.5f)/cellUnitMultiplier;
+                float randomOffset = Random.Range(-(GlobalConst.chunkCellSizeUnitMultiplier - newOuterObj.objectLength) * 0.5f, (GlobalConst.chunkCellSizeUnitMultiplier - newOuterObj.objectLength) * 0.5f)/GlobalConst.chunkCellSizeUnitMultiplier;
                 newOuterObj.transform.localPosition = relativeCellPosition(chunkTransform.bottomRight.x + (0.5f + chunkBoarderWidth * 0.5f + chunkBoarderObjOffset), y + randomOffset);
                 newOuterObj.transform.Rotate(newOuterObj.transform.up, 0f);
                 newOuterObj.transform.SetParent(parentTransform);
@@ -75,19 +73,20 @@ public abstract class PCGChunkDataBase : PCGeneratableSO
 
     protected Vector3 relativeCellPosition(float posX, float posY)
     {
-        return new Vector3((posX - chunkTransform.ChunkCenter.x) * cellUnitMultiplier, 0, (posY - chunkTransform.ChunkCenter.y) * cellUnitMultiplier);
+        return new Vector3((posX - chunkTransform.ChunkCenter.x) * GlobalConst.chunkCellSizeUnitMultiplier, 0, (posY - chunkTransform.ChunkCenter.y) * GlobalConst.chunkCellSizeUnitMultiplier);
     }
 
-    protected Transform InstantiateRootAndGround(Transform parentTransform)
+    protected void InstantiateRootAndGround(Transform parentTransform, ref GameObject rootGO)
     {
-        Transform root = new GameObject(name).transform;
+        rootGO.name = name;
+        rootGO.isStatic = true;
+        Transform root = rootGO.transform;
         root.SetParent(parentTransform);
         root.localPosition = Vector3.zero;
 
         GameObject chunkBase = Instantiate(chunkBaseObjectPrefab, Vector3.zero, Quaternion.identity, root);
         chunkBase.transform.localScale = Vector3.Scale(chunkBase.transform.localScale, new Vector3(chunkTransform.ChunkWidth + chunkBoarderWidth, 1, chunkTransform.ChunkHeight + chunkBoarderWidth));
-
-        return root;
+        chunkBase.isStatic = true;
     }
 
     protected int GetChunkModuleRotateMultiplier(Vector2Int cellCord, int defaultReturn = 0)

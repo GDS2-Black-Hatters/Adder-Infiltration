@@ -21,7 +21,7 @@ public class AdBoardController : MonoBehaviour
     {
         rend = GetComponent<Renderer>();
     
-        imageStayTimer = new(adStayDuration, 1, true);
+        imageStayTimer = new(adStayDuration, 1);
         imageStayTimer.onFinish += startImageLerp;
         imageStayTimer.Update(Random.Range(0, adStayDuration));
         imageLerper = new();
@@ -65,5 +65,6 @@ public class AdBoardController : MonoBehaviour
     {
         lerping = true;
         imageLerper.SetValues(0, 1, adLerpDuration);
+        imageStayTimer.Reset();
     }
 }

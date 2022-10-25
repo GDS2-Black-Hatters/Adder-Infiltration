@@ -8,11 +8,8 @@ using static SaveManager.VariableToSave;
 public sealed class VariableManager : BaseManager
 {
     //Game variables
-    [SerializeField] private GameObject abilities;
-    public Dictionary<AllAbilities, AbilityBase> allAbilities { get; private set; } = new();
-
-    [field: SerializeField, Header("Caught Timer")] public TimeTracker timeToLive { get; private set; } //The timer for when getting caught. Is in seconds.
-    [field: SerializeField, Header("Player Health")] public Health playerHealth { get; private set; } = new(100);
+    [SerializeField] private AbilityList allAbilities;
+    private readonly Dictionary<AllAbilities, Ability> abilityDictionary = new();
 
     private Dictionary<VariableToSave, object> savedVars; //The dictionary of where all the data is saved.
     public event Action purchaseCallback;
@@ -28,7 +25,15 @@ public sealed class VariableManager : BaseManager
         Warp = 13,
 
         //One time unlocks
-        PhishingMinigame = 101
+        PhishingMinigame = 101,
+
+        SnakeMouse = 201,
+        MouseMouse = 202,
+        USBMouse = 203,
+        PirateMouse = 204,
+        SpiderMouse = 205,
+        BinaryMouse = 206,
+        PhishyMouse = 207,
     }
 
     public enum AllAbilities
@@ -41,17 +46,12 @@ public sealed class VariableManager : BaseManager
 
     public override BaseManager StartUp()
     {
-        Restart();
-        return this;
-    }
+        foreach (Ability ability in allAbilities.Abilities)
+        {
+            abilityDictionary.Add(ability.AbilityID, ability);
+        }
 
-    /// <summary>
-    /// When the level has changed, call this level.
-    /// </summary>
-    public void Restart()
-    {
-        timeToLive.Reset(false, false);
-        playerHealth.Reset();
+        return this;
     }
 
     public Unlockable GetUnlockable(AllUnlockables abilityName)
@@ -59,9 +59,9 @@ public sealed class VariableManager : BaseManager
         return GetVariable<Dictionary<AllUnlockables, Unlockable>>(allUnlockables)[abilityName];
     }
 
-    public AbilityBase GetAbility(AllAbilities abilities)
+    public Ability GetAbility(AllAbilities abilities)
     {
-        return allAbilities[abilities];
+        return abilityDictionary[abilities];
     }
 
     public void Purchase(int bytecoinsAmount, int intelligenceDataAmount, int processingPowerAmount)
@@ -94,10 +94,6 @@ public sealed class VariableManager : BaseManager
     public void SetAllVars(Dictionary<VariableToSave, object> vars)
     {
         savedVars = vars;
-        foreach (AbilityBase ability in abilities.GetComponentsInChildren<AbilityBase>())
-        {
-            allAbilities.Add(ability.ability, ability);
-        }
         AddMissingDefaults();
     }
 
@@ -110,11 +106,18 @@ public sealed class VariableManager : BaseManager
             {processingPower, 100 },
             { allUnlockables, new Dictionary<AllUnlockables, Unlockable>()
                 {
-                    { AllUnlockables.Dash, allAbilities[AllAbilities.Dash].DefaultUpgrade },
-                    { AllUnlockables.TrojanHorse, allAbilities[AllAbilities.TrojanHorse].DefaultUpgrade },
-                    { AllUnlockables.EMP, allAbilities[AllAbilities.EMP].DefaultUpgrade },
-                    { AllUnlockables.Warp, allAbilities[AllAbilities.Warp].DefaultUpgrade },
+                    { AllUnlockables.Dash, GetAbility(AllAbilities.Dash).DefaultUpgrade },
+                    { AllUnlockables.TrojanHorse, GetAbility(AllAbilities.TrojanHorse).DefaultUpgrade },
+                    { AllUnlockables.EMP, GetAbility(AllAbilities.EMP).DefaultUpgrade },
+                    { AllUnlockables.Warp, GetAbility(AllAbilities.Warp).DefaultUpgrade },
                     { AllUnlockables.PhishingMinigame, new() },
+                    { AllUnlockables.SnakeMouse, new() },
+                    { AllUnlockables.MouseMouse, new() },
+                    { AllUnlockables.USBMouse, new() },
+                    { AllUnlockables.PirateMouse, new() },
+                    { AllUnlockables.SpiderMouse, new() },
+                    { AllUnlockables.BinaryMouse, new() },
+                    { AllUnlockables.PhishyMouse, new() },
                 }
             },
             {mouseSensitivity, 0.09f },

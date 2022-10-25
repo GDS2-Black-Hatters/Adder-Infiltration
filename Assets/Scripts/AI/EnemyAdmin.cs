@@ -11,6 +11,8 @@ public class EnemyAdmin : MonoBehaviour
     [Header("Enemies")]
     [SerializeField] private Enemy[] availableEnemyPrefabs;
     [SerializeField] private int absoluteMaxEnemyCount;
+    [SerializeField] private float playerSpawnEnemyFreeBufferRadius = 200;
+
 
     [Header("Alert Status Light Color")]
     [SerializeField, Range(0, 1)] private float alertness = 0;
@@ -81,9 +83,22 @@ public class EnemyAdmin : MonoBehaviour
         return closest;
     }
 
+    public void SpawnEnemies(int count)
+    {
+        for(int i = 0; i < count; i++)
+        {
+            SpawnNewEnemy();
+        }
+    }
+
     public void SpawnNewEnemy()
     {
-        AINode startingNode = allAiNodes[Random.Range(0, allAiNodes.Length)];
+        AINode startingNode;
+        do //do a radius check so we don't spawn a damn shark right next to the player
+        {
+            startingNode = allAiNodes[Random.Range(0, allAiNodes.Length)];        
+        } while (Vector3.Distance(GameManager.LevelManager.ActiveSceneController.Player.transform.position, startingNode.transform.position) < playerSpawnEnemyFreeBufferRadius);
+
         Enemy newEnemy = Instantiate(availableEnemyPrefabs[Random.Range(0, availableEnemyPrefabs.Length)], startingNode.transform.position + Vector3.up, Quaternion.identity);
     }
 }

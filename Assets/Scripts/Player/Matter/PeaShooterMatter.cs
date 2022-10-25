@@ -30,7 +30,7 @@ public class PeaShooterMatter : WeaponMatter
             bullet.transform.position = transform.position;
 
             Bullet bull = bullet.GetComponent<Bullet>();
-            bull.SetOwner(GameManager.LevelManager.player.transform);
+            bull.SetOwner(GameManager.LevelManager.ActiveSceneController.Player.transform);
 
             bullet.transform.LookAt(target);
             bullet.velocity = bull.transform.forward * bulletSpeed;

@@ -5,12 +5,8 @@
 			<ChildrenList>
 				<SoundBank Name="MainLevelSoundBank" ID="{08C26A9E-8CB0-40C4-8D57-A6DF066DFB0A}">
 					<ObjectInclusionList>
-						<ObjectRef Name="ObjectiveComplete_Event" ID="{7D02FC9D-D476-42AE-B364-5DD961CD4199}" WorkUnitID="{4C23A925-D795-4893-9589-8E0F350F9294}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="LevelStart_Event" ID="{64BDD4A4-F509-46E3-B602-18F899BF7C7F}" WorkUnitID="{4C23A925-D795-4893-9589-8E0F350F9294}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="HubMusicStart_Event" ID="{1ABE9120-0C6D-49E4-B530-CC620FE60ED9}" WorkUnitID="{4C23A925-D795-4893-9589-8E0F350F9294}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="LazerFire_Event" ID="{7D3C9B39-3DDE-49EA-A340-C835908FDAAA}" WorkUnitID="{4C23A925-D795-4893-9589-8E0F350F9294}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="EnemyDroneAmb" ID="{524392DD-C862-4DA6-9C60-A7B3A1AE39B0}" WorkUnitID="{4C23A925-D795-4893-9589-8E0F350F9294}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="PlayerDiscovered_Event" ID="{0EA3272C-0EBC-4EFA-AA8E-7E2A8275A77D}" WorkUnitID="{4C23A925-D795-4893-9589-8E0F350F9294}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Default Work Unit" ID="{4C23A925-D795-4893-9589-8E0F350F9294}" WorkUnitID="{4C23A925-D795-4893-9589-8E0F350F9294}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Minigame" ID="{B4FFE95C-DAAE-4AA1-A0C0-DACE565E10A2}" WorkUnitID="{B4FFE95C-DAAE-4AA1-A0C0-DACE565E10A2}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
