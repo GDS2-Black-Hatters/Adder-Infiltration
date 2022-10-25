@@ -5,9 +5,9 @@ using static InputManager;
 
 public class TabKeyController : MonoBehaviour
 {
-    bool isActive = false;
+    bool isActive = true;
     [SerializeField] private GameObject objectiveList;
-    [SerializeField] private GameObject transparentBG;
+    //[SerializeField] private GameObject transparentBG;
     //TODO: Get Icons reference for Tab Key functionality
     //[SerializeField] private GameObject Icons;
     void Awake()
@@ -25,7 +25,7 @@ public class TabKeyController : MonoBehaviour
         
         isActive = !isActive;
         objectiveList.SetActive(isActive);
-        transparentBG.SetActive(isActive);
+        //transparentBG.SetActive(isActive);
         Shader.SetGlobalFloat("_QuestIconMaxAlpha",isActive? 2:0);
         //Enable Icons when Release Tab
         //Icons.SetActive(isActive);
