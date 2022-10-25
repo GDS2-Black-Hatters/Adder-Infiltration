@@ -34,7 +34,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="4096625075" Type="User" Language="SFX" Hash="{2D3DD796-8ADB-D4E6-486B-A71EDBBFE0FC}">
+		<SoundBank Id="4096625075" Type="User" Language="SFX" Hash="{DFCCAF66-2BD3-DC7F-B6BC-667B6812401C}">
 			<ShortName>MainLevelSoundBank</ShortName>
 			<Path>MainLevelSoundBank.bnk</Path>
 			<Media>
@@ -128,6 +128,8 @@
 						<ActionSetStateEntry GroupId="3924600286" Id="2206681103" Name="Discovered"/>
 					</ActionSetState>
 				</Event>
+				<Event Id="2827905996" Name="TargetHooked" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="2045263066" Name="TargetStashed" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 			</Events>
 			<StateGroups>
 				<StateGroup Id="3924600286" Name="PlayerDetectionState">
@@ -140,5 +142,5 @@
 			</StateGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{DA0C0858-822B-F614-B628-AF5BF31916DE}</FileHash>
+	<FileHash>{B401991D-636C-0E4F-19E5-CA3F9896FE07}</FileHash>
 </SoundBanksInfo>
