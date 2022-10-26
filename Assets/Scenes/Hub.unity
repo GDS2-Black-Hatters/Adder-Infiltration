@@ -339,6 +339,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 536822867538944230, guid: 99df84b78de82184191bfe62f16b324f, type: 3}
+      propertyPath: clickEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleMinigameScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 536822867538944230, guid: 99df84b78de82184191bfe62f16b324f, type: 3}
+      propertyPath: clickEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MinigameLoadAdditive, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 1032278561248635137, guid: 99df84b78de82184191bfe62f16b324f, type: 3}
       propertyPath: m_SizeDelta.x
       value: 503.0069
@@ -418,6 +426,34 @@ PrefabInstance:
     - target: {fileID: 1942701064485296725, guid: 99df84b78de82184191bfe62f16b324f, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2182488657729460715, guid: 99df84b78de82184191bfe62f16b324f, type: 3}
+      propertyPath: clickEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2182488657729460715, guid: 99df84b78de82184191bfe62f16b324f, type: 3}
+      propertyPath: clickEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2182488657729460715, guid: 99df84b78de82184191bfe62f16b324f, type: 3}
+      propertyPath: clickEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5743087740920211400}
+    - target: {fileID: 2182488657729460715, guid: 99df84b78de82184191bfe62f16b324f, type: 3}
+      propertyPath: clickEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2182488657729460715, guid: 99df84b78de82184191bfe62f16b324f, type: 3}
+      propertyPath: clickEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleMinigameScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 2182488657729460715, guid: 99df84b78de82184191bfe62f16b324f, type: 3}
+      propertyPath: clickEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MinigameLoadAdditive, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2182488657729460715, guid: 99df84b78de82184191bfe62f16b324f, type: 3}
+      propertyPath: clickEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2213480553319133157, guid: 99df84b78de82184191bfe62f16b324f, type: 3}
       propertyPath: m_IsActive
@@ -861,3 +897,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99df84b78de82184191bfe62f16b324f, type: 3}
+--- !u!114 &5743087740920211400 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3445707601001785008, guid: 99df84b78de82184191bfe62f16b324f, type: 3}
+  m_PrefabInstance: {fileID: 5743087740920211399}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34b87c62ec4c31c4c8ced9e45a8a8cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
