@@ -5,6 +5,26 @@
 			<ChildrenList>
 				<WorkUnit Name="PhishingMinigame" ID="{4652079B-5B36-4587-B911-95D18A2418C6}" PersistMode="Reference"/>
 				<WorkUnit Name="Templerun" ID="{ABB48CB1-2D41-46F5-89C5-B6F614C938A5}" PersistMode="Reference"/>
+				<Event Name="MinigameExit" ID="{FBCAB99E-3FE1-493E-8717-D9CF02E75FF1}">
+					<ChildrenList>
+						<Action Name="" ID="{12C5F6AF-4631-4F22-8015-51E76269FF7D}" ShortID="187338600">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="3"/>
+							</PropertyList>
+							<ReferenceList/>
+						</Action>
+						<Action Name="" ID="{48A03F9B-EB6E-4544-947F-3DD956F54EE8}" ShortID="564144864">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="41"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="HubMusicStart_Event" ID="{1ABE9120-0C6D-49E4-B530-CC620FE60ED9}" WorkUnitID="{4C23A925-D795-4893-9589-8E0F350F9294}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

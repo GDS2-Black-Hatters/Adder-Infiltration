@@ -13,10 +13,16 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID ENEMYBOMBER = 1185021686U;
         static const AkUniqueID ENEMYDRONEAMB = 1504246845U;
+        static const AkUniqueID ENEMYSHARK = 2348200894U;
+        static const AkUniqueID ENEMYSLOW = 385497104U;
         static const AkUniqueID HUBMUSICSTART_EVENT = 2461714704U;
         static const AkUniqueID LAZERFIRE_EVENT = 3822340686U;
         static const AkUniqueID LEVELSTART_EVENT = 1666178350U;
+        static const AkUniqueID MINIGAMEEXIT = 367230862U;
+        static const AkUniqueID MINIGAMEMUSIC = 2434039835U;
+        static const AkUniqueID MOUSECLICK = 4010314750U;
         static const AkUniqueID MUSIC = 3991942870U;
         static const AkUniqueID OBJECTIVECOMPLETE_EVENT = 551763010U;
         static const AkUniqueID PLAYERDISCOVERED_EVENT = 2538572501U;
