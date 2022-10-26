@@ -34,11 +34,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-<<<<<<< Updated upstream
-		<SoundBank Id="4096625075" Type="User" Language="SFX" Hash="{A7315396-BC55-702E-4CD9-CB056F2D2B89}">
-=======
-		<SoundBank Id="4096625075" Type="User" Language="SFX" Hash="{054B2F2E-A261-55C1-2CF0-EDDB6E2C3A48}">
->>>>>>> Stashed changes
+		<SoundBank Id="4096625075" Type="User" Language="SFX" Hash="{72FE51E2-DD4E-8843-692E-CA1CD3DBAFC7}">
 			<ShortName>MainLevelSoundBank</ShortName>
 			<Path>MainLevelSoundBank.bnk</Path>
 			<Media>
@@ -56,7 +52,7 @@
 				</File>
 				<File Id="682131157" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>644245__fractionalist__steel-spring-bear-trap.wav</ShortName>
-					<CachePath>SFX/644245__fractionalist__steel-spring-bear-trap_C7916B94.wem</CachePath>
+					<CachePath>SFX/644245__fractionalist__steel-spring-bear-trap_48524BE2.wem</CachePath>
 				</File>
 				<File Id="698227113" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Laser3.wav</ShortName>
@@ -92,15 +88,18 @@
 				</File>
 				<File Id="1073533375" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>538554__sjonas88__success.wav</ShortName>
-					<CachePath>SFX/538554__sjonas88__success_8353D695.wem</CachePath>
+					<CachePath>SFX/538554__sjonas88__success_0DA1812A.wem</CachePath>
 				</File>
 			</Media>
 			<Events>
+				<Event Id="1185021686" Name="EnemyBomber" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="1504246845" Name="EnemyDroneAmb" MaxAttenuation="100" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="984440277"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="2348200894" Name="EnemyShark" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="385497104" Name="EnemySlow" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="2461714704" Name="HubMusicStart_Event" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="847613361"/>
@@ -134,6 +133,13 @@
 						<ActionSetStateEntry GroupId="3924600286" Id="2909291642" Name="Stealth"/>
 					</ActionSetState>
 				</Event>
+				<Event Id="367230862" Name="MinigameExit" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0">
+					<ActionPostEvent>
+						<ActionPostEventEntry Id="2461714704" Name="HubMusicStart_Event"/>
+					</ActionPostEvent>
+				</Event>
+				<Event Id="2434039835" Name="MinigameMusic" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="4010314750" Name="MouseClick" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="3991942870" Name="Music" DurationType="OneShot" DurationMin="16.000023" DurationMax="16.000023">
 					<MediaRefs>
 						<MediaRef Id="496570130"/>
@@ -171,9 +177,5 @@
 			</StateGroups>
 		</SoundBank>
 	</SoundBanks>
-<<<<<<< Updated upstream
-	<FileHash>{9EF2BE5F-CB8E-D3B1-EE54-F88007C12ED8}</FileHash>
-=======
-	<FileHash>{6C2EF128-BF68-0300-8301-92222D97A21D}</FileHash>
->>>>>>> Stashed changes
+	<FileHash>{072AEB59-2947-6BBF-C15D-CFC89673F2D3}</FileHash>
 </SoundBanksInfo>

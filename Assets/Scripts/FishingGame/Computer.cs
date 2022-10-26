@@ -6,6 +6,9 @@ public class Computer : MonoBehaviour
     private Rigidbody2D rb;
     private Hook follow;
 
+    [SerializeField] private AK.Wwise.Event HookAudioEvent;
+    [SerializeField] private AK.Wwise.Event StashAudioEvent;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -26,6 +29,7 @@ public class Computer : MonoBehaviour
         {
             computerParent.IncreaseScore();
             follow.SetVictim(null);
+            StashAudioEvent.Post(follow.gameObject);
             Destroy(gameObject);
         }
 
@@ -41,6 +45,7 @@ public class Computer : MonoBehaviour
         {
             follow = hook;
             follow.SetVictim(this);
+            HookAudioEvent.Post(gameObject);
         }
     }
 }

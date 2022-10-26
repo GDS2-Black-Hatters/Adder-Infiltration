@@ -47,6 +47,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90ac1d7f3cac06248b2a7d958f8473d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HookAudioEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 995d006ef573aa740bf05fdc4a841415, type: 2}
+  StashAudioEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 6eeebe09fefc46746aef783b7570e09a, type: 2}
 --- !u!212 &5248884235273841064
 SpriteRenderer:
   m_ObjectHideFlags: 0

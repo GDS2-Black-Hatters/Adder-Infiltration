@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class AntiVirus : MonoBehaviour
 {
+    [SerializeField] private AK.Wwise.Event AVHitEvent;
+
     private Rigidbody2D rb;
 
     private void Start()
@@ -23,6 +25,7 @@ public class AntiVirus : MonoBehaviour
         if (other.TryGetComponent(out Hook hook))
         {
             hook.MinigameController.DecreaseScore();
+            AVHitEvent.Post(gameObject);
         }
     }
 }
