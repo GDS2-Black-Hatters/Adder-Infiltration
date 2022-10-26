@@ -45,34 +45,12 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="LazerFire_Event" ID="{7D3C9B39-3DDE-49EA-A340-C835908FDAAA}">
-					<ChildrenList>
-						<Action Name="" ID="{27D0042B-F1C6-4C2C-BEDA-F70F4E90428D}" ShortID="61459362">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="RandomLazerSounds" ID="{8D4C2C68-2B90-4F82-A431-D88EBEE2A4BC}" WorkUnitID="{D5FBB3F7-72F3-40AC-9B3E-877FA285AAC1}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 				<Event Name="ObjectiveComplete_Event" ID="{7D02FC9D-D476-42AE-B364-5DD961CD4199}">
 					<ChildrenList>
 						<Action Name="" ID="{2E2BDDE0-5FAD-42D0-A918-5A50C42A7B81}" ShortID="405148109">
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="ObjectiveCompleteSound" ID="{DF321A4D-4FB4-4D8B-99D7-C44539FE7A0A}" WorkUnitID="{D5FBB3F7-72F3-40AC-9B3E-877FA285AAC1}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
-				<Event Name="EnemyDroneAmb" ID="{524392DD-C862-4DA6-9C60-A7B3A1AE39B0}">
-					<ChildrenList>
-						<Action Name="" ID="{9FBD5A25-F919-427B-9270-8405352B90CF}" ShortID="163102622">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="EnemyDroneAmbient" ID="{387FB7F5-72C4-4623-98F6-F80DF12DE11C}" WorkUnitID="{D5FBB3F7-72F3-40AC-9B3E-877FA285AAC1}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -97,6 +75,41 @@
 					</ChildrenList>
 				</Event>
 				<Event Name="MinigameMusic" ID="{1E7398AC-0C8E-49D5-AE92-7890AC894980}"/>
+				<Folder Name="EnemySFX" ID="{572B0651-A7F9-4F7D-BD1F-A4CD43C4CAF5}" ShortID="457656234">
+					<ChildrenList>
+						<Event Name="EnemyBomber" ID="{9412BCF1-CFB2-475A-8938-2C7047ABCD04}"/>
+						<Event Name="EnemyDroneAmb" ID="{524392DD-C862-4DA6-9C60-A7B3A1AE39B0}">
+							<ChildrenList>
+								<Action Name="" ID="{9FBD5A25-F919-427B-9270-8405352B90CF}" ShortID="163102622">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="EnemyDroneAmbient" ID="{387FB7F5-72C4-4623-98F6-F80DF12DE11C}" WorkUnitID="{D5FBB3F7-72F3-40AC-9B3E-877FA285AAC1}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="LazerFire_Event" ID="{7D3C9B39-3DDE-49EA-A340-C835908FDAAA}">
+							<ChildrenList>
+								<Action Name="" ID="{27D0042B-F1C6-4C2C-BEDA-F70F4E90428D}" ShortID="61459362">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="RandomLazerSounds" ID="{8D4C2C68-2B90-4F82-A431-D88EBEE2A4BC}" WorkUnitID="{D5FBB3F7-72F3-40AC-9B3E-877FA285AAC1}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="EnemyShark" ID="{05E166AF-B398-4720-9B1F-DECBDAABCE31}"/>
+						<Event Name="EnemySlow" ID="{AA195604-CC73-47B8-B0F9-FCC4056DC458}"/>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="AbilitySFX" ID="{77AD6EA4-82F2-4339-A511-3674B754CB01}" ShortID="143526568"/>
+				<Folder Name="DesktopEvents" ID="{076FEFAF-40E9-457A-B5B0-B73969B73BBC}" ShortID="343874429">
+					<ChildrenList>
+						<Event Name="MouseClick" ID="{D493DADD-EFD0-47F9-86E3-25C03E05410B}"/>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

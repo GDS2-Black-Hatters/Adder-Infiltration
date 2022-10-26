@@ -317,7 +317,29 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<Sound Name="Bomber" ID="{3B76D970-2E08-4858-A455-43E567316270}" ShortID="355260421">
+						<Sound Name="Bomber Movement" ID="{3B76D970-2E08-4858-A455-43E567316270}" ShortID="355260421">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Bomber Movement" ID="{C3D41067-EFA7-4EAF-840E-0E0B19E033BA}">
+									<Language>SFX</Language>
+									<AudioFile>Bomber Movement.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="444352329"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Bomber Movement" ID="{C3D41067-EFA7-4EAF-840E-0E0B19E033BA}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Shark Movement" ID="{658EF08E-1AF4-4215-9400-414DC37D4EF3}" ShortID="623992782">
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
@@ -327,7 +349,7 @@
 								</Reference>
 							</ReferenceList>
 						</Sound>
-						<Sound Name="Shark" ID="{658EF08E-1AF4-4215-9400-414DC37D4EF3}" ShortID="623992782">
+						<Sound Name="Slower Movement" ID="{D405CAB3-5D56-4E7F-8BC6-DCBC59F5A5D6}" ShortID="531713954">
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
@@ -336,8 +358,20 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
 								</Reference>
 							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Slower Engine" ID="{B629DE24-96CE-42F9-BBC3-E7BA8F2B88B1}">
+									<Language>SFX</Language>
+									<AudioFile>Slower Engine.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="53535387"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Slower Engine" ID="{B629DE24-96CE-42F9-BBC3-E7BA8F2B88B1}" Platform="Linked"/>
+							</ActiveSourceList>
 						</Sound>
-						<Sound Name="Slower" ID="{D405CAB3-5D56-4E7F-8BC6-DCBC59F5A5D6}" ShortID="531713954">
+						<Sound Name="Drone Movement" ID="{A8F98F6C-3E99-4EE1-B79F-6E6C79F14449}" ShortID="777119108">
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
@@ -346,20 +380,83 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
 								</Reference>
 							</ReferenceList>
-						</Sound>
-						<Sound Name="Drone" ID="{A8F98F6C-3E99-4EE1-B79F-6E6C79F14449}" ShortID="777119108">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
-								</Reference>
-							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Drone Movement" ID="{375BA1B3-7545-4B7C-8809-28818FC1D1E0}">
+									<Language>SFX</Language>
+									<AudioFile>Drone Movement.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="57895059"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Drone Movement" ID="{375BA1B3-7545-4B7C-8809-28818FC1D1E0}" Platform="Linked"/>
+							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
 				</RandomSequenceContainer>
-				<Folder Name="Computer Desktop Ambience Backgrounds" ID="{DF5C6E1C-8AF1-430C-B407-06825FF282B4}" ShortID="768628865"/>
+				<Folder Name="Computer Desktop Ambience Backgrounds" ID="{DF5C6E1C-8AF1-430C-B407-06825FF282B4}" ShortID="768628865">
+					<ChildrenList>
+						<Sound Name="Mouse Click" ID="{2A115DDA-FCCB-443D-AE0B-CD0658116FA7}" ShortID="777022916">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Mouse Click" ID="{003EC22B-484F-4C7E-9D10-30BB7830C770}">
+									<Language>SFX</Language>
+									<AudioFile>Mouse Click.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="332626662"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Mouse Click" ID="{003EC22B-484F-4C7E-9D10-30BB7830C770}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Rainy Background" ID="{CC747EB7-B183-405B-AA04-E6EEC1016B73}" ShortID="358329451">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-18</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Rain Desktop Background" ID="{5FDAFFB8-DAE9-4675-ADC9-671E17EA5EA2}">
+									<Language>SFX</Language>
+									<AudioFile>Rain Desktop Background.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="579667439"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Rain Desktop Background" ID="{5FDAFFB8-DAE9-4675-ADC9-671E17EA5EA2}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
 				<RandomSequenceContainer Name="Abilities SFX" ID="{EDD70762-9AB6-40FD-8B34-7505A7ADBCFD}" ShortID="43232954">
 					<PropertyList>
 						<Property Name="RandomOrSequence" Type="int16" Value="0"/>
