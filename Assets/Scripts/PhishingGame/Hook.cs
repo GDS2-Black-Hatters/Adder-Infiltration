@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Hook : MonoBehaviour
 {
-    [field: SerializeField] public MinigameController MinigameController { get; private set; }
+    [field: SerializeField] public PhishingGameplayScreen MinigameController { get; private set; }
     [SerializeField] private float moveSpeed = 5;
     private Rigidbody2D rb;
     public Computer victim { get; private set; }

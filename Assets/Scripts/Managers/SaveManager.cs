@@ -25,6 +25,7 @@ public sealed class SaveManager : BaseManager
         intelligenceData = 1001,
         processingPower = 1002,
         allUnlockables = 1003,
+        minigameHighScores = 1004,
 
         mouseSprite = 2000,
         mouseSensitivity = 2001,

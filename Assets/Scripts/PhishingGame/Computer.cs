@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Computer : MonoBehaviour
 {
-    private MinigameController computerParent;
+    private PhishingGameplayScreen computerParent;
     private Rigidbody2D rb;
     private Hook follow;
 
@@ -12,7 +12,7 @@ public class Computer : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        computerParent = GetComponentInParent<MinigameController>();
+        computerParent = GetComponentInParent<PhishingGameplayScreen>();
         rb = gameObject.GetComponent<Rigidbody2D>();
         rb.velocity = new(-10, 0);
     }

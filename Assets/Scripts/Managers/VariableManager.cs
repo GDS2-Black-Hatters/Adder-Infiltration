@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using static SaveManager;
 using static SaveManager.VariableToSave;
 using static VariableManager.AllUnlockables;
@@ -97,6 +96,29 @@ public sealed class VariableManager : BaseManager
         return abilityDictionary[abilities];
     }
 
+    public int GetMinigameScore(AllUnlockables minigameName)
+    {
+        return GetVariable<Dictionary<AllUnlockables, int>>(minigameHighScores)[minigameName];
+    }
+
+    /// <summary>
+    /// Updates a minigame high score
+    /// </summary>
+    /// <param name="minigameName">The unlockable minigame</param>
+    /// <param name="newScore">The potential new high score</param>
+    /// <returns>True if it was a new high score.</returns>
+    public bool UpdateMinigameHighScore(AllUnlockables minigameName, int newScore)
+    {
+        var highScores = GetVariable<Dictionary<AllUnlockables, int>>(minigameHighScores);
+        bool showFeedback = highScores[minigameName] < newScore;
+        if (showFeedback)
+        {
+            highScores[minigameName] = newScore;
+        }
+        GameManager.SaveManager.SaveToFile(showFeedback);
+        return showFeedback;
+    }
+
     public void Purchase(int bytecoinsAmount, int intelligenceDataAmount, int processingPowerAmount)
     {
         SetVariable(bytecoins, GetVariable<int>(bytecoins) - bytecoinsAmount);
@@ -163,6 +185,12 @@ public sealed class VariableManager : BaseManager
                     { LittleRedCottage, new() },
                     { MoonParadise, new() },
                     { Gaster, new() },
+                }
+            },
+            { minigameHighScores, new Dictionary<AllUnlockables, int>()
+                {
+                    { PhishingMinigame, 0 },
+                    { RunMinigame, 0 }
                 }
             },
             { mouseSprite, DefaultMouse },

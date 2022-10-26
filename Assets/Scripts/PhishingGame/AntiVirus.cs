@@ -24,7 +24,7 @@ public class AntiVirus : MonoBehaviour
     {
         if (other.TryGetComponent(out Hook hook))
         {
-            hook.MinigameController.DecreaseScore();
+            hook.MinigameController.GameOver();
             AVHitEvent.Post(gameObject);
         }
     }
