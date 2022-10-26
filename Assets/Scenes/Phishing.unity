@@ -406,20 +406,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Rules:
+  m_text: '<color="green">How to play</color>: Space to go up.
 
-    \t1. Phish a computer by touching it with the hook
+    <color="green">Goal</color>:
+    Phish out victims by bringing them to the top of the screen. Remember a hook
+    can only catch one at a time.
 
-    \t\t-
-    Be sure to bring it to phish it out
-
-    \t2. Only one computer can be phished
-    at a time
-
-    \t3. Do not touch any antivirus or it is game over.
-
-    \t4.
-    Every score gives you 1 random currency.'
+    <color="green">Rewards</color>: 1 point is
+    one random currency.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -761,10 +755,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 555a49a38c73977409d73915f8736daa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  titleScreen: {fileID: 1893065245}
+  startScreen: {fileID: 1893065245}
+  scoreboard: {fileID: 373517506}
   computer: {fileID: 5248884235273841065, guid: 51b5b6ce82817594e81a45b2c4a6bb29, type: 3}
   antiVirus: {fileID: 4726222261871439025, guid: 8e0c2714703a40144b0ba8ee6cd1a70e, type: 3}
-  scoreboard: {fileID: 373517506}
 --- !u!4 &966265276
 Transform:
   m_ObjectHideFlags: 0
@@ -1295,7 +1289,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Finally, space to go up and start this game!
+  m_text: Press Space to start this game!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1424,6 +1418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 356ec285480ad0d43b914e96ab7b2832, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minigame: 101
   gameplayScreen: {fileID: 966265275}
   bodyText: {fileID: 272208690}
   textToBlink: {fileID: 1854450131}

@@ -116,6 +116,7 @@ public sealed class VariableManager : BaseManager
             highScores[minigameName] = newScore;
         }
         GameManager.SaveManager.SaveToFile(showFeedback);
+        InvokePurchase(); //Technically just updates the resources count.
         return showFeedback;
     }
 

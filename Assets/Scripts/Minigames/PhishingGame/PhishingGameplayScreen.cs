@@ -1,28 +1,18 @@
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using static VariableManager.AllUnlockables;
 
-public class PhishingGameplayScreen : MonoBehaviour
+public class PhishingGameplayScreen : MinigameGameplayScreen
 {
     private readonly TimeTracker computerSpawnTimer = new(2);
     private readonly TimeTracker antivirusSpawnTimer = new(1);
     public int Score { get; private set; } = 0;
-    [SerializeField] private PhishingStartScreen titleScreen;
     [SerializeField] private Computer computer;
     [SerializeField] private AntiVirus antiVirus;
-    [SerializeField] private TextMeshProUGUI scoreboard;
-    [SerializeField] private List<GameObject> removables = new();
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
-        foreach(GameObject go in removables)
-        {
-            Destroy(go);
-        }
-
         Score = 0;
-        UpdateScore();
+        base.OnEnable();
     }
 
     private void Start()
@@ -59,7 +49,7 @@ public class PhishingGameplayScreen : MonoBehaviour
         antivirusSpawnTimer.Update(delta);
     }
 
-    private void UpdateScore()
+    protected override void UpdateScore()
     {
         scoreboard.text = $"Computers Phished: {Score}\nHigh Score: {GameManager.VariableManager.GetMinigameScore(PhishingMinigame)}";
     }
@@ -68,11 +58,5 @@ public class PhishingGameplayScreen : MonoBehaviour
     {
         Score++;
         UpdateScore();
-    }
-
-    public void GameOver()
-    {
-        titleScreen.gameObject.SetActive(true);
-        gameObject.SetActive(false);
     }
 }

@@ -1,11 +1,12 @@
 using TMPro;
 using UnityEngine;
-using static VariableManager.AllUnlockables;
+using static VariableManager;
 using static SaveManager.VariableToSave;
 
-public class PhishingStartScreen : MonoBehaviour
+public abstract class MinigameStartScreen : MonoBehaviour
 {
-    [SerializeField] private PhishingGameplayScreen gameplayScreen;
+    [SerializeField] protected AllUnlockables minigame;
+    [SerializeField] protected MinigameGameplayScreen gameplayScreen;
     [SerializeField] private TextMeshProUGUI bodyText;
     [SerializeField] private TextMeshProUGUI textToBlink;
     private readonly TimeTracker blinkText = new(1);
@@ -22,7 +23,7 @@ public class PhishingStartScreen : MonoBehaviour
         CalcuateFinalScore();
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         blinkText.onFinish += () =>
         {
@@ -41,12 +42,14 @@ public class PhishingStartScreen : MonoBehaviour
         }
     }
 
+    protected abstract int GetScore();
+
     private void CalcuateFinalScore()
     {
         int coin = 0;
         int data = 0;
         int power = 0;
-        for (int i = 0; i < gameplayScreen.Score; i++)
+        for (int i = 0; i < GetScore(); i++)
         {
             switch (Random.Range(0, 3))
             {
@@ -71,10 +74,10 @@ public class PhishingStartScreen : MonoBehaviour
         var.SetVariable(bytecoins, curr1 + coin);
         var.SetVariable(intelligenceData, curr2 + data);
         var.SetVariable(processingPower, curr3 + power);
-        string highScoreText = var.UpdateMinigameHighScore(PhishingMinigame, gameplayScreen.Score) ? 
+        string highScoreText = var.UpdateMinigameHighScore(minigame, GetScore()) ?
             " and that is a new high score!" : "";
 
-        bodyText.text = $"Your score was {gameplayScreen.Score}{highScoreText}\n" +
+        bodyText.text = $"Your score was {GetScore()}{highScoreText}\n" +
             $"Bytecoins:\t\t{curr1} -> {curr1 + coin}\n" +
             $"Intelligence Data:\t{curr2} -> {curr2 + data}\n" +
             $"Processing Power:\t{curr3} -> {curr3 + power}";
