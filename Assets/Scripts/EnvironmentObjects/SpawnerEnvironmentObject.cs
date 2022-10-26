@@ -9,7 +9,7 @@ public class SpawnerEnvironmentObject : BaseEnvironmentObject
 
     private void Start()
     {
-        GameManager.LevelManager.ActiveSceneController.enemyAdmin.onFullAlert += ActivateSpawner;
+        GameManager.LevelManager.ActiveSceneController.enemyAdmin.OnFullAlert += ActivateSpawner;
         spawnTimer.Reset();
         spawnTimer.onFinish += Spawn;
         enabled = false;

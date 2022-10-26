@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6d308b54d023724d97a490c5cdbe203, type: 3}
+  m_Name: EMPAbility
+  m_EditorClassIdentifier: 
+  <AbilityID>k__BackingField: 2
+  <Icon>k__BackingField: {fileID: 21300000, guid: 39cf8318f13f6624bbd805b68c4d361e, type: 3}
+  <DefaultUpgrade>k__BackingField:
+    <MaxLevel>k__BackingField: 10
+  <Cooldown>k__BackingField:
+    minLevelValue: 30
+    maxLevelValue: 15
+  <EffectRange>k__BackingField:
+    minLevelValue: 10
+    maxLevelValue: 25
+  <ChargeUpTime>k__BackingField:
+    minLevelValue: 1
+    maxLevelValue: 0
+  <StunDuration>k__BackingField:
+    minLevelValue: 3
+    maxLevelValue: 10

@@ -27,7 +27,7 @@ public class PlayerVirusStateController : MonoBehaviour
         GetComponent<UnityEngine.VFX.VisualEffect>().Stop();
 
         BaseSceneController lsc = GameManager.LevelManager.ActiveSceneController;
-        lsc.enemyAdmin.onFullAlert += EngageAlertMode;
+        lsc.enemyAdmin.OnFullAlert += EngageAlertMode;
     }
 
     public void EngageAlertMode()

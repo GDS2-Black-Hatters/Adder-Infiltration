@@ -4,47 +4,46 @@ using static VariableManager;
 
 public class TrojanHorse : AbilityBase
 {    
-    [SerializeField] private GameObject trojinVisual;
-    private TrojanHorseAbility trojanHorse;
+    [SerializeField] private GameObject trojanVisual;
+    private DurationAbility trojanHorse;
     public override Ability Ability => trojanHorse;
     public override AllAbilities AbilityID { get; protected set; } = AllAbilities.TrojanHorse;
 
     protected override void Awake()
     {
-        trojanHorse = (TrojanHorseAbility)base.Ability;
+        trojanHorse = (DurationAbility)base.Ability;
         base.Awake();
     }
 
     protected override void DoAbilityEffect()
     {
+        StartCoroutine(Disguise());
+    }
+
+    private IEnumerator Disguise()
+    {
+        bool isRunning = true;
+
         PlayerVirus pv = GameManager.LevelManager.ActiveSceneController.Player;
         pv.gameObject.layer = LayerMask.NameToLayer("Default");
         pv.tag = "Untagged";
+        pv.PlayerVisual.SetActive(false);
+        trojanVisual.SetActive(true);
 
-        pv.playerVisual.SetActive(false);
-        trojinVisual.SetActive(true);
-        StartCoroutine(DelayDisableAbility());
-    }
-
-    private IEnumerator DelayDisableAbility()
-    {
-        PlayerVirus pv = GameManager.LevelManager.ActiveSceneController.Player;
         TimeTracker time = new(trojanHorse.AbilityDuration.GetCurrentValue(AbilityUpgrade.UnlockProgression), 1);
         time.onFinish += () =>
         {
             pv.gameObject.layer = LayerMask.NameToLayer("Player");
             pv.tag = "Player";
-            pv.playerVisual.SetActive(true);
-            trojinVisual.SetActive(false);
+            pv.PlayerVisual.SetActive(true);
+            trojanVisual.SetActive(false);
+            isRunning = false;
         };
-
-        bool isRunning = true;
         do
         {
             yield return null;
             time.Update(Time.deltaTime);
-            trojinVisual.transform.position = pv.transform.position;
+            trojanVisual.transform.position = pv.transform.position;
         } while (isRunning);
-
     }
 }

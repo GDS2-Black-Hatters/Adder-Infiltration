@@ -1,85 +1,70 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using static VariableManager;
 
 public class EMP : AbilityBase
 {
-    private const float minSphereRadius = 1; //Do Not Put 0 otherwise things will not work
+    public override AllAbilities AbilityID { get; protected set; } = AllAbilities.EMP;
 
     [SerializeField] private Transform chargeSphere;
     [SerializeField] private Transform effectSphere;
-    [SerializeField] private float maxRadius = 20;
-    [SerializeField] private float chargeRadiusSpeed = 0.5f;
-    [SerializeField] private float effectRadialSpeed = 1;
+    private EMPAbility emp;
+    public override Ability Ability => emp;
 
-    private readonly List<GameObject> objectsInRange;
-
-    public override AllAbilities AbilityID { get; protected set; } = AllAbilities.EMP;
-
-    protected override void DoAbilityEffect()
+    protected override void Awake()
     {
-        Vector3 size = Vector3.one * minSphereRadius;
-        effectSphere.localScale = size;
-        chargeSphere.localScale = size;
-
-        chargeSphere.gameObject.SetActive(true);
-        StartCoroutine(ChangeChargeSphereRadius(true));
-
-        effectSphere.gameObject.SetActive(true);
-        StartCoroutine(EffectTrigger(chargeSphere.localScale.x));
-    }
-
-    private IEnumerator ChangeChargeSphereRadius(bool increasing)
-    {
-        float radiusChangeSpeed = chargeRadiusSpeed * (increasing ? 1 : -1);
-        float newRadius = minSphereRadius;
-        while (true)
-        {
-            chargeSphere.position = GameManager.LevelManager.ActiveSceneController.Player.transform.position;
-            chargeSphere.localScale = new Vector3(newRadius, newRadius, newRadius);
-
-            newRadius = Mathf.Clamp(chargeSphere.localScale.x + chargeSphere.localScale.x * radiusChangeSpeed * Time.deltaTime, minSphereRadius, maxRadius);
-            if (newRadius >= maxRadius || newRadius <= minSphereRadius)
-            {
-                chargeSphere.gameObject.SetActive(increasing);
-                yield break;
-            }
-            yield return null;
-        }
-    }
-
-    private IEnumerator EffectTrigger(float targetRadius)
-    {
-        float newRadius = minSphereRadius;
-        while (effectSphere.localScale.x < targetRadius)
-        {
-            effectSphere.position = GameManager.LevelManager.ActiveSceneController.Player.transform.position;
-            effectSphere.localScale = new(newRadius, newRadius, newRadius);
-            yield return null;
-            newRadius = Mathf.Clamp(effectSphere.localScale.x + effectSphere.localScale.x * effectRadialSpeed * Time.deltaTime, minSphereRadius, maxRadius);
-        }
-
+        emp = (EMPAbility)base.Ability;
+        base.Awake();
+        chargeSphere.gameObject.SetActive(false);
         effectSphere.gameObject.SetActive(false);
     }
 
-    public void ObjectEnterStunRange(Collider col)
+    protected override void DoAbilityEffect()
     {
-        //Get component and call stun function... maybe...
+        StartCoroutine(EmpEffect());
     }
 
-    public void NewObjectInRange(Collider col)
+    public float GetStunDuration()
     {
-        if (objectsInRange.Contains(col.gameObject))
+        return emp.StunDuration.GetCurrentValue(AbilityUpgrade.UnlockProgression);
+    }
+
+    private IEnumerator EmpEffect()
+    {
+        IEnumerator Explosion(float duration, Transform sphere, float maxAngle)
         {
-            return;
+            bool isRunning = true;
+            TimeTracker time = new(duration, 1);
+            time.onFinish += () =>
+            {
+                isRunning = false;
+            };
+
+            do
+            {
+                yield return null;
+                time.Update(Time.deltaTime);
+                sphere.position = GameManager.LevelManager.ActiveSceneController.Player.transform.position;
+                float size = Mathf.Sin(Mathf.Lerp(0, maxAngle, time.TimePercentage) * Mathf.Deg2Rad);
+                sphere.localScale = emp.EffectRange.GetCurrentValue(AbilityUpgrade.UnlockProgression) * size * Vector3.one;
+            } while (isRunning);
         }
 
-        objectsInRange.Add(col.gameObject);
-    }
+        //Charge up effect
+        float chargeSpeed = emp.ChargeUpTime.GetCurrentValue(AbilityUpgrade.UnlockProgression);
+        if (chargeSpeed != 0)
+        {
+            chargeSphere.gameObject.SetActive(true);
+            yield return StartCoroutine(Explosion(emp.ChargeUpTime.GetCurrentValue(AbilityUpgrade.UnlockProgression), chargeSphere, 180));
+            chargeSphere.gameObject.SetActive(false);
+        }
 
-    public void ObjectExitRange(Collider col)
-    {
-        objectsInRange.Remove(col.gameObject);
+        //Explosion in
+        effectSphere.gameObject.SetActive(true);
+        yield return StartCoroutine(Explosion(0.3f, effectSphere, 90));
+
+        //Explosion out
+        yield return new WaitForSeconds(3);
+        effectSphere.gameObject.SetActive(false);
     }
 }

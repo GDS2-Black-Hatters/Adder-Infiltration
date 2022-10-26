@@ -19,7 +19,7 @@ public class PlayerInteracter : MonoBehaviour
     
     private void Start()
     {
-        PlayerVirusController virusController = GameManager.LevelManager.ActiveSceneController.Player.virusController;
+        PlayerVirusController virusController = GameManager.LevelManager.ActiveSceneController.Player.VirusController;
         virusController.onInteractStart += InteractStart;
         virusController.onInteractEnd += InteractHalt;
     }

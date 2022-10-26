@@ -4,6 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using static LevelManager.Level;
 
 public class BaseSceneController : MonoBehaviour
@@ -17,11 +19,12 @@ public class BaseSceneController : MonoBehaviour
 
     public bool canFinish { get; private set; } = false;
     [field: SerializeField] public EnemyAdmin enemyAdmin { get; private set; }
-    private List<Transform> playerSpawnPoints = new();
+    private readonly List<Transform> playerSpawnPoints = new();
     private bool hasAMandatoryObjective = false;
+    private ColorAdjustments colorAdjustments;
+    private readonly List<CanvasGroup> iconCanvases = new();
 
     [SerializeField] private CaughtHUDBehaviour caughtHUD;
-    [field: SerializeField] public Health playerHealth { get; private set; } = new(20);
     [field: SerializeField] public PlayerVirus Player { get; private set; }
     [field: SerializeField] public TextMeshProUGUI objectiveList { get; private set; }
 
@@ -31,8 +34,6 @@ public class BaseSceneController : MonoBehaviour
 
     //Skybox Lerping.
     [Header("Skybox Parameters")]
-    //[SerializeField] private Color startColor = Color.green;
-    //[SerializeField] private Color endColor = Color.red;
     [SerializeField] private float lerpTime = 1f;
     private readonly Lerper lerper = new();
 
@@ -45,10 +46,11 @@ public class BaseSceneController : MonoBehaviour
     {
         GameManager.LevelManager.SetActiveSceneController(this);
 
-        playerHealth.onDeath += () =>
+        VolumeProfile volumeProfile = GetComponent<Volume>().profile;
+        if (!volumeProfile.TryGet(out colorAdjustments))
         {
-            GameManager.LevelManager.ChangeLevel(Hub);
-        };
+            colorAdjustments = volumeProfile.Add<ColorAdjustments>(false);
+        }
     }
 
     protected virtual void Start()
@@ -59,8 +61,8 @@ public class BaseSceneController : MonoBehaviour
         //Create and assign a copy so we don't change the asset original values
         RenderSettings.skybox = new(RenderSettings.skybox);
 
-        enemyAdmin.onFullAlert += StartCaughtMode;
-        enemyAdmin.onFullAlert += caughtHUD.FadeIn;
+        enemyAdmin.OnFullAlert += StartCaughtMode;
+        enemyAdmin.OnFullAlert += caughtHUD.FadeIn;
     }
 
     public virtual void EngageScene()
@@ -152,9 +154,68 @@ public class BaseSceneController : MonoBehaviour
         do
         {
             lerper.Update(Time.deltaTime);
-            //RenderSettings.skybox.SetColor("_SkyTint", Color.Lerp(startColor, endColor, lerper.currentValue));
             RenderSettings.skybox.SetFloat("_LerpState", lerper.currentValue);
             yield return null;
         } while (lerper.isLerping);
     }
+
+    #region Scan Ability
+    public void StartScan()
+    {
+        StartCoroutine(LerpObjectiveIcons());
+    }
+
+    public void AddIconCanvas(CanvasGroup group)
+    {
+        iconCanvases.Add(group);
+    }
+
+    private IEnumerator LerpObjectiveIcons()
+    {
+        IEnumerator Wait(float duration, Action<float> action)
+        {
+            bool isRunning = true;
+            TimeTracker time = new(duration, 1);
+            time.onFinish += () =>
+            {
+                isRunning = false;
+            };
+
+            do
+            {
+                yield return null;
+                if (!LevelManager.isGamePaused)
+                {
+                    time.Update(Time.unscaledDeltaTime);
+                    action?.Invoke(time.TimePercentage);
+                }
+            } while (isRunning);
+        }
+
+        yield return StartCoroutine(Wait(0.5f, (percentage) =>
+        {
+            Time.timeScale = 1 - percentage * 0.5f;
+            colorAdjustments.saturation.value = -100 * percentage;
+            foreach (CanvasGroup group in iconCanvases)
+            {
+                group.alpha = percentage;
+            }
+        }));
+
+        DurationAbility ability = (DurationAbility)GameManager.VariableManager.GetAbility(VariableManager.AllAbilities.Scan);
+        Upgradeable upgrade = (Upgradeable)GameManager.VariableManager.GetUnlockable(VariableManager.AllUnlockables.Scan);
+        yield return StartCoroutine(Wait(ability.AbilityDuration.GetCurrentValue(upgrade.UnlockProgression) - 1, null)); //-1 to account lerp in and out.
+        yield return StartCoroutine(Wait(0.5f, (percentage) =>
+        {
+            Time.timeScale = 0.5f + percentage * 0.5f;
+
+            float percent = 1 - percentage;
+            colorAdjustments.saturation.value = -100 * percent;
+            foreach (CanvasGroup group in iconCanvases)
+            {
+                group.alpha = percent;
+            }
+        }));
+    }
+    #endregion
 }

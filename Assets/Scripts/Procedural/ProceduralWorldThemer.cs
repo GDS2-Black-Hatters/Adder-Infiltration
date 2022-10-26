@@ -3,13 +3,14 @@ using UnityEngine;
 public class ProceduralWorldThemer : MonoBehaviour
 {
     [SerializeField] private ThemeSetSO[] themes;
-    [SerializeField] private bool changeTheme;
 
     private void Start()
     {
         ChangeTheme();
     }
 
+#if UNITY_EDITOR
+    [SerializeField] private bool changeTheme;
     private void Update()
     {
         if (changeTheme)
@@ -18,6 +19,7 @@ public class ProceduralWorldThemer : MonoBehaviour
             changeTheme = false;
         }
     }
+#endif
 
     private void ChangeTheme()
     {

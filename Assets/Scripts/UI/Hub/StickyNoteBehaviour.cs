@@ -17,5 +17,8 @@ public class StickyNoteBehaviour : MonoBehaviour
     public void UpdateText(string text)
     {
         textMesh.text = text;
+        RectTransform rect = (RectTransform)transform;
+        rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, textMesh.preferredHeight);
+        rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, textMesh.preferredWidth);
     }
 }

@@ -25,7 +25,7 @@ public class ResourceTracker : MonoBehaviour
     public void UpdateValues()
     {
         VariableManager var = GameManager.VariableManager;
-        resource.text = $"" +
+        resource.text =
             $"Bytecoins: {var.GetVariable<int>(bytecoins):000}\t" +
             $"Intelligence Data: {var.GetVariable<int>(intelligenceData):000}\t" +
             $"Processing Power: {var.GetVariable<int>(processingPower):000}";

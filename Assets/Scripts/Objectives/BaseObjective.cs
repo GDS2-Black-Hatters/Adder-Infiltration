@@ -31,6 +31,5 @@ public abstract class BaseObjective : MonoBehaviour
     {
         isComplete = true;
         OnObjectiveComplete.Invoke();
-        GameManager.LevelManager.ActiveSceneController.UpdateObjectiveList();
     }
 }

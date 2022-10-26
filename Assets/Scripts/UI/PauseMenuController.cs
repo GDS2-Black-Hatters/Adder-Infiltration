@@ -6,6 +6,7 @@ using static LevelManager;
 
 public class PauseMenuController : MonoBehaviour
 {
+    private float prevScale;
     private CanvasGroup canvasGroup;
     [SerializeField] private GameObject mainPanel;
     [SerializeField] private GameObject optionsPanel;
@@ -28,7 +29,15 @@ public class PauseMenuController : MonoBehaviour
         GameManager.LevelManager.OnApplicationFocus(!isGamePaused);
         canvasGroup.alpha = 1 - canvasGroup.alpha;
         canvasGroup.interactable = isGamePaused;
-        Time.timeScale = 1 - Time.timeScale;
+
+        if (isGamePaused)
+        {
+            prevScale = Time.timeScale;
+            Time.timeScale = 0;
+        } else
+        {
+            Time.timeScale = prevScale;
+        }
 
         mainPanel.SetActive(isGamePaused);
         optionsPanel.SetActive(false);

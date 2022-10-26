@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 /// <summary>
@@ -7,19 +8,25 @@ using UnityEngine;
 public class EnemyAttackRange : MonoBehaviour
 {
     private Enemy enemy;
+    private Action<bool> WithinAttackRange;
 
     void Awake()
     {
         enemy = GetComponentInParent<Enemy>(); //Expected to exist.
     }
 
+    public void AddTrigger(Action<bool> trigger)
+    {
+        WithinAttackRange = trigger;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        enemy.canAttack = other.CompareTag("Player") || enemy.canAttack;
+        WithinAttackRange?.Invoke(other.CompareTag("Player") || enemy.CanAttack);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        enemy.canAttack = !other.CompareTag("Player") && enemy.canAttack;
+        WithinAttackRange?.Invoke(!other.CompareTag("Player") && enemy.CanAttack);
     }
 }

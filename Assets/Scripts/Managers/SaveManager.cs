@@ -15,7 +15,8 @@ public sealed class SaveManager : BaseManager
     /// <br/>
     /// <br/> If the need to change an enum's unique number to another
     /// <br/> number or remove an enum you must delete all save files as
-    /// <br/> they will become "corrupt".
+    /// <br/> they will become "corrupt" and all references in them
+    /// <br/> in the project will be affected.
     /// </summary>
     public enum VariableToSave
     {
@@ -25,8 +26,10 @@ public sealed class SaveManager : BaseManager
         processingPower = 1002,
         allUnlockables = 1003,
 
+        mouseSprite = 2000,
         mouseSensitivity = 2001,
         audioVolume = 2002,
+        currentDesktopBackground = 2003,
     }
 
     private string saveFile;
@@ -35,7 +38,7 @@ public sealed class SaveManager : BaseManager
 
     public override BaseManager StartUp()
     {
-        saveFile = Application.persistentDataPath + "/AdderInfiltrationSprint4.sav";
+        saveFile = Application.persistentDataPath + "/AdderInfiltrationSprint5.sav";
         //print(Application.persistentDataPath); //Uncomment to find where it is stored.
         LoadFile(saveFile);
         return this;

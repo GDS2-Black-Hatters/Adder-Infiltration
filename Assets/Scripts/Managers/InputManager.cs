@@ -51,6 +51,8 @@ public sealed class InputManager : BaseManager
         SetControlScheme(ControlScheme.Phishing);
         Phish = playerInput.actions["Phish"];
 
+        VariableManager var = GameManager.VariableManager;
+        UpdateMouse(var.MouseList.MouseDictionary[var.GetVariable<VariableManager.AllUnlockables>(SaveManager.VariableToSave.mouseSprite)]);
         return this;
     }
 

@@ -15,13 +15,13 @@ public class TimeTracker
     /// <summary>
     /// A simple timer. Defaults as a countdown timer.
     /// </summary>
-    /// <param name="timer">Set the timer where the tick will start at or go to</param>
+    /// <param name="seconds">Set the timer where the tick will start at or go to</param>
     /// <param name="timeScale">Dictates the speed of the timer and it counts up (+) or down (-).</param>
     /// <param name="autoLoop">The timer loops? Defaults to false.</param>
-    public TimeTracker(float timer, float timeScale = -1)
+    public TimeTracker(float seconds, float timeScale = -1)
     {
         SetTimeScale(timeScale);
-        SetTimer(timer);
+        SetTimer(seconds);
     }
 
     /// <summary>
@@ -36,11 +36,11 @@ public class TimeTracker
     /// <summary>
     /// Change the timer.
     /// </summary>
-    /// <param name="timer">Timer value</param>
+    /// <param name="seconds">Timer value</param>
     /// <param name="resetTick">Auto call reset?</param>
-    public void SetTimer(float timer, bool resetTick = true)
+    public void SetTimer(float seconds, bool resetTick = true)
     {
-        this.timer = timer;
+        timer = seconds;
         if (resetTick)
         {
             Reset();

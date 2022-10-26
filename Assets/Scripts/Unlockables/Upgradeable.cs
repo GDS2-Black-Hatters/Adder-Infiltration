@@ -5,7 +5,7 @@ using UnityEngine;
 public class Upgradeable : Unlockable
 {
     public int Level { get; protected set; } = 0;
-    [field: SerializeField] public int MaxLevel { get; protected set; } = 10;
+    [field: SerializeField, Header("Upgradeable")] public int MaxLevel { get; protected set; } = 10;
 
     public Upgradeable(int maxLevel)
     {
