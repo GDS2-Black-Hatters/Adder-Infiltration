@@ -224,10 +224,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1154725054548529992, guid: 73e0af7f5b80e4645b06c4e02e3d4ad1, type: 3}
-      propertyPath: m_Alpha
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5682123568986869494, guid: 73e0af7f5b80e4645b06c4e02e3d4ad1, type: 3}
       propertyPath: m_text
       value: Phishing Simulator 20XX
@@ -268,3 +264,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34b87c62ec4c31c4c8ced9e45a8a8cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scene: {fileID: 102900000, guid: b2dadd9a731352e4f952b0be489dc9ed, type: 3}

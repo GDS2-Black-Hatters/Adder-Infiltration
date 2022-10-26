@@ -32,6 +32,7 @@ public sealed class VariableManager : BaseManager
 
         //One time unlocks
         PhishingMinigame = 101,
+        RunMinigame = 102,
 
         DefaultMouse = 200,
         SnakeMouse = 201,
@@ -147,6 +148,7 @@ public sealed class VariableManager : BaseManager
 
                     { DefaultMouse, new(true) },
                     { PhishingMinigame, new() },
+                    { RunMinigame, new() },
                     { SnakeMouse, new() },
                     { MouseMouse, new() },
                     { USBMouse, new() },
