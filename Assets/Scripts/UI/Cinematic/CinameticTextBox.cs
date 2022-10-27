@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class CinameticTextBox : MonoBehaviour
@@ -17,11 +15,11 @@ public class CinameticTextBox : MonoBehaviour
             startDelay = 0.3f;
         }
 
-        [field: SerializeField] public Dialogue.DialogueType dialogueType { get; private set;}
-        [field: SerializeReference] public Dialogue dialogue { get; private set;}
-        [field: SerializeField] public float progressRate { get; private set;}
-        [field: SerializeField] public float startDelay { get; private set;}
-        
+        [field: SerializeField] public Dialogue.DialogueType dialogueType { get; private set; }
+        [field: SerializeReference] public Dialogue dialogue { get; private set; }
+        [field: SerializeField] public float progressRate { get; private set; }
+        [field: SerializeField] public float startDelay { get; private set; }
+
 
         public void UpdateDialogueType()
         {
@@ -31,7 +29,7 @@ public class CinameticTextBox : MonoBehaviour
 
     private TextMeshProUGUI textBox;
 
-    [SerializeReference] TextContent[] textBoxContents;
+    [SerializeReference] private TextContent[] textBoxContents;
 
     private string completedText;
     private int activeDialogueIndex = 0;
@@ -44,7 +42,7 @@ public class CinameticTextBox : MonoBehaviour
 
     private void Update()
     {
-        if(textBoxContents[activeDialogueIndex].startDelay > delayProgress)
+        if (textBoxContents[activeDialogueIndex].startDelay > delayProgress)
         {
             delayProgress += Time.deltaTime;
             return;
@@ -53,12 +51,12 @@ public class CinameticTextBox : MonoBehaviour
         textBoxContents[activeDialogueIndex].dialogue.Progress(Time.deltaTime);
         textBox.text = completedText + textBoxContents[activeDialogueIndex].dialogue.text;
 
-        if(textBoxContents[activeDialogueIndex].dialogue.IsComplete)
+        if (textBoxContents[activeDialogueIndex].dialogue.IsComplete)
         {
             delayProgress = 0;
             completedText += textBoxContents[activeDialogueIndex].dialogue.text;
             activeDialogueIndex++;
-            if(activeDialogueIndex >= textBoxContents.Length)
+            if (activeDialogueIndex >= textBoxContents.Length)
             {
                 textBox.text = completedText;
                 enabled = false;
@@ -69,14 +67,14 @@ public class CinameticTextBox : MonoBehaviour
     private void OnValidate()
     {
         //Check Dialogue Type and change type if needed
-        for(int i = 0; i < textBoxContents.Length; i++)
+        for (int i = 0; i < textBoxContents.Length; i++)
         {
-            if(textBoxContents[i] == null)
+            if (textBoxContents[i] == null)
             {
                 textBoxContents[i] = new();
             }
 
-            if(textBoxContents[i].dialogue.GetType() != Dialogue.GetDialogueClassType(textBoxContents[i].dialogueType))
+            if (textBoxContents[i].dialogue.GetType() != Dialogue.GetDialogueClassType(textBoxContents[i].dialogueType))
             {
                 textBoxContents[i].UpdateDialogueType();
             }

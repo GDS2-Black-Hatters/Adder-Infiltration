@@ -20,8 +20,11 @@ public class ObjectiveIcon : MonoBehaviour
     {
         if (group.alpha != 0)
         {
-            Vector2 screenPoint = RectTransformUtility.WorldToScreenPoint(Camera.main, pos.position);
-            targetIcon.anchoredPosition = transform.InverseTransformPoint(screenPoint);
+            Vector3 camNormal = Camera.main.transform.forward;
+            Vector3 worldPos = pos.position;
+            Vector3 vectorFromCam = worldPos - Camera.main.transform.position;
+            targetIcon.gameObject.SetActive(Vector3.Dot(camNormal, vectorFromCam) > 0);
+            targetIcon.anchoredPosition = transform.InverseTransformPoint(Camera.main.WorldToScreenPoint(worldPos));
         }
     }
 }

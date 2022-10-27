@@ -192,14 +192,22 @@ public class BaseSceneController : MonoBehaviour
             } while (isRunning);
         }
 
+        void IconUpdate(float alpha)
+        {
+            foreach (CanvasGroup group in iconCanvases)
+            {
+                if (group)
+                {
+                    group.alpha = alpha;
+                }
+            }
+        }
+
         yield return StartCoroutine(Wait(0.5f, (percentage) =>
         {
             Time.timeScale = 1 - percentage * 0.5f;
             colorAdjustments.saturation.value = -100 * percentage;
-            foreach (CanvasGroup group in iconCanvases)
-            {
-                group.alpha = percentage;
-            }
+            IconUpdate(percentage);
         }));
 
         DurationAbility ability = (DurationAbility)GameManager.VariableManager.GetAbility(VariableManager.AllAbilities.Scan);
@@ -208,13 +216,9 @@ public class BaseSceneController : MonoBehaviour
         yield return StartCoroutine(Wait(0.5f, (percentage) =>
         {
             Time.timeScale = 0.5f + percentage * 0.5f;
-
             float percent = 1 - percentage;
             colorAdjustments.saturation.value = -100 * percent;
-            foreach (CanvasGroup group in iconCanvases)
-            {
-                group.alpha = percent;
-            }
+            IconUpdate(percent);
         }));
     }
     #endregion
