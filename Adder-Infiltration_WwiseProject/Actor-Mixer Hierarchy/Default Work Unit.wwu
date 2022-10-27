@@ -129,11 +129,6 @@
 						<Property Name="PlayMechanismResetPlaylistEachPlay" Type="bool" Value="False"/>
 						<Property Name="RandomOrSequence" Type="int16" Value="0"/>
 						<Property Name="SpeakerPanning" Type="int16" Value="1"/>
-						<Property Name="Volume" Type="Real64">
-							<ValueList>
-								<Value>-8</Value>
-							</ValueList>
-						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Attenuation">
@@ -232,12 +227,17 @@
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 								<Property Name="Lowpass" Type="int16">
 									<ValueList>
-										<Value>21</Value>
+										<Value>66</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>-250</Value>
 									</ValueList>
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-8</Value>
+										<Value>-28</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -284,6 +284,9 @@
 					</ReferenceList>
 					<ChildrenList>
 						<Sound Name="Bomber Movement" ID="{3B76D970-2E08-4858-A455-43E567316270}" ShortID="355260421">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
@@ -294,6 +297,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="Bomber Movement" ID="{C3D41067-EFA7-4EAF-840E-0E0B19E033BA}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.0262123197903015"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.0157273918741803"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="1.61992136304062"/>
+										<Property Name="TrimEnd" Type="Real64" Value="5.30537352555701"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>Bomber Movement.wav</AudioFile>
 									<MediaIDList>
@@ -306,6 +316,14 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Shark Movement" ID="{658EF08E-1AF4-4215-9400-414DC37D4EF3}" ShortID="623992782">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-8</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
@@ -315,7 +333,12 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="RANDOM ROBOT " ID="{78CF3673-7A0C-466A-A258-9859DA646D2C}">
+								<AudioFileSource Name="RANDOM ROBOT" ID="{78CF3673-7A0C-466A-A258-9859DA646D2C}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="5.83562691131498"/>
+										<Property Name="TrimEnd" Type="Real64" Value="16.2196100917432"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>RANDOM ROBOT .wav</AudioFile>
 									<MediaIDList>
@@ -324,10 +347,13 @@
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="RANDOM ROBOT " ID="{78CF3673-7A0C-466A-A258-9859DA646D2C}" Platform="Linked"/>
+								<ActiveSource Name="RANDOM ROBOT" ID="{78CF3673-7A0C-466A-A258-9859DA646D2C}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Slower Movement" ID="{D405CAB3-5D56-4E7F-8BC6-DCBC59F5A5D6}" ShortID="531713954">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
@@ -338,6 +364,11 @@
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="Slower Engine" ID="{B629DE24-96CE-42F9-BBC3-E7BA8F2B88B1}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.00939400393184797"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.0187880078636962"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>Slower Engine.wav</AudioFile>
 									<MediaIDList>
@@ -350,6 +381,9 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Drone Movement" ID="{A8F98F6C-3E99-4EE1-B79F-6E6C79F14449}" ShortID="777119108">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
@@ -360,6 +394,11 @@
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="Drone Movement" ID="{375BA1B3-7545-4B7C-8809-28818FC1D1E0}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="0.704128440366973"/>
+										<Property Name="TrimEnd" Type="Real64" Value="1.71559633027523"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>Drone Movement.wav</AudioFile>
 									<MediaIDList>
@@ -369,94 +408,6 @@
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Drone Movement" ID="{375BA1B3-7545-4B7C-8809-28818FC1D1E0}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="Bomber Explode" ID="{E84A1139-852C-4EBD-9561-60D117F9487F}" ShortID="676295556">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="BOOM 1" ID="{0B1E7B39-43D4-432C-924E-69CB7167B56E}">
-									<Language>SFX</Language>
-									<AudioFile>BOOM 1.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="651979137"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="BOOM 1" ID="{0B1E7B39-43D4-432C-924E-69CB7167B56E}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="Bomber Explode 2" ID="{EE5D741D-F429-4199-8F16-FB7CAD9B707F}" ShortID="876870458">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="BOOM 2" ID="{A1E6BAB6-4551-4C6F-B6B5-EC9A5972EFCB}">
-									<Language>SFX</Language>
-									<AudioFile>BOOM 2.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="596344335"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="BOOM 2" ID="{A1E6BAB6-4551-4C6F-B6B5-EC9A5972EFCB}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="Bomber Explode 3" ID="{F072BEA1-A296-4D41-BAD3-77DBE89C1297}" ShortID="973568368">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="BOOM 3" ID="{773B2A2A-51C1-4E98-AA1C-F8CC06607F4D}">
-									<Language>SFX</Language>
-									<AudioFile>BOOM 3.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="21226199"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="BOOM 3" ID="{773B2A2A-51C1-4E98-AA1C-F8CC06607F4D}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="Drone Scanning" ID="{629C184D-8B48-4A70-ABD2-EEA69737C0F4}" ShortID="25977165">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="PATROL" ID="{917F3776-B422-479D-A344-A82FC094CC72}">
-									<Language>SFX</Language>
-									<AudioFile>PATROL.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="922839706"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="PATROL" ID="{917F3776-B422-479D-A344-A82FC094CC72}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Enemy Speedup" ID="{21028D8A-8465-4A5C-A499-0DEDB1933393}" ShortID="845020795">
@@ -481,6 +432,142 @@
 								<ActiveSource Name="SPEEDUP" ID="{1F19D12C-FCF8-4AEA-A9A7-3CB98032D858}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
+						<RandomSequenceContainer Name="Explode" ID="{D0A3C7FC-7D92-455F-A371-CCFA5BBACDB5}" ShortID="776066627">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Bomber Explode" ID="{E84A1139-852C-4EBD-9561-60D117F9487F}" ShortID="676295556">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="BOOM 1" ID="{0B1E7B39-43D4-432C-924E-69CB7167B56E}">
+											<PropertyList>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.661724770642202"/>
+												<Property Name="TrimEnd" Type="Real64" Value="3.32888073394495"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>BOOM 1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="651979137"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="BOOM 1" ID="{0B1E7B39-43D4-432C-924E-69CB7167B56E}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Bomber Explode 2" ID="{EE5D741D-F429-4199-8F16-FB7CAD9B707F}" ShortID="876870458">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="BOOM 2" ID="{A1E6BAB6-4551-4C6F-B6B5-EC9A5972EFCB}">
+											<PropertyList>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.521142857142858"/>
+												<Property Name="TrimEnd" Type="Real64" Value="2.4288125819135"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>BOOM 2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="596344335"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="BOOM 2" ID="{A1E6BAB6-4551-4C6F-B6B5-EC9A5972EFCB}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Bomber Explode 3" ID="{F072BEA1-A296-4D41-BAD3-77DBE89C1297}" ShortID="973568368">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="BOOM 3" ID="{773B2A2A-51C1-4E98-AA1C-F8CC06607F4D}">
+											<PropertyList>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.303475753604194"/>
+												<Property Name="TrimEnd" Type="Real64" Value="1.67098995194408"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>BOOM 3.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="21226199"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="BOOM 3" ID="{773B2A2A-51C1-4E98-AA1C-F8CC06607F4D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="DroneScan" ID="{2513CAF4-4FF2-48FD-A121-B5E33F9275A1}" ShortID="118377504">
+							<PropertyList>
+								<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Drone Scanning" ID="{629C184D-8B48-4A70-ABD2-EEA69737C0F4}" ShortID="25977165">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="PATROL" ID="{917F3776-B422-479D-A344-A82FC094CC72}">
+											<PropertyList>
+												<Property Name="LoopBegin" Type="Real64" Value="1.49803407601573"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="1.48230668414155"/>
+												<Property Name="TrimEnd" Type="Real64" Value="3.81782437745741"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>PATROL.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="922839706"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="PATROL" ID="{917F3776-B422-479D-A344-A82FC094CC72}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
 					</ChildrenList>
 				</RandomSequenceContainer>
 				<Folder Name="Computer Desktop Ambience Backgrounds" ID="{DF5C6E1C-8AF1-430C-B407-06825FF282B4}" ShortID="768628865">
@@ -798,6 +885,9 @@
 							</ChildrenList>
 						</RandomSequenceContainer>
 						<Sound Name="Objective Zone Sound" ID="{4C668FE8-DBDE-431D-AEE6-ECDB7C2DC4B4}" ShortID="371443547">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
@@ -807,16 +897,23 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="OBJECTIVE ZONE" ID="{60C24D7F-832B-454B-83B9-F70D25BE4F73}">
+								<AudioFileSource Name="Cut(obj)" ID="{54661479-6965-4490-A33B-8A4173595FA8}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.0231926605504587"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.0154617737003058"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="2.11053211009174"/>
+										<Property Name="TrimEnd" Type="Real64" Value="5.29565749235474"/>
+									</PropertyList>
 									<Language>SFX</Language>
-									<AudioFile>OBJECTIVE ZONE.wav</AudioFile>
+									<AudioFile>Cut(obj).wav</AudioFile>
 									<MediaIDList>
-										<MediaID ID="354310831"/>
+										<MediaID ID="487810415"/>
 									</MediaIDList>
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="OBJECTIVE ZONE" ID="{60C24D7F-832B-454B-83B9-F70D25BE4F73}" Platform="Linked"/>
+								<ActiveSource Name="Cut(obj)" ID="{54661479-6965-4490-A33B-8A4173595FA8}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
@@ -868,6 +965,9 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Low Health" ID="{17CD41C0-9AED-4A26-9DDC-FD498ACF9F5A}" ShortID="938545004">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
@@ -878,6 +978,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="Low Heatlh (Plus alarm)" ID="{3AF1EBBD-886C-41C8-8199-D3B1DB4E4FFB}">
+									<PropertyList>
+										<Property Name="VolumeOffset" Type="Real64">
+											<ValueList>
+												<Value>-11.5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>Low Heatlh (Plus alarm).wav</AudioFile>
 									<MediaIDList>
@@ -922,6 +1029,10 @@
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="AMB" ID="{F5C42098-CC95-4D97-AA81-01755A8DB91B}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="1.56094364351245"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>AMB.wav</AudioFile>
 									<MediaIDList>
