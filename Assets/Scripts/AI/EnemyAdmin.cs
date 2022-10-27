@@ -5,12 +5,12 @@ public class EnemyAdmin : MonoBehaviour
 {
     [SerializeField] private GameObject aiNodes;
     private AINode[] allAiNodes;
+    public bool IsDisguised = false;
 
     [Header("Enemies")]
     [SerializeField] private Enemy[] availableEnemyPrefabs;
     [SerializeField] private int absoluteMaxEnemyCount;
     [SerializeField] private float playerSpawnEnemyFreeBufferRadius = 200;
-
 
     [Header("Alert Status Light Color")]
     [SerializeField, Range(0, 1)] private float alertness = 0;
@@ -36,7 +36,10 @@ public class EnemyAdmin : MonoBehaviour
 
     public void IncreaseAlertness(float delta)
     {
-        StartCoroutine(LerpIncreaseAlertness(delta));
+        if (!IsDisguised)
+        {
+            StartCoroutine(LerpIncreaseAlertness(delta));
+        }
     }
 
     private IEnumerator LerpIncreaseAlertness(float delta, float increasePeriod = 0.5f)

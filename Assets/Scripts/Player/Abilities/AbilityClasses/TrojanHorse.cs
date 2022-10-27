@@ -24,21 +24,21 @@ public class TrojanHorse : AbilityBase
     {
         bool isRunning = true;
 
-        PlayerVirus pv = GameManager.LevelManager.ActiveSceneController.Player;
-        pv.gameObject.layer = LayerMask.NameToLayer("Default");
-        pv.tag = "Untagged";
+        BaseSceneController controller = GameManager.LevelManager.ActiveSceneController;
+        controller.enemyAdmin.IsDisguised = true;
+        PlayerVirus pv = controller.Player;
         pv.PlayerVisual.SetActive(false);
         trojanVisual.SetActive(true);
 
         TimeTracker time = new(trojanHorse.AbilityDuration.GetCurrentValue(AbilityUpgrade.UnlockProgression), 1);
         time.onFinish += () =>
         {
-            pv.gameObject.layer = LayerMask.NameToLayer("Player");
-            pv.tag = "Player";
+            controller.enemyAdmin.IsDisguised = false;
             pv.PlayerVisual.SetActive(true);
             trojanVisual.SetActive(false);
             isRunning = false;
         };
+
         do
         {
             yield return null;
