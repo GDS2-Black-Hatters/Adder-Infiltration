@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class CinameticTextBox : MonoBehaviour
@@ -34,6 +35,7 @@ public class CinameticTextBox : MonoBehaviour
     private string completedText;
     private int activeDialogueIndex = 0;
     private float delayProgress = 0;
+    [SerializeField] private UnityEvent OnFinish;
 
     private void Awake()
     {
@@ -59,6 +61,7 @@ public class CinameticTextBox : MonoBehaviour
             if (activeDialogueIndex >= textBoxContents.Length)
             {
                 textBox.text = completedText;
+                OnFinish.Invoke();
                 enabled = false;
             }
         }

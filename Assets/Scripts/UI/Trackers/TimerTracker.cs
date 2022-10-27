@@ -13,10 +13,7 @@ public class TimerTracker : CaughtVariableTracker
     protected override void Start()
     {
         base.Start();
-        TimeToLive.onFinish += () =>
-        {
-            GameManager.LevelManager.ChangeLevel(Hub);
-        };
+        TimeToLive.onFinish += GameManager.LevelManager.OnDeath;
 
         text = GetComponentInChildren<TextMeshProUGUI>();
         GameManager.LevelManager.ActiveSceneController.enemyAdmin.OnFullAlert += StartTimer;

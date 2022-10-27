@@ -140,6 +140,11 @@ public sealed class VariableManager : BaseManager
         GameManager.SaveManager.SaveToFile();
     }
 
+    public void FinishTutorial()
+    {
+        SetVariable(tutorialFinish, true);
+    }
+
     #region Use carefully.
     /// <summary>
     /// This should not be used.
@@ -157,7 +162,7 @@ public sealed class VariableManager : BaseManager
     {
         Dictionary<VariableToSave, object> defaultValues = new()
         {
-            { bytecoins, 100 }, //TODO: Set to 0 for next sprint.
+            { bytecoins, 100 },
             { intelligenceData, 100 },
             { processingPower, 100 },
             { allUnlockables, new Dictionary<AllUnlockables, Unlockable>()
@@ -194,6 +199,7 @@ public sealed class VariableManager : BaseManager
                     { RunMinigame, 0 }
                 }
             },
+            { tutorialFinish, false },
             { mouseSprite, DefaultMouse },
             { mouseSensitivity, 0.09f },
             { audioVolume, 75f },

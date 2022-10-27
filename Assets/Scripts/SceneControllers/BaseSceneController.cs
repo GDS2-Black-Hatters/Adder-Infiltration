@@ -77,7 +77,7 @@ public class BaseSceneController : MonoBehaviour
         //Fall Off Check
         if (Player.transform.position.y < -15f)
         {
-            GameManager.LevelManager.ChangeLevel(Hub);
+            GameManager.LevelManager.OnDeath();
         }
     }
 

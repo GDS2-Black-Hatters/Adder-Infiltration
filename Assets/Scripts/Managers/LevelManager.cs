@@ -69,11 +69,6 @@ public sealed class LevelManager : BaseManager
         Cursor.lockState = lockMouse ? CursorLockMode.Locked : CursorLockMode.None;
     }
 
-    private void Start()
-    {
-        StartCoroutine(Transition(level, null, false));
-    }
-
     /// <summary>
     /// Changes the scene accordingly.
     /// </summary>
@@ -84,7 +79,6 @@ public sealed class LevelManager : BaseManager
         if (!isTransitioning)
         {
             isTransitioning = true;
-            //Add code here if you want to customise the transitions and loading stuff here.
             StartCoroutine(Transition(level, notify));
         }
     }
@@ -99,7 +93,20 @@ public sealed class LevelManager : BaseManager
         ChangeLevel(level, null);
     }
 
-    private IEnumerator Transition(Level newLevel, Action notify = null, bool doTransitionIn = true)
+    public void OnDeath()
+    {
+        if (GameManager.VariableManager.GetVariable<bool>(SaveManager.VariableToSave.tutorialFinish))
+        {
+            GameManager.LevelManager.ChangeLevel(Level.Hub);
+        }
+        else if(!isTransitioning)
+        {
+            isTransitioning = true;
+            StartCoroutine(Transition(level, forceRestart: true));
+        }
+    }
+
+    private IEnumerator Transition(Level newLevel, Action notify = null, bool doTransitionIn = true, bool forceRestart = false)
     {
         IEnumerator LoadProgress(AsyncOperation async)
         {
@@ -125,7 +132,7 @@ public sealed class LevelManager : BaseManager
             yield return StartCoroutine(TransitionPlay(transitionType.transitionIn));
             yield return StartCoroutine(TransitionPlay(feedbackType.feedbackIn));
 
-            if (level != newLevel)
+            if (level != newLevel || forceRestart)
             {
                 //if the level requires a long load time, yield return the loading scene first, then start loading the actual scene async in the background.
                 if((int)newLevel >= longLoadLevels)

@@ -13,10 +13,7 @@ public class PlayerVirus : MonoBehaviour
     private void Awake()
     {
         movement = GetComponent<PlayerVirusMoveControl>();
-        HP.onDeath += () =>
-        {
-            GameManager.LevelManager.ChangeLevel(Hub);
-        };
+        HP.onDeath += GameManager.LevelManager.OnDeath;
     }
 
     public void Dash(float strength)
