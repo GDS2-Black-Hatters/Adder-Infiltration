@@ -13,13 +13,19 @@ public class RunGameplayScreen : MinigameGameplayScreen
     [SerializeField] private int maxSpawns = 10;
     [SerializeField] private GameObject runner;
     [SerializeField] private Obstacle obstaclePrefab;
+    private Vector3 originalPlayerPos;
 
     protected override void OnEnable()
     {
         distanceRan = 0;
+        runner.transform.position = originalPlayerPos;
         base.OnEnable();
     }
 
+    private void Awake()
+    {
+        originalPlayerPos = runner.transform.position;
+    }
     private void Start()
     {
         //The timer will automatically call a delegate method when it finishes.

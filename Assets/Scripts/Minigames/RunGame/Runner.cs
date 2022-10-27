@@ -13,6 +13,7 @@ public class Runner : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody>();
     }
 
+
     private void Update()
     {
         if (Input.GetButtonDown("Jump"))
