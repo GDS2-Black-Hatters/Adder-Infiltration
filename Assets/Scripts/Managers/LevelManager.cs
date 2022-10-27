@@ -58,6 +58,11 @@ public sealed class LevelManager : BaseManager
         return this;
     }
 
+    private void Start()
+    {
+        UpdateLevelIndex();
+    }
+
     /// <summary>
     /// Toggles the state of the mouse.
     /// </summary>
@@ -155,14 +160,6 @@ public sealed class LevelManager : BaseManager
         OnApplicationFocus(true);
         UpdateLevelIndex();
 
-        bool isNotInGame = (int)level < gameLevels;
-        if (isNotInGame) //Camera Reset
-        {
-            Camera.main.transform.eulerAngles = Vector3.zero;
-            Camera.main.transform.position = new(0, 10, -10);
-        }
-        GameManager.InputManager.SetControlScheme(isNotInGame ? Hub : MainGame);
-
         yield return StartCoroutine(TransitionPlay(transitionType.transitionOut));
         transitionAnim.Play("Waiting");
         isTransitioning = false;
@@ -179,6 +176,14 @@ public sealed class LevelManager : BaseManager
             level = Level.Unknown;
         }
         OnApplicationFocus(true);
+
+        bool isNotInGame = (int)level < gameLevels;
+        if (isNotInGame) //Camera Reset
+        {
+            Camera.main.transform.eulerAngles = Vector3.zero;
+            Camera.main.transform.position = new(0, 10, -10);
+        }
+        GameManager.InputManager.SetControlScheme(isNotInGame ? Hub : MainGame);
     }
 
     public void SetIsGamePaused(bool isGamePaused)

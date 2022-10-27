@@ -5,8 +5,8 @@ using static InputManager;
 
 public class TabKeyController : MonoBehaviour
 {
-    bool isActive = true;
     [SerializeField] private GameObject objectiveList;
+    [SerializeField] private GameObject objectiveListCollapse;
 
     void Awake()
     {
@@ -18,8 +18,12 @@ public class TabKeyController : MonoBehaviour
 
     private void Hold(InputAction.CallbackContext callbackContext)
     {
-        
-        isActive = !isActive;
-        objectiveList.SetActive(isActive);
+        ToggleGameObject(objectiveList);
+        ToggleGameObject(objectiveListCollapse);
+    }
+    
+    private void ToggleGameObject(GameObject go)
+    {
+        go.SetActive(!go.activeInHierarchy);
     }
 }
