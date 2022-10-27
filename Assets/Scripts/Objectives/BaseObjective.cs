@@ -3,32 +3,21 @@ using UnityEngine;
 
 public abstract class BaseObjective : MonoBehaviour
 {
-    [SerializeField, Range(0,1)] protected float mandatoryChance = 0;
-    public bool isMandatory { get; protected set; }
     [field: SerializeField] public bool isComplete { get; protected set; } = false;
-    public abstract string objectiveTitle { get; }
-    public bool canBeMandatory { get; protected set; } = true;
+    [field: SerializeField] public string objectiveTitle { get; protected set; }
 
     [SerializeField] protected AK.Wwise.Event ObjectiveCompleteSound;
     [SerializeField] protected UnityEngine.Events.UnityEvent OnObjectiveComplete;
-
-    protected virtual void Awake()
-    {
-        isMandatory = DoStatic.RandomBool(mandatoryChance);
-    }
 
     protected virtual void Start()
     {
         GameManager.LevelManager.ActiveSceneController.AddToObjectiveList(this);
     }
 
-    public void ForceMandatory()
+    protected virtual void ObjectiveFinish()
     {
-        isMandatory = true;
-    }
-
-    protected virtual void OnDestroy()
-    {
+        enabled = false;
+        ObjectiveCompleteSound.Post(gameObject);
         isComplete = true;
         OnObjectiveComplete.Invoke();
     }

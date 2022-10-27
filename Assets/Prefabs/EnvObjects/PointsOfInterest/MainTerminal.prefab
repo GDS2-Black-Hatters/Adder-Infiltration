@@ -230,8 +230,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86ed4ffe98d7b0d4faf5d582f280c9b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mandatoryChance: 1
   <isComplete>k__BackingField: 0
+  <objectiveTitle>k__BackingField: Hack into terminal
   ObjectiveCompleteSound:
     idInternal: 0
     valueGuidInternal: 
@@ -239,7 +239,6 @@ MonoBehaviour:
   OnObjectiveComplete:
     m_PersistentCalls:
       m_Calls: []
-  _objectiveText: Hack into device
 --- !u!212 &3477242364144663169
 SpriteRenderer:
   m_ObjectHideFlags: 0

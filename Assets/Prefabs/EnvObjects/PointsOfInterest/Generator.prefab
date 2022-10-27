@@ -115,8 +115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86ed4ffe98d7b0d4faf5d582f280c9b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mandatoryChance: 0.4
   <isComplete>k__BackingField: 0
+  <objectiveTitle>k__BackingField: Reroute the generator
   ObjectiveCompleteSound:
     idInternal: 0
     valueGuidInternal: 
@@ -124,7 +124,6 @@ MonoBehaviour:
   OnObjectiveComplete:
     m_PersistentCalls:
       m_Calls: []
-  _objectiveText: Hijack Generator
 --- !u!114 &2972461904073305674
 MonoBehaviour:
   m_ObjectHideFlags: 0

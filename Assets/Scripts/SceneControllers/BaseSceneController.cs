@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -20,7 +21,6 @@ public class BaseSceneController : MonoBehaviour
     public bool canFinish { get; private set; } = false;
     [field: SerializeField] public EnemyAdmin enemyAdmin { get; private set; }
     private readonly List<Transform> playerSpawnPoints = new();
-    private bool hasAMandatoryObjective = false;
     private ColorAdjustments colorAdjustments;
     private readonly List<CanvasGroup> iconCanvases = new();
 
@@ -75,10 +75,9 @@ public class BaseSceneController : MonoBehaviour
         UpdateObjectiveList();
 
         //Fall Off Check
-        LevelManager levelManager = GameManager.LevelManager;
-        if (levelManager.ActiveSceneController.Player.transform.position.y < -15f)
+        if (Player.transform.position.y < -15f)
         {
-            levelManager.ChangeLevel(Hub);
+            GameManager.LevelManager.ChangeLevel(Hub);
         }
     }
 
@@ -114,38 +113,31 @@ public class BaseSceneController : MonoBehaviour
     public void AddToObjectiveList(BaseObjective objective)
     {
         objectives.Add(objective);
-        if (!hasAMandatoryObjective && (hasAMandatoryObjective = objective.canBeMandatory))
-        {
-            objective.ForceMandatory();
-        }
     }
 
     public void UpdateObjectiveList()
     {
-        string mandatory = "";
-        string optional = "";
-        int mandatoryCount = 0;
+        if (canFinish)
+        {
+            return;
+        }
+
+        //StringBuilder is apparently way faster than any string append and such.
+        StringBuilder item = new("Objective List:");
+
+        int unfinishedCount = 0;
         foreach (BaseObjective objective in objectives)
         {
-            string item = (objective.isMandatory ? "<color=\"yellow\">" : "") + "\n\t";
-            item += (objective.isComplete ? "<s>" : "") + "- ";
-            item += objective.objectiveTitle;
-            item += objective.isComplete ? "</s>" : "";
-            item += objective.isMandatory ? "</color=\"yellow\">" : "";
-
-            if (objective.isMandatory)
-            {
-                mandatoryCount += objective.isComplete ? 0 : 1;
-                mandatory += item;
-            }
-            else
-            {
-                optional += item;
-            }
+            unfinishedCount += objective.isComplete ? 0 : 1;
+            item.Append("\n\t");
+            item.Append(objective.isComplete ? "<s>" : "");
+            item.Append("- ");
+            item.Append(objective.objectiveTitle);
+            item.Append(objective.isComplete ? "</s>" : "");
         }
-        canFinish = mandatoryCount == 0;
-        string extra = canFinish ? "\nMission Completed, escape through a cell tower." : "";
-        objectiveList.text = $"Objective List:{mandatory}{optional}{extra}";
+        canFinish = unfinishedCount == 0;
+        item.Append(canFinish ? "\nMission Completed, escape through a cell tower." : "");
+        objectiveList.text = item.ToString();
     }
 
     private IEnumerator LerpSkybox()
