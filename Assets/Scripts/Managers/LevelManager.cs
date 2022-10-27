@@ -21,14 +21,15 @@ public sealed class LevelManager : BaseManager
         //Add game levels below this.
         Tutorial = gameLevels,
         Tutorial2,
-        Tutorial3,
+        Campaign1,
+        Campaign2,
+        Campaign3,
+        Campaign4,
+        Campaign5,
 
         //Anything below this will be given the long load scene and will require a release call to get out of the loading scene
         StandardProceduralLevel = longLoadLevels,
-
-        //For Demo Purpose
-        DemoProceduralLevel,
-
+        ProceduralLevel,
         Unknown, //This is for any unofficial levels.
     }
     public Level level { get; private set; }

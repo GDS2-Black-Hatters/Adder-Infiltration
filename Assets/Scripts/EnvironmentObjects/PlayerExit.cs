@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerExit : MonoBehaviour
 {
     [SerializeField] private LevelManager.Level nextScene;
-    [SerializeField] private bool incrementMoney = false; //TODO: Probably remove this later
+    [SerializeField] private bool incrementMoney = false;
 
     public void ExitLevel()
     {
@@ -12,7 +12,6 @@ public class PlayerExit : MonoBehaviour
             if (incrementMoney)
             {
                 GameManager.VariableManager.RandomIncrement();
-                Debug.LogError("Remove this later.");
             }
 
             GameManager.LevelManager.ChangeLevel(nextScene);

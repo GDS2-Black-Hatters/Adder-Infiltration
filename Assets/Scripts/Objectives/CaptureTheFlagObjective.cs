@@ -4,11 +4,9 @@ using UnityEngine;
 public class CaptureTheFlagObjective : BaseObjective
 {
     [SerializeField] private float captureTime = 5f;
+    [SerializeField] protected string prefixName = "Secure vulnerability";
     private TimeTracker timer;
     private bool withinRange = false;
-    [SerializeField] protected string prefixName = "Secure vulnerability";
-    private string _objectiveTitle;
-    public override string objectiveTitle { get { return _objectiveTitle; }}
 
     public UnityEngine.Events.UnityEvent<float> onProgressUpdate;
 
@@ -19,30 +17,19 @@ public class CaptureTheFlagObjective : BaseObjective
         UpdateName(0);
     }
 
-    private float UpdateTimer()
-    {
-        return timer.Update(Time.deltaTime * (withinRange ? 1 : -1)) / timer.timer;
-    }
-
-    private void UpdateProgress(float progress)
-    {
-        onProgressUpdate.Invoke(progress);
-    }
-
     private void UpdateName(float progress)
     {
-        _objectiveTitle = $"{prefixName} ({progress * 100:00.0}%)";
+        objectiveTitle = $"{prefixName} ({progress * 100:00.0}%)";
         if (progress == 1)
         {
-            ObjectiveCompleteSound.Post(gameObject);
-            Destroy(this);
+            ObjectiveFinish();
         }
     }
 
     void Update()
     {
-        float progress = UpdateTimer();
-        UpdateProgress(progress);
+        float progress = timer.Update(Time.deltaTime * (withinRange ? 1 : -1)) / timer.timer;
+        onProgressUpdate.Invoke(progress);
         UpdateName(progress);
     }
 
