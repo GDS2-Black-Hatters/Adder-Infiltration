@@ -1,4 +1,3 @@
-using TMPro;
 using UnityEngine;
 
 public class RunGameplayScreen : MinigameGameplayScreen
@@ -63,6 +62,6 @@ public class RunGameplayScreen : MinigameGameplayScreen
     protected override void UpdateScore()
     {
         //$ in front of the string is interpolation. tl:dr it just reads easier than adding everything.
-        scoreboard.text = $"Distance Ran: {distanceRan:F2}km";
+        scoreboard.text = $"Distance Ran: {distanceRan:F2}km\nHigh Score: {GameManager.VariableManager.GetMinigameScore(VariableManager.AllUnlockables.RunMinigame)}km";
     }
 }

@@ -113,6 +113,7 @@ public class BaseSceneController : MonoBehaviour
     public void AddToObjectiveList(BaseObjective objective)
     {
         objectives.Add(objective);
+        canFinish = false;
     }
 
     public void UpdateObjectiveList()
