@@ -393,7 +393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8584574091665351877, guid: e067b651c87cee148946ec729831b7d6, type: 3}
       propertyPath: m_Radius
-      value: 6
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4465324166270719627, guid: e067b651c87cee148946ec729831b7d6, type: 3}
@@ -570,7 +570,7 @@ MonoBehaviour:
   customPatrolPath: []
   nodeLeniency: 75
   bulletPoint: {fileID: 4611595807367970643}
-  bulletSpeed: 7
+  bulletSpeed: 25
   attackCooldown:
     <timer>k__BackingField: 1
     <timeScale>k__BackingField: -1

@@ -38,7 +38,7 @@ public abstract class Enemy : MonoBehaviour
     {
         health.Reset();
         health.onDeath += Death;
-        raycastMask = 1 << LayerMask.NameToLayer("Player") | 1 << LayerMask.NameToLayer("Terrain");
+        raycastMask = 1 << LayerMask.NameToLayer("Player") | 1 << LayerMask.NameToLayer("Terrain") | 1 << LayerMask.NameToLayer("InvisibleWall");
         rb = GetComponent<Rigidbody>();
         attackRange = GetComponentInChildren<EnemyAttackRange>();
         detectionRange = GetComponentInChildren<EnemyDetectionRange>();
@@ -201,7 +201,7 @@ public abstract class Enemy : MonoBehaviour
     {
         Transform player = GameManager.LevelManager.ActiveSceneController.Player.transform;
         Vector3 dir = player.position - transform.position;
-        bool hit = Physics.Raycast(transform.position, dir, out RaycastHit hitInfo, int.MaxValue, raycastMask);
+        bool hit = Physics.Raycast(transform.position, dir, out RaycastHit hitInfo, float.MaxValue, raycastMask);
         if (hit && hitInfo.transform == player) //If the enemy can see the player, book it to them.
         {
             nodeTarget = null;
