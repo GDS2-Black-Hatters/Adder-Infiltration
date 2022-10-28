@@ -859,6 +859,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="Scrolling SFX" ID="{4F267D92-81FC-4130-9C7D-E5507E28D325}">
+									<PropertyList>
+										<Property Name="VolumeOffset" Type="Real64">
+											<ValueList>
+												<Value>2.1</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>Scrolling SFX.wav</AudioFile>
 									<MediaIDList>
@@ -898,6 +905,13 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="DASH 1" ID="{ED9DBFEC-F27D-44B7-BC99-2DE653C8C09D}">
+											<PropertyList>
+												<Property Name="VolumeOffset" Type="Real64">
+													<ValueList>
+														<Value>3</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>DASH 1.wav</AudioFile>
 											<MediaIDList>
@@ -927,6 +941,13 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="DASH 2" ID="{933083E3-322A-4394-9C75-D35FAECE4880}">
+											<PropertyList>
+												<Property Name="VolumeOffset" Type="Real64">
+													<ValueList>
+														<Value>3</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>DASH 2.wav</AudioFile>
 											<MediaIDList>
@@ -956,6 +977,13 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="DASH 3" ID="{E3EE4FB5-3DC8-4E9E-8DC3-16A267CC6189}">
+											<PropertyList>
+												<Property Name="VolumeOffset" Type="Real64">
+													<ValueList>
+														<Value>3</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>DASH 3.wav</AudioFile>
 											<MediaIDList>
@@ -979,16 +1007,16 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="110564__2887679652__emp-blast" ID="{10F25903-08A6-4A34-9FFF-D22B9266853C}">
+								<AudioFileSource Name="Scan" ID="{51F4FCCD-1E60-4753-948B-6962BDA092C0}">
 									<Language>SFX</Language>
-									<AudioFile>110564__2887679652__emp-blast.wav</AudioFile>
+									<AudioFile>Scan.wav</AudioFile>
 									<MediaIDList>
-										<MediaID ID="584299720"/>
+										<MediaID ID="352346894"/>
 									</MediaIDList>
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="110564__2887679652__emp-blast" ID="{10F25903-08A6-4A34-9FFF-D22B9266853C}" Platform="Linked"/>
+								<ActiveSource Name="Scan" ID="{51F4FCCD-1E60-4753-948B-6962BDA092C0}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Heal" ID="{1B24C955-1C35-4293-BAE2-8B76DC53E192}" ShortID="247857530">
