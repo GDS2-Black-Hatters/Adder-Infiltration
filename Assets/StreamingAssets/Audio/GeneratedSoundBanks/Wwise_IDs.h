@@ -22,6 +22,9 @@ namespace AK
         static const AkUniqueID EMP1 = 376048186U;
         static const AkUniqueID EMP2 = 376048185U;
         static const AkUniqueID EMP3 = 376048184U;
+        static const AkUniqueID EMP4 = 376048191U;
+        static const AkUniqueID EMP5 = 376048190U;
+        static const AkUniqueID EMP6 = 376048189U;
         static const AkUniqueID ENEMYBOMBERMOVE = 2090838661U;
         static const AkUniqueID ENEMYDRONEAMB = 1504246845U;
         static const AkUniqueID ENEMYSHARK = 2348200894U;
@@ -35,7 +38,11 @@ namespace AK
         static const AkUniqueID MUSIC = 3991942870U;
         static const AkUniqueID NOTFULLYDETECTED = 2659346142U;
         static const AkUniqueID OBJECTIVECOMPLETE_EVENT = 551763010U;
+        static const AkUniqueID OBJINTERACT = 1635849470U;
+        static const AkUniqueID PICKUPOBJECTIVE = 2764882286U;
         static const AkUniqueID PLAYERDISCOVERED_EVENT = 2538572501U;
+        static const AkUniqueID PROGRESSBAR = 1922958967U;
+        static const AkUniqueID RANDOMEMP = 2698850518U;
         static const AkUniqueID SCROLL = 454121546U;
         static const AkUniqueID TAKEDAMAGE = 2784187423U;
         static const AkUniqueID TARGETHOOKED = 2827905996U;
@@ -44,6 +51,7 @@ namespace AK
         static const AkUniqueID TRANSFORM = 1422622395U;
         static const AkUniqueID TYPING = 1599183472U;
         static const AkUniqueID ZONE = 832057375U;
+        static const AkUniqueID ZONEINTERACT = 292708525U;
     } // namespace EVENTS
 
     namespace STATES

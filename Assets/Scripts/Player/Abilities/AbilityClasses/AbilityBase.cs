@@ -56,5 +56,8 @@ public abstract class AbilityBase : MonoBehaviour
         CooldownTimer.SetTimer(Ability.Cooldown.GetCurrentValue(AbilityUpgrade.UnlockProgression));
     }
 
-    protected abstract void DoAbilityEffect();
+    protected virtual void DoAbilityEffect()
+    {
+        activateSoundEffect.Post(gameObject);
+    }
 }

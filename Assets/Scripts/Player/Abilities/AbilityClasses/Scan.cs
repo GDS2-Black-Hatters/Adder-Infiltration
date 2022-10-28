@@ -6,6 +6,7 @@ public class Scan : AbilityBase
 
     protected override void DoAbilityEffect()
     {
+        base.DoAbilityEffect();
         GameManager.LevelManager.ActiveSceneController.StartScan();
     }
 }

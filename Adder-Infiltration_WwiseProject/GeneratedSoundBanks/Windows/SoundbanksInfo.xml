@@ -34,13 +34,17 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="4096625075" Type="User" Language="SFX" Hash="{992579C9-526B-A1EE-FAB4-96784CDD5128}">
+		<SoundBank Id="4096625075" Type="User" Language="SFX" Hash="{7934EF0D-3090-7661-A0BD-F0C770BF74D3}">
 			<ShortName>MainLevelSoundBank</ShortName>
 			<Path>MainLevelSoundBank.bnk</Path>
 			<Media>
 				<File Id="21226199" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>BOOM 3.wav</ShortName>
 					<CachePath>SFX/BOOM 3_7A9F12E9.wem</CachePath>
+				</File>
+				<File Id="50950406" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>EMP1_1.wav</ShortName>
+					<CachePath>SFX/EMP1_1_10C4C929.wem</CachePath>
 				</File>
 				<File Id="53535387" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Slower Engine.wav</ShortName>
@@ -49,6 +53,22 @@
 				<File Id="75956038" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Taking Damage.wav</ShortName>
 					<CachePath>SFX/Taking Damage_10C4C929.wem</CachePath>
+				</File>
+				<File Id="93620789" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Type1.wav</ShortName>
+					<CachePath>SFX/Type1_10C4C929.wem</CachePath>
+				</File>
+				<File Id="97967462" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>EMP6.wav</ShortName>
+					<CachePath>SFX/EMP6_10C4C929.wem</CachePath>
+				</File>
+				<File Id="104176952" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Type6.wav</ShortName>
+					<CachePath>SFX/Type6_10C4C929.wem</CachePath>
+				</File>
+				<File Id="153678803" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>EMP2.wav</ShortName>
+					<CachePath>SFX/EMP2_10C4C929.wem</CachePath>
 				</File>
 				<File Id="165704387" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Death.wav</ShortName>
@@ -62,6 +82,10 @@
 					<ShortName>Fishing Minigame_Real.wav</ShortName>
 					<CachePath>SFX/Fishing Minigame_Real_10C4C929.wem</CachePath>
 				</File>
+				<File Id="219866341" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>EMP5.wav</ShortName>
+					<CachePath>SFX/EMP5_10C4C929.wem</CachePath>
+				</File>
 				<File Id="222351913" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Adder Infiltration Stealth v2 (Variation3).wav</ShortName>
 					<CachePath>SFX/Adder Infiltration Stealth v2 (Variation3)_D79FB2B7.wem</CachePath>
@@ -69,6 +93,10 @@
 				<File Id="238848259" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Low Heatlh (Plus alarm).wav</ShortName>
 					<CachePath>SFX/Low Heatlh (Plus alarm)_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="245987103" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Type5.wav</ShortName>
+					<CachePath>SFX/Type5_10C4C929.wem</CachePath>
 				</File>
 				<File Id="294137384" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Laser1.wav</ShortName>
@@ -94,6 +122,10 @@
 					<ShortName>Bomber Movement.wav</ShortName>
 					<CachePath>SFX/Bomber Movement_ABE1643E.wem</CachePath>
 				</File>
+				<File Id="486742705" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Type2.wav</ShortName>
+					<CachePath>SFX/Type2_10C4C929.wem</CachePath>
+				</File>
 				<File Id="487810415" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cut(obj).wav</ShortName>
 					<CachePath>SFX/Cut(obj)_612E434F.wem</CachePath>
@@ -110,9 +142,21 @@
 					<ShortName>Adder Infiltration Stealth v2 (Variation6).wav</ShortName>
 					<CachePath>SFX/Adder Infiltration Stealth v2 (Variation6)_D79FB2B7.wem</CachePath>
 				</File>
+				<File Id="534446674" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Progress Bar.wav</ShortName>
+					<CachePath>SFX/Progress Bar_7D395221.wem</CachePath>
+				</File>
+				<File Id="553310044" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Type3.wav</ShortName>
+					<CachePath>SFX/Type3_10C4C929.wem</CachePath>
+				</File>
 				<File Id="596344335" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>BOOM 2.wav</ShortName>
 					<CachePath>SFX/BOOM 2_BFE47742.wem</CachePath>
+				</File>
+				<File Id="651196728" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Progress Bar.wav</ShortName>
+					<CachePath>SFX/Progress Bar_378C0DD3.wem</CachePath>
 				</File>
 				<File Id="651979137" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>BOOM 1.wav</ShortName>
@@ -149,6 +193,14 @@
 				<File Id="804809704" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Adder Infiltration Stealth v2 (Variation2).wav</ShortName>
 					<CachePath>SFX/Adder Infiltration Stealth v2 (Variation2)_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="807439261" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>EMP3.wav</ShortName>
+					<CachePath>SFX/EMP3_10C4C929.wem</CachePath>
+				</File>
+				<File Id="823434167" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>EMP4.wav</ShortName>
+					<CachePath>SFX/EMP4_10C4C929.wem</CachePath>
 				</File>
 				<File Id="843477630" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Scrolling SFX.wav</ShortName>
@@ -190,9 +242,17 @@
 					<ShortName>EnemyAmbient.wav</ShortName>
 					<CachePath>SFX/EnemyAmbient_D79FB2B7.wem</CachePath>
 				</File>
+				<File Id="1018815491" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Progress Bar.wav</ShortName>
+					<CachePath>SFX/Progress Bar_2F302A55.wem</CachePath>
+				</File>
 				<File Id="1032776037" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Pickup-capture point.wav</ShortName>
 					<CachePath>SFX/Pickup-capture point_10C4C929.wem</CachePath>
+				</File>
+				<File Id="1038635734" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Type3_1.wav</ShortName>
+					<CachePath>SFX/Type3_1_10C4C929.wem</CachePath>
 				</File>
 				<File Id="1041122036" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>DASH 3.wav</ShortName>
@@ -239,9 +299,36 @@
 						<MediaRef Id="922839706"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="376048186" Name="EMP1" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
-				<Event Id="376048185" Name="EMP2" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
-				<Event Id="376048184" Name="EMP3" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="376048186" Name="EMP1" DurationType="OneShot" DurationMin="3.9466667" DurationMax="3.9466667">
+					<MediaRefs>
+						<MediaRef Id="50950406"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="376048185" Name="EMP2" DurationType="OneShot" DurationMin="3.2730417" DurationMax="3.2730417">
+					<MediaRefs>
+						<MediaRef Id="153678803"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="376048184" Name="EMP3" DurationType="OneShot" DurationMin="2.2984166" DurationMax="2.2984166">
+					<MediaRefs>
+						<MediaRef Id="807439261"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="376048191" Name="EMP4" DurationType="OneShot" DurationMin="1.9193958" DurationMax="1.9193958">
+					<MediaRefs>
+						<MediaRef Id="823434167"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="376048190" Name="EMP5" DurationType="OneShot" DurationMin="1.602875" DurationMax="1.602875">
+					<MediaRefs>
+						<MediaRef Id="219866341"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="376048189" Name="EMP6" DurationType="OneShot" DurationMin="1.047625" DurationMax="1.047625">
+					<MediaRefs>
+						<MediaRef Id="97967462"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="2090838661" Name="EnemyBomberMove" MaxAttenuation="100" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="444352329"/>
@@ -332,10 +419,35 @@
 						<MediaRef Id="1032776037"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="1635849470" Name="ObjInteract" DurationType="OneShot" DurationMin="3.1692097" DurationMax="3.1692097">
+					<MediaRefs>
+						<MediaRef Id="651196728"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2764882286" Name="PickupObjective" DurationType="OneShot" DurationMin="0.8333333" DurationMax="0.8333333">
+					<MediaRefs>
+						<MediaRef Id="1032776037"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="2538572501" Name="PlayerDiscovered_Event" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0">
 					<ActionSetState>
 						<ActionSetStateEntry GroupId="3924600286" Id="2206681103" Name="Discovered"/>
 					</ActionSetState>
+				</Event>
+				<Event Id="1922958967" Name="ProgressBar" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="1018815491"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2698850518" Name="RandomEMP" DurationType="OneShot" DurationMin="1.047625" DurationMax="3.9466667">
+					<MediaRefs>
+						<MediaRef Id="50950406"/>
+						<MediaRef Id="97967462"/>
+						<MediaRef Id="153678803"/>
+						<MediaRef Id="219866341"/>
+						<MediaRef Id="807439261"/>
+						<MediaRef Id="823434167"/>
+					</MediaRefs>
 				</Event>
 				<Event Id="454121546" Name="Scroll" DurationType="OneShot" DurationMin="0.29099774" DurationMax="0.29099774">
 					<MediaRefs>
@@ -367,10 +479,24 @@
 						<MediaRef Id="308255185"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1599183472" Name="Typing" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="1599183472" Name="Typing" DurationType="OneShot" DurationMin="0.338875" DurationMax="0.338875">
+					<MediaRefs>
+						<MediaRef Id="93620789"/>
+						<MediaRef Id="104176952"/>
+						<MediaRef Id="245987103"/>
+						<MediaRef Id="486742705"/>
+						<MediaRef Id="553310044"/>
+						<MediaRef Id="1038635734"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="832057375" Name="Zone" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="487810415"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="292708525" Name="ZoneInteract" DurationType="OneShot" DurationMin="5.1093845" DurationMax="5.1093845">
+					<MediaRefs>
+						<MediaRef Id="534446674"/>
 					</MediaRefs>
 				</Event>
 			</Events>
@@ -385,5 +511,5 @@
 			</StateGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{798DD1AB-B090-E1D0-6DEF-2709455B2F94}</FileHash>
+	<FileHash>{6461400B-CE3D-CD47-32D3-0CC97B928D55}</FileHash>
 </SoundBanksInfo>

@@ -9,6 +9,7 @@ public class Interactable : MonoBehaviour
     [SerializeField] private UnityEngine.Events.UnityEvent<float> onInteractProgress; //for updating visuals, sends progress as a float from 0-1.
 
     private TimeTracker interactHoldTimer;
+    [SerializeField] protected AK.Wwise.Event progressSFXEvent;
 
     private void Start()
     {
@@ -37,12 +38,14 @@ public class Interactable : MonoBehaviour
     {
         StopAllCoroutines();
         StartCoroutine(Interacting(true));
+        progressSFXEvent.Post(gameObject);
     }
 
     public void InteractHalt()
     {
         StopAllCoroutines();
-        StartCoroutine(Interacting(false));        
+        StartCoroutine(Interacting(false));
+        progressSFXEvent.Stop(gameObject);
     }
 
     private IEnumerator Interacting(bool holding)

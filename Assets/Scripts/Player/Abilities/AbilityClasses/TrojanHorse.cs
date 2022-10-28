@@ -17,6 +17,7 @@ public class TrojanHorse : AbilityBase
 
     protected override void DoAbilityEffect()
     {
+        base.DoAbilityEffect();
         StartCoroutine(Disguise());
     }
 
