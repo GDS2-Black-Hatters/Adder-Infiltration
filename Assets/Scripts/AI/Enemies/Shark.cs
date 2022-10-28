@@ -46,7 +46,6 @@ public class Shark : Enemy
             forwardPower = alwaysChaseSpeed;
             PIDTurnTowards(player);
             PIDMoveTowards(player);
-            GameManager.LevelManager.ActiveSceneController.enemyAdmin.IncreaseAlertness(CanAttack ? 1 : 0);
             return;
         }
         forwardPower = startSpeed;

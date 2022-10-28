@@ -105,6 +105,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4914432389588784826, guid: e067b651c87cee148946ec729831b7d6, type: 3}
+      propertyPath: alertIncrease
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7268229092622374421, guid: e067b651c87cee148946ec729831b7d6, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -152,6 +156,10 @@ PrefabInstance:
     - target: {fileID: 7268229092622374425, guid: e067b651c87cee148946ec729831b7d6, type: 3}
       propertyPath: m_Name
       value: Shark
+      objectReference: {fileID: 0}
+    - target: {fileID: 7268229093206108037, guid: e067b651c87cee148946ec729831b7d6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4465324166270719627, guid: e067b651c87cee148946ec729831b7d6, type: 3}
@@ -5066,7 +5074,7 @@ MonoBehaviour:
     integrationStored: 0
     velocity: 0
     derivativeInitialized: 0
-  forwardPower: 75
+  forwardPower: 20
   rotationPIDController:
     proportionalGain: 1
     integralGain: 0
@@ -5083,8 +5091,8 @@ MonoBehaviour:
   torqueForce: 40
   customPatrolPath: []
   nodeLeniency: 50
-  alwaysChaseSpeed: 100
-  distanceDetection: 30
+  alwaysChaseSpeed: 20
+  distanceDetection: 45
   susIcon: {fileID: 7540769030495942230}
 --- !u!4 &9024953055978480755 stripped
 Transform:
