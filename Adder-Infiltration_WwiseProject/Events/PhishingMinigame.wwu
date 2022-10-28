@@ -36,7 +36,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="AntivirusHit" ID="{DA397678-AE0E-43AD-8BEC-E3366D34BE5A}"/>
+				<Event Name="AntivirusHit" ID="{DA397678-AE0E-43AD-8BEC-E3366D34BE5A}">
+					<ChildrenList>
+						<Action Name="" ID="{32E269E8-FB91-4257-B1A5-65DBE9C74A8C}" ShortID="741763511">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Take Damage" ID="{03DCCBC9-E5F1-491C-A17B-011B3D792971}" WorkUnitID="{D5FBB3F7-72F3-40AC-9B3E-877FA285AAC1}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

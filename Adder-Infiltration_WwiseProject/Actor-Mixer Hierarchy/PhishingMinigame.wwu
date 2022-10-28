@@ -20,9 +20,16 @@
 								<MediaID ID="496570130"/>
 							</MediaIDList>
 						</AudioFileSource>
+						<AudioFileSource Name="Fishing Minigame_Real" ID="{A4CA6CE9-FFF3-4778-AD74-7EC933F59A04}">
+							<Language>SFX</Language>
+							<AudioFile>Fishing Minigame_Real.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="215582547"/>
+							</MediaIDList>
+						</AudioFileSource>
 					</ChildrenList>
 					<ActiveSourceList>
-						<ActiveSource Name="Fishing Minigame" ID="{78AC2602-85E3-44C8-9069-15D1DE70BE88}" Platform="Linked"/>
+						<ActiveSource Name="Fishing Minigame_Real" ID="{A4CA6CE9-FFF3-4778-AD74-7EC933F59A04}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="Hooked" ID="{02B7DD15-F914-466F-B4F4-6139BEE7250A}" ShortID="426664070">
