@@ -158,7 +158,7 @@ public abstract class Enemy : MonoBehaviour
     protected void PIDMoveTowards(Transform target)
     {
         float throttle = movementPIDController.Update(Time.fixedDeltaTime, -Vector3.Distance(transform.position, target.position), 0);
-        rb.AddForce(throttle * forwardPower * Vector3.Dot(transform.forward, (target.position - transform.position).normalized) * transform.forward);
+        rb.AddForce(MathF.Max(throttle, -0.1f) * forwardPower * Vector3.Dot(transform.forward, Vector3.Scale(target.position - transform.position, new Vector3(1, 0, 1)).normalized) * transform.forward);
     }
 
     protected void PIDTurnTowards(Transform target)
