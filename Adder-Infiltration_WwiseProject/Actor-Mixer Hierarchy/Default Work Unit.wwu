@@ -413,6 +413,7 @@
 						</Sound>
 						<RandomSequenceContainer Name="DroneScan" ID="{2513CAF4-4FF2-48FD-A121-B5E33F9275A1}" ShortID="118377504">
 							<PropertyList>
+								<Property Name="GlobalOrPerObject" Type="int16" Value="0"/>
 								<Property Name="RandomOrSequence" Type="int16" Value="0"/>
 							</PropertyList>
 							<ReferenceList>
@@ -932,7 +933,7 @@
 										<Property Name="TrimEnd" Type="Real64" Value="5.29565749235474"/>
 										<Property Name="VolumeOffset" Type="Real64">
 											<ValueList>
-												<Value>2</Value>
+												<Value>5</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>

@@ -246,6 +246,17 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="PickupObjective" ID="{CF607736-437A-447B-8EE3-B3F586BD3993}">
+							<ChildrenList>
+								<Action Name="" ID="{AD986B36-13A3-4B64-A02D-F0E9CF88D758}" ShortID="131084165">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Pickup-capture point" ID="{16DAD640-9856-49BD-88BD-E15C57B24D15}" WorkUnitID="{D5FBB3F7-72F3-40AC-9B3E-877FA285AAC1}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="LvlObjects" ID="{AE4E9916-D467-4526-99E4-67E6745B9CF1}" ShortID="102786082">
