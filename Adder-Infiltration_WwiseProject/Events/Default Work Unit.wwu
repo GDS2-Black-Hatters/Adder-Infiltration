@@ -143,6 +143,39 @@
 										</Action>
 									</ChildrenList>
 								</Event>
+								<Event Name="EMP4" ID="{662942AB-A0D7-4984-86B6-3812684542B7}">
+									<ChildrenList>
+										<Action Name="" ID="{D9A48A47-D239-427B-8EEF-E24CDA594C99}" ShortID="289578008">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Lvl 4" ID="{F48210C9-48EE-4EB3-BC5D-B4BC3F9FAB0F}" WorkUnitID="{D5FBB3F7-72F3-40AC-9B3E-877FA285AAC1}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="EMP5" ID="{67246B85-B7E6-40A1-A5B8-452A786E916A}">
+									<ChildrenList>
+										<Action Name="" ID="{02E44F8B-E1F1-47D9-B760-F72E86C23012}" ShortID="303884557">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Lvl 5" ID="{49441ADD-2B63-4A16-94A8-F6C6E5ABBEDA}" WorkUnitID="{D5FBB3F7-72F3-40AC-9B3E-877FA285AAC1}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="EMP6" ID="{AEF7A5B2-18BA-4B30-B699-4844350F89BB}">
+									<ChildrenList>
+										<Action Name="" ID="{F3F17050-E636-4D91-A1BF-5C208FE81701}" ShortID="636863939">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Lvl 6" ID="{2A3C01D2-F085-4558-A502-A28EED3D664F}" WorkUnitID="{D5FBB3F7-72F3-40AC-9B3E-877FA285AAC1}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 							</ChildrenList>
 						</Folder>
 						<Event Name="Dash" ID="{0F29C90F-7BB4-4C17-8B98-B7CA700D9284}">
@@ -239,6 +272,17 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="PickupObjective" ID="{CF607736-437A-447B-8EE3-B3F586BD3993}">
+							<ChildrenList>
+								<Action Name="" ID="{AD986B36-13A3-4B64-A02D-F0E9CF88D758}" ShortID="131084165">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Pickup-capture point" ID="{16DAD640-9856-49BD-88BD-E15C57B24D15}" WorkUnitID="{D5FBB3F7-72F3-40AC-9B3E-877FA285AAC1}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="LvlObjects" ID="{AE4E9916-D467-4526-99E4-67E6745B9CF1}" ShortID="102786082">
@@ -317,7 +361,28 @@
 				</Folder>
 				<Folder Name="LoadScreen" ID="{56EB3299-CBD8-4519-BF9D-32C5E4F3D158}" ShortID="871165469">
 					<ChildrenList>
-						<Event Name="Typing" ID="{3A30AD02-DCC1-4817-B568-3C5810DF445D}"/>
+						<Event Name="Typing" ID="{3A30AD02-DCC1-4817-B568-3C5810DF445D}">
+							<ChildrenList>
+								<Action Name="" ID="{27C6B54C-8047-4170-A615-903AAE9CCB9C}" ShortID="310493915">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Typing" ID="{BD682463-8A29-43BC-95CA-582BB4B0A665}" WorkUnitID="{D5FBB3F7-72F3-40AC-9B3E-877FA285AAC1}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="ProgressBar" ID="{A89599DA-C329-44F0-B89C-CD5C168463EE}">
+							<ChildrenList>
+								<Action Name="" ID="{28F07DC0-165E-4BE5-980B-05EE018FD139}" ShortID="733557692">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ProgressBar" ID="{40702E58-4F44-4764-9C90-08D02C4046A4}" WorkUnitID="{D5FBB3F7-72F3-40AC-9B3E-877FA285AAC1}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>
