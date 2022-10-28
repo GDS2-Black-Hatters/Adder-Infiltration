@@ -16,8 +16,9 @@ public class Bomber : Enemy
         movementSFXEvent.Post(gameObject);
     }
 
-    private void OnDestroy()
+    protected override void OnDestroy()
     {
+        base.OnDestroy();
         movementSFXEvent.Stop(gameObject);
     }
 
@@ -44,6 +45,7 @@ public class Bomber : Enemy
         FixedStateAction = null;
         bomberAnim.SetBool("isAttacking", true);
         explosionChargingParticle.gameObject.SetActive(true);
+        chargingSFXEvent.Post(gameObject);
         StartCoroutine(SuicideBombing(3));
     }
     

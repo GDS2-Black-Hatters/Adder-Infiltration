@@ -14,6 +14,7 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID ANTIVIRUSHIT = 4259964371U;
+        static const AkUniqueID BOMBERCHARGE = 2241161048U;
         static const AkUniqueID BOMBEREXPLODE = 3352465307U;
         static const AkUniqueID DASH = 1942692385U;
         static const AkUniqueID DEATH = 779278001U;
@@ -43,7 +44,6 @@ namespace AK
         static const AkUniqueID PICKUPOBJECTIVE = 2764882286U;
         static const AkUniqueID PLAYERDISCOVERED_EVENT = 2538572501U;
         static const AkUniqueID PROGRESSBAR = 1922958967U;
-        static const AkUniqueID RANDOMEMP = 2698850518U;
         static const AkUniqueID SCAN = 149908066U;
         static const AkUniqueID SCROLL = 454121546U;
         static const AkUniqueID SHIELD = 1161967626U;

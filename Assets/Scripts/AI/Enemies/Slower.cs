@@ -17,8 +17,9 @@ public class Slower : Enemy
         attackCooldown.onFinish += Construct;
     }
 
-    private void OnDestroy()
+    protected override void OnDestroy()
     {
+        base.OnDestroy();
         movementSFXEvent.Stop(gameObject);
     }
 

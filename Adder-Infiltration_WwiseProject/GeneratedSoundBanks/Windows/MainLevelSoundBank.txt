@@ -26,11 +26,11 @@ Event	ID	Name			Wwise Object Path	Notes
 	1942692385	Dash			\Default Work Unit\AbilitySFX\Dash	
 	2045263066	TargetStashed			\Minigame\PhishingMinigame\TargetStashed	
 	2090838661	EnemyBomberMove			\Default Work Unit\EnemySFX\EnemyBomberMove	
+	2241161048	BomberCharge			\Default Work Unit\EnemySFX\BomberCharge	
 	2348200894	EnemyShark			\Default Work Unit\EnemySFX\EnemyShark	
 	2461714704	HubMusicStart_Event			\Default Work Unit\LevelEvent\HubMusicStart_Event	
 	2538572501	PlayerDiscovered_Event			\Default Work Unit\LevelEvent\PlayerDiscovered_Event	
 	2659346142	NotFullyDetected			\Default Work Unit\PlayerSFX\NotFullyDetected	
-	2698850518	RandomEMP			\Default Work Unit\AbilitySFX\EMP\RandomEMP	
 	2764882286	PickupObjective			\Default Work Unit\LevelEvent\PickupObjective	
 	2784187423	TakeDamage			\Default Work Unit\PlayerSFX\TakeDamage	
 	2790820982	DroneScan			\Default Work Unit\EnemySFX\DroneScan	
@@ -71,17 +71,17 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	294137384	Laser1	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Laser1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\RandomLazerSounds\Laser1		136488
 	308255185	Trojan Horse	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\TRANSFROM_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Abilities SFX\Trojan Horse		220596
 	332626662	Mouse Click	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Mouse Click_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Computer Desktop Ambience Backgrounds\Mouse Click		48096
+	352346894	Scan	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Scan_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Abilities SFX\Scan		561248
 	368855487	Adder Infiltration Stealth v2 (Transition)	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Adder Infiltration Stealth v2 (Transition)_D79FB2B7.wem		\Interactive Music Hierarchy\MainLevelMusic\MainLevelMusicSwitch\Combat\Adder Infiltration Stealth v2 (Transition)\Adder Infiltration Stealth v2 (Transition)		3072096
 	436490616	Adder Infiltration Stealth v2 (Variation7)	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Adder Infiltration Stealth v2 (Variation7)_D79FB2B7.wem		\Interactive Music Hierarchy\MainLevelMusic\MainLevelMusicSwitch\Stealth\v7\Adder Infiltration Stealth v2 (Variation7)		5461428
 	444352329	Bomber Movement	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Bomber Movement_ABE1643E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemy SFX\Bomber Movement		707704
 	486742705	Typing_2	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Type2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Load Screen\Typing\Typing_2		65160
 	487810415	Objective Zone Sound	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Cut(obj)_612E434F.wem		\Actor-Mixer Hierarchy\Default Work Unit\Objective SFX\Objective Zone Sound		611640
-	491228268	Enemy Speedup	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\SPEEDUP_2311F912.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemy SFX\Explode\Enemy Speedup		603564
+	491228268	BomberCharge	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\SPEEDUP_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemy SFX\BomberCharge		671840
 	496570130	TempleRun	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Fishing Minigame_10C4C929.wem		\Actor-Mixer Hierarchy\Minigames\Templerun\TempleRun		2822500
 	529673774	Adder Infiltration Stealth v2 (Variation6)	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Adder Infiltration Stealth v2 (Variation6)_D79FB2B7.wem		\Interactive Music Hierarchy\MainLevelMusic\MainLevelMusicSwitch\Stealth\v8\Adder Infiltration Stealth v2 (Variation6)		5461428
 	534446674	Zone Interaction	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Progress Bar_7D395221.wem		\Actor-Mixer Hierarchy\Default Work Unit\Objective SFX\Zone Complete\Zone Interaction		981096
 	553310044	Typing_3	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Type3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Load Screen\Typing\Typing_3		65160
-	584299720	Scan	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\110564__2887679652__emp-blast_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Abilities SFX\Scan		534052
 	596344335	Bomber Explode 2	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\BOOM 2_BFE47742.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemy SFX\Explode\Explode\Bomber Explode 2		366368
 	651196728	Objective Interaction	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Progress Bar_378C0DD3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Objective SFX\Zone Complete\Objective Interaction		608584
 	651979137	Bomber Explode	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\BOOM 1_05851C04.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemy SFX\Explode\Explode\Bomber Explode		512188

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.XR;
 
 /// <summary>
 /// Basic abstract class of the enemy script behaviour.
@@ -73,6 +74,11 @@ public abstract class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    protected virtual void OnDestroy()
+    {
+        GameManager.LevelManager.ActiveSceneController.enemyAdmin.OnFullAlert -= DetectionState;
     }
 
     protected void FixedUpdate()

@@ -5027,6 +5027,7 @@ MonoBehaviour:
     health:
       <originalValue>k__BackingField: 50
       value: 0
+    isDead: 0
   movementPIDController:
     proportionalGain: 1
     integralGain: 0
@@ -5067,7 +5068,7 @@ MonoBehaviour:
   chargingSFXEvent:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: 61ef5ac908cc4544db15918d2dcd33ac, type: 2}
   explosionSFXEvent:
     idInternal: 0
     valueGuidInternal: 

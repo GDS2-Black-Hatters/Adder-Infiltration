@@ -16,8 +16,9 @@ public class Shark : Enemy
         movementSFXEvent.Post(gameObject);
     }
 
-    private void OnDestroy()
+    protected override void OnDestroy()
     {
+        base.OnDestroy();
         movementSFXEvent.Stop(gameObject);
     }
 

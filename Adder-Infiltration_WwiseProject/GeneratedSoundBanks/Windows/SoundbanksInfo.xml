@@ -34,7 +34,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="4096625075" Type="User" Language="SFX" Hash="{D5A7321F-57F2-B5B8-A950-40578C4A161F}">
+		<SoundBank Id="4096625075" Type="User" Language="SFX" Hash="{FB367C03-866C-4CF0-90B9-A7586630EFF9}">
 			<ShortName>MainLevelSoundBank</ShortName>
 			<Path>MainLevelSoundBank.bnk</Path>
 			<Media>
@@ -118,6 +118,10 @@
 					<ShortName>Mouse Click.wav</ShortName>
 					<CachePath>SFX/Mouse Click_10C4C929.wem</CachePath>
 				</File>
+				<File Id="352346894" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Scan.wav</ShortName>
+					<CachePath>SFX/Scan_10C4C929.wem</CachePath>
+				</File>
 				<File Id="368855487" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Adder Infiltration Stealth v2 (Transition).wav</ShortName>
 					<CachePath>SFX/Adder Infiltration Stealth v2 (Transition)_D79FB2B7.wem</CachePath>
@@ -140,7 +144,7 @@
 				</File>
 				<File Id="491228268" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SPEEDUP.wav</ShortName>
-					<CachePath>SFX/SPEEDUP_2311F912.wem</CachePath>
+					<CachePath>SFX/SPEEDUP_10C4C929.wem</CachePath>
 				</File>
 				<File Id="496570130" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Fishing Minigame.wav</ShortName>
@@ -157,10 +161,6 @@
 				<File Id="553310044" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Type3.wav</ShortName>
 					<CachePath>SFX/Type3_10C4C929.wem</CachePath>
-				</File>
-				<File Id="584299720" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>110564__2887679652__emp-blast.wav</ShortName>
-					<CachePath>SFX/110564__2887679652__emp-blast_10C4C929.wem</CachePath>
 				</File>
 				<File Id="596344335" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>BOOM 2.wav</ShortName>
@@ -281,10 +281,14 @@
 						<MediaRef Id="75956038"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3352465307" Name="BomberExplode" DurationType="OneShot" DurationMin="4.5105786" DurationMax="5.8102207">
+				<Event Id="2241161048" Name="BomberCharge" MaxAttenuation="100" DurationType="OneShot" DurationMin="3.4986668" DurationMax="3.4986668">
+					<MediaRefs>
+						<MediaRef Id="491228268"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3352465307" Name="BomberExplode" MaxAttenuation="100" DurationType="OneShot" DurationMin="1.3675143" DurationMax="2.667156">
 					<MediaRefs>
 						<MediaRef Id="21226199"/>
-						<MediaRef Id="491228268"/>
 						<MediaRef Id="596344335"/>
 						<MediaRef Id="651979137"/>
 					</MediaRefs>
@@ -306,7 +310,7 @@
 						<MediaRef Id="801403675"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2790820982" Name="DroneScan" DurationType="OneShot" DurationMin="2.3355176" DurationMax="2.3355176">
+				<Event Id="2790820982" Name="DroneScan" MaxAttenuation="100" DurationType="OneShot" DurationMin="2.3355176" DurationMax="2.3355176">
 					<MediaRefs>
 						<MediaRef Id="922839706"/>
 					</MediaRefs>
@@ -341,7 +345,7 @@
 						<MediaRef Id="97967462"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2090838661" Name="EnemyBomberMove" DurationType="Infinite">
+				<Event Id="2090838661" Name="EnemyBomberMove" MaxAttenuation="100" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="444352329"/>
 					</MediaRefs>
@@ -351,12 +355,12 @@
 						<MediaRef Id="984440277"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2348200894" Name="EnemyShark" DurationType="Infinite">
+				<Event Id="2348200894" Name="EnemyShark" MaxAttenuation="100" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="977503330"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="385497104" Name="EnemySlow" DurationType="Infinite">
+				<Event Id="385497104" Name="EnemySlow" MaxAttenuation="100" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="53535387"/>
 					</MediaRefs>
@@ -456,10 +460,9 @@
 						<MediaRef Id="1018815491"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2698850518" Name="RandomEMP" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
-				<Event Id="149908066" Name="Scan" DurationType="OneShot" DurationMin="3.0269616" DurationMax="3.0269616">
+				<Event Id="149908066" Name="Scan" DurationType="OneShot" DurationMin="2.9226665" DurationMax="2.9226665">
 					<MediaRefs>
-						<MediaRef Id="584299720"/>
+						<MediaRef Id="352346894"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="454121546" Name="Scroll" DurationType="OneShot" DurationMin="0.29099774" DurationMax="0.29099774">
@@ -529,5 +532,5 @@
 			</StateGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{EC580A79-2474-D363-2449-23003BA98F1D}</FileHash>
+	<FileHash>{B3BD2F0E-1BA3-636C-79EF-39F582868218}</FileHash>
 </SoundBanksInfo>
