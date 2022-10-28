@@ -34,7 +34,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="4096625075" Type="User" Language="SFX" Hash="{7934EF0D-3090-7661-A0BD-F0C770BF74D3}">
+		<SoundBank Id="4096625075" Type="User" Language="SFX" Hash="{D5A7321F-57F2-B5B8-A950-40578C4A161F}">
 			<ShortName>MainLevelSoundBank</ShortName>
 			<Path>MainLevelSoundBank.bnk</Path>
 			<Media>
@@ -66,6 +66,10 @@
 					<ShortName>Type6.wav</ShortName>
 					<CachePath>SFX/Type6_10C4C929.wem</CachePath>
 				</File>
+				<File Id="119143867" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Shield.wav</ShortName>
+					<CachePath>SFX/Shield_10C4C929.wem</CachePath>
+				</File>
 				<File Id="153678803" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>EMP2.wav</ShortName>
 					<CachePath>SFX/EMP2_10C4C929.wem</CachePath>
@@ -89,6 +93,10 @@
 				<File Id="222351913" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Adder Infiltration Stealth v2 (Variation3).wav</ShortName>
 					<CachePath>SFX/Adder Infiltration Stealth v2 (Variation3)_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="234223611" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Heal.wav</ShortName>
+					<CachePath>SFX/Heal_10C4C929.wem</CachePath>
 				</File>
 				<File Id="238848259" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Low Heatlh (Plus alarm).wav</ShortName>
@@ -149,6 +157,10 @@
 				<File Id="553310044" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Type3.wav</ShortName>
 					<CachePath>SFX/Type3_10C4C929.wem</CachePath>
+				</File>
+				<File Id="584299720" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>110564__2887679652__emp-blast.wav</ShortName>
+					<CachePath>SFX/110564__2887679652__emp-blast_10C4C929.wem</CachePath>
 				</File>
 				<File Id="596344335" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>BOOM 2.wav</ShortName>
@@ -244,7 +256,7 @@
 				</File>
 				<File Id="1018815491" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Progress Bar.wav</ShortName>
-					<CachePath>SFX/Progress Bar_2F302A55.wem</CachePath>
+					<CachePath>SFX/Progress Bar_6C62E078.wem</CachePath>
 				</File>
 				<File Id="1032776037" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Pickup-capture point.wav</ShortName>
@@ -269,7 +281,7 @@
 						<MediaRef Id="75956038"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3352465307" Name="BomberExplode" MaxAttenuation="100" DurationType="OneShot" DurationMin="4.5105786" DurationMax="5.8102207">
+				<Event Id="3352465307" Name="BomberExplode" DurationType="OneShot" DurationMin="4.5105786" DurationMax="5.8102207">
 					<MediaRefs>
 						<MediaRef Id="21226199"/>
 						<MediaRef Id="491228268"/>
@@ -294,7 +306,7 @@
 						<MediaRef Id="801403675"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2790820982" Name="DroneScan" MaxAttenuation="100" DurationType="OneShot" DurationMin="2.3355176" DurationMax="2.3355176">
+				<Event Id="2790820982" Name="DroneScan" DurationType="OneShot" DurationMin="2.3355176" DurationMax="2.3355176">
 					<MediaRefs>
 						<MediaRef Id="922839706"/>
 					</MediaRefs>
@@ -329,7 +341,7 @@
 						<MediaRef Id="97967462"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2090838661" Name="EnemyBomberMove" MaxAttenuation="100" DurationType="Infinite">
+				<Event Id="2090838661" Name="EnemyBomberMove" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="444352329"/>
 					</MediaRefs>
@@ -339,14 +351,19 @@
 						<MediaRef Id="984440277"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2348200894" Name="EnemyShark" MaxAttenuation="100" DurationType="Infinite">
+				<Event Id="2348200894" Name="EnemyShark" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="977503330"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="385497104" Name="EnemySlow" MaxAttenuation="100" DurationType="Infinite">
+				<Event Id="385497104" Name="EnemySlow" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="53535387"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3448274447" Name="Heal" DurationType="OneShot" DurationMin="0.8094792" DurationMax="0.8094792">
+					<MediaRefs>
+						<MediaRef Id="234223611"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="2461714704" Name="HubMusicStart_Event" DurationType="Infinite">
@@ -434,24 +451,25 @@
 						<ActionSetStateEntry GroupId="3924600286" Id="2206681103" Name="Discovered"/>
 					</ActionSetState>
 				</Event>
-				<Event Id="1922958967" Name="ProgressBar" DurationType="Infinite">
+				<Event Id="1922958967" Name="ProgressBar" DurationType="OneShot" DurationMin="7.057289" DurationMax="7.057289">
 					<MediaRefs>
 						<MediaRef Id="1018815491"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2698850518" Name="RandomEMP" DurationType="OneShot" DurationMin="1.047625" DurationMax="3.9466667">
+				<Event Id="2698850518" Name="RandomEMP" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="149908066" Name="Scan" DurationType="OneShot" DurationMin="3.0269616" DurationMax="3.0269616">
 					<MediaRefs>
-						<MediaRef Id="50950406"/>
-						<MediaRef Id="97967462"/>
-						<MediaRef Id="153678803"/>
-						<MediaRef Id="219866341"/>
-						<MediaRef Id="807439261"/>
-						<MediaRef Id="823434167"/>
+						<MediaRef Id="584299720"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="454121546" Name="Scroll" DurationType="OneShot" DurationMin="0.29099774" DurationMax="0.29099774">
 					<MediaRefs>
 						<MediaRef Id="843477630"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1161967626" Name="Shield" DurationType="OneShot" DurationMin="1.3653333" DurationMax="1.3653333">
+					<MediaRefs>
+						<MediaRef Id="119143867"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="2784187423" Name="TakeDamage" DurationType="OneShot" DurationMin="3.3" DurationMax="3.3">
@@ -511,5 +529,5 @@
 			</StateGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{6461400B-CE3D-CD47-32D3-0CC97B928D55}</FileHash>
+	<FileHash>{EC580A79-2474-D363-2449-23003BA98F1D}</FileHash>
 </SoundBanksInfo>

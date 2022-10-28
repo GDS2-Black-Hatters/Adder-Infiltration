@@ -29,6 +29,7 @@ namespace AK
         static const AkUniqueID ENEMYDRONEAMB = 1504246845U;
         static const AkUniqueID ENEMYSHARK = 2348200894U;
         static const AkUniqueID ENEMYSLOW = 385497104U;
+        static const AkUniqueID HEAL = 3448274447U;
         static const AkUniqueID HUBMUSICSTART_EVENT = 2461714704U;
         static const AkUniqueID LAZERFIRE_EVENT = 3822340686U;
         static const AkUniqueID LEVELSTART_EVENT = 1666178350U;
@@ -43,7 +44,9 @@ namespace AK
         static const AkUniqueID PLAYERDISCOVERED_EVENT = 2538572501U;
         static const AkUniqueID PROGRESSBAR = 1922958967U;
         static const AkUniqueID RANDOMEMP = 2698850518U;
+        static const AkUniqueID SCAN = 149908066U;
         static const AkUniqueID SCROLL = 454121546U;
+        static const AkUniqueID SHIELD = 1161967626U;
         static const AkUniqueID TAKEDAMAGE = 2784187423U;
         static const AkUniqueID TARGETHOOKED = 2827905996U;
         static const AkUniqueID TARGETSTASHED = 2045263066U;
