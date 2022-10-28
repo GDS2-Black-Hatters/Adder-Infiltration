@@ -1727,6 +1727,7 @@ GameObject:
   - component: {fileID: 5018813298545834506}
   - component: {fileID: 5018813298545834507}
   - component: {fileID: 5018813298545834504}
+  - component: {fileID: 156503404936986095}
   m_Layer: 5
   m_Name: Desktop
   m_TagString: Untagged
@@ -1820,6 +1821,22 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &156503404936986095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5018813298545834505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3b175789e8817f41a59ec8d3610b246, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  desktopClickSFXEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 7bb985496cf53ed44ac50bebdd61929d, type: 2}
 --- !u!1 &5018813298779056862
 GameObject:
   m_ObjectHideFlags: 0
@@ -4233,7 +4250,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5290167137843564961, guid: ebc62851a7f377c44bd776d96cf08cc7, type: 3}
       propertyPath: m_Value
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5419912966034805482, guid: ebc62851a7f377c44bd776d96cf08cc7, type: 3}
       propertyPath: swapper

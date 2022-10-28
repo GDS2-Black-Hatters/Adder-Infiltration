@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.21221751, g: 0.2653625, b: 0.28674814, a: 1}
+  m_IndirectSpecularColor: {r: 0.070893414, g: 0.08095092, b: 0.19206959, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -227,10 +227,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <enemyAdmin>k__BackingField: {fileID: 24270770}
   caughtHUD: {fileID: 24270768}
-  <playerHealth>k__BackingField:
-    health:
-      <originalValue>k__BackingField: 20
-      value: 20
   <Player>k__BackingField: {fileID: 37142743}
   <objectiveList>k__BackingField: {fileID: 24270767}
   playerDetectionMusicEvent:
@@ -255,6 +251,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef71154daebe7c84f9c09845cfb2798e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &24270771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24270766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61c1a23ede89ee443bae48f806dd1f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: ae8d9d44
+  useOtherObject: 0
+  actionOnEventType: 0
+  curveInterpolation: 4
+  enableActionOnEvent: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 0ef755c8dca1d634e93e8f53634ae9c7, type: 2}
+  useCallbacks: 0
+  Callbacks: []
+  playingId: 0
+  soundEmitterObject: {fileID: 0}
+  transitionDuration: 0
+  eventIdInternal: 0
+  valueGuidInternal: 
+  m_callbackDataInternal: {fileID: 0}
 --- !u!114 &37142743 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6809075488103811737, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}
@@ -530,6 +555,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 650575318853881172, guid: b30f8f4dd1b35e547b545f860681f6fc, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 650575319531917996, guid: b30f8f4dd1b35e547b545f860681f6fc, type: 3}
       propertyPath: m_Name
       value: WireframeLoadEffectRig

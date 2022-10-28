@@ -10,5 +10,6 @@ public class Dash : AbilityBase
     protected override void DoAbilityEffect()
     {
         GameManager.LevelManager.ActiveSceneController.Player.Dash(strength);
+        activateSoundEffect.Post(gameObject);
     }
 }

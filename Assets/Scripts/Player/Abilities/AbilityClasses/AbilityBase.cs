@@ -17,6 +17,7 @@ public abstract class AbilityBase : MonoBehaviour
     public event Action CooldownUpdate;
     public event Action CooldownFinish;
     public TimeTracker CooldownTimer { get; private set; } = new(1, 1);
+    [SerializeField] protected AK.Wwise.Event activateSoundEffect;
 
     protected virtual void Awake()
     {

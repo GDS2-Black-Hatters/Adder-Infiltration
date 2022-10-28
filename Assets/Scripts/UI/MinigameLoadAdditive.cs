@@ -1,4 +1,3 @@
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,7 +5,15 @@ public class MinigameLoadAdditive : MonoBehaviour
 {
     private bool isActive = false; //Check if active
     private Scene activeScene; //Reference to current Fishing Scene
-    [SerializeField] private SceneAsset scene;
+    private string sceneName;
+
+#if UNITY_EDITOR
+    [SerializeField] private UnityEditor.SceneAsset scene;
+    private void OnValidate()
+    {
+        sceneName = scene.name;
+    }
+#endif
 
     public void ToggleMinigameScene()
     {
@@ -15,7 +22,7 @@ public class MinigameLoadAdditive : MonoBehaviour
         {
             isActive = true;
             var parameters = new LoadSceneParameters(LoadSceneMode.Additive);
-            activeScene = SceneManager.LoadScene(scene.name, parameters);
+            activeScene = SceneManager.LoadScene(sceneName, parameters);
         }
         else
         {

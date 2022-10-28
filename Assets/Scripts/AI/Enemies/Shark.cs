@@ -7,11 +7,18 @@ public class Shark : Enemy
     [SerializeField] private float distanceDetection = 15;
     [SerializeField] private GameObject susIcon;
     private bool wasChasing = false;
+    [SerializeField] protected AK.Wwise.Event movementSFXEvent;
 
     protected override void Awake()
     {
         base.Awake();
         startSpeed = forwardPower;
+        movementSFXEvent.Post(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        movementSFXEvent.Stop(gameObject);
     }
 
     protected override void NormalState()

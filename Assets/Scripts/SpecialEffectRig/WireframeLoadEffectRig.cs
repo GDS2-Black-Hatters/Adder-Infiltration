@@ -7,6 +7,7 @@ public class WireframeLoadEffectRig : MonoBehaviour
     [SerializeField] private Camera rigCamera;
     [SerializeField] private Transform wireMaskSphereTransform;
     [SerializeField] private Transform plainMaskSphereTransform;
+    [SerializeField] private float approachSpeed = 2f;
     [SerializeField] private float expansionRate = 75f;
     [SerializeField] private float plainColorLag = 50f;
 
@@ -18,7 +19,8 @@ public class WireframeLoadEffectRig : MonoBehaviour
     public void InitilizeRigPosition(Vector3 position)
     {
         transform.position = position;
-        transform.rotation = Quaternion.LookRotation(Camera.main.transform.position - transform.position);
+        //transform.rotation = Quaternion.LookRotation(Camera.main.transform.position - transform.position);
+        transform.rotation = Camera.main.transform.rotation * Quaternion.Euler(90,0,180);
     }
 
     public void StartRig()
@@ -34,7 +36,7 @@ public class WireframeLoadEffectRig : MonoBehaviour
 
         if(approaching)
         {
-            transform.Translate(transform.InverseTransformVector(Vector3.ClampMagnitude(towardsPlayerVector, 0.25f)));
+            transform.Translate(transform.InverseTransformVector(Vector3.ClampMagnitude(towardsPlayerVector,approachSpeed)));
             transform.rotation = Quaternion.Slerp(Quaternion.LookRotation(towardsPlayerVector.normalized), Camera.main.transform.rotation, 1 - towardsPlayerVector.magnitude * 0.025f);
         }
 

@@ -60,8 +60,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031562b2f980d574cbb5f9499d8a8e8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mandatoryChance: 0
   <isComplete>k__BackingField: 0
+  <objectiveTitle>k__BackingField: 
   ObjectiveCompleteSound:
     idInternal: 0
     valueGuidInternal: 
@@ -110,6 +110,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  progressSFXEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: f86890ccdcbfa644f82dfe485e54dd6c, type: 2}
 --- !u!1 &8046764091794583901
 GameObject:
   m_ObjectHideFlags: 0

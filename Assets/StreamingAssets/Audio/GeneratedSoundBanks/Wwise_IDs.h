@@ -13,21 +13,37 @@ namespace AK
 {
     namespace EVENTS
     {
-        static const AkUniqueID ENEMYBOMBER = 1185021686U;
+        static const AkUniqueID ANTIVIRUSHIT = 4259964371U;
+        static const AkUniqueID BOMBEREXPLODE = 3352465307U;
+        static const AkUniqueID DASH = 1942692385U;
+        static const AkUniqueID DEATH = 779278001U;
+        static const AkUniqueID DETECTED = 298938147U;
+        static const AkUniqueID DRONESCAN = 2790820982U;
+        static const AkUniqueID EMP1 = 376048186U;
+        static const AkUniqueID EMP2 = 376048185U;
+        static const AkUniqueID EMP3 = 376048184U;
+        static const AkUniqueID ENEMYBOMBERMOVE = 2090838661U;
         static const AkUniqueID ENEMYDRONEAMB = 1504246845U;
         static const AkUniqueID ENEMYSHARK = 2348200894U;
         static const AkUniqueID ENEMYSLOW = 385497104U;
         static const AkUniqueID HUBMUSICSTART_EVENT = 2461714704U;
         static const AkUniqueID LAZERFIRE_EVENT = 3822340686U;
         static const AkUniqueID LEVELSTART_EVENT = 1666178350U;
+        static const AkUniqueID LOWHEALTH = 1017222595U;
         static const AkUniqueID MINIGAMEEXIT = 367230862U;
-        static const AkUniqueID MINIGAMEMUSIC = 2434039835U;
         static const AkUniqueID MOUSECLICK = 4010314750U;
         static const AkUniqueID MUSIC = 3991942870U;
+        static const AkUniqueID NOTFULLYDETECTED = 2659346142U;
         static const AkUniqueID OBJECTIVECOMPLETE_EVENT = 551763010U;
         static const AkUniqueID PLAYERDISCOVERED_EVENT = 2538572501U;
+        static const AkUniqueID SCROLL = 454121546U;
+        static const AkUniqueID TAKEDAMAGE = 2784187423U;
         static const AkUniqueID TARGETHOOKED = 2827905996U;
         static const AkUniqueID TARGETSTASHED = 2045263066U;
+        static const AkUniqueID TEMPLEMUSIC = 52408631U;
+        static const AkUniqueID TRANSFORM = 1422622395U;
+        static const AkUniqueID TYPING = 1599183472U;
+        static const AkUniqueID ZONE = 832057375U;
     } // namespace EVENTS
 
     namespace STATES

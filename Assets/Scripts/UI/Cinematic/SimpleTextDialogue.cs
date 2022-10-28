@@ -10,20 +10,27 @@ public class SimpleTextDialogue : Dialogue
     public float charactersPerSecond = 5;
 
     private float time = 0;
+    private int prevIndex = 0;
 
     public override void Progress(float deltaTime)
     {
         time += deltaTime;
-        int endIndex = Mathf.FloorToInt(time * charactersPerSecond);
         
-        if(endIndex >= fullText.Length)
+        int newEndIndex = Mathf.FloorToInt(time * charactersPerSecond);
+        if(prevIndex != newEndIndex)
+        {
+            onTypeAction?.Invoke();
+            prevIndex = newEndIndex;
+        }
+
+        if(newEndIndex >= fullText.Length)
         {
             text = fullText;
             IsComplete = true;
             return;
         }
         
-        text = fullText.Remove(endIndex);
+        text = fullText.Remove(newEndIndex);
     }
 
     public override void ResetProgress()

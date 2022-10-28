@@ -7,6 +7,20 @@ public class Bomber : Enemy
     [SerializeField] private Animator bomberAnim;
     [SerializeField] private ParticleSystem explosionChargingParticle;
 
+    [SerializeField] protected AK.Wwise.Event movementSFXEvent;
+    [SerializeField] protected AK.Wwise.Event chargingSFXEvent;
+    [SerializeField] protected AK.Wwise.Event explosionSFXEvent;
+    protected override void Awake()
+    {
+        base.Awake();
+        movementSFXEvent.Post(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        movementSFXEvent.Stop(gameObject);
+    }
+
     protected override void DetectionState()
     {
         forwardPower = sprintSpeed;
@@ -36,6 +50,7 @@ public class Bomber : Enemy
     IEnumerator SuicideBombing(float delayTime)
     {
         yield return new WaitForSeconds(delayTime);
+        explosionSFXEvent.Post(gameObject);
         GameManager.PoolManager.GetObjectFromPool<Transform>("ExplosionParticlePool").position = transform.position;
         Destroy(gameObject);
     }

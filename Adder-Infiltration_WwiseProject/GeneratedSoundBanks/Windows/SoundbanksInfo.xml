@@ -34,37 +34,137 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="4096625075" Type="User" Language="SFX" Hash="{72FE51E2-DD4E-8843-692E-CA1CD3DBAFC7}">
+		<SoundBank Id="4096625075" Type="User" Language="SFX" Hash="{992579C9-526B-A1EE-FAB4-96784CDD5128}">
 			<ShortName>MainLevelSoundBank</ShortName>
 			<Path>MainLevelSoundBank.bnk</Path>
 			<Media>
+				<File Id="21226199" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BOOM 3.wav</ShortName>
+					<CachePath>SFX/BOOM 3_7A9F12E9.wem</CachePath>
+				</File>
+				<File Id="53535387" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Slower Engine.wav</ShortName>
+					<CachePath>SFX/Slower Engine_C9F14E2F.wem</CachePath>
+				</File>
+				<File Id="75956038" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Taking Damage.wav</ShortName>
+					<CachePath>SFX/Taking Damage_10C4C929.wem</CachePath>
+				</File>
+				<File Id="165704387" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Death.wav</ShortName>
+					<CachePath>SFX/Death_10C4C929.wem</CachePath>
+				</File>
+				<File Id="187186506" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>AMB.wav</ShortName>
+					<CachePath>SFX/AMB_446E9E52.wem</CachePath>
+				</File>
+				<File Id="215582547" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Fishing Minigame_Real.wav</ShortName>
+					<CachePath>SFX/Fishing Minigame_Real_10C4C929.wem</CachePath>
+				</File>
+				<File Id="222351913" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Adder Infiltration Stealth v2 (Variation3).wav</ShortName>
+					<CachePath>SFX/Adder Infiltration Stealth v2 (Variation3)_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="238848259" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Low Heatlh (Plus alarm).wav</ShortName>
+					<CachePath>SFX/Low Heatlh (Plus alarm)_D79FB2B7.wem</CachePath>
+				</File>
 				<File Id="294137384" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Laser1.wav</ShortName>
 					<CachePath>SFX/Laser1_10C4C929.wem</CachePath>
+				</File>
+				<File Id="308255185" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>TRANSFROM.wav</ShortName>
+					<CachePath>SFX/TRANSFROM_10C4C929.wem</CachePath>
+				</File>
+				<File Id="332626662" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Mouse Click.wav</ShortName>
+					<CachePath>SFX/Mouse Click_10C4C929.wem</CachePath>
 				</File>
 				<File Id="368855487" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Adder Infiltration Stealth v2 (Transition).wav</ShortName>
 					<CachePath>SFX/Adder Infiltration Stealth v2 (Transition)_D79FB2B7.wem</CachePath>
 				</File>
+				<File Id="436490616" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Adder Infiltration Stealth v2 (Variation7).wav</ShortName>
+					<CachePath>SFX/Adder Infiltration Stealth v2 (Variation7)_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="444352329" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bomber Movement.wav</ShortName>
+					<CachePath>SFX/Bomber Movement_ABE1643E.wem</CachePath>
+				</File>
+				<File Id="487810415" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Cut(obj).wav</ShortName>
+					<CachePath>SFX/Cut(obj)_612E434F.wem</CachePath>
+				</File>
+				<File Id="491228268" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SPEEDUP.wav</ShortName>
+					<CachePath>SFX/SPEEDUP_2311F912.wem</CachePath>
+				</File>
 				<File Id="496570130" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Fishing Minigame.wav</ShortName>
 					<CachePath>SFX/Fishing Minigame_10C4C929.wem</CachePath>
+				</File>
+				<File Id="529673774" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Adder Infiltration Stealth v2 (Variation6).wav</ShortName>
+					<CachePath>SFX/Adder Infiltration Stealth v2 (Variation6)_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="596344335" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BOOM 2.wav</ShortName>
+					<CachePath>SFX/BOOM 2_BFE47742.wem</CachePath>
+				</File>
+				<File Id="651979137" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BOOM 1.wav</ShortName>
+					<CachePath>SFX/BOOM 1_05851C04.wem</CachePath>
 				</File>
 				<File Id="682131157" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>644245__fractionalist__steel-spring-bear-trap.wav</ShortName>
 					<CachePath>SFX/644245__fractionalist__steel-spring-bear-trap_48524BE2.wem</CachePath>
 				</File>
+				<File Id="685314586" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>DASH 1.wav</ShortName>
+					<CachePath>SFX/DASH 1_10C4C929.wem</CachePath>
+				</File>
+				<File Id="690267699" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Adder Infiltration Stealth v2 (Variation5).wav</ShortName>
+					<CachePath>SFX/Adder Infiltration Stealth v2 (Variation5)_D79FB2B7.wem</CachePath>
+				</File>
 				<File Id="698227113" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Laser3.wav</ShortName>
 					<CachePath>SFX/Laser3_10C4C929.wem</CachePath>
+				</File>
+				<File Id="751969378" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>DASH 2.wav</ShortName>
+					<CachePath>SFX/DASH 2_10C4C929.wem</CachePath>
+				</File>
+				<File Id="801403675" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>DETECTED.wav</ShortName>
+					<CachePath>SFX/DETECTED_10C4C929.wem</CachePath>
 				</File>
 				<File Id="803960293" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Adder Infiltration Stealth v2 (Stealth).wav</ShortName>
 					<CachePath>SFX/Adder Infiltration Stealth v2 (Stealth)_D79FB2B7.wem</CachePath>
 				</File>
+				<File Id="804809704" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Adder Infiltration Stealth v2 (Variation2).wav</ShortName>
+					<CachePath>SFX/Adder Infiltration Stealth v2 (Variation2)_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="843477630" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Scrolling SFX.wav</ShortName>
+					<CachePath>SFX/Scrolling SFX_10C4C929.wem</CachePath>
+				</File>
 				<File Id="847613361" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>MENU.wav</ShortName>
 					<CachePath>SFX/MENU_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="859866707" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Adder Infiltration Stealth v2 (Variation4).wav</ShortName>
+					<CachePath>SFX/Adder Infiltration Stealth v2 (Variation4)_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="872759894" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Adder Infiltration Stealth v2 (Variation1).wav</ShortName>
+					<CachePath>SFX/Adder Infiltration Stealth v2 (Variation1)_D79FB2B7.wem</CachePath>
 				</File>
 				<File Id="908927036" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Laser2.wav</ShortName>
@@ -74,9 +174,17 @@
 					<ShortName>Adder Infiltration Stealth v2 (Combat).wav</ShortName>
 					<CachePath>SFX/Adder Infiltration Stealth v2 (Combat)_D79FB2B7.wem</CachePath>
 				</File>
+				<File Id="922839706" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>PATROL.wav</ShortName>
+					<CachePath>SFX/PATROL_A10096D6.wem</CachePath>
+				</File>
 				<File Id="938660290" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Laser4.wav</ShortName>
 					<CachePath>SFX/Laser4_10C4C929.wem</CachePath>
+				</File>
+				<File Id="977503330" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>RANDOM ROBOT .wav</ShortName>
+					<CachePath>SFX/RANDOM ROBOT _379CCD25.wem</CachePath>
 				</File>
 				<File Id="984440277" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>EnemyAmbient.wav</ShortName>
@@ -86,20 +194,74 @@
 					<ShortName>Pickup-capture point.wav</ShortName>
 					<CachePath>SFX/Pickup-capture point_10C4C929.wem</CachePath>
 				</File>
+				<File Id="1041122036" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>DASH 3.wav</ShortName>
+					<CachePath>SFX/DASH 3_10C4C929.wem</CachePath>
+				</File>
 				<File Id="1073533375" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>538554__sjonas88__success.wav</ShortName>
 					<CachePath>SFX/538554__sjonas88__success_0DA1812A.wem</CachePath>
 				</File>
 			</Media>
 			<Events>
-				<Event Id="1185021686" Name="EnemyBomber" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="4259964371" Name="AntivirusHit" DurationType="OneShot" DurationMin="3.3" DurationMax="3.3">
+					<MediaRefs>
+						<MediaRef Id="75956038"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3352465307" Name="BomberExplode" MaxAttenuation="100" DurationType="OneShot" DurationMin="4.5105786" DurationMax="5.8102207">
+					<MediaRefs>
+						<MediaRef Id="21226199"/>
+						<MediaRef Id="491228268"/>
+						<MediaRef Id="596344335"/>
+						<MediaRef Id="651979137"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1942692385" Name="Dash" DurationType="OneShot" DurationMin="0.5697959" DurationMax="0.6468027">
+					<MediaRefs>
+						<MediaRef Id="685314586"/>
+						<MediaRef Id="751969378"/>
+						<MediaRef Id="1041122036"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="779278001" Name="Death" DurationType="OneShot" DurationMin="4.4583335" DurationMax="4.4583335">
+					<MediaRefs>
+						<MediaRef Id="165704387"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="298938147" Name="Detected" DurationType="OneShot" DurationMin="5.5893335" DurationMax="5.5893335">
+					<MediaRefs>
+						<MediaRef Id="801403675"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2790820982" Name="DroneScan" MaxAttenuation="100" DurationType="OneShot" DurationMin="2.3355176" DurationMax="2.3355176">
+					<MediaRefs>
+						<MediaRef Id="922839706"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="376048186" Name="EMP1" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="376048185" Name="EMP2" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="376048184" Name="EMP3" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="2090838661" Name="EnemyBomberMove" MaxAttenuation="100" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="444352329"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="1504246845" Name="EnemyDroneAmb" MaxAttenuation="100" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="984440277"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2348200894" Name="EnemyShark" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
-				<Event Id="385497104" Name="EnemySlow" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="2348200894" Name="EnemyShark" MaxAttenuation="100" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="977503330"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="385497104" Name="EnemySlow" MaxAttenuation="100" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="53535387"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="2461714704" Name="HubMusicStart_Event" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="847613361"/>
@@ -118,7 +280,14 @@
 						<SwitchContainer>
 							<SwitchValue GroupType="State" GroupId="3924600286" Id="2909291642"/>
 							<MediaRefs>
+								<MediaRef Id="222351913"/>
+								<MediaRef Id="436490616"/>
+								<MediaRef Id="529673774"/>
+								<MediaRef Id="690267699"/>
 								<MediaRef Id="803960293"/>
+								<MediaRef Id="804809704"/>
+								<MediaRef Id="859866707"/>
+								<MediaRef Id="872759894"/>
 							</MediaRefs>
 						</SwitchContainer>
 						<SwitchContainer>
@@ -133,16 +302,29 @@
 						<ActionSetStateEntry GroupId="3924600286" Id="2909291642" Name="Stealth"/>
 					</ActionSetState>
 				</Event>
+				<Event Id="1017222595" Name="LowHealth" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="238848259"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="367230862" Name="MinigameExit" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0">
 					<ActionPostEvent>
 						<ActionPostEventEntry Id="2461714704" Name="HubMusicStart_Event"/>
 					</ActionPostEvent>
 				</Event>
-				<Event Id="2434039835" Name="MinigameMusic" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
-				<Event Id="4010314750" Name="MouseClick" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
-				<Event Id="3991942870" Name="Music" DurationType="OneShot" DurationMin="16.000023" DurationMax="16.000023">
+				<Event Id="4010314750" Name="MouseClick" DurationType="OneShot" DurationMin="0.25" DurationMax="0.25">
 					<MediaRefs>
-						<MediaRef Id="496570130"/>
+						<MediaRef Id="332626662"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3991942870" Name="Music" DurationType="OneShot" DurationMin="8" DurationMax="8">
+					<MediaRefs>
+						<MediaRef Id="215582547"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2659346142" Name="NotFullyDetected" DurationType="OneShot" DurationMin="4.4390564" DurationMax="4.4390564">
+					<MediaRefs>
+						<MediaRef Id="187186506"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="551763010" Name="ObjectiveComplete_Event" DurationType="OneShot" DurationMin="0.8333333" DurationMax="0.8333333">
@@ -155,6 +337,16 @@
 						<ActionSetStateEntry GroupId="3924600286" Id="2206681103" Name="Discovered"/>
 					</ActionSetState>
 				</Event>
+				<Event Id="454121546" Name="Scroll" DurationType="OneShot" DurationMin="0.29099774" DurationMax="0.29099774">
+					<MediaRefs>
+						<MediaRef Id="843477630"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2784187423" Name="TakeDamage" DurationType="OneShot" DurationMin="3.3" DurationMax="3.3">
+					<MediaRefs>
+						<MediaRef Id="75956038"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="2827905996" Name="TargetHooked" DurationType="OneShot" DurationMin="1.6255832" DurationMax="1.6255832">
 					<MediaRefs>
 						<MediaRef Id="682131157"/>
@@ -163,6 +355,22 @@
 				<Event Id="2045263066" Name="TargetStashed" DurationType="OneShot" DurationMin="0.6631717" DurationMax="0.6631717">
 					<MediaRefs>
 						<MediaRef Id="1073533375"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="52408631" Name="TempleMusic" DurationType="OneShot" DurationMin="16.000023" DurationMax="16.000023">
+					<MediaRefs>
+						<MediaRef Id="496570130"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1422622395" Name="Transform" DurationType="OneShot" DurationMin="2.5" DurationMax="2.5">
+					<MediaRefs>
+						<MediaRef Id="308255185"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1599183472" Name="Typing" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="832057375" Name="Zone" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="487810415"/>
 					</MediaRefs>
 				</Event>
 			</Events>
@@ -177,5 +385,5 @@
 			</StateGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{072AEB59-2947-6BBF-C15D-CFC89673F2D3}</FileHash>
+	<FileHash>{798DD1AB-B090-E1D0-6DEF-2709455B2F94}</FileHash>
 </SoundBanksInfo>
