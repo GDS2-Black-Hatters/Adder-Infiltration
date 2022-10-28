@@ -35,8 +35,10 @@ public class CinameticTextBox : MonoBehaviour
     private string completedText;
     private int activeDialogueIndex = 0;
     private float delayProgress = 0;
+    private bool started = false;
     [SerializeField] private UnityEvent OnFinish;
     [SerializeField] protected AK.Wwise.Event typeSFXEvent;
+    [SerializeField] protected AK.Wwise.Event progressBarSFXEvent;
 
     private void Awake()
     {
@@ -51,20 +53,38 @@ public class CinameticTextBox : MonoBehaviour
             return;
         }
 
+        if(!started)
+        {
+            started = true;
+            if(textBoxContents[activeDialogueIndex].dialogueType == Dialogue.DialogueType.ProgressBar)
+            {
+                OnProgressBarStart();
+            }
+        }
+
         textBoxContents[activeDialogueIndex].dialogue.Progress(Time.deltaTime);
         textBox.text = completedText + textBoxContents[activeDialogueIndex].dialogue.text;
 
         if (textBoxContents[activeDialogueIndex].dialogue.IsComplete)
         {
+            started = false;
+            if(textBoxContents[activeDialogueIndex].dialogueType == Dialogue.DialogueType.ProgressBar)
+            {
+                OnProgressBarEnd();
+            }
+
             delayProgress = 0;
             completedText += textBoxContents[activeDialogueIndex].dialogue.text;
             activeDialogueIndex++;
-            textBoxContents[activeDialogueIndex].dialogue.onTypeAction = OnTypeAction;
             if (activeDialogueIndex >= textBoxContents.Length)
             {
                 textBox.text = completedText;
                 OnFinish.Invoke();
                 enabled = false;
+            }
+            else
+            {
+                textBoxContents[activeDialogueIndex].dialogue.onTypeAction = OnTypeAction;
             }
         }
     }
@@ -72,6 +92,16 @@ public class CinameticTextBox : MonoBehaviour
     private void OnTypeAction()
     {
         typeSFXEvent.Post(gameObject);
+    }
+
+    private void OnProgressBarStart()
+    {
+        progressBarSFXEvent.Post(gameObject);
+    }
+
+    private void OnProgressBarEnd()
+    {
+        progressBarSFXEvent.Stop(gameObject);
     }
 
     private void OnValidate()
