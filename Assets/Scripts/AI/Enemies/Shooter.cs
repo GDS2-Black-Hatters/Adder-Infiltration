@@ -70,4 +70,10 @@ public class Shooter : Enemy
         ShootSound.Post(gameObject);
         attackCooldown.Reset();
     }
+
+    protected override void Death()
+    {
+        base.Death();
+        DroneAmb.Stop(gameObject);
+    }
 }
