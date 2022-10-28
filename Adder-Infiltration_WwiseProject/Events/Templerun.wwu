@@ -5,6 +5,13 @@
 			<ChildrenList>
 				<Event Name="TempleMusic" ID="{C1EB309E-9D77-4E8B-B368-72ECE27C0A71}">
 					<ChildrenList>
+						<Action Name="" ID="{79FAD7D9-323D-4266-A407-F4549277BBE2}" ShortID="678731792">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="3"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList/>
+						</Action>
 						<Action Name="" ID="{48C4FDAD-2A30-451B-9385-087E5ADC5100}" ShortID="32855128">
 							<ReferenceList>
 								<Reference Name="Target">

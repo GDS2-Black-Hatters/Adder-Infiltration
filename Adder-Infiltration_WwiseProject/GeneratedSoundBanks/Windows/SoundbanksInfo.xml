@@ -34,7 +34,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="4096625075" Type="User" Language="SFX" Hash="{FB367C03-866C-4CF0-90B9-A7586630EFF9}">
+		<SoundBank Id="4096625075" Type="User" Language="SFX" Hash="{B3D2F3DC-519B-DBF8-6ED4-77410EA5EA23}">
 			<ShortName>MainLevelSoundBank</ShortName>
 			<Path>MainLevelSoundBank.bnk</Path>
 			<Media>
@@ -49,6 +49,10 @@
 				<File Id="53535387" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Slower Engine.wav</ShortName>
 					<CachePath>SFX/Slower Engine_C9F14E2F.wem</CachePath>
+				</File>
+				<File Id="57895059" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Drone Movement.wav</ShortName>
+					<CachePath>SFX/Drone Movement_0F2E158C.wem</CachePath>
 				</File>
 				<File Id="75956038" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Taking Damage.wav</ShortName>
@@ -66,6 +70,10 @@
 					<ShortName>Type6.wav</ShortName>
 					<CachePath>SFX/Type6_10C4C929.wem</CachePath>
 				</File>
+				<File Id="116342376" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>MENU MASTER (1).wav</ShortName>
+					<CachePath>SFX/MENU MASTER (1)_D79FB2B7.wem</CachePath>
+				</File>
 				<File Id="119143867" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Shield.wav</ShortName>
 					<CachePath>SFX/Shield_10C4C929.wem</CachePath>
@@ -76,7 +84,7 @@
 				</File>
 				<File Id="165704387" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Death.wav</ShortName>
-					<CachePath>SFX/Death_10C4C929.wem</CachePath>
+					<CachePath>SFX/Death_55C323C3.wem</CachePath>
 				</File>
 				<File Id="187186506" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>AMB.wav</ShortName>
@@ -194,6 +202,10 @@
 					<ShortName>DASH 2.wav</ShortName>
 					<CachePath>SFX/DASH 2_10C4C929.wem</CachePath>
 				</File>
+				<File Id="752450120" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>MENU MASTER NO INTRO.wav</ShortName>
+					<CachePath>SFX/MENU MASTER NO INTRO_D79FB2B7.wem</CachePath>
+				</File>
 				<File Id="801403675" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>DETECTED.wav</ShortName>
 					<CachePath>SFX/DETECTED_10C4C929.wem</CachePath>
@@ -217,10 +229,6 @@
 				<File Id="843477630" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Scrolling SFX.wav</ShortName>
 					<CachePath>SFX/Scrolling SFX_10C4C929.wem</CachePath>
-				</File>
-				<File Id="847613361" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>MENU.wav</ShortName>
-					<CachePath>SFX/MENU_D79FB2B7.wem</CachePath>
 				</File>
 				<File Id="859866707" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Adder Infiltration Stealth v2 (Variation4).wav</ShortName>
@@ -249,10 +257,6 @@
 				<File Id="977503330" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>RANDOM ROBOT .wav</ShortName>
 					<CachePath>SFX/RANDOM ROBOT _379CCD25.wem</CachePath>
-				</File>
-				<File Id="984440277" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>EnemyAmbient.wav</ShortName>
-					<CachePath>SFX/EnemyAmbient_D79FB2B7.wem</CachePath>
 				</File>
 				<File Id="1018815491" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Progress Bar.wav</ShortName>
@@ -300,7 +304,7 @@
 						<MediaRef Id="1041122036"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="779278001" Name="Death" DurationType="OneShot" DurationMin="4.4583335" DurationMax="4.4583335">
+				<Event Id="779278001" Name="Death" DurationType="OneShot" DurationMin="1.8690593" DurationMax="1.8690593">
 					<MediaRefs>
 						<MediaRef Id="165704387"/>
 					</MediaRefs>
@@ -352,7 +356,7 @@
 				</Event>
 				<Event Id="1504246845" Name="EnemyDroneAmb" MaxAttenuation="100" DurationType="Infinite">
 					<MediaRefs>
-						<MediaRef Id="984440277"/>
+						<MediaRef Id="57895059"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="2348200894" Name="EnemyShark" MaxAttenuation="100" DurationType="Infinite">
@@ -372,7 +376,8 @@
 				</Event>
 				<Event Id="2461714704" Name="HubMusicStart_Event" DurationType="Infinite">
 					<MediaRefs>
-						<MediaRef Id="847613361"/>
+						<MediaRef Id="116342376"/>
+						<MediaRef Id="752450120"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="3822340686" Name="LazerFire_Event" DurationType="OneShot" DurationMin="0.38889584" DurationMax="0.710375">
@@ -532,5 +537,5 @@
 			</StateGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{B3BD2F0E-1BA3-636C-79EF-39F582868218}</FileHash>
+	<FileHash>{774D43FF-E22D-47B6-5EC0-833ADFD44343}</FileHash>
 </SoundBanksInfo>

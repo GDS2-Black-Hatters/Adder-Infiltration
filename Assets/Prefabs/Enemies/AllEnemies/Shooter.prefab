@@ -539,6 +539,7 @@ MonoBehaviour:
     health:
       <originalValue>k__BackingField: 20
       value: 0
+    isDead: 0
   movementPIDController:
     proportionalGain: 1
     integralGain: 0
@@ -574,6 +575,10 @@ MonoBehaviour:
   attackCooldown:
     <timer>k__BackingField: 1
     <timeScale>k__BackingField: -1
+  scannerSF:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
   DroneAmb:
     idInternal: 0
     valueGuidInternal: 

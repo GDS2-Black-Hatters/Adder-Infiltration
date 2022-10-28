@@ -5,7 +5,7 @@ public class MinigameLoadAdditive : MonoBehaviour
 {
     private bool isActive = false; //Check if active
     private Scene activeScene; //Reference to current Fishing Scene
-    private string sceneName;
+    [SerializeField, HideInInspector] private string sceneName;
 
 #if UNITY_EDITOR
     [SerializeField] private UnityEditor.SceneAsset scene;

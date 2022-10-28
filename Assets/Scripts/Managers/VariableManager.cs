@@ -134,9 +134,9 @@ public sealed class VariableManager : BaseManager
 
     public void RandomIncrement()
     {
-        SetVariable(bytecoins, GetVariable<int>(bytecoins) + UnityEngine.Random.Range(0, 100));
-        SetVariable(intelligenceData, GetVariable<int>(intelligenceData) + UnityEngine.Random.Range(0, 100));
-        SetVariable(processingPower, GetVariable<int>(processingPower) + UnityEngine.Random.Range(0, 100));
+        SetVariable(bytecoins, GetVariable<int>(bytecoins) + UnityEngine.Random.Range(100, 300));
+        SetVariable(intelligenceData, GetVariable<int>(intelligenceData) + UnityEngine.Random.Range(100, 300));
+        SetVariable(processingPower, GetVariable<int>(processingPower) + UnityEngine.Random.Range(100, 300));
         GameManager.SaveManager.SaveToFile();
     }
 
