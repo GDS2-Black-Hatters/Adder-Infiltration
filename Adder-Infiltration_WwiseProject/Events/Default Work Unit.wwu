@@ -368,7 +368,28 @@
 				</Folder>
 				<Folder Name="LoadScreen" ID="{56EB3299-CBD8-4519-BF9D-32C5E4F3D158}" ShortID="871165469">
 					<ChildrenList>
-						<Event Name="Typing" ID="{3A30AD02-DCC1-4817-B568-3C5810DF445D}"/>
+						<Event Name="Typing" ID="{3A30AD02-DCC1-4817-B568-3C5810DF445D}">
+							<ChildrenList>
+								<Action Name="" ID="{27C6B54C-8047-4170-A615-903AAE9CCB9C}" ShortID="310493915">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Typing" ID="{BD682463-8A29-43BC-95CA-582BB4B0A665}" WorkUnitID="{D5FBB3F7-72F3-40AC-9B3E-877FA285AAC1}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="ProgressBar" ID="{A89599DA-C329-44F0-B89C-CD5C168463EE}">
+							<ChildrenList>
+								<Action Name="" ID="{28F07DC0-165E-4BE5-980B-05EE018FD139}" ShortID="733557692">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ProgressBar" ID="{40702E58-4F44-4764-9C90-08D02C4046A4}" WorkUnitID="{D5FBB3F7-72F3-40AC-9B3E-877FA285AAC1}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>
