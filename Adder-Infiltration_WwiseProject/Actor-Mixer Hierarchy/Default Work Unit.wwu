@@ -1109,6 +1109,11 @@
 												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
 												<Property Name="TrimBegin" Type="Real64" Value="1.94790451275343"/>
 												<Property Name="TrimEnd" Type="Real64" Value="5.11711423588402"/>
+												<Property Name="VolumeOffset" Type="Real64">
+													<ValueList>
+														<Value>4</Value>
+													</ValueList>
+												</Property>
 											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Progress Bar.wav</AudioFile>
@@ -1136,6 +1141,11 @@
 												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
 												<Property Name="TrimBegin" Type="Real64" Value="2.00201297144103"/>
 												<Property Name="TrimEnd" Type="Real64" Value="7.11139742751254"/>
+												<Property Name="VolumeOffset" Type="Real64">
+													<ValueList>
+														<Value>4</Value>
+													</ValueList>
+												</Property>
 											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Progress Bar.wav</AudioFile>
