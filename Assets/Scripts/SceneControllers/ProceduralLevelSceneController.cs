@@ -24,6 +24,6 @@ public class ProceduralLevelSceneController : BaseSceneController
     public void CameraApproachComplete()
     {
         Destroy(loadEffectRig.gameObject);
-        StartLevelMusicEvent.Post(gameObject);
+        //StartLevelMusicEvent.Post(gameObject);
     }
 }

@@ -251,6 +251,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef71154daebe7c84f9c09845cfb2798e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &24270771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24270766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61c1a23ede89ee443bae48f806dd1f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: ae8d9d44
+  useOtherObject: 0
+  actionOnEventType: 0
+  curveInterpolation: 4
+  enableActionOnEvent: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 0ef755c8dca1d634e93e8f53634ae9c7, type: 2}
+  useCallbacks: 0
+  Callbacks: []
+  playingId: 0
+  soundEmitterObject: {fileID: 0}
+  transitionDuration: 0
+  eventIdInternal: 0
+  valueGuidInternal: 
+  m_callbackDataInternal: {fileID: 0}
 --- !u!114 &37142743 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6809075488103811737, guid: 34320e281dae6c94dbaf145f9d4be276, type: 3}

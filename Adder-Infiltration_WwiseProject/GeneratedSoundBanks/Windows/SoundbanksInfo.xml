@@ -34,7 +34,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="4096625075" Type="User" Language="SFX" Hash="{12413EBF-7CC5-B7DA-DD94-F05430A88217}">
+		<SoundBank Id="4096625075" Type="User" Language="SFX" Hash="{992579C9-526B-A1EE-FAB4-96784CDD5128}">
 			<ShortName>MainLevelSoundBank</ShortName>
 			<Path>MainLevelSoundBank.bnk</Path>
 			<Media>
@@ -209,7 +209,7 @@
 						<MediaRef Id="75956038"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3352465307" Name="BomberExplode" DurationType="OneShot" DurationMin="4.5105786" DurationMax="5.8102207">
+				<Event Id="3352465307" Name="BomberExplode" MaxAttenuation="100" DurationType="OneShot" DurationMin="4.5105786" DurationMax="5.8102207">
 					<MediaRefs>
 						<MediaRef Id="21226199"/>
 						<MediaRef Id="491228268"/>
@@ -234,7 +234,7 @@
 						<MediaRef Id="801403675"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2790820982" Name="DroneScan" DurationType="OneShot" DurationMin="2.3355176" DurationMax="2.3355176">
+				<Event Id="2790820982" Name="DroneScan" MaxAttenuation="100" DurationType="OneShot" DurationMin="2.3355176" DurationMax="2.3355176">
 					<MediaRefs>
 						<MediaRef Id="922839706"/>
 					</MediaRefs>
@@ -242,7 +242,7 @@
 				<Event Id="376048186" Name="EMP1" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="376048185" Name="EMP2" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="376048184" Name="EMP3" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
-				<Event Id="2090838661" Name="EnemyBomberMove" DurationType="Infinite">
+				<Event Id="2090838661" Name="EnemyBomberMove" MaxAttenuation="100" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="444352329"/>
 					</MediaRefs>
@@ -252,12 +252,12 @@
 						<MediaRef Id="984440277"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2348200894" Name="EnemyShark" DurationType="Infinite">
+				<Event Id="2348200894" Name="EnemyShark" MaxAttenuation="100" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="977503330"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="385497104" Name="EnemySlow" DurationType="Infinite">
+				<Event Id="385497104" Name="EnemySlow" MaxAttenuation="100" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="53535387"/>
 					</MediaRefs>
@@ -385,5 +385,5 @@
 			</StateGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{A9B5B242-EDCA-F69F-AE83-C83FF31827A4}</FileHash>
+	<FileHash>{798DD1AB-B090-E1D0-6DEF-2709455B2F94}</FileHash>
 </SoundBanksInfo>
