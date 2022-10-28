@@ -1450,6 +1450,9 @@
 							</ChildrenList>
 						</RandomSequenceContainer>
 						<Sound Name="ProgressBar" ID="{40702E58-4F44-4764-9C90-08D02C4046A4}" ShortID="195317273">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
