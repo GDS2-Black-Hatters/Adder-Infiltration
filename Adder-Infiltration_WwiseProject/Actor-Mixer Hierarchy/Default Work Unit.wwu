@@ -1246,6 +1246,9 @@
 							<ChildrenList>
 								<AudioFileSource Name="Death" ID="{1310D30D-F635-4F94-8EB2-4784094B142A}">
 									<PropertyList>
+										<Property Name="LoopBegin" Type="Real64" Value="0"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="1.86905929801613"/>
 										<Property Name="VolumeOffset" Type="Real64">
 											<ValueList>
 												<Value>7.9</Value>
