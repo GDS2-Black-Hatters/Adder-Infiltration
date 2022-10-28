@@ -82,6 +82,17 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="BomberCharge" ID="{45B2910D-C84C-4FE8-AC3F-0BB86495CDF0}">
+							<ChildrenList>
+								<Action Name="" ID="{3BD23788-0274-47F6-A6EF-95965B1EF53A}" ShortID="957377099">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="BomberCharge" ID="{D16474B8-FD85-49B5-AF33-29FA80DF3189}" WorkUnitID="{D5FBB3F7-72F3-40AC-9B3E-877FA285AAC1}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="AbilitySFX" ID="{77AD6EA4-82F2-4339-A511-3674B754CB01}" ShortID="143526568">
@@ -176,17 +187,6 @@
 										</Action>
 									</ChildrenList>
 								</Event>
-								<Event Name="RandomEMP" ID="{FF453220-5DE3-4C53-96A0-FE64448EB191}">
-									<ChildrenList>
-										<Action Name="" ID="{A131594F-4804-4A64-828C-2543194B26DC}" ShortID="944907372">
-											<ReferenceList>
-												<Reference Name="Target">
-													<ObjectRef Name="RandomEMP" ID="{3B5E8860-8B05-42A4-955C-A229A30A6FD0}" WorkUnitID="{D5FBB3F7-72F3-40AC-9B3E-877FA285AAC1}"/>
-												</Reference>
-											</ReferenceList>
-										</Action>
-									</ChildrenList>
-								</Event>
 							</ChildrenList>
 						</Folder>
 						<Event Name="Dash" ID="{0F29C90F-7BB4-4C17-8B98-B7CA700D9284}">
@@ -272,6 +272,13 @@
 						</Event>
 						<Event Name="LevelStart_Event" ID="{64BDD4A4-F509-46E3-B602-18F899BF7C7F}">
 							<ChildrenList>
+								<Action Name="" ID="{E0909AE6-EBC9-471D-846B-86D804AE2011}" ShortID="325980132">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="3"/>
+										<Property Name="Scope" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList/>
+								</Action>
 								<Action Name="" ID="{023A90CA-041C-4BE1-8246-8819B5149E39}" ShortID="894297651">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="22"/>
