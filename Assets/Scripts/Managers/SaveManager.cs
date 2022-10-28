@@ -41,7 +41,7 @@ public sealed class SaveManager : BaseManager
     public override BaseManager StartUp()
     {
         saveFile = Application.persistentDataPath + "/AdderInfiltrationSprint5.sav";
-        //print(Application.persistentDataPath); //Uncomment to find where it is stored.
+        print(Application.persistentDataPath); //Uncomment to find where it is stored.
         LoadFile(saveFile);
         return this;
     }
