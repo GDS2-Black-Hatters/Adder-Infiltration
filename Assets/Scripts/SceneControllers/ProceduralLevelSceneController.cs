@@ -13,9 +13,11 @@ public class ProceduralLevelSceneController : BaseSceneController
         SetSpawnPoint();
 
         enemyAdmin.SpawnEnemies(enemySpawnCount);
-
+/*
         Vector3 position = Player.transform.position + Random.onUnitSphere * 200;
         if(position.y < 0) position.Scale(new(1, -1, 1));
+*/
+        Vector3 position = Player.transform.position + Vector3.up * 400;
         loadEffectRig.InitilizeRigPosition(position);
     }
 
