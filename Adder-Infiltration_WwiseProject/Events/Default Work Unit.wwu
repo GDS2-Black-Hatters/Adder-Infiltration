@@ -200,6 +200,39 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Shield" ID="{65E86ED5-F113-48AF-A20D-0BDB8E661373}">
+							<ChildrenList>
+								<Action Name="" ID="{DBAF9C4B-4740-495B-BF6E-7F037DB8406F}" ShortID="517773131">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Shield" ID="{76ADB892-36B9-474A-A3D3-DDB11D10E5EC}" WorkUnitID="{D5FBB3F7-72F3-40AC-9B3E-877FA285AAC1}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Heal" ID="{410E6FEE-8F47-4767-9934-435ACB594010}">
+							<ChildrenList>
+								<Action Name="" ID="{43AC3BB8-646E-4AA3-930A-40B03CC8D875}" ShortID="387063437">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Heal" ID="{1B24C955-1C35-4293-BAE2-8B76DC53E192}" WorkUnitID="{D5FBB3F7-72F3-40AC-9B3E-877FA285AAC1}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Scan" ID="{3B22597E-6E96-46A5-8DDB-EDCE61A9D7EC}">
+							<ChildrenList>
+								<Action Name="" ID="{66CA0A1C-1EBC-42B6-B34A-413E2E922CB4}" ShortID="687550124">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Scan" ID="{B0D181AA-6EC7-4A9F-A7AB-0D0495CA2ABF}" WorkUnitID="{D5FBB3F7-72F3-40AC-9B3E-877FA285AAC1}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="DesktopEvents" ID="{076FEFAF-40E9-457A-B5B0-B73969B73BBC}" ShortID="343874429">

@@ -276,89 +276,6 @@
 						<Property Name="RandomOrSequence" Type="int16" Value="0"/>
 					</PropertyList>
 					<ReferenceList>
-						<Reference Name="Attenuation">
-							<Custom>
-								<Attenuation Name="Attenuation (Custom)" ID="{1D828A2B-578F-4106-90CE-A0A318B06591}" ShortID="533983973">
-									<CurveUsageInfoList>
-										<VolumeDryUsage>
-											<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
-												<Curve Name="VolumeDry" ID="{41509DA7-3D08-47F9-A56A-CA705265DB9E}">
-													<PropertyList>
-														<Property Name="Flags" Type="int32" Value="3"/>
-													</PropertyList>
-													<PointList>
-														<Point>
-															<XPos>0</XPos>
-															<YPos>0</YPos>
-															<Flags>5</Flags>
-														</Point>
-														<Point>
-															<XPos>100</XPos>
-															<YPos>-200</YPos>
-															<Flags>37</Flags>
-														</Point>
-													</PointList>
-												</Curve>
-											</CurveUsageInfo>
-										</VolumeDryUsage>
-										<VolumeWetGameUsage>
-											<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
-										</VolumeWetGameUsage>
-										<VolumeWetUserUsage>
-											<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
-										</VolumeWetUserUsage>
-										<LowPassFilterUsage>
-											<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
-										</LowPassFilterUsage>
-										<HighPassFilterUsage>
-											<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
-										</HighPassFilterUsage>
-										<SpreadUsage>
-											<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
-										</SpreadUsage>
-										<FocusUsage>
-											<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
-										</FocusUsage>
-										<ObstructionVolumeUsage>
-											<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
-										</ObstructionVolumeUsage>
-										<ObstructionLPFUsage>
-											<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
-										</ObstructionLPFUsage>
-										<ObstructionHPFUsage>
-											<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
-										</ObstructionHPFUsage>
-										<OcclusionVolumeUsage>
-											<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
-										</OcclusionVolumeUsage>
-										<OcclusionLPFUsage>
-											<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
-										</OcclusionLPFUsage>
-										<OcclusionHPFUsage>
-											<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
-										</OcclusionHPFUsage>
-										<DiffractionVolumeUsage>
-											<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
-										</DiffractionVolumeUsage>
-										<DiffractionLPFUsage>
-											<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
-										</DiffractionLPFUsage>
-										<DiffractionHPFUsage>
-											<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
-										</DiffractionHPFUsage>
-										<TransmissionVolumeUsage>
-											<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
-										</TransmissionVolumeUsage>
-										<TransmissionLPFUsage>
-											<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
-										</TransmissionLPFUsage>
-										<TransmissionHPFUsage>
-											<CurveUsageInfo Platform="Linked" CurveToUse="UseProject"/>
-										</TransmissionHPFUsage>
-									</CurveUsageInfoList>
-								</Attenuation>
-							</Custom>
-						</Reference>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
 						</Reference>
@@ -789,6 +706,140 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
 								</Reference>
 							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Lvl 1" ID="{55FFEB2A-657B-491C-97BE-155A1091A50B}" ShortID="31820830">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EMP1_1" ID="{1D0552B4-43A8-47FF-A447-9009B13F6FAA}">
+											<Language>SFX</Language>
+											<AudioFile>EMP1_1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="50950406"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="EMP1_1" ID="{1D0552B4-43A8-47FF-A447-9009B13F6FAA}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Lvl 2" ID="{14E7499C-4890-4F87-A2D2-97C3AF8F5F63}" ShortID="357534465">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EMP2" ID="{70EA51BE-DB04-4641-9E6D-0E607C50DB6C}">
+											<Language>SFX</Language>
+											<AudioFile>EMP2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="153678803"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="EMP2" ID="{70EA51BE-DB04-4641-9E6D-0E607C50DB6C}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Lvl 3" ID="{A663DE2F-2E3B-4448-9AED-C6DB0E76A14C}" ShortID="702608817">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EMP3" ID="{7A7DDB73-2053-4C70-A7D9-2EF5E74110D8}">
+											<Language>SFX</Language>
+											<AudioFile>EMP3.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="807439261"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="EMP3" ID="{7A7DDB73-2053-4C70-A7D9-2EF5E74110D8}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Lvl 4" ID="{F48210C9-48EE-4EB3-BC5D-B4BC3F9FAB0F}" ShortID="785152275">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EMP4" ID="{0805D123-ACC9-4964-9292-B7C6A1E71E28}">
+											<Language>SFX</Language>
+											<AudioFile>EMP4.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="823434167"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="EMP4" ID="{0805D123-ACC9-4964-9292-B7C6A1E71E28}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Lvl 5" ID="{49441ADD-2B63-4A16-94A8-F6C6E5ABBEDA}" ShortID="1060640547">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EMP5" ID="{CB86E9B5-3793-4BFF-9FE9-397551158E1C}">
+											<Language>SFX</Language>
+											<AudioFile>EMP5.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="219866341"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="EMP5" ID="{CB86E9B5-3793-4BFF-9FE9-397551158E1C}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Lvl 6" ID="{2A3C01D2-F085-4558-A502-A28EED3D664F}" ShortID="330872463">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EMP6" ID="{7FC7DCB8-45D7-41B2-AEB8-7AD4CF929A67}">
+											<Language>SFX</Language>
+											<AudioFile>EMP6.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="97967462"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="EMP6" ID="{7FC7DCB8-45D7-41B2-AEB8-7AD4CF929A67}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
 						</RandomSequenceContainer>
 						<Sound Name="AbilityScroll" ID="{045661D4-A46C-4E1C-A7D9-E47C41C08360}" ShortID="465423886">
 							<ReferenceList>
@@ -890,7 +941,7 @@
 								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
-						<RandomSequenceContainer Name="RandomEMP" ID="{3B5E8860-8B05-42A4-955C-A229A30A6FD0}" ShortID="1030033623">
+						<Sound Name="Scan" ID="{B0D181AA-6EC7-4A9F-A7AB-0D0495CA2ABF}" ShortID="591528285">
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
@@ -900,140 +951,62 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<Sound Name="Lvl 2" ID="{14E7499C-4890-4F87-A2D2-97C3AF8F5F63}" ShortID="357534465">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="EMP2" ID="{70EA51BE-DB04-4641-9E6D-0E607C50DB6C}">
-											<Language>SFX</Language>
-											<AudioFile>EMP2.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="153678803"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="EMP2" ID="{70EA51BE-DB04-4641-9E6D-0E607C50DB6C}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Lvl 1" ID="{55FFEB2A-657B-491C-97BE-155A1091A50B}" ShortID="31820830">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="EMP1_1" ID="{1D0552B4-43A8-47FF-A447-9009B13F6FAA}">
-											<Language>SFX</Language>
-											<AudioFile>EMP1_1.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="50950406"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="EMP1_1" ID="{1D0552B4-43A8-47FF-A447-9009B13F6FAA}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Lvl 5" ID="{49441ADD-2B63-4A16-94A8-F6C6E5ABBEDA}" ShortID="1060640547">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="EMP5" ID="{CB86E9B5-3793-4BFF-9FE9-397551158E1C}">
-											<Language>SFX</Language>
-											<AudioFile>EMP5.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="219866341"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="EMP5" ID="{CB86E9B5-3793-4BFF-9FE9-397551158E1C}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Lvl 3" ID="{A663DE2F-2E3B-4448-9AED-C6DB0E76A14C}" ShortID="702608817">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="EMP3" ID="{7A7DDB73-2053-4C70-A7D9-2EF5E74110D8}">
-											<Language>SFX</Language>
-											<AudioFile>EMP3.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="807439261"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="EMP3" ID="{7A7DDB73-2053-4C70-A7D9-2EF5E74110D8}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Lvl 6" ID="{2A3C01D2-F085-4558-A502-A28EED3D664F}" ShortID="330872463">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="EMP6" ID="{7FC7DCB8-45D7-41B2-AEB8-7AD4CF929A67}">
-											<Language>SFX</Language>
-											<AudioFile>EMP6.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="97967462"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="EMP6" ID="{7FC7DCB8-45D7-41B2-AEB8-7AD4CF929A67}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Lvl 4" ID="{F48210C9-48EE-4EB3-BC5D-B4BC3F9FAB0F}" ShortID="785152275">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="EMP4" ID="{0805D123-ACC9-4964-9292-B7C6A1E71E28}">
-											<Language>SFX</Language>
-											<AudioFile>EMP4.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="823434167"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="EMP4" ID="{0805D123-ACC9-4964-9292-B7C6A1E71E28}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
+								<AudioFileSource Name="110564__2887679652__emp-blast" ID="{10F25903-08A6-4A34-9FFF-D22B9266853C}">
+									<Language>SFX</Language>
+									<AudioFile>110564__2887679652__emp-blast.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="584299720"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
-						</RandomSequenceContainer>
+							<ActiveSourceList>
+								<ActiveSource Name="110564__2887679652__emp-blast" ID="{10F25903-08A6-4A34-9FFF-D22B9266853C}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Heal" ID="{1B24C955-1C35-4293-BAE2-8B76DC53E192}" ShortID="247857530">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Heal" ID="{EEA46AD3-40BC-4E48-B5CA-66C4E39C882A}">
+									<Language>SFX</Language>
+									<AudioFile>Heal.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="234223611"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Heal" ID="{EEA46AD3-40BC-4E48-B5CA-66C4E39C882A}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Shield" ID="{76ADB892-36B9-474A-A3D3-DDB11D10E5EC}" ShortID="595444334">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Shield" ID="{812FC887-8271-406C-839C-B1CE3B4B528A}">
+									<Language>SFX</Language>
+									<AudioFile>Shield.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="119143867"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Shield" ID="{812FC887-8271-406C-839C-B1CE3B4B528A}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 				</RandomSequenceContainer>
 				<Folder Name="Objective SFX" ID="{5D3FF231-D1FE-4139-9578-B66DDFB9430F}" ShortID="34529943">
@@ -1569,9 +1542,6 @@
 							</ChildrenList>
 						</RandomSequenceContainer>
 						<Sound Name="ProgressBar" ID="{40702E58-4F44-4764-9C90-08D02C4046A4}" ShortID="195317273">
-							<PropertyList>
-								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
@@ -1584,8 +1554,8 @@
 								<AudioFileSource Name="Progress Bar" ID="{2AAEAB2F-E0F3-46EC-A3EF-B84869BCF2C7}">
 									<PropertyList>
 										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-										<Property Name="TrimBegin" Type="Real64" Value="2.40754012345679"/>
-										<Property Name="TrimEnd" Type="Real64" Value="5.58755301379812"/>
+										<Property Name="TrimBegin" Type="Real64" Value="1.38363058643994"/>
+										<Property Name="TrimEnd" Type="Real64" Value="8.44091955526488"/>
 									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>Progress Bar.wav</AudioFile>
