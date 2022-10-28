@@ -290,6 +290,28 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="ZoneInteract" ID="{13FCF7D1-ED27-40C0-80EA-26D3731C9416}">
+							<ChildrenList>
+								<Action Name="" ID="{0E11A8C7-100D-4584-8D14-1CCAA1463B61}" ShortID="267432444">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Zone Interaction" ID="{0E4EFD41-66B2-4668-A9A5-1295345B6C35}" WorkUnitID="{D5FBB3F7-72F3-40AC-9B3E-877FA285AAC1}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="ObjInteract" ID="{A7F51202-23BB-4A7E-B0CE-C8F15176986D}">
+							<ChildrenList>
+								<Action Name="" ID="{0E6D17CD-9C3B-468D-AB37-6845E95993D6}" ShortID="963409025">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Objective Interaction" ID="{EEE30172-E5AF-4D8B-9173-1D880F7F72D8}" WorkUnitID="{D5FBB3F7-72F3-40AC-9B3E-877FA285AAC1}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="LvlObjects" ID="{AE4E9916-D467-4526-99E4-67E6745B9CF1}" ShortID="102786082">
