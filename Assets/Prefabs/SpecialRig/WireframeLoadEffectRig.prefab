@@ -251,9 +251,14 @@ MonoBehaviour:
   rigCamera: {fileID: 650575318853881174}
   wireMaskSphereTransform: {fileID: 650575317971194011}
   plainMaskSphereTransform: {fileID: 2439883443113087742}
+  approachSpeed: 0.75
   expansionRate: 75
   plainColorLag: 120
+  approaching: 0
   isExpanding: 0
+  OnApproachComplete:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4847363873207811675
 GameObject:
   m_ObjectHideFlags: 0
