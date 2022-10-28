@@ -160,7 +160,17 @@
 				</Folder>
 				<Folder Name="DesktopEvents" ID="{076FEFAF-40E9-457A-B5B0-B73969B73BBC}" ShortID="343874429">
 					<ChildrenList>
-						<Event Name="MouseClick" ID="{D493DADD-EFD0-47F9-86E3-25C03E05410B}"/>
+						<Event Name="MouseClick" ID="{D493DADD-EFD0-47F9-86E3-25C03E05410B}">
+							<ChildrenList>
+								<Action Name="" ID="{9B317C69-3FB9-4D3A-A77D-6B23CA551447}" ShortID="487503469">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Mouse Click" ID="{2A115DDA-FCCB-443D-AE0B-CD0658116FA7}" WorkUnitID="{D5FBB3F7-72F3-40AC-9B3E-877FA285AAC1}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="LevelEvent" ID="{F24A7266-70CE-4550-815A-FECDB3583C99}" ShortID="2149768">
@@ -310,6 +320,11 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="LoadScreen" ID="{56EB3299-CBD8-4519-BF9D-32C5E4F3D158}" ShortID="871165469">
+					<ChildrenList>
+						<Event Name="Typing" ID="{3A30AD02-DCC1-4817-B568-3C5810DF445D}"/>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>

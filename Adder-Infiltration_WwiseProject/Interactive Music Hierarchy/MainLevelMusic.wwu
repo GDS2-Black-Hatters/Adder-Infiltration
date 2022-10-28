@@ -306,9 +306,9 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<MusicSegment Name="Adder Infiltration Stealth v2 (Stealth)" ID="{BF19728B-2E66-4A6E-98FA-8F079DF62AB6}" ShortID="792581473">
+								<MusicSegment Name="v8" ID="{1796D862-8537-4D9D-B740-8DE50A57B643}" ShortID="45445043">
 									<PropertyList>
-										<Property Name="EndPosition" Type="Real64" Value="28444.4375"/>
+										<Property Name="EndPosition" Type="Real64" Value="29000"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -319,540 +319,6 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<MusicTrack Name="Adder Infiltration Stealth v2 (Stealth)" ID="{2C190EBD-F143-45B4-81AB-069960367DB7}" ShortID="892223904">
-											<ReferenceList>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Adder Infiltration Stealth v2 (Stealth)" ID="{428C4031-C3C2-4759-B2B3-55B151708B22}">
-													<Language>SFX</Language>
-													<AudioFile>Adder Infiltration Stealth v2 (Stealth).wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="803960293"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<TransitionList>
-												<MusicTransition Name="Root" ID="{98868DB2-5B49-4A0A-9C17-DBBF91FD2248}">
-													<PropertyList>
-														<Property Name="IsFolder" Type="bool" Value="True"/>
-													</PropertyList>
-													<TransitionInfo/>
-												</MusicTransition>
-											</TransitionList>
-											<ObjectLists>
-												<ObjectList Name="Sequences">
-													<Reference>
-														<Local>
-															<MusicTrackSequence Name="" ID="{61606C47-C664-4214-A086-F9304BC1902B}">
-																<ObjectLists>
-																	<ObjectList Name="Clips">
-																		<Reference>
-																			<Local>
-																				<MusicClip Name="Adder Infiltration Stealth v2 (Stealth)" ID="{6D060F0D-9436-4C3B-B7FA-365F8CBB36B9}">
-																					<PropertyList>
-																						<Property Name="EndTrimOffset" Type="Real64" Value="28444.4375"/>
-																						<Property Name="FadeInMode" Type="int16" Value="0"/>
-																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
-																					</PropertyList>
-																					<AudioSourceRef Name="Adder Infiltration Stealth v2 (Stealth)" ID="{428C4031-C3C2-4759-B2B3-55B151708B22}"/>
-																				</MusicClip>
-																			</Local>
-																		</Reference>
-																	</ObjectList>
-																</ObjectLists>
-															</MusicTrackSequence>
-														</Local>
-													</Reference>
-												</ObjectList>
-											</ObjectLists>
-										</MusicTrack>
-									</ChildrenList>
-									<ObjectLists>
-										<ObjectList Name="Cues">
-											<Reference>
-												<Local>
-													<MusicCue Name="Entry Cue" ID="{C23DFC1C-80EA-457E-81F0-636A2DF9E92C}"/>
-												</Local>
-											</Reference>
-											<Reference>
-												<Local>
-													<MusicCue Name="Exit Cue" ID="{620710C1-E103-4EFC-8A13-4AB66E8859F6}">
-														<PropertyList>
-															<Property Name="CueType" Type="int16" Value="1"/>
-															<Property Name="TimeMs" Type="Real64" Value="28444.4375"/>
-														</PropertyList>
-													</MusicCue>
-												</Local>
-											</Reference>
-										</ObjectList>
-									</ObjectLists>
-								</MusicSegment>
-								<MusicSegment Name="Variation Loops" ID="{1796D862-8537-4D9D-B740-8DE50A57B643}" ShortID="45445043">
-									<PropertyList>
-										<Property Name="EndPosition" Type="Real64" Value="28888.8958333333"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<MusicTrack Name="LoopVar1" ID="{D42396DF-DF55-42A2-BC01-A1FD7B13A6BE}" ShortID="250161783">
-											<ReferenceList>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="LoopVar1" ID="{EE22AA64-916B-4A58-912E-7F7F2D9614AA}">
-													<Language>SFX</Language>
-													<AudioFile>LoopVar1.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="378107344"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<TransitionList>
-												<MusicTransition Name="Root" ID="{42E09D5A-E38F-4351-A4DB-648514077EF8}">
-													<PropertyList>
-														<Property Name="IsFolder" Type="bool" Value="True"/>
-													</PropertyList>
-													<TransitionInfo/>
-												</MusicTransition>
-											</TransitionList>
-											<ObjectLists>
-												<ObjectList Name="Sequences">
-													<Reference>
-														<Local>
-															<MusicTrackSequence Name="" ID="{5BFC51E9-6A62-42AD-9E78-4CD7C09E95A1}">
-																<ObjectLists>
-																	<ObjectList Name="Clips">
-																		<Reference>
-																			<Local>
-																				<MusicClip Name="LoopVar1" ID="{94F423EC-7168-4379-A376-016E5B5A3C68}">
-																					<PropertyList>
-																						<Property Name="EndTrimOffset" Type="Real64" Value="28444.4375"/>
-																						<Property Name="FadeInMode" Type="int16" Value="0"/>
-																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
-																					</PropertyList>
-																					<AudioSourceRef Name="LoopVar1" ID="{EE22AA64-916B-4A58-912E-7F7F2D9614AA}"/>
-																				</MusicClip>
-																			</Local>
-																		</Reference>
-																	</ObjectList>
-																</ObjectLists>
-															</MusicTrackSequence>
-														</Local>
-													</Reference>
-												</ObjectList>
-											</ObjectLists>
-										</MusicTrack>
-										<MusicTrack Name="LoopVar_8" ID="{AA2DC116-AC74-48FB-9387-979E6190B029}" ShortID="217074333">
-											<ReferenceList>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="LoopVar_8" ID="{600D77A7-7943-49FA-9A6B-38BF69842B42}">
-													<Language>SFX</Language>
-													<AudioFile>LoopVar_8.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="1020034317"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<TransitionList>
-												<MusicTransition Name="Root" ID="{79D695B1-321C-4F44-9DDF-2194F7D19B62}">
-													<PropertyList>
-														<Property Name="IsFolder" Type="bool" Value="True"/>
-													</PropertyList>
-													<TransitionInfo/>
-												</MusicTransition>
-											</TransitionList>
-											<ObjectLists>
-												<ObjectList Name="Sequences">
-													<Reference>
-														<Local>
-															<MusicTrackSequence Name="" ID="{A5F92F43-057A-46B0-9C0C-CF1C442759B1}">
-																<ObjectLists>
-																	<ObjectList Name="Clips">
-																		<Reference>
-																			<Local>
-																				<MusicClip Name="LoopVar_8" ID="{D5BA14E7-68DE-4308-BA63-492D212A6CF4}">
-																					<PropertyList>
-																						<Property Name="EndTrimOffset" Type="Real64" Value="28444.4375"/>
-																						<Property Name="FadeInMode" Type="int16" Value="0"/>
-																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
-																					</PropertyList>
-																					<AudioSourceRef Name="LoopVar_8" ID="{600D77A7-7943-49FA-9A6B-38BF69842B42}"/>
-																				</MusicClip>
-																			</Local>
-																		</Reference>
-																	</ObjectList>
-																</ObjectLists>
-															</MusicTrackSequence>
-														</Local>
-													</Reference>
-												</ObjectList>
-											</ObjectLists>
-										</MusicTrack>
-										<MusicTrack Name="LoopVar_7" ID="{E69607A8-42F0-4985-9868-5C09E02FD6BF}" ShortID="213042524">
-											<ReferenceList>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="LoopVar_7" ID="{9F2A1E30-8B6D-4754-B133-839FAD3EE575}">
-													<Language>SFX</Language>
-													<AudioFile>LoopVar_7.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="637628240"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<TransitionList>
-												<MusicTransition Name="Root" ID="{7AE4712C-A258-4D51-8A45-6C4607EB360B}">
-													<PropertyList>
-														<Property Name="IsFolder" Type="bool" Value="True"/>
-													</PropertyList>
-													<TransitionInfo/>
-												</MusicTransition>
-											</TransitionList>
-											<ObjectLists>
-												<ObjectList Name="Sequences">
-													<Reference>
-														<Local>
-															<MusicTrackSequence Name="" ID="{E36F33FC-EFCE-4625-B33C-BE87F65E7237}">
-																<ObjectLists>
-																	<ObjectList Name="Clips">
-																		<Reference>
-																			<Local>
-																				<MusicClip Name="LoopVar_7" ID="{4FA482E5-8EF3-41DF-BC5B-2271F4A9F171}">
-																					<PropertyList>
-																						<Property Name="EndTrimOffset" Type="Real64" Value="28444.4375"/>
-																						<Property Name="FadeInMode" Type="int16" Value="0"/>
-																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
-																					</PropertyList>
-																					<AudioSourceRef Name="LoopVar_7" ID="{9F2A1E30-8B6D-4754-B133-839FAD3EE575}"/>
-																				</MusicClip>
-																			</Local>
-																		</Reference>
-																	</ObjectList>
-																</ObjectLists>
-															</MusicTrackSequence>
-														</Local>
-													</Reference>
-												</ObjectList>
-											</ObjectLists>
-										</MusicTrack>
-										<MusicTrack Name="LoopVar_6" ID="{90F6BF3C-9157-4F40-B32A-E07111D57937}" ShortID="963372748">
-											<ReferenceList>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="LoopVar_6" ID="{1098DE4A-E968-4DB5-B991-91E0FB68D026}">
-													<Language>SFX</Language>
-													<AudioFile>LoopVar_6.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="85357415"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<TransitionList>
-												<MusicTransition Name="Root" ID="{C47A001B-EDBA-4FE8-8163-8BC8DC9D0C19}">
-													<PropertyList>
-														<Property Name="IsFolder" Type="bool" Value="True"/>
-													</PropertyList>
-													<TransitionInfo/>
-												</MusicTransition>
-											</TransitionList>
-											<ObjectLists>
-												<ObjectList Name="Sequences">
-													<Reference>
-														<Local>
-															<MusicTrackSequence Name="" ID="{4D5B2CF2-6CAD-4A6E-B36B-9116D72A1755}">
-																<ObjectLists>
-																	<ObjectList Name="Clips">
-																		<Reference>
-																			<Local>
-																				<MusicClip Name="LoopVar_6" ID="{49004D43-4F2C-402E-923A-12C332CE212D}">
-																					<PropertyList>
-																						<Property Name="EndTrimOffset" Type="Real64" Value="28444.4375"/>
-																						<Property Name="FadeInMode" Type="int16" Value="0"/>
-																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
-																					</PropertyList>
-																					<AudioSourceRef Name="LoopVar_6" ID="{1098DE4A-E968-4DB5-B991-91E0FB68D026}"/>
-																				</MusicClip>
-																			</Local>
-																		</Reference>
-																	</ObjectList>
-																</ObjectLists>
-															</MusicTrackSequence>
-														</Local>
-													</Reference>
-												</ObjectList>
-											</ObjectLists>
-										</MusicTrack>
-										<MusicTrack Name="LoopVar_5" ID="{68E627A3-DF8C-46A3-8586-625C24D1D39E}" ShortID="1068289980">
-											<ReferenceList>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="LoopVar_5" ID="{C5147C6F-DF11-44E7-A5AB-C0CB19B9966D}">
-													<Language>SFX</Language>
-													<AudioFile>LoopVar_5.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="1052129803"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<TransitionList>
-												<MusicTransition Name="Root" ID="{A454BE2F-2046-4ED5-8FE8-D8B2772E2E2B}">
-													<PropertyList>
-														<Property Name="IsFolder" Type="bool" Value="True"/>
-													</PropertyList>
-													<TransitionInfo/>
-												</MusicTransition>
-											</TransitionList>
-											<ObjectLists>
-												<ObjectList Name="Sequences">
-													<Reference>
-														<Local>
-															<MusicTrackSequence Name="" ID="{2AD5266D-A094-4147-9515-EF7FB97C0C78}">
-																<ObjectLists>
-																	<ObjectList Name="Clips">
-																		<Reference>
-																			<Local>
-																				<MusicClip Name="LoopVar_5" ID="{D0C4340A-D160-46B8-AF27-5884F240D8EE}">
-																					<PropertyList>
-																						<Property Name="EndTrimOffset" Type="Real64" Value="28444.4375"/>
-																						<Property Name="FadeInMode" Type="int16" Value="0"/>
-																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
-																					</PropertyList>
-																					<AudioSourceRef Name="LoopVar_5" ID="{C5147C6F-DF11-44E7-A5AB-C0CB19B9966D}"/>
-																				</MusicClip>
-																			</Local>
-																		</Reference>
-																	</ObjectList>
-																</ObjectLists>
-															</MusicTrackSequence>
-														</Local>
-													</Reference>
-												</ObjectList>
-											</ObjectLists>
-										</MusicTrack>
-										<MusicTrack Name="LoopVar_4" ID="{84D0E72C-2390-40FA-9650-CB6C901E8FEB}" ShortID="701730589">
-											<ReferenceList>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="LoopVar_4" ID="{105A6B80-DC1F-491B-9298-2FDED90037F3}">
-													<Language>SFX</Language>
-													<AudioFile>LoopVar_4.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="697316214"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<TransitionList>
-												<MusicTransition Name="Root" ID="{3182EF50-8259-47ED-B9CD-FDBAD327D4CB}">
-													<PropertyList>
-														<Property Name="IsFolder" Type="bool" Value="True"/>
-													</PropertyList>
-													<TransitionInfo/>
-												</MusicTransition>
-											</TransitionList>
-											<ObjectLists>
-												<ObjectList Name="Sequences">
-													<Reference>
-														<Local>
-															<MusicTrackSequence Name="" ID="{F035BCDE-5A30-451B-8904-575154565968}">
-																<ObjectLists>
-																	<ObjectList Name="Clips">
-																		<Reference>
-																			<Local>
-																				<MusicClip Name="LoopVar_4" ID="{111D2902-90AB-4677-8204-A72C8786C0F8}">
-																					<PropertyList>
-																						<Property Name="EndTrimOffset" Type="Real64" Value="28444.4375"/>
-																						<Property Name="FadeInMode" Type="int16" Value="0"/>
-																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
-																					</PropertyList>
-																					<AudioSourceRef Name="LoopVar_4" ID="{105A6B80-DC1F-491B-9298-2FDED90037F3}"/>
-																				</MusicClip>
-																			</Local>
-																		</Reference>
-																	</ObjectList>
-																</ObjectLists>
-															</MusicTrackSequence>
-														</Local>
-													</Reference>
-												</ObjectList>
-											</ObjectLists>
-										</MusicTrack>
-										<MusicTrack Name="LoopVar_3" ID="{95B6E492-5DDE-49F6-90C1-BBB4CCD7A23C}" ShortID="801850009">
-											<ReferenceList>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="LoopVar_3" ID="{87CA0496-15C9-4219-A853-40AF41741FC3}">
-													<Language>SFX</Language>
-													<AudioFile>LoopVar_3.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="888665415"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<TransitionList>
-												<MusicTransition Name="Root" ID="{D7FD966C-551A-40F2-A9C8-36BC26B94BCA}">
-													<PropertyList>
-														<Property Name="IsFolder" Type="bool" Value="True"/>
-													</PropertyList>
-													<TransitionInfo/>
-												</MusicTransition>
-											</TransitionList>
-											<ObjectLists>
-												<ObjectList Name="Sequences">
-													<Reference>
-														<Local>
-															<MusicTrackSequence Name="" ID="{9B94EBE4-1BB2-46D9-9E18-9D65F6B87C77}">
-																<ObjectLists>
-																	<ObjectList Name="Clips">
-																		<Reference>
-																			<Local>
-																				<MusicClip Name="LoopVar_3" ID="{8DDB5360-FBAB-439F-B9DB-B634A66B3426}">
-																					<PropertyList>
-																						<Property Name="EndTrimOffset" Type="Real64" Value="28444.4375"/>
-																						<Property Name="FadeInMode" Type="int16" Value="0"/>
-																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
-																					</PropertyList>
-																					<AudioSourceRef Name="LoopVar_3" ID="{87CA0496-15C9-4219-A853-40AF41741FC3}"/>
-																				</MusicClip>
-																			</Local>
-																		</Reference>
-																	</ObjectList>
-																</ObjectLists>
-															</MusicTrackSequence>
-														</Local>
-													</Reference>
-												</ObjectList>
-											</ObjectLists>
-										</MusicTrack>
-										<MusicTrack Name="LoopVar_2" ID="{6FF0DFAC-7508-4E48-A1E8-D2D5DDA249D0}" ShortID="765193330">
-											<ReferenceList>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="LoopVar_2" ID="{9AFDD337-F493-418F-B8D9-6C1629A7849D}">
-													<Language>SFX</Language>
-													<AudioFile>LoopVar_2.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="1023118825"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<TransitionList>
-												<MusicTransition Name="Root" ID="{13574EC2-77F1-4C3C-900E-BC35FCF82DD5}">
-													<PropertyList>
-														<Property Name="IsFolder" Type="bool" Value="True"/>
-													</PropertyList>
-													<TransitionInfo/>
-												</MusicTransition>
-											</TransitionList>
-											<ObjectLists>
-												<ObjectList Name="Sequences">
-													<Reference>
-														<Local>
-															<MusicTrackSequence Name="" ID="{06D0C1DC-1DAD-4E84-A635-2C448861608E}">
-																<ObjectLists>
-																	<ObjectList Name="Clips">
-																		<Reference>
-																			<Local>
-																				<MusicClip Name="LoopVar_2" ID="{F7E8307B-F716-4569-A39C-42D194B23351}">
-																					<PropertyList>
-																						<Property Name="EndTrimOffset" Type="Real64" Value="28444.4375"/>
-																						<Property Name="FadeInMode" Type="int16" Value="0"/>
-																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
-																					</PropertyList>
-																					<AudioSourceRef Name="LoopVar_2" ID="{9AFDD337-F493-418F-B8D9-6C1629A7849D}"/>
-																				</MusicClip>
-																			</Local>
-																		</Reference>
-																	</ObjectList>
-																</ObjectLists>
-															</MusicTrackSequence>
-														</Local>
-													</Reference>
-												</ObjectList>
-											</ObjectLists>
-										</MusicTrack>
-										<MusicTrack Name="Adder Infiltration Stealth v2 (Variation7)" ID="{22036FAA-C50D-493E-ABBE-80AE2C780EEF}" ShortID="877085431">
-											<ReferenceList>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Adder Infiltration Stealth v2 (Variation7)" ID="{FBF86A4F-07EC-4D3E-BC1B-6AE657A0C791}">
-													<Language>SFX</Language>
-													<AudioFile>Adder Infiltration Stealth v2 (Variation7).wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="436490616"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<TransitionList>
-												<MusicTransition Name="Root" ID="{4D02CC31-C22F-4456-B4F4-C82216F82070}">
-													<PropertyList>
-														<Property Name="IsFolder" Type="bool" Value="True"/>
-													</PropertyList>
-													<TransitionInfo/>
-												</MusicTransition>
-											</TransitionList>
-											<ObjectLists>
-												<ObjectList Name="Sequences">
-													<Reference>
-														<Local>
-															<MusicTrackSequence Name="" ID="{D9548F13-C58B-4304-9C8D-C7D60588290D}">
-																<ObjectLists>
-																	<ObjectList Name="Clips">
-																		<Reference>
-																			<Local>
-																				<MusicClip Name="Adder Infiltration Stealth v2 (Variation7)" ID="{3887075A-1DF5-434B-9ECE-CF7E960D9FCB}">
-																					<PropertyList>
-																						<Property Name="EndTrimOffset" Type="Real64" Value="28444.4375"/>
-																						<Property Name="FadeInMode" Type="int16" Value="0"/>
-																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
-																					</PropertyList>
-																					<AudioSourceRef Name="Adder Infiltration Stealth v2 (Variation7)" ID="{FBF86A4F-07EC-4D3E-BC1B-6AE657A0C791}"/>
-																				</MusicClip>
-																			</Local>
-																		</Reference>
-																	</ObjectList>
-																</ObjectLists>
-															</MusicTrackSequence>
-														</Local>
-													</Reference>
-												</ObjectList>
-											</ObjectLists>
-										</MusicTrack>
 										<MusicTrack Name="Adder Infiltration Stealth v2 (Variation6)" ID="{96276D4C-5445-47A8-9514-FD82CB2C15CE}" ShortID="440631961">
 											<ReferenceList>
 												<Reference Name="OutputBus">
@@ -903,208 +369,45 @@
 												</ObjectList>
 											</ObjectLists>
 										</MusicTrack>
-										<MusicTrack Name="Adder Infiltration Stealth v2 (Variation5)" ID="{6D3B303A-1525-4B30-BFF6-572F98EC23CF}" ShortID="670417758">
-											<ReferenceList>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Adder Infiltration Stealth v2 (Variation5)" ID="{2961AF2F-C64B-480D-A9E1-96B3D373233C}">
-													<Language>SFX</Language>
-													<AudioFile>Adder Infiltration Stealth v2 (Variation5).wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="690267699"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<TransitionList>
-												<MusicTransition Name="Root" ID="{BD39D39D-2DEE-4B08-84B6-C78A8988CA95}">
-													<PropertyList>
-														<Property Name="IsFolder" Type="bool" Value="True"/>
-													</PropertyList>
-													<TransitionInfo/>
-												</MusicTransition>
-											</TransitionList>
-											<ObjectLists>
-												<ObjectList Name="Sequences">
-													<Reference>
-														<Local>
-															<MusicTrackSequence Name="" ID="{B8A40A74-1071-4EEE-8F5F-AFCC81031C3A}">
-																<ObjectLists>
-																	<ObjectList Name="Clips">
-																		<Reference>
-																			<Local>
-																				<MusicClip Name="Adder Infiltration Stealth v2 (Variation5)" ID="{E6BC6B8D-40F4-4A8D-B91C-75309918EA1C}">
-																					<PropertyList>
-																						<Property Name="EndTrimOffset" Type="Real64" Value="28444.4375"/>
-																						<Property Name="FadeInMode" Type="int16" Value="0"/>
-																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
-																					</PropertyList>
-																					<AudioSourceRef Name="Adder Infiltration Stealth v2 (Variation5)" ID="{2961AF2F-C64B-480D-A9E1-96B3D373233C}"/>
-																				</MusicClip>
-																			</Local>
-																		</Reference>
-																	</ObjectList>
-																</ObjectLists>
-															</MusicTrackSequence>
-														</Local>
-													</Reference>
-												</ObjectList>
-											</ObjectLists>
-										</MusicTrack>
-										<MusicTrack Name="Adder Infiltration Stealth v2 (Variation4)" ID="{53C5CF72-1BC1-45E2-ACF2-02D5DB9801A7}" ShortID="317395445">
-											<ReferenceList>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Adder Infiltration Stealth v2 (Variation4)" ID="{F512D658-07CB-426D-80AB-74C513BE263F}">
-													<Language>SFX</Language>
-													<AudioFile>Adder Infiltration Stealth v2 (Variation4).wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="859866707"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<TransitionList>
-												<MusicTransition Name="Root" ID="{022A647F-63D6-4C0E-BC5C-F06A080F4213}">
-													<PropertyList>
-														<Property Name="IsFolder" Type="bool" Value="True"/>
-													</PropertyList>
-													<TransitionInfo/>
-												</MusicTransition>
-											</TransitionList>
-											<ObjectLists>
-												<ObjectList Name="Sequences">
-													<Reference>
-														<Local>
-															<MusicTrackSequence Name="" ID="{1E88E0FC-DDDC-4F83-B1B0-40BE63AC5B56}">
-																<ObjectLists>
-																	<ObjectList Name="Clips">
-																		<Reference>
-																			<Local>
-																				<MusicClip Name="Adder Infiltration Stealth v2 (Variation4)" ID="{9047764B-7DF8-4CC9-8C32-DF6F5B88F9CE}">
-																					<PropertyList>
-																						<Property Name="EndTrimOffset" Type="Real64" Value="28444.4375"/>
-																						<Property Name="FadeInMode" Type="int16" Value="0"/>
-																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
-																					</PropertyList>
-																					<AudioSourceRef Name="Adder Infiltration Stealth v2 (Variation4)" ID="{F512D658-07CB-426D-80AB-74C513BE263F}"/>
-																				</MusicClip>
-																			</Local>
-																		</Reference>
-																	</ObjectList>
-																</ObjectLists>
-															</MusicTrackSequence>
-														</Local>
-													</Reference>
-												</ObjectList>
-											</ObjectLists>
-										</MusicTrack>
-										<MusicTrack Name="Adder Infiltration Stealth v2 (Variation3)" ID="{F17BE645-426E-45E8-A137-D9C498C29398}" ShortID="829320558">
-											<ReferenceList>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Adder Infiltration Stealth v2 (Variation3)" ID="{45C20AD7-5403-43BB-8E37-19795961F805}">
-													<Language>SFX</Language>
-													<AudioFile>Adder Infiltration Stealth v2 (Variation3).wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="222351913"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<TransitionList>
-												<MusicTransition Name="Root" ID="{B67297F3-B590-42DC-AF20-C1BA27F4BA4C}">
-													<PropertyList>
-														<Property Name="IsFolder" Type="bool" Value="True"/>
-													</PropertyList>
-													<TransitionInfo/>
-												</MusicTransition>
-											</TransitionList>
-											<ObjectLists>
-												<ObjectList Name="Sequences">
-													<Reference>
-														<Local>
-															<MusicTrackSequence Name="" ID="{E2C3B0E8-9853-4B94-8FA5-8D1D44D4C142}">
-																<ObjectLists>
-																	<ObjectList Name="Clips">
-																		<Reference>
-																			<Local>
-																				<MusicClip Name="Adder Infiltration Stealth v2 (Variation3)" ID="{BC256A26-C56B-4E11-B774-3B8E4A11496B}">
-																					<PropertyList>
-																						<Property Name="EndTrimOffset" Type="Real64" Value="28888.8958333333"/>
-																						<Property Name="FadeInMode" Type="int16" Value="0"/>
-																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
-																					</PropertyList>
-																					<AudioSourceRef Name="Adder Infiltration Stealth v2 (Variation3)" ID="{45C20AD7-5403-43BB-8E37-19795961F805}"/>
-																				</MusicClip>
-																			</Local>
-																		</Reference>
-																	</ObjectList>
-																</ObjectLists>
-															</MusicTrackSequence>
-														</Local>
-													</Reference>
-												</ObjectList>
-											</ObjectLists>
-										</MusicTrack>
-										<MusicTrack Name="Adder Infiltration Stealth v2 (Variation2)" ID="{B29F3007-0C48-410E-8EEB-6A0EF62556BB}" ShortID="917607602">
-											<ReferenceList>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Adder Infiltration Stealth v2 (Variation2)" ID="{F44E0E45-6467-4ACE-85A4-B77C8F9F2D98}">
-													<Language>SFX</Language>
-													<AudioFile>Adder Infiltration Stealth v2 (Variation2).wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="804809704"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<TransitionList>
-												<MusicTransition Name="Root" ID="{E281FD44-CCB8-4049-ACD0-B36A683D3DF4}">
-													<PropertyList>
-														<Property Name="IsFolder" Type="bool" Value="True"/>
-													</PropertyList>
-													<TransitionInfo/>
-												</MusicTransition>
-											</TransitionList>
-											<ObjectLists>
-												<ObjectList Name="Sequences">
-													<Reference>
-														<Local>
-															<MusicTrackSequence Name="" ID="{BA89E2B6-1E87-4AE4-A7E1-69648BDBFB5F}">
-																<ObjectLists>
-																	<ObjectList Name="Clips">
-																		<Reference>
-																			<Local>
-																				<MusicClip Name="Adder Infiltration Stealth v2 (Variation2)" ID="{D77031F2-3014-4E18-B369-BCA428401A59}">
-																					<PropertyList>
-																						<Property Name="EndTrimOffset" Type="Real64" Value="28444.4375"/>
-																						<Property Name="FadeInMode" Type="int16" Value="0"/>
-																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
-																					</PropertyList>
-																					<AudioSourceRef Name="Adder Infiltration Stealth v2 (Variation2)" ID="{F44E0E45-6467-4ACE-85A4-B77C8F9F2D98}"/>
-																				</MusicClip>
-																			</Local>
-																		</Reference>
-																	</ObjectList>
-																</ObjectLists>
-															</MusicTrackSequence>
-														</Local>
-													</Reference>
-												</ObjectList>
-											</ObjectLists>
-										</MusicTrack>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Cues">
+											<Reference>
+												<Local>
+													<MusicCue Name="Entry Cue" ID="{30F65BE2-9376-462A-9696-5903FEF7EF2C}"/>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<MusicCue Name="Exit Cue" ID="{694A79C6-295B-4D17-AFAE-119C4A04F0B1}">
+														<PropertyList>
+															<Property Name="CueType" Type="int16" Value="1"/>
+															<Property Name="TimeMs" Type="Real64" Value="28444.4375"/>
+														</PropertyList>
+													</MusicCue>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicSegment>
+								<MusicSegment Name="v2" ID="{DF6F3F4C-FB29-43FB-923E-858B7ED928D7}" ShortID="434915054">
+									<PropertyList>
+										<Property Name="EndPosition" Type="Real64" Value="28444.4375"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
 										<MusicTrack Name="Adder Infiltration Stealth v2 (Variation1)" ID="{A3447F92-C741-4B8B-97C5-A2518A2A8B19}" ShortID="898890116">
 											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
+												</Reference>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
 												</Reference>
@@ -1158,15 +461,595 @@
 										<ObjectList Name="Cues">
 											<Reference>
 												<Local>
-													<MusicCue Name="Entry Cue" ID="{30F65BE2-9376-462A-9696-5903FEF7EF2C}"/>
+													<MusicCue Name="Entry Cue" ID="{F6316BD8-EFAB-4553-97C7-7C49C1AD5716}"/>
 												</Local>
 											</Reference>
 											<Reference>
 												<Local>
-													<MusicCue Name="Exit Cue" ID="{694A79C6-295B-4D17-AFAE-119C4A04F0B1}">
+													<MusicCue Name="Exit Cue" ID="{FD58BA5B-C830-412D-92E0-B399E43E0506}">
 														<PropertyList>
 															<Property Name="CueType" Type="int16" Value="1"/>
-															<Property Name="TimeMs" Type="Real64" Value="1000"/>
+															<Property Name="TimeMs" Type="Real64" Value="28444.4375"/>
+														</PropertyList>
+													</MusicCue>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicSegment>
+								<MusicSegment Name="v3" ID="{C42AAADC-8143-4AB9-A576-44286DE0BFBC}" ShortID="530338216">
+									<PropertyList>
+										<Property Name="EndPosition" Type="Real64" Value="28500"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicTrack Name="Adder Infiltration Stealth v2 (Variation2)" ID="{B29F3007-0C48-410E-8EEB-6A0EF62556BB}" ShortID="917607602">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Adder Infiltration Stealth v2 (Variation2)" ID="{F44E0E45-6467-4ACE-85A4-B77C8F9F2D98}">
+													<Language>SFX</Language>
+													<AudioFile>Adder Infiltration Stealth v2 (Variation2).wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="804809704"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{E281FD44-CCB8-4049-ACD0-B36A683D3DF4}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<ObjectLists>
+												<ObjectList Name="Sequences">
+													<Reference>
+														<Local>
+															<MusicTrackSequence Name="" ID="{BA89E2B6-1E87-4AE4-A7E1-69648BDBFB5F}">
+																<ObjectLists>
+																	<ObjectList Name="Clips">
+																		<Reference>
+																			<Local>
+																				<MusicClip Name="Adder Infiltration Stealth v2 (Variation2)" ID="{D77031F2-3014-4E18-B369-BCA428401A59}">
+																					<PropertyList>
+																						<Property Name="EndTrimOffset" Type="Real64" Value="28444.4375"/>
+																						<Property Name="FadeInMode" Type="int16" Value="0"/>
+																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																					</PropertyList>
+																					<AudioSourceRef Name="Adder Infiltration Stealth v2 (Variation2)" ID="{F44E0E45-6467-4ACE-85A4-B77C8F9F2D98}"/>
+																				</MusicClip>
+																			</Local>
+																		</Reference>
+																	</ObjectList>
+																</ObjectLists>
+															</MusicTrackSequence>
+														</Local>
+													</Reference>
+												</ObjectList>
+											</ObjectLists>
+										</MusicTrack>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Cues">
+											<Reference>
+												<Local>
+													<MusicCue Name="Entry Cue" ID="{AFCAD2D0-6FFD-4932-81C8-C671F4BBDE13}"/>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<MusicCue Name="Exit Cue" ID="{985D2841-0D7E-4DA4-AFDD-F57345B27F69}">
+														<PropertyList>
+															<Property Name="CueType" Type="int16" Value="1"/>
+															<Property Name="TimeMs" Type="Real64" Value="28444.4375"/>
+														</PropertyList>
+													</MusicCue>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicSegment>
+								<MusicSegment Name="v4" ID="{E257DAA3-DDF6-4602-82BC-F203C316F014}" ShortID="589843730">
+									<PropertyList>
+										<Property Name="EndPosition" Type="Real64" Value="29263.8958333333"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicTrack Name="Adder Infiltration Stealth v2 (Variation3)" ID="{F17BE645-426E-45E8-A137-D9C498C29398}" ShortID="829320558">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Adder Infiltration Stealth v2 (Variation3)" ID="{45C20AD7-5403-43BB-8E37-19795961F805}">
+													<Language>SFX</Language>
+													<AudioFile>Adder Infiltration Stealth v2 (Variation3).wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="222351913"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{B67297F3-B590-42DC-AF20-C1BA27F4BA4C}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<ObjectLists>
+												<ObjectList Name="Sequences">
+													<Reference>
+														<Local>
+															<MusicTrackSequence Name="" ID="{E2C3B0E8-9853-4B94-8FA5-8D1D44D4C142}">
+																<ObjectLists>
+																	<ObjectList Name="Clips">
+																		<Reference>
+																			<Local>
+																				<MusicClip Name="Adder Infiltration Stealth v2 (Variation3)" ID="{BC256A26-C56B-4E11-B774-3B8E4A11496B}">
+																					<PropertyList>
+																						<Property Name="BeginTrimOffset" Type="Real64" Value="439.732142857143"/>
+																						<Property Name="EndTrimOffset" Type="Real64" Value="28888.8958333333"/>
+																						<Property Name="FadeInMode" Type="int16" Value="0"/>
+																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																						<Property Name="PlayAt" Type="Real64" Value="-439.732142857143"/>
+																					</PropertyList>
+																					<AudioSourceRef Name="Adder Infiltration Stealth v2 (Variation3)" ID="{45C20AD7-5403-43BB-8E37-19795961F805}"/>
+																					<PropertyCurveList>
+																						<PropertyCurve PropertyName="Highpass">
+																							<Curve Name="" ID="{AD2726D5-7A5F-4310-A600-7E4F23B8484D}">
+																								<PropertyList>
+																									<Property Name="Flags" Type="int32" Value="1"/>
+																								</PropertyList>
+																								<PointList>
+																									<Point>
+																										<XPos>0.43973</XPos>
+																										<YPos>0</YPos>
+																										<Flags>5</Flags>
+																									</Point>
+																									<Point>
+																										<XPos>28.8888958333333</XPos>
+																										<YPos>0</YPos>
+																										<Flags>37</Flags>
+																									</Point>
+																								</PointList>
+																							</Curve>
+																						</PropertyCurve>
+																						<PropertyCurve PropertyName="Lowpass">
+																							<Curve Name="" ID="{6AB146C0-0788-490D-BEA5-0136863243AD}">
+																								<PropertyList>
+																									<Property Name="Flags" Type="int32" Value="1"/>
+																								</PropertyList>
+																								<PointList>
+																									<Point>
+																										<XPos>0.43973</XPos>
+																										<YPos>0</YPos>
+																										<Flags>5</Flags>
+																									</Point>
+																									<Point>
+																										<XPos>28.8888958333333</XPos>
+																										<YPos>0</YPos>
+																										<Flags>37</Flags>
+																									</Point>
+																								</PointList>
+																							</Curve>
+																						</PropertyCurve>
+																						<PropertyCurve PropertyName="Volume">
+																							<Curve Name="" ID="{5F31A1C8-54C0-4019-A948-50972254AF3F}">
+																								<PropertyList>
+																									<Property Name="Flags" Type="int32" Value="3"/>
+																								</PropertyList>
+																								<PointList>
+																									<Point>
+																										<XPos>0.43973</XPos>
+																										<YPos>0</YPos>
+																										<Flags>5</Flags>
+																									</Point>
+																									<Point>
+																										<XPos>28.8888958333333</XPos>
+																										<YPos>0</YPos>
+																										<Flags>37</Flags>
+																									</Point>
+																								</PointList>
+																							</Curve>
+																						</PropertyCurve>
+																					</PropertyCurveList>
+																				</MusicClip>
+																			</Local>
+																		</Reference>
+																	</ObjectList>
+																</ObjectLists>
+															</MusicTrackSequence>
+														</Local>
+													</Reference>
+												</ObjectList>
+											</ObjectLists>
+										</MusicTrack>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Cues">
+											<Reference>
+												<Local>
+													<MusicCue Name="Entry Cue" ID="{BE5C3DFB-269C-4D24-B58B-F0A505AA8797}"/>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<MusicCue Name="Exit Cue" ID="{9AE761F6-C19B-40ED-861C-B36E83D957C0}">
+														<PropertyList>
+															<Property Name="CueType" Type="int16" Value="1"/>
+															<Property Name="TimeMs" Type="Real64" Value="28449.1636904762"/>
+														</PropertyList>
+													</MusicCue>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicSegment>
+								<MusicSegment Name="v5" ID="{7379821D-9795-41DA-B612-80684A143D10}" ShortID="8453592">
+									<PropertyList>
+										<Property Name="EndPosition" Type="Real64" Value="29000"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicTrack Name="Adder Infiltration Stealth v2 (Variation4)" ID="{53C5CF72-1BC1-45E2-ACF2-02D5DB9801A7}" ShortID="317395445">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Adder Infiltration Stealth v2 (Variation4)" ID="{F512D658-07CB-426D-80AB-74C513BE263F}">
+													<Language>SFX</Language>
+													<AudioFile>Adder Infiltration Stealth v2 (Variation4).wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="859866707"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{022A647F-63D6-4C0E-BC5C-F06A080F4213}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<ObjectLists>
+												<ObjectList Name="Sequences">
+													<Reference>
+														<Local>
+															<MusicTrackSequence Name="" ID="{1E88E0FC-DDDC-4F83-B1B0-40BE63AC5B56}">
+																<ObjectLists>
+																	<ObjectList Name="Clips">
+																		<Reference>
+																			<Local>
+																				<MusicClip Name="Adder Infiltration Stealth v2 (Variation4)" ID="{9047764B-7DF8-4CC9-8C32-DF6F5B88F9CE}">
+																					<PropertyList>
+																						<Property Name="EndTrimOffset" Type="Real64" Value="28444.4375"/>
+																						<Property Name="FadeInMode" Type="int16" Value="0"/>
+																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																					</PropertyList>
+																					<AudioSourceRef Name="Adder Infiltration Stealth v2 (Variation4)" ID="{F512D658-07CB-426D-80AB-74C513BE263F}"/>
+																				</MusicClip>
+																			</Local>
+																		</Reference>
+																	</ObjectList>
+																</ObjectLists>
+															</MusicTrackSequence>
+														</Local>
+													</Reference>
+												</ObjectList>
+											</ObjectLists>
+										</MusicTrack>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Cues">
+											<Reference>
+												<Local>
+													<MusicCue Name="Entry Cue" ID="{13F43415-39D1-40E6-A497-476CC912BFA4}"/>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<MusicCue Name="Exit Cue" ID="{538E83DD-F13F-4387-A73E-76A35308C8C9}">
+														<PropertyList>
+															<Property Name="CueType" Type="int16" Value="1"/>
+															<Property Name="TimeMs" Type="Real64" Value="28444.4375"/>
+														</PropertyList>
+													</MusicCue>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicSegment>
+								<MusicSegment Name="v6" ID="{ABABD903-EE16-42BE-B31C-5D544BE6F23B}" ShortID="868523188">
+									<PropertyList>
+										<Property Name="EndPosition" Type="Real64" Value="28500"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicTrack Name="Adder Infiltration Stealth v2 (Variation5)" ID="{6D3B303A-1525-4B30-BFF6-572F98EC23CF}" ShortID="670417758">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Adder Infiltration Stealth v2 (Variation5)" ID="{2961AF2F-C64B-480D-A9E1-96B3D373233C}">
+													<Language>SFX</Language>
+													<AudioFile>Adder Infiltration Stealth v2 (Variation5).wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="690267699"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{BD39D39D-2DEE-4B08-84B6-C78A8988CA95}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<ObjectLists>
+												<ObjectList Name="Sequences">
+													<Reference>
+														<Local>
+															<MusicTrackSequence Name="" ID="{B8A40A74-1071-4EEE-8F5F-AFCC81031C3A}">
+																<ObjectLists>
+																	<ObjectList Name="Clips">
+																		<Reference>
+																			<Local>
+																				<MusicClip Name="Adder Infiltration Stealth v2 (Variation5)" ID="{E6BC6B8D-40F4-4A8D-B91C-75309918EA1C}">
+																					<PropertyList>
+																						<Property Name="EndTrimOffset" Type="Real64" Value="28444.4375"/>
+																						<Property Name="FadeInMode" Type="int16" Value="0"/>
+																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																					</PropertyList>
+																					<AudioSourceRef Name="Adder Infiltration Stealth v2 (Variation5)" ID="{2961AF2F-C64B-480D-A9E1-96B3D373233C}"/>
+																				</MusicClip>
+																			</Local>
+																		</Reference>
+																	</ObjectList>
+																</ObjectLists>
+															</MusicTrackSequence>
+														</Local>
+													</Reference>
+												</ObjectList>
+											</ObjectLists>
+										</MusicTrack>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Cues">
+											<Reference>
+												<Local>
+													<MusicCue Name="Entry Cue" ID="{2A7E0284-8679-4A5C-A680-EEE6A5C7EB4D}"/>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<MusicCue Name="Exit Cue" ID="{7892DC85-D2C1-48EF-B73E-F04FB8FC1F32}">
+														<PropertyList>
+															<Property Name="CueType" Type="int16" Value="1"/>
+															<Property Name="TimeMs" Type="Real64" Value="28444.4375"/>
+														</PropertyList>
+													</MusicCue>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicSegment>
+								<MusicSegment Name="v7" ID="{7EA3C349-C883-4E96-871D-45EB6D4A2E93}" ShortID="956359039">
+									<PropertyList>
+										<Property Name="EndPosition" Type="Real64" Value="29500"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicTrack Name="Adder Infiltration Stealth v2 (Variation7)" ID="{22036FAA-C50D-493E-ABBE-80AE2C780EEF}" ShortID="877085431">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Adder Infiltration Stealth v2 (Variation7)" ID="{FBF86A4F-07EC-4D3E-BC1B-6AE657A0C791}">
+													<Language>SFX</Language>
+													<AudioFile>Adder Infiltration Stealth v2 (Variation7).wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="436490616"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{4D02CC31-C22F-4456-B4F4-C82216F82070}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<ObjectLists>
+												<ObjectList Name="Sequences">
+													<Reference>
+														<Local>
+															<MusicTrackSequence Name="" ID="{D9548F13-C58B-4304-9C8D-C7D60588290D}">
+																<ObjectLists>
+																	<ObjectList Name="Clips">
+																		<Reference>
+																			<Local>
+																				<MusicClip Name="Adder Infiltration Stealth v2 (Variation7)" ID="{3887075A-1DF5-434B-9ECE-CF7E960D9FCB}">
+																					<PropertyList>
+																						<Property Name="EndTrimOffset" Type="Real64" Value="28444.4375"/>
+																						<Property Name="FadeInMode" Type="int16" Value="0"/>
+																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																					</PropertyList>
+																					<AudioSourceRef Name="Adder Infiltration Stealth v2 (Variation7)" ID="{FBF86A4F-07EC-4D3E-BC1B-6AE657A0C791}"/>
+																				</MusicClip>
+																			</Local>
+																		</Reference>
+																	</ObjectList>
+																</ObjectLists>
+															</MusicTrackSequence>
+														</Local>
+													</Reference>
+												</ObjectList>
+											</ObjectLists>
+										</MusicTrack>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Cues">
+											<Reference>
+												<Local>
+													<MusicCue Name="Entry Cue" ID="{ACF496F5-4C54-4C8B-A995-AD896405621D}"/>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<MusicCue Name="Exit Cue" ID="{FB61865A-2B24-43DB-889B-CBC34486F81C}">
+														<PropertyList>
+															<Property Name="CueType" Type="int16" Value="1"/>
+															<Property Name="TimeMs" Type="Real64" Value="28444.4375"/>
+														</PropertyList>
+													</MusicCue>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicSegment>
+								<MusicSegment Name="Start" ID="{D776343B-0B0F-44BB-BE04-AE417E595AF4}" ShortID="954649416">
+									<PropertyList>
+										<Property Name="EndPosition" Type="Real64" Value="28500"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DE8F15F-A730-4AC2-A8D7-2C8125C29D57}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicTrack Name="Adder Infiltration Stealth v2 (Stealth)" ID="{590BFC5B-9D7A-4FE4-A91B-1475A38619DB}" ShortID="823213011">
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8A3C7A0F-449F-413A-B589-6A3EB70913EB}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Adder Infiltration Stealth v2 (Stealth)" ID="{93F198B4-D266-4CC5-8688-A9643BD1A1CA}">
+													<Language>SFX</Language>
+													<AudioFile>Adder Infiltration Stealth v2 (Stealth).wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="803960293"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{41991C79-5DF5-47F3-8F3F-66E9D527D1A7}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<ObjectLists>
+												<ObjectList Name="Sequences">
+													<Reference>
+														<Local>
+															<MusicTrackSequence Name="" ID="{608A5466-A30A-4EDE-AD28-AE733C9E9E1B}">
+																<ObjectLists>
+																	<ObjectList Name="Clips">
+																		<Reference>
+																			<Local>
+																				<MusicClip Name="Adder Infiltration Stealth v2 (Stealth)" ID="{375ECC18-2EC8-476E-BD5F-46C2A888280F}">
+																					<PropertyList>
+																						<Property Name="EndTrimOffset" Type="Real64" Value="28444.4375"/>
+																						<Property Name="FadeInMode" Type="int16" Value="0"/>
+																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																					</PropertyList>
+																					<AudioSourceRef Name="Adder Infiltration Stealth v2 (Stealth)" ID="{93F198B4-D266-4CC5-8688-A9643BD1A1CA}"/>
+																				</MusicClip>
+																			</Local>
+																		</Reference>
+																	</ObjectList>
+																</ObjectLists>
+															</MusicTrackSequence>
+														</Local>
+													</Reference>
+												</ObjectList>
+											</ObjectLists>
+										</MusicTrack>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Cues">
+											<Reference>
+												<Local>
+													<MusicCue Name="Entry Cue" ID="{450277FF-6603-4992-B299-074023349D07}"/>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<MusicCue Name="Exit Cue" ID="{037C6304-5715-4035-A974-33514B36B019}">
+														<PropertyList>
+															<Property Name="CueType" Type="int16" Value="1"/>
+															<Property Name="TimeMs" Type="Real64" Value="28444.4375"/>
 														</PropertyList>
 													</MusicCue>
 												</Local>
@@ -1191,14 +1074,65 @@
 							<Playlist>
 								<MusicPlaylistItem Name="" ID="{D623B43A-7C3A-42E8-BC64-AEBCF143AAEF}" ShortID="711343722">
 									<PropertyList>
-										<Property Name="LoopCount" Type="int16" Value="0"/>
+										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="4"/>
 									</PropertyList>
 									<ChildrenList>
-										<MusicPlaylistItem Name="" ID="{1939660F-CFB2-405B-8686-4930952EE92B}" ShortID="912834400">
+										<MusicPlaylistItem Name="" ID="{5C21A535-9E7F-4EFC-99F8-EB595F165EEF}" ShortID="561783280">
 											<PropertyList>
 												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
 											</PropertyList>
-											<SegmentRef Name="Adder Infiltration Stealth v2 (Stealth)" ID="{BF19728B-2E66-4A6E-98FA-8F079DF62AB6}"/>
+											<SegmentRef Name="Start" ID="{D776343B-0B0F-44BB-BE04-AE417E595AF4}"/>
+										</MusicPlaylistItem>
+										<MusicPlaylistItem Name="" ID="{67F76E47-B15E-43D4-A0E8-A95D14D44373}" ShortID="485870775">
+											<PropertyList>
+												<Property Name="LoopCount" Type="int16" Value="0"/>
+												<Property Name="PlayMode" Type="int16" Value="2"/>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="4"/>
+											</PropertyList>
+											<ChildrenList>
+												<MusicPlaylistItem Name="" ID="{595F9555-5150-44CD-85ED-6D79B6C5649D}" ShortID="239997663">
+													<PropertyList>
+														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+													</PropertyList>
+													<SegmentRef Name="v8" ID="{1796D862-8537-4D9D-B740-8DE50A57B643}"/>
+												</MusicPlaylistItem>
+												<MusicPlaylistItem Name="" ID="{0D9C54B3-ED31-4298-8707-5CF2D7C5EA02}" ShortID="445398">
+													<PropertyList>
+														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+													</PropertyList>
+													<SegmentRef Name="v2" ID="{DF6F3F4C-FB29-43FB-923E-858B7ED928D7}"/>
+												</MusicPlaylistItem>
+												<MusicPlaylistItem Name="" ID="{0791A356-D921-498D-A1D7-429441AC6B93}" ShortID="72654370">
+													<PropertyList>
+														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+													</PropertyList>
+													<SegmentRef Name="v3" ID="{C42AAADC-8143-4AB9-A576-44286DE0BFBC}"/>
+												</MusicPlaylistItem>
+												<MusicPlaylistItem Name="" ID="{D75AEB0A-B709-4517-8C70-4A63FEB233B2}" ShortID="236980553">
+													<PropertyList>
+														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+													</PropertyList>
+													<SegmentRef Name="v4" ID="{E257DAA3-DDF6-4602-82BC-F203C316F014}"/>
+												</MusicPlaylistItem>
+												<MusicPlaylistItem Name="" ID="{74B78D1E-4455-4F9F-949E-D750AE52146E}" ShortID="67169251">
+													<PropertyList>
+														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+													</PropertyList>
+													<SegmentRef Name="v7" ID="{7EA3C349-C883-4E96-871D-45EB6D4A2E93}"/>
+												</MusicPlaylistItem>
+												<MusicPlaylistItem Name="" ID="{6E84CB30-5832-4754-B0E1-B9D7E4CCBACE}" ShortID="1045731588">
+													<PropertyList>
+														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+													</PropertyList>
+													<SegmentRef Name="v5" ID="{7379821D-9795-41DA-B612-80684A143D10}"/>
+												</MusicPlaylistItem>
+												<MusicPlaylistItem Name="" ID="{5413534F-F0DF-4CDC-AC97-05FF6E03A627}" ShortID="26916568">
+													<PropertyList>
+														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+													</PropertyList>
+													<SegmentRef Name="v6" ID="{ABABD903-EE16-42BE-B31C-5D544BE6F23B}"/>
+												</MusicPlaylistItem>
+											</ChildrenList>
 										</MusicPlaylistItem>
 									</ChildrenList>
 								</MusicPlaylistItem>
