@@ -5060,6 +5060,18 @@ MonoBehaviour:
   sprintSpeed: 200
   bomberAnim: {fileID: 3352073704831858219}
   explosionChargingParticle: {fileID: 8454320180492608647}
+  movementSFXEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: ebc14a52c5ec9ee4e9b726042f174b48, type: 2}
+  chargingSFXEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  explosionSFXEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: bb3c34fc0e30a1f44b0c228a77c26e45, type: 2}
 --- !u!4 &4011975163303316766 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7268229092622374421, guid: e067b651c87cee148946ec729831b7d6, type: 3}

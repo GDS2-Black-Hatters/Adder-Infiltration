@@ -1,19 +1,35 @@
 Event	ID	Name			Wwise Object Path	Notes
+	52408631	TempleMusic			\Minigame\Templerun\TempleMusic	
+	298938147	Detected			\Default Work Unit\PlayerSFX\Detected	
 	367230862	MinigameExit			\Minigame\MinigameExit	
+	376048184	EMP3			\Default Work Unit\AbilitySFX\EMP\EMP3	
+	376048185	EMP2			\Default Work Unit\AbilitySFX\EMP\EMP2	
+	376048186	EMP1			\Default Work Unit\AbilitySFX\EMP\EMP1	
 	385497104	EnemySlow			\Default Work Unit\EnemySFX\EnemySlow	
-	551763010	ObjectiveComplete_Event			\Default Work Unit\ObjectiveComplete_Event	
-	1185021686	EnemyBomber			\Default Work Unit\EnemySFX\EnemyBomber	
+	454121546	Scroll			\Default Work Unit\AbilitySFX\Scroll	
+	551763010	ObjectiveComplete_Event			\Default Work Unit\LevelEvent\ObjectiveComplete_Event	
+	779278001	Death			\Default Work Unit\PlayerSFX\Death	
+	832057375	Zone			\Default Work Unit\LvlObjects\Zone	
+	1017222595	LowHealth			\Default Work Unit\PlayerSFX\LowHealth	
+	1422622395	Transform			\Default Work Unit\AbilitySFX\Transform	
 	1504246845	EnemyDroneAmb			\Default Work Unit\EnemySFX\EnemyDroneAmb	
-	1666178350	LevelStart_Event			\Default Work Unit\LevelStart_Event	
+	1599183472	Typing			\Default Work Unit\LoadScreen\Typing	
+	1666178350	LevelStart_Event			\Default Work Unit\LevelEvent\LevelStart_Event	
+	1942692385	Dash			\Default Work Unit\AbilitySFX\Dash	
 	2045263066	TargetStashed			\Minigame\PhishingMinigame\TargetStashed	
+	2090838661	EnemyBomberMove			\Default Work Unit\EnemySFX\EnemyBomberMove	
 	2348200894	EnemyShark			\Default Work Unit\EnemySFX\EnemyShark	
-	2434039835	MinigameMusic			\Default Work Unit\MinigameMusic	
-	2461714704	HubMusicStart_Event			\Default Work Unit\HubMusicStart_Event	
-	2538572501	PlayerDiscovered_Event			\Default Work Unit\PlayerDiscovered_Event	
+	2461714704	HubMusicStart_Event			\Default Work Unit\LevelEvent\HubMusicStart_Event	
+	2538572501	PlayerDiscovered_Event			\Default Work Unit\LevelEvent\PlayerDiscovered_Event	
+	2659346142	NotFullyDetected			\Default Work Unit\PlayerSFX\NotFullyDetected	
+	2784187423	TakeDamage			\Default Work Unit\PlayerSFX\TakeDamage	
+	2790820982	DroneScan			\Default Work Unit\EnemySFX\DroneScan	
 	2827905996	TargetHooked			\Minigame\PhishingMinigame\TargetHooked	
+	3352465307	BomberExplode			\Default Work Unit\EnemySFX\BomberExplode	
 	3822340686	LazerFire_Event			\Default Work Unit\EnemySFX\LazerFire_Event	
 	3991942870	Music			\Minigame\PhishingMinigame\Music	
 	4010314750	MouseClick			\Default Work Unit\DesktopEvents\MouseClick	
+	4259964371	AntivirusHit			\Minigame\PhishingMinigame\AntivirusHit	
 
 State Group	ID	Name			Wwise Object Path	Notes
 	3924600286	PlayerDetectionState			\Default Work Unit\PlayerDetectionState	
@@ -24,17 +40,45 @@ State	ID	Name	State Group			Notes
 	2909291642	Stealth	PlayerDetectionState			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	294137384	Laser1	D:\Users\User\Documents\UnityProjects\GDS2\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Laser1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\RandomLazerSounds\Laser1		136488
-	368855487	Adder Infiltration Stealth v2 (Transition)	D:\Users\User\Documents\UnityProjects\GDS2\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Adder Infiltration Stealth v2 (Transition)_D79FB2B7.wem		\Interactive Music Hierarchy\MainLevelMusic\MainLevelMusicSwitch\Combat\Adder Infiltration Stealth v2 (Transition)\Adder Infiltration Stealth v2 (Transition)		3072096
-	496570130	Fishing Minigame	D:\Users\User\Documents\UnityProjects\GDS2\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Fishing Minigame_10C4C929.wem		\Actor-Mixer Hierarchy\Minigames\PhishingMinigame\Fishing Minigame		2822500
-	682131157	Hooked	D:\Users\User\Documents\UnityProjects\GDS2\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\644245__fractionalist__steel-spring-bear-trap_48524BE2.wem		\Actor-Mixer Hierarchy\Minigames\PhishingMinigame\Hooked		286848
-	698227113	Laser3	D:\Users\User\Documents\UnityProjects\GDS2\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Laser3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\RandomLazerSounds\Laser3		79564
-	803960293	Adder Infiltration Stealth v2 (Stealth)	D:\Users\User\Documents\UnityProjects\GDS2\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Adder Infiltration Stealth v2 (Stealth)_D79FB2B7.wem		\Interactive Music Hierarchy\MainLevelMusic\MainLevelMusicSwitch\Stealth\Adder Infiltration Stealth v2 (Stealth)\Adder Infiltration Stealth v2 (Stealth)		5461428
-	847613361	MENU	D:\Users\User\Documents\UnityProjects\GDS2\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\MENU_D79FB2B7.wem		\Interactive Music Hierarchy\HubMusic\HubMusicLoop\Menu\MENU		8648096
-	908927036	Laser2	D:\Users\User\Documents\UnityProjects\GDS2\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Laser2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\RandomLazerSounds\Laser2		74764
-	916228964	Adder Infiltration Stealth v2 (Combat)	D:\Users\User\Documents\UnityProjects\GDS2\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Adder Infiltration Stealth v2 (Combat)_D79FB2B7.wem		\Interactive Music Hierarchy\MainLevelMusic\MainLevelMusicSwitch\Combat\Adder Infiltration Stealth v2 (Combat)\Adder Infiltration Stealth v2 (Combat)		5461432
-	938660290	Laser4	D:\Users\User\Documents\UnityProjects\GDS2\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Laser4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\RandomLazerSounds\Laser4		119564
-	984440277	EnemyAmbient	D:\Users\User\Documents\UnityProjects\GDS2\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\EnemyAmbient_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\EnemyDroneAmbient\EnemyAmbient		965916
-	1032776037	Pickup-capture point	D:\Users\User\Documents\UnityProjects\GDS2\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Pickup-capture point_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\ObjectiveCompleteSound\Pickup-capture point		160096
-	1073533375	Stashed	D:\Users\User\Documents\UnityProjects\GDS2\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\538554__sjonas88__success_0DA1812A.wem		\Actor-Mixer Hierarchy\Minigames\PhishingMinigame\Stashed		117080
+	21226199	Bomber Explode 3	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\BOOM 3_7A9F12E9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemy SFX\Explode\Explode\Bomber Explode 3		262660
+	53535387	Slower Movement	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Slower Engine_C9F14E2F.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemy SFX\Slower Movement		688188
+	75956038	Take Damage	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Taking Damage_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player Noise\Take Damage		633696
+	165704387	Death	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Death_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player Noise\Death		856096
+	187186506	Seen by Scan(Not Detected)	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\AMB_446E9E52.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player Noise\Seen by Scan(Not Detected)		852396
+	215582547	Fishing Minigame	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Fishing Minigame_Real_10C4C929.wem		\Actor-Mixer Hierarchy\Minigames\PhishingMinigame\Fishing Minigame		1411296
+	222351913	Adder Infiltration Stealth v2 (Variation3)	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Adder Infiltration Stealth v2 (Variation3)_D79FB2B7.wem		\Interactive Music Hierarchy\MainLevelMusic\MainLevelMusicSwitch\Stealth\v4\Adder Infiltration Stealth v2 (Variation3)		5546764
+	238848259	Low Health	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Low Heatlh (Plus alarm)_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player Noise\Low Health		1825404
+	294137384	Laser1	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Laser1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\RandomLazerSounds\Laser1		136488
+	308255185	Trojan Horse	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\TRANSFROM_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Abilities SFX\Trojan Horse		220596
+	332626662	Mouse Click	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Mouse Click_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Computer Desktop Ambience Backgrounds\Mouse Click		48096
+	368855487	Adder Infiltration Stealth v2 (Transition)	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Adder Infiltration Stealth v2 (Transition)_D79FB2B7.wem		\Interactive Music Hierarchy\MainLevelMusic\MainLevelMusicSwitch\Combat\Adder Infiltration Stealth v2 (Transition)\Adder Infiltration Stealth v2 (Transition)		3072096
+	436490616	Adder Infiltration Stealth v2 (Variation7)	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Adder Infiltration Stealth v2 (Variation7)_D79FB2B7.wem		\Interactive Music Hierarchy\MainLevelMusic\MainLevelMusicSwitch\Stealth\v7\Adder Infiltration Stealth v2 (Variation7)		5461428
+	444352329	Bomber Movement	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Bomber Movement_ABE1643E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemy SFX\Bomber Movement		707704
+	487810415	Objective Zone Sound	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Cut(obj)_612E434F.wem		\Actor-Mixer Hierarchy\Default Work Unit\Objective SFX\Objective Zone Sound		611640
+	491228268	Enemy Speedup	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\SPEEDUP_2311F912.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemy SFX\Explode\Enemy Speedup		603564
+	496570130	TempleRun	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Fishing Minigame_10C4C929.wem		\Actor-Mixer Hierarchy\Minigames\Templerun\TempleRun		2822500
+	529673774	Adder Infiltration Stealth v2 (Variation6)	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Adder Infiltration Stealth v2 (Variation6)_D79FB2B7.wem		\Interactive Music Hierarchy\MainLevelMusic\MainLevelMusicSwitch\Stealth\v8\Adder Infiltration Stealth v2 (Variation6)		5461428
+	596344335	Bomber Explode 2	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\BOOM 2_BFE47742.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemy SFX\Explode\Explode\Bomber Explode 2		366368
+	651979137	Bomber Explode	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\BOOM 1_05851C04.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemy SFX\Explode\Explode\Bomber Explode		512188
+	682131157	Hooked	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\644245__fractionalist__steel-spring-bear-trap_48524BE2.wem		\Actor-Mixer Hierarchy\Minigames\PhishingMinigame\Hooked		286848
+	685314586	Dash1	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\DASH 1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Abilities SFX\New Random Container\Dash1		50352
+	690267699	Adder Infiltration Stealth v2 (Variation5)	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Adder Infiltration Stealth v2 (Variation5)_D79FB2B7.wem		\Interactive Music Hierarchy\MainLevelMusic\MainLevelMusicSwitch\Stealth\v6\Adder Infiltration Stealth v2 (Variation5)		5461428
+	698227113	Laser3	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Laser3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\RandomLazerSounds\Laser3		79564
+	751969378	Dash2	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\DASH 2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Abilities SFX\New Random Container\Dash2		57144
+	801403675	Detected	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\DETECTED_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player Noise\Detected		1073248
+	803960293	Adder Infiltration Stealth v2 (Stealth)	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Adder Infiltration Stealth v2 (Stealth)_D79FB2B7.wem		\Interactive Music Hierarchy\MainLevelMusic\MainLevelMusicSwitch\Stealth\Start\Adder Infiltration Stealth v2 (Stealth)		5461428
+	804809704	Adder Infiltration Stealth v2 (Variation2)	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Adder Infiltration Stealth v2 (Variation2)_D79FB2B7.wem		\Interactive Music Hierarchy\MainLevelMusic\MainLevelMusicSwitch\Stealth\v3\Adder Infiltration Stealth v2 (Variation2)		5461428
+	843477630	AbilityScroll	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Scrolling SFX_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Abilities SFX\AbilityScroll		25762
+	847613361	MENU	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\MENU_D79FB2B7.wem		\Interactive Music Hierarchy\HubMusic\HubMusicLoop\Menu\MENU		8648096
+	859866707	Adder Infiltration Stealth v2 (Variation4)	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Adder Infiltration Stealth v2 (Variation4)_D79FB2B7.wem		\Interactive Music Hierarchy\MainLevelMusic\MainLevelMusicSwitch\Stealth\v5\Adder Infiltration Stealth v2 (Variation4)		5461428
+	872759894	Adder Infiltration Stealth v2 (Variation1)	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Adder Infiltration Stealth v2 (Variation1)_D79FB2B7.wem		\Interactive Music Hierarchy\MainLevelMusic\MainLevelMusicSwitch\Stealth\v2\Adder Infiltration Stealth v2 (Variation1)		5461428
+	908927036	Laser2	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Laser2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\RandomLazerSounds\Laser2		74764
+	916228964	Adder Infiltration Stealth v2 (Combat)	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Adder Infiltration Stealth v2 (Combat)_D79FB2B7.wem		\Interactive Music Hierarchy\MainLevelMusic\MainLevelMusicSwitch\Combat\Adder Infiltration Stealth v2 (Combat)\Adder Infiltration Stealth v2 (Combat)		5461432
+	922839706	Drone Scanning	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\PATROL_A10096D6.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemy SFX\DroneScan\Drone Scanning		448516
+	938660290	Laser4	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Laser4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\RandomLazerSounds\Laser4		119564
+	977503330	Shark Movement	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\RANDOM ROBOT _379CCD25.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemy SFX\Shark Movement		1993820
+	984440277	EnemyAmbient	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\EnemyAmbient_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\EnemyDroneAmbient\EnemyAmbient		965916
+	1032776037	Pickup-capture point	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\Pickup-capture point_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Objective SFX\ObjectiveCompleteSound\Pickup-capture point		160096
+	1041122036	Dash3	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\DASH 3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Abilities SFX\New Random Container\Dash3		56018
+	1073533375	Stashed	C:\Users\Owner\Downloads\Stuff\Code\Unity\Adder-Infiltration\Adder-Infiltration_WwiseProject\.cache\Windows\SFX\538554__sjonas88__success_0DA1812A.wem		\Actor-Mixer Hierarchy\Minigames\PhishingMinigame\Stashed		117080
 

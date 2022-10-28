@@ -19,6 +19,7 @@ public class AbilityWheelBehaviour : MonoBehaviour
     [SerializeField] private float rotationTime = 0.1f;
     public static bool IsRotating { get; private set; } = false;
     private float rotationStep;
+    [SerializeField] protected AK.Wwise.Event scrollSFXEvent;
 
     private void Start()
     {
@@ -85,6 +86,7 @@ public class AbilityWheelBehaviour : MonoBehaviour
 
     private void Scroll(InputAction.CallbackContext callback)
     {
+        scrollSFXEvent.Post(gameObject);
         float value = callback.ReadValue<float>();
         if (IsRotating || value == 0) { return; }
         StartCoroutine(Scroll(value < 0));

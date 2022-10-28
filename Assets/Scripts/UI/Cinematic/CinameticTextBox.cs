@@ -36,6 +36,7 @@ public class CinameticTextBox : MonoBehaviour
     private int activeDialogueIndex = 0;
     private float delayProgress = 0;
     [SerializeField] private UnityEvent OnFinish;
+    [SerializeField] protected AK.Wwise.Event typeSFXEvent;
 
     private void Awake()
     {
@@ -57,6 +58,7 @@ public class CinameticTextBox : MonoBehaviour
         {
             delayProgress = 0;
             completedText += textBoxContents[activeDialogueIndex].dialogue.text;
+            typeSFXEvent.Post(gameObject);
             activeDialogueIndex++;
             if (activeDialogueIndex >= textBoxContents.Length)
             {

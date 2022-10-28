@@ -9,6 +9,7 @@ public class CaptureTheFlagObjective : BaseObjective
     private bool withinRange = false;
 
     public UnityEngine.Events.UnityEvent<float> onProgressUpdate;
+    [SerializeField] protected AK.Wwise.Event progressSFXEvent;
 
     protected override void Start()
     {
@@ -36,10 +37,18 @@ public class CaptureTheFlagObjective : BaseObjective
     private void OnTriggerEnter(Collider other)
     {
         withinRange = other.CompareTag("Player") || withinRange;
+        if (withinRange)
+        {
+            progressSFXEvent.Post(gameObject);
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
         withinRange = !other.CompareTag("Player") && withinRange;
+        if (!withinRange)
+        {
+            progressSFXEvent.Stop(gameObject);
+        }
     }
 }

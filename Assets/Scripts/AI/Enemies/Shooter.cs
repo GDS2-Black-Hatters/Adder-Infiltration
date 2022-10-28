@@ -9,6 +9,8 @@ public class Shooter : Enemy
     [Header("Shooter Params"), SerializeField] private Transform bulletPoint; //Where the bullet will spawn.
     [SerializeField] private float bulletSpeed = 10; //The speed of the bullet.
     [SerializeField] protected TimeTracker attackCooldown = new(1); //Intervals before next attack.
+    
+    [SerializeField] protected AK.Wwise.Event scannerSF;
     [SerializeField] protected AK.Wwise.Event DroneAmb;
     [SerializeField] protected AK.Wwise.Event ShootSound;
     private HoverAtHeight hoverAt;
@@ -24,7 +26,14 @@ public class Shooter : Enemy
     protected override void Start()
     {
         base.Start();
+        scannerSF.Post(gameObject);
         DroneAmb.Post(gameObject);
+    }
+
+    protected override void DetectionState()
+    {
+        base.DetectionState();
+        scannerSF.Stop(gameObject);
     }
 
     protected override void StunStart()
@@ -75,5 +84,6 @@ public class Shooter : Enemy
     {
         base.Death();
         DroneAmb.Stop(gameObject);
+        scannerSF.Stop(gameObject);
     }
 }
