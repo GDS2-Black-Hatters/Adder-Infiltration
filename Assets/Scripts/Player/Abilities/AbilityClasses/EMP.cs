@@ -21,6 +21,7 @@ public class EMP : AbilityBase
 
     protected override void DoAbilityEffect()
     {
+        base.DoAbilityEffect();
         StartCoroutine(EmpEffect());
     }
 

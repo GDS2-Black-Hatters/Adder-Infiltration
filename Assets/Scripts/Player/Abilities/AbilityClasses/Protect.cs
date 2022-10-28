@@ -18,6 +18,7 @@ public class Protect : AbilityBase
 
     protected override void DoAbilityEffect()
     {
+        base.DoAbilityEffect();
         StartCoroutine(ProtectAbility());
     }
 

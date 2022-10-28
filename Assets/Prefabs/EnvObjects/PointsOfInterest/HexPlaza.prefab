@@ -260,6 +260,10 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7443418724528077518, guid: f062d475be7b91546a043b6cd4cf552b, type: 3}
+      propertyPath: progressSFXEvent.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: c0cafef4fc578b44ba363287866c8dbc, type: 2}
+    - target: {fileID: 7443418724528077518, guid: f062d475be7b91546a043b6cd4cf552b, type: 3}
       propertyPath: OnObjectiveComplete.m_PersistentCalls.m_Calls.Array.size
       value: 3
       objectReference: {fileID: 0}

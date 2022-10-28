@@ -723,7 +723,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -6034,7 +6034,7 @@ MonoBehaviour:
   activateSoundEffect:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: 47b6edb96a50c104cbc3b3bb20916bfb, type: 2}
 --- !u!114 &5758027466134379723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6050,7 +6050,7 @@ MonoBehaviour:
   activateSoundEffect:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: 261cd3fdf1c20b54bbeb24d75e5f739b, type: 2}
   chargeSphere: {fileID: 2503031580225048273}
   effectSphere: {fileID: 8462161571489849162}
 --- !u!114 &1501753993132968906
@@ -6085,7 +6085,7 @@ MonoBehaviour:
   activateSoundEffect:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: c77a450c702b821468199aaa1f616cbe, type: 2}
   shield: {fileID: 5786576110703779506}
 --- !u!114 &1575501139484782967
 MonoBehaviour:
@@ -6102,7 +6102,7 @@ MonoBehaviour:
   activateSoundEffect:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: 25691ad927707e44aa4d93c3da384d59, type: 2}
   healParticle: {fileID: 2161258667076050090}
 --- !u!1 &4129028611965018630
 GameObject:

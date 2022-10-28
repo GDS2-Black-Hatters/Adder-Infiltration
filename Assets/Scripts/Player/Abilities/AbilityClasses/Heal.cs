@@ -9,6 +9,7 @@ public class Heal : AbilityBase
 
     protected override void DoAbilityEffect()
     {
+        base.DoAbilityEffect();
         StartCoroutine(HealAbility());
     }
 
