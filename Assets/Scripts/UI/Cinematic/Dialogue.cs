@@ -30,6 +30,7 @@ public abstract class Dialogue
 
     public string text { get; protected set; }
     public bool IsComplete { get; protected set; }
+    public System.Action onTypeAction;
 
     public abstract void ResetProgress();
     public abstract void Progress(float deltaTime);

@@ -58,8 +58,8 @@ public class CinameticTextBox : MonoBehaviour
         {
             delayProgress = 0;
             completedText += textBoxContents[activeDialogueIndex].dialogue.text;
-            typeSFXEvent.Post(gameObject);
             activeDialogueIndex++;
+            textBoxContents[activeDialogueIndex].dialogue.onTypeAction = OnTypeAction;
             if (activeDialogueIndex >= textBoxContents.Length)
             {
                 textBox.text = completedText;
@@ -67,6 +67,11 @@ public class CinameticTextBox : MonoBehaviour
                 enabled = false;
             }
         }
+    }
+
+    private void OnTypeAction()
+    {
+        typeSFXEvent.Post(gameObject);
     }
 
     private void OnValidate()
