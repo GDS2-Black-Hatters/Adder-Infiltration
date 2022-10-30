@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 public class SpinnerDetector : DetectorEnvironmentObject
@@ -12,9 +13,16 @@ public class SpinnerDetector : DetectorEnvironmentObject
     [SerializeField] private float rotationSpeed = 0.085f;
     [SerializeField] private Transform spinnerHeadTransform;
 
+    [SerializeField] protected AK.Wwise.Event spinSFXEvent;
+
     protected override void Start()
     {
         base.Start();
+        GameManager.LevelManager.ActiveSceneController.enemyAdmin.OnFullAlert += () =>
+        {
+            spinSFXEvent.Stop(gameObject);
+            Destroy(gameObject);
+        };
 
         if (randomizeStartingRotation)
         {
@@ -54,6 +62,13 @@ public class SpinnerDetector : DetectorEnvironmentObject
                     break;
             }
         }
+        StartCoroutine(StartPosting());
+    }
+
+    private IEnumerator StartPosting()
+    {
+        yield return null;
+        spinSFXEvent.Post(gameObject);
     }
 
     public override void PlayerInRange()

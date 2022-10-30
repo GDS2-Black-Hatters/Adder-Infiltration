@@ -28,6 +28,7 @@ public abstract class Enemy : MonoBehaviour
     [Header("AI Pathfinding"), Tooltip("Custom Patrol Path for the AI Enemy to follow. Leave empty for random movement."), SerializeField]
     private List<AINode> customPatrolPath;
     private int customIndex = 0;
+    [SerializeField] protected AK.Wwise.Event movementSFXEvent;
 
     protected AINode nodeTarget;
     [SerializeField] private float nodeLeniency = 0.5f;
@@ -45,7 +46,7 @@ public abstract class Enemy : MonoBehaviour
         detectionRange = GetComponentInChildren<EnemyDetectionRange>();
     }
 
-    protected virtual void Start()
+    protected virtual IEnumerator Start()
     {
         BaseSceneController controller = GameManager.LevelManager.ActiveSceneController;
         controller.enemyAdmin.OnFullAlert += DetectionState;
@@ -60,6 +61,9 @@ public abstract class Enemy : MonoBehaviour
             DetectionState();
         }
         MovementStart();
+
+        yield return null;
+        movementSFXEvent.Post(gameObject);
     }
 
     protected void Update()
@@ -78,6 +82,7 @@ public abstract class Enemy : MonoBehaviour
 
     protected virtual void OnDestroy()
     {
+        movementSFXEvent.Stop(gameObject);
         GameManager.LevelManager.ActiveSceneController.enemyAdmin.OnFullAlert -= DetectionState;
     }
 

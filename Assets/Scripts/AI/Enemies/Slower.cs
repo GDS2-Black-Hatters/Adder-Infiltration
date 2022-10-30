@@ -7,8 +7,6 @@ public class Slower : Enemy
     [SerializeField] private ParticleSystem constructingParticle;
     [SerializeField] protected TimeTracker attackCooldown = new(5); //Intervals before next attack.
 
-    [SerializeField] protected AK.Wwise.Event movementSFXEvent;
-
     protected override void Awake()
     {
         base.Awake();
@@ -16,13 +14,6 @@ public class Slower : Enemy
         attackCooldown.Reset();
         attackCooldown.onFinish += Construct;
     }
-
-    protected override void OnDestroy()
-    {
-        base.OnDestroy();
-        movementSFXEvent.Stop(gameObject);
-    }
-
 
     protected override void StunStart()
     {

@@ -7,20 +7,8 @@ public class Bomber : Enemy
     [SerializeField] private Animator bomberAnim;
     [SerializeField] private ParticleSystem explosionChargingParticle;
 
-    [SerializeField] protected AK.Wwise.Event movementSFXEvent;
     [SerializeField] protected AK.Wwise.Event chargingSFXEvent;
     [SerializeField] protected AK.Wwise.Event explosionSFXEvent;
-    protected override void Awake()
-    {
-        base.Awake();
-        movementSFXEvent.Post(gameObject);
-    }
-
-    protected override void OnDestroy()
-    {
-        base.OnDestroy();
-        movementSFXEvent.Stop(gameObject);
-    }
 
     protected override void DetectionState()
     {

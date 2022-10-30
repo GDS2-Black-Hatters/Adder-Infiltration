@@ -569,20 +569,16 @@ MonoBehaviour:
     derivativeInitialized: 0
   torqueForce: 2
   customPatrolPath: []
+  movementSFXEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 69864e0255151d64582a23a28747b180, type: 2}
   nodeLeniency: 75
   bulletPoint: {fileID: 4611595807367970643}
   bulletSpeed: 25
   attackCooldown:
     <timer>k__BackingField: 1
     <timeScale>k__BackingField: -1
-  scannerSF:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
-  DroneAmb:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 69864e0255151d64582a23a28747b180, type: 2}
   ShootSound:
     idInternal: 0
     valueGuidInternal: 
